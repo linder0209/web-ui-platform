@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>边框带右下角小点div的实现</title>
+    </head>
+    <body>
+        <style type="text/css">
+            .overlay-container {
+			  position: absolute;
+			  height: 0;
+			  left: 0;
+			  top: 0;
+			  width: 0;
+			}
+			.autofill-handle {
+			  background-color: #3366CC;
+			  border: 2px solid white;
+			  height: 5px;
+			  position: absolute;
+			  width: 5px;
+			  z-index: 8;
+			}
+			.autofill-cover {
+			  cursor: crosshair;
+			  height: 7px;
+			  position: absolute;
+			  width: 7px;
+			  z-index: 9;
+			}
+			.range-border {
+			  border-style: solid;
+			  border-width: 0;
+			  padding: 0;
+			  position: absolute;
+			}
+			.active-cell-border {
+			  border-color: #6688EE;
+			  line-height: 1px;
+			  z-index: 7;
+			}
+        </style>
+		<div class="h-web-paragraph">
+			<p>该方法参照excel中单元格的选择风格实现，代码可优化，待完善。</p>
+			<p>以下是其实现</p>
+		</div>
+        <div>
+            <!--小点-->
+			<div class="overlay-container" style="z-index: 8;">
+			<!--此处top和left会动态变化-->
+				<div style="position: absolute; border-width: 0px; padding: 0px; width: 7px; height: 7px; top: 151px; left: 408.9px;">
+					<div class="autofill-handle"></div>
+					<div class="autofill-cover" style="top: 0px; left: 0px;"></div>
+				</div>
+			</div>
+			<div class="overlay-container" style="z-index: 7;">
+			<!--此处top和left会动态变化-->
+				<div
+					style="position: absolute; border-width: 0pt; padding: 0pt; top: 139px; left: 292.9px;">
+					<!-- top 此处width会动态变化-->
+					<div class="range-border active-cell-border"
+						style="border-top-width: 2px; left: -1px; top: -1px; width: 122px;"></div>
+						<!-- bottom 此处top width会动态变化-->
+					<div class="range-border active-cell-border"
+						style="border-bottom-width: 2px; left: -1px; top: 15px; width: 122px;"></div>
+						<!-- right 此处left height 会动态变化-->
+					<div class="range-border active-cell-border"
+						style="border-right-width: 2px; left: 119px; top: -1px; height: 18px;"></div>
+						<!--left 此处height会动态变化-->
+					<div class="range-border active-cell-border"
+						style="border-left-width: 2px; left: -1px; top: -1px; height: 18px;"></div>
+				</div>
+			</div>
+		</div>
+    </body>
+</html>
