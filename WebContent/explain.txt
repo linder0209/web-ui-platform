@@ -2,3 +2,31 @@
 http://jqueryui.com/
 
 http://jqueryui.com/web-base-template/themes/jquery/css/base.css?v=1
+
+http://craigsworks.com/projects/qtip2
+
+
+大类分为：
+
+JavaScript
+
+jQuery
+
+ExtJs
+
+Html
+
+Html5
+
+Css
+
+Css3
+
+Web前端学习资料
+
+大类在页面展示采用直接写死在页面中，二级和三级小类采用动态加载，利用xml配置来动态读取
+
+
+目录结构：
+
+系统分为两部分：一部分为web ui本身的文件，另一部分为

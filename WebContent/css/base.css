@@ -1,6 +1,10 @@
 @CHARSET "UTF-8";
 
 /*******************************************************************************/
+/*	所有的样式以h-开头，base.css是最基本的样式 */
+/*******************************************************************************/
+
+/*******************************************************************************/
 /*	Reset */
 /*******************************************************************************/
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video
@@ -35,42 +39,86 @@ body {
 	-webkit-font-smoothing: antialiased;
 }
 
-.float-l {
+a {
+	color: #1A77C7;
+	text-decoration: none;
+}
+
+a:link,a:visited,a:hover {
+	color: #323436;
+	text-decoration: none;
+}
+
+.h-float-l {
 	float: left;
 }
 
-.float-r {
+.h-float-r {
 	float: right;
 }
 
+.h-absolute {
+	position: absolute;
+}
+
+.h-relative {
+	position: relative;
+}
+
 /**字体（行内元素）超过规定长度会显示冒点**/
-.text-ellipsis {
+.h-text-ellipsis {
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
-.font-gray {
+.h-font-gray {
 	color: #777777;
+}
+
+/*******************************************************************************/
+/* css3 圆角按钮
+/*******************************************************************************/
+.h-button-radius {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+	padding: 5px 10px;
 }
 
 /*******************************************************************************/
 /* Clearfix
 /*******************************************************************************/
-.clearfix {
+.h-clearfix {
 	zoom: 1
 }
 
-.clearfix:before,.clearfix:after {
+.h-clearfix:before,.h-clearfix:after {
 	content: "\0020";
 	display: block;
 	height: 0;
 	visibility: hidden;
 }
 
-.clearfix:after {
+.h-clearfix:after {
 	clear: both;
 }
 
 /*******************************************************************************/
 /* Icons */
 /*******************************************************************************/
+.h-ui-icon{
+	display: block;
+	overflow: hidden;
+	width: 16px;
+	height: 16px;
+	background-repeat: no-repeat;
+}
+.h-ui-icon.arrow-down{
+	background-image: url("./images/arrow_down.png");
+}
+.h-ui-icon.arrow-right{
+	background-image: url("./images/arrow_right.png");
+}
