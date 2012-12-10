@@ -1,5 +1,8 @@
 @CHARSET "UTF-8";
 
+/*******************************************************************************/
+/*	Reset */
+/*******************************************************************************/
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video
 	{
 	margin: 0;
@@ -10,3 +13,64 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 	vertical-align: baseline;
 	background: transparent;
 }
+
+ol,ul {
+	list-style: none;
+}
+
+li {
+	list-style-type: none;
+}
+
+/*******************************************************************************/
+/*	Global Selectors & Classes */
+/*******************************************************************************/
+body {
+	position: relative;
+	color: #6C6C6C;
+	font-family: "微软雅黑", "宋体", "Helvetica Neue", HelveticaNeue, Helvetica,
+		Arial, sans-serif;
+	font-size: 12px;
+	line-height: 1.6em; /*1.6 * 15px = 24px*/
+	-webkit-font-smoothing: antialiased;
+}
+
+.float-l {
+	float: left;
+}
+
+.float-r {
+	float: right;
+}
+
+/**字体（行内元素）超过规定长度会显示冒点**/
+.text-ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.font-gray {
+	color: #777777;
+}
+
+/*******************************************************************************/
+/* Clearfix
+/*******************************************************************************/
+.clearfix {
+	zoom: 1
+}
+
+.clearfix:before,.clearfix:after {
+	content: "\0020";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+/*******************************************************************************/
+/* Icons */
+/*******************************************************************************/
