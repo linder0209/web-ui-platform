@@ -86,17 +86,25 @@
 
 		/**
 		 * 把数字解析为千分位格式
-		 * 比如 2333111.22222的结果为2,333,111.22222
+		 * 比如 -2333111.22222的结果为-2,333,111.22222
 		 * @param num
 		 * @returns
 		 */
 		commaFy : function(num) {
-			num = num + '';
-			var re = /(-?\d+)(\d{3})/;
+			if(!this.isNumber(num)){
+				return 0;
+			}
+			var re = /^(-?\d+)(\d{3})/,
+				_split = (num + '').split('.'),
+				_split1 = '';
+			if(_split.length = 2){
+				_split1 = _split[1];
+			}
+			num = _split[0];
 			while (re.test(num)) {
 				num = num.replace(re, '$1,$2');
 			}
-			return num;
+			return num + '.' + _split1;
 		},
 
 		commaFyBack : function(num) {
