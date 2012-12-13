@@ -9,9 +9,7 @@
 	 * 
 	 * @returns {$.hopefuture.platform.Collection}
 	 */
-
-	// collection
-	$.everbridge.platform.Collection = function(keyFn) {
+	function collection(keyFn) {
 		this.items = [];
 		this.map = {};
 		this.keys = [];
@@ -21,7 +19,7 @@
 		}
 	};
 
-	jQuery.extend($.everbridge.platform.Collection.prototype, {
+	jQuery.extend(collection.prototype, {
 
 		/**
 		 * default return object id
@@ -179,5 +177,7 @@
 			return r;
 		}
 	});
+	
+	$.hopefuture.platform.Collection = collection;
 	
 })(jQuery);

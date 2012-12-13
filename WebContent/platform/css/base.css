@@ -109,16 +109,3 @@ a:link,a:visited,a:hover {
 /*******************************************************************************/
 /* Icons */
 /*******************************************************************************/
-.h-ui-icon{
-	display: block;
-	overflow: hidden;
-	width: 16px;
-	height: 16px;
-	background-repeat: no-repeat;
-}
-.h-ui-icon.arrow-down{
-	background-image: url("./images/arrow_down.png");
-}
-.h-ui-icon.arrow-right{
-	background-image: url("./images/arrow_right.png");
-}

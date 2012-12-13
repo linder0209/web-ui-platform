@@ -43,7 +43,7 @@
 	background: -ms-linear-gradient(top, #00b7ea 0%, #009ec3 100%);
 	/* IE10+ */
 	background: linear-gradient(top, #00b7ea 0%, #009ec3 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient(                 startColorstr='#00b7ea',
+	filter: progid:DXImageTransform.Microsoft.gradient(                   startColorstr='#00b7ea',
 		endColorstr='#009ec3', GradientType=0 );
 	text-align: center;
 }
@@ -65,6 +65,10 @@
 	border-width: 10px;
 	left: 0;
 	top: 29px;
+}
+
+.h-body {
+	min-height: 800px;
 }
 
 .h-body-sidebar {
@@ -91,14 +95,27 @@
 	text-shadow: 0 1px 0 #EEEEEE;
 }
 
-.h-menu-header.active a {
+.h-menu-panel.active .h-menu-header a {
 	background-color: #666666;
 	color: #FFFFFF;
 }
 
-.h-menu-header a:hover,.h-menu-header.active a:hover {
+.h-menu-header a:hover,.h-menu-panel.active .h-menu-header a:hover {
 	background-color: #999999;
 	color: #FFFFFF;
+}
+
+.h-menu-icon {
+	display: block;
+	overflow: hidden;
+	width: 16px;
+	height: 16px;
+	background-repeat: no-repeat;
+	background-image: url("./images/arrow_right.png");
+}
+
+.h-menu-panel.active .h-menu-icon {
+	background-image: url("./images/arrow_down.png");
 }
 
 .h-menu-header span {
@@ -106,6 +123,10 @@
 	right: 10px;
 	top: 50%;
 	margin-top: -6px;
+}
+
+.h-menu-ct {
+	display: none;
 }
 
 .h-menu-ct li a {
@@ -124,7 +145,7 @@
 .h-menu-ct li.active a {
 	width: 91%;
 	padding: 7px 0 7px 30px;
-	background-color: #BFE3F4;
+	background-color: #BFE3F4 !important;
 	box-shadow: -5px 2px 0 2px #67AAC9;
 	border-color: #67AAC9;
 	border-style: solid;
@@ -138,6 +159,11 @@
 
 .h-menu-ct li a:hover,.h-menu-ct li.odd a:hover {
 	background-color: #E5F6FE;
+}
+
+.h-menu-buttom-margin {
+	background-color: #FFFFFF;
+	height: 5px;
 }
 
 .h-body-panel {
