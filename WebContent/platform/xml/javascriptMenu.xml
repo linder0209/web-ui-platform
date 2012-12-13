@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menus>
+    <display-name>JavaScript Menu</display-name>
+    <description>JavaScript模块的菜单项</description>
+
+    <menu>
+        <id>level_1</id>
+        <name>JavaScript基础</name>
+        <children id="level_1_1" name="JavaScript基础" href="" />
+        <children id="level_1_2" name="JavaScript基础" href="" />
+    </menu>
+    <menu>
+        <id>level_2</id>
+        <name>JavaScript</name>
+        <children id="level2_1" name="JavaScript基础" href="" />
+        <children id="level2_2" name="JavaScript基础" href="" />
+    </menu>
+</menus>
