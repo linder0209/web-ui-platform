@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../../stylesheets/tooltip/tooltip.css"
+	type="text/css">
+<style type="text/css">
+.simple-tooltip {
+	border: 2px outset #6EAC2C;
+	border-radius: 4px 4px 4px 4px;
+	box-shadow: 4px 2px 5px #0078AE;
+	color: #0078AE;
+	margin-top: 5px;
+	padding: 3px;
+	text-shadow: 2px 2px 5px #6EAC2C;
+}
+
+h5 {
+	color: #BC283D;
+	font-size: 14px;
+}
+</style>
+</head>
+<body>
+	<h5>The mouse moves over display the tooltip.</h5>
+	<span class="b-tooltip simple-tooltip" tooltip="true"
+		tipcaption="When the mouse moves over the target element,the info display in the beside the mouse">tooltip</span>
+
+	<script type="text/javascript"
+		src="../../../javascripts/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript"
+		src="../../../javascripts/everbridge/EB_Common.js"></script>
+	<script type="text/javascript"
+		src="../../../javascripts/everbridge/eb_tooltip.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			new EB_Common.toolTip({
+				offset : 20
+			});
+		});
+	</script>
+</body>
+</html>
