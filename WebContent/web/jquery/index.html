@@ -19,37 +19,22 @@
 
     </head>
     <body>
-        <!-- 页面布局 -->
-        <header class="h-header">
-            <nav>
-                <div style="background-color: #777777; height: 80px;">&nbsp;</div>
-            </nav>
-        </header>
-        <div id="container" class="h-container">
-            <header class="h-container-header">
-                <div class="h-header-tab h-relative">
-                    <ul class="h-top-menu h-clearfix" id="top_menu">
-                        <li><a href="#" class="h-button-radius">JavaScript</a></li>
-                        <li><a href="./web/jquery/index.html" class="h-button-radius">jQuery</a></li>
-                        <li><a href="#" class="h-button-radius">ExtJs</a></li>
-                        <li><a href="#" class="h-button-radius">其他开源类库</a></li>
-                        <li><a href="#" class="h-button-radius">我的类库</a></li>
-                        <li><a href="#" class="h-button-radius">Html</a></li>
-                        <li><a href="#" class="h-button-radius">Html5</a></li>
-                        <li><a href="#" class="h-button-radius">Css</a></li>
-                        <li><a href="#" class="h-button-radius">Css3</a></li>
-                        <li><a href="#" class="h-button-radius">Web前端学习资料</a></li>
-                    </ul>
-                    <b class="h-absolute h-arrows-bottom"></b>
+            <div class="h-body h-clearfix">
+                <div id="p2Menu" class="h-body-sidebar">
+                    <!-- 动态加载菜单项 -->
                 </div>
-            </header>
+                <div class="h-body-container">
+                    <div id="panel" class="h-body-panel">
+                        <h1>Description</h1>
 
-            <div id="webUiBody">
-               
+                        <div class="h-body-content">
+                            <div class="h-body-content-menu"> </div>
+                            <div class="h-body-content-frame"> </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <footer class="h-footer"></footer>
 
         <script type="text/javascript" src="./platform/javascript/jquery/jquery-1.8.2.js"></script>
         <script type="text/javascript" src="./platform/javascript/jquery-plugin/jquery-tmpl/jquery.tmpl.js"></script>

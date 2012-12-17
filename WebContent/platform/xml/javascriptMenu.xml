@@ -11,7 +11,7 @@
     </menu>
     <menu>
         <id>level_2</id>
-        <name>JavaScript</name>
+        <name>JavaScript正则表达式</name>
         <children id="level2_1" name="JavaScript基础" href="" />
         <children id="level2_2" name="JavaScript基础" href="" />
     </menu>
