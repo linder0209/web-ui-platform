@@ -3,6 +3,9 @@
 /*******************************************************************************/
 /*	所有的样式以h-开头，platform.css是平台样式 */
 /*******************************************************************************/
+.h-container{
+    
+}
 .h-header {
 
 }
@@ -45,7 +48,6 @@
     background: linear-gradient(top, #00b7ea 0%, #009ec3 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient(                   startColorstr='#00b7ea',
         endColorstr='#009ec3', GradientType=0 );
-    text-align: center;
 }
 
 .h-top-menu li a:hover,.h-top-menu li a.current {

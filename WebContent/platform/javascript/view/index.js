@@ -5,8 +5,7 @@ $(function() {
         e.preventDefault();
         window.location.hash = this.href.replace(/.+\/([^\/]+)\/index\.html/, '$1') + '|default';
         loadPage(this.href);
-        $('.left-nav a.selected').removeClass('selected');
-        $(this).addClass('selected');
+        $(this).addClass('current').parent().siblings().children().removeClass('current');
     });
     
     //加载页面
@@ -15,6 +14,7 @@ $(function() {
         var header = section.replace(/.+\/([^\/]+)/, '$1').replace(/_/, ' ');
         
         $('#webUiBody').load(path + ' .h-body', function() {
+            console.log(44);
 //                $('#demo-config-menu a').each(function() {
 //                    $(this).attr('target', 'demo-frame');
 //                    $(this).click(function() {
