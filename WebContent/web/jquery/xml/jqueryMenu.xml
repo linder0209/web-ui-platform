@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menus>
+    <display-name>jQuery Menu</display-name>
+    <description>jQuery模块的菜单项</description>
+
+    <menu>
+        <id>level_1</id>
+        <name>jQuery基础</name>
+        <children id="level_1_1" name="jQuery API" href="./foundation/api/index.html" />
+        <children id="level_1_2" name="jQuery 源码分析" href="./foundation/source/index.html" />
+    </menu>
+    <menu>
+        <id>level_2</id>
+        <name>jQuery UI</name>
+        <children id="level2_1" name="jQuery UI API" href="" />
+        <children id="level2_2" name="jQuery UI 源码分析" href="" />
+        <children id="level2_2" name="jQuery UI 皮肤" href="" />
+        <children id="level2_2" name="jQuery UI 插件扩展" href="" />
+    </menu>
+</menus>

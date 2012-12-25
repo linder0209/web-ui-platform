@@ -201,3 +201,24 @@
     background-color: #8FD401;
     height: 30px;
 }
+
+/*******************************************************************************/
+/*	详细例子样式
+/*******************************************************************************/
+.h-demo-nav{
+	padding: 20px;
+}
+.h-demo-nav-menu{
+	width: 170px;
+}
+.h-demo-nav-menu li a{
+	border-bottom: 1px solid #F4F4F4;
+    color: #555555;
+    display: block;
+    padding: 4px 3px 4px 8px;
+}
+
+.h-demo-nav-menu li.current a{
+    color: #BC283D;
+    font-weight: bold;
+}

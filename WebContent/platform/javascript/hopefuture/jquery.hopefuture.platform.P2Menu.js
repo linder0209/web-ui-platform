@@ -10,7 +10,7 @@
      * 
      * @param config 菜单配置项
      * config包括以下参数
-     * container : 显示菜单的容器，别选想
+     * container : 显示菜单的容器，必选项
      * asyn : 是同步加载数据还是异步加载
      * url ：异步时需要url链接
      * params ： url链接对应的参数
@@ -138,9 +138,9 @@
             this.initEvent();
             var level1NodeId = data.itemAt(0).id,
                     level2NodeId = data.itemAt(0).children[0].id,
-                    url = data.itemAt(0).children[0].url;
+                    href = data.itemAt(0).children[0].href;
 
-            this.setCurrentMenu(level1NodeId, level2NodeId, url);
+            this.setCurrentMenu(level1NodeId, level2NodeId, href);
         },
         /**
          * 初始化菜单各元素事件
@@ -190,7 +190,6 @@
             if (level2NodeId) {
                 var el = $('#' + level2NodeId).addClass('active');
                 this.lastNodeLevel2 = el;
-
                 this.ajaxLoading({
                     url: url
                 });
@@ -205,20 +204,9 @@
          **/
         ajaxLoading: function(options) {
             var url = options.url;
-            window.location.hash = url.replace(/.+\/([^\/]+)\/index\.html/, '$1') + '|default';
-            if (!url) {
-                return;
+            if(this.fn && $.isFunction(this.fn)){
+            	this.fn.call(this.scope || this, url);
             }
-            //remote
-            $.ajax({
-                url: url,
-                success: function(r, s) {
-                },
-                complete: function(r, s) {
-                }
-            });
-            //lacal
-            //this.container.load(url, function() {});
         }
 
     });

@@ -3,6 +3,7 @@ $(function() {
 	var pub = {
 		//模块名	
 		module : '',
+		path : '',
 		initPage : function(){
 			var me = this;
 			//顶部菜单点击事件
@@ -44,13 +45,15 @@ $(function() {
 		linkMenuLoadContent : function(url){
 			var me = this;
 			var module = this.module;
-			url = './web/' + module + url.replace('.', '');
-			var section = url.replace(/\/[^\/]+\.html/, '');
+			url = 'web/' + module + url.replace('.', '');
+			var basePath = window.location.href.replace(/(index\.html#[\w,|]*)/,'');//根目录
+			var section = basePath + url.replace(/\/[^\/]+\.html/,'');
+			
 	    	$('#body_content_menu').load( url + ' .h-demo-nav-menu', function() {
 	    		$('#body_content_menu a').each(function() {
 	    			var el = $(this);
 					this.setAttribute('href', section + '/' + this.getAttribute('href').replace(/.+\/([^\/]+)/,'$1'));
-					el.attr('target', 'body_content_frame');
+					el.attr('target', 'h-body-content-frame');
 					el.click(function() {
 						$(this).parent().addClass('current').siblings().removeClass('current');
 						//Set the hash to the actual page without ".html"
@@ -94,9 +97,8 @@ $(function() {
 	    
 	    //加载代码例子
 	    loadExamples : function(path) {
-	    	$.get(path, function(req, status, res) {
-	    		var source = res.responseText;
-	    		$('#body_content_frame').empty().html(source);
+	    	$.get(path, function(data) {
+	    		$('#h-body-content-frame').empty().html(data);
 	    	});
 	    	
 //			var directory = path.match(/([^\/]+)\/[^\/\.]+\.html$/)[1];
