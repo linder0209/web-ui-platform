@@ -62,12 +62,18 @@ $(function() {
 							hash += '|' + parts[i];
 						}
 						window.location.hash = hash;
-						
 						me.loadExamples(href);
 						//阻止默认点击事件
 						return false;
 					});
 				});
+	    	});
+	    	
+	    	$('#body_content_source a').click(function(e){
+	    		var pre = $(this).next();
+	    		$(this).toggleClass('expand');
+	    		pre.toggle();
+	    		return false;
 	    	});
 	    },
 	    
