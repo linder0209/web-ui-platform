@@ -11,7 +11,10 @@
         <title>web-ui-platform</title>
         <meta name="author" content="wangyanjun linder0209@126.com">
         <meta name="description" content="Web Ui Platform">
-
+        
+        <!-- <link type="text/css" rel="stylesheet" href="./platform/javascript/syntaxhighlighter/styles/shCoreDefault.css"/> -->
+        <link type="text/css" rel="stylesheet" href="./platform/javascript/syntaxhighlighter/styles/shCoreEclipse.css"/>
+        
         <link rel="stylesheet" href="./platform/css/base.css" type="text/css" />
         <link rel="stylesheet" href="./platform/css/platform.css" type="text/css"/>
         <link rel="stylesheet" href="./platform/css/theme/skyblue.css" type="text/css"/>
@@ -54,6 +57,7 @@
         <script type="text/javascript" src="./platform/javascript/jquery-plugin/jquery-tmpl/jquery.tmpl.js"></script>
         <script type="text/javascript" src="./platform/javascript/jquery-plugin/xml-to-json/jquery.xml2json.js"></script>
 		
+		<!-- <script type="text/javascript" src="./platform/javascript/syntaxhighlighter/scripts/XRegExp.js"></script> -->
 		<script type="text/javascript" src="./platform/javascript/syntaxhighlighter/scripts/shCore.js"></script>
 		<script type="text/javascript" src="./platform/javascript/syntaxhighlighter/scripts/shBrushXml.js"></script>
 		<script type="text/javascript" src="./platform/javascript/syntaxhighlighter/scripts/shBrushJScript.js"></script>
@@ -61,6 +65,12 @@
         <script type="text/javascript" src="./platform/javascript/hopefuture/jquery.hopefuture.platform.js"></script>
         <script type="text/javascript" src="./platform/javascript/hopefuture/jquery.hopefuture.platform.Collection.js"></script>
         <script type="text/javascript" src="./platform/javascript/hopefuture/jquery.hopefuture.platform.P2Menu.js"></script>
-        <script type="text/javascript" src="./platform/javascript/view/index.js"></script>
+        <script type="text/javascript" src="./platform/javascript/view/layout.js"></script>
+        
+        <script type="text/javascript">
+            $(function() {
+            	$.hopefuture.platform.Layout.initWebUI();
+            });
+        </script>
     </body>
 </html>

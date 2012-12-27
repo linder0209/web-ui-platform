@@ -183,7 +183,6 @@
 }
 
 .h-body-content {
-	border-top: 1px solid #CCCCCC;
 	padding: 20px 0 0;
 }
 
@@ -193,37 +192,47 @@
 	min-height: 200px;
 }
 
+.h-body-content-ct {
+	overflow: auto;
+}
+
 .h-body-content-frame {
 	border: 1px solid #9EC45F;
 	border-left: 5px solid #9EC45F;
-	overflow: auto;
 	position: relative;
 	padding: 20px;
 	background-color: #E4F4D4;
 }
-
+.h-body-content-title{
+	color: #BC283D;
+	font-size: 16px;
+	line-height: 20px;
+}
 .h-body-content-source {
 	margin-top: 10px;
 }
 
 .h-body-content-source a {
+	font-weight: bold;
 	color: #BC283D;
 	font-size: 16px;
 	line-height: 20px;
 }
 
-.h-body-content-source a i{
-	background: url("./images/icon_collapsed.png") no-repeat scroll 0 0 transparent;
-    cursor: pointer;
-    display: inline-block;
-    float: left;
-    height: 16px;
-    margin: 2px 5px;
-    width: 16px;
+.h-body-content-source a i {
+	background: url("./images/icon_collapsed.png") no-repeat scroll 0 0
+		transparent;
+	cursor: pointer;
+	display: inline-block;
+	float: left;
+	height: 16px;
+	margin: 2px 5px;
+	width: 16px;
 }
 
-.h-body-content-source a.expand i{
-	background: url("./images/icon_expand.png") no-repeat scroll 0 0 transparent;
+.h-body-content-source a.expand i {
+	background: url("./images/icon_expand.png") no-repeat scroll 0 0
+		transparent;
 }
 
 .h-footer {

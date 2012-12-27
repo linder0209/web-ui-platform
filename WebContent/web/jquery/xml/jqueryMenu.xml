@@ -6,15 +6,17 @@
     <menu>
         <id>level_1</id>
         <name>jQuery基础</name>
-        <children id="level_1_1" name="jQuery API" href="./foundation/api/index.html" />
-        <children id="level_1_2" name="jQuery 源码分析" href="./foundation/source/index.html" />
+        <module>foundation</module>
+        <children id="level_1_1" name="jQuery API" href="./foundation/api/index.html" module="api" />
+        <children id="level_1_2" name="jQuery 源码分析" href="./foundation/source/index.html" module="source"/>
     </menu>
     <menu>
         <id>level_2</id>
         <name>jQuery UI</name>
-        <children id="level2_1" name="jQuery UI API" href="" />
-        <children id="level2_2" name="jQuery UI 源码分析" href="" />
-        <children id="level2_2" name="jQuery UI 皮肤" href="" />
-        <children id="level2_2" name="jQuery UI 插件扩展" href="" />
+        <module>jqueryui</module>
+        <children id="level2_1" name="jQuery UI API" href="" module="api" />
+        <children id="level2_2" name="jQuery UI 源码分析" href="" module="source" />
+        <children id="level2_2" name="jQuery UI 皮肤" href="" module="skin" />
+        <children id="level2_2" name="jQuery UI 插件扩展" href="" module="plugin" />
     </menu>
 </menus>

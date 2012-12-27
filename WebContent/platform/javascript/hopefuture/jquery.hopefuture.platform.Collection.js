@@ -166,7 +166,23 @@
 				}
 			}
 		},
-
+		
+		/**
+	     * Returns the first item in the collection which elicits a true return value from the
+	     * passed selection function.
+	     * @param {Function} fn The selection function to execute for each item.
+	     * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the function is executed. Defaults to the browser window.
+	     * @return {Object} The first item in the collection which returned true from the selection function.
+	     */
+	    find : function(fn, scope){
+	        for(var i = 0, len = this.items.length; i < len; i++){
+	            if(fn.call(scope || window, this.items[i], this.keys[i])){
+	                return this.items[i];
+	            }
+	        }
+	        return null;
+	    },
+	    
 		clone : function() {
 			var r = new $.everbridge.platform.Collection();
 			var k = this.keys, it = this.items;

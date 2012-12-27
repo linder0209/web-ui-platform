@@ -118,7 +118,7 @@
                             var collection = new $.hopefuture.platform.Collection();
                             collection.addAll(data);
                             me.data = collection;
-                            me.loadData(data);
+                            me.loadData(collection);
                         }
                     });
                 }
@@ -136,11 +136,12 @@
         loadData: function(data) {
             this.container.append($.tmpl('menuItemTemplate', data.items)).append('<div class="h-menu-buttom-margin"></div>');
             this.initEvent();
-            var level1NodeId = data.itemAt(0).id,
-                    level2NodeId = data.itemAt(0).children[0].id,
-                    href = data.itemAt(0).children[0].href;
-
-            this.setCurrentMenu(level1NodeId, level2NodeId, href);
+            if(this.loadCurrentMenu === true){//是否加载第一个菜单项
+            	var level1NodeId = data.itemAt(0).id,
+                level2NodeId = data.itemAt(0).children[0].id,
+                href = data.itemAt(0).children[0].href;
+            	this.setCurrentMenu(level1NodeId, level2NodeId, href);
+            }
         },
         /**
          * 初始化菜单各元素事件
@@ -195,6 +196,39 @@
                 });
             }
         },
+        
+        /**
+         * 根据模块名来设置当前菜单
+         */
+        setCurrentMenuByModule : function(level1Node, level2Node){
+        	var level1NodeId,level2NodeId,href;
+        	var data = this.data;
+        	var findItem = data.find(function(item, keys){
+        		if(item.module == level1Node){
+        			return true;
+        		}
+        	});
+        	if(findItem){
+        		level1NodeId = findItem.id;
+            	var children = findItem.children;
+            	for(var i = 0, len = children.length; i < len; i++){
+            		if(children[i].module == level2Node){
+            			level2NodeId = children[i].id;
+            			href = children[i].href;
+            			break;
+            		}
+            	}
+        	}
+        	
+        	if(!level1NodeId || !level2NodeId || !href){//取第一个
+        		level1NodeId = data.itemAt(0).id,
+                level2NodeId = data.itemAt(0).children[0].id,
+                href = data.itemAt(0).children[0].href;
+        	}
+        	
+        	this.setCurrentMenu(level1NodeId, level2NodeId, href);
+        },
+        
         /**
          * load pages
          * @param options
