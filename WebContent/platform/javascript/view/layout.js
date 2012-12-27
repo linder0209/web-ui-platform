@@ -21,7 +21,7 @@
 			    
 		        var section = this.href.replace(/\/[^\/]+\.html/, '');
 		        var module = section.replace(/.+\/([^\/]+)/, '$1');//模块名
-		        var xmlUrl = './web/' + module + '/xml/' + module + 'Menu.xml';;
+		        var xmlUrl = './web/' + module + '/xml/menu.xml';;
 		        me.module = module;
 		        $('#webUiBody').load(this.href + ' .h-body', function() {
 		        	me.loadLeftMenu(xmlUrl);

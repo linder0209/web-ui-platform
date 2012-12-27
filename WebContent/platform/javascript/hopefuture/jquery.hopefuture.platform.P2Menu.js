@@ -97,6 +97,7 @@
                     $.ajax({
                         url: this.url,
                         type: 'GET',
+                        async : false,
                         success: function(data, status, resp) {
                             var json = $.xml2json(data);
                             var collection = new $.hopefuture.platform.Collection();
@@ -112,6 +113,7 @@
                 } else if (this.dataType == 'json') {
                     $.ajax({
                         url: this.url,
+                        async : false,
                         data: this.params || {},
                         dataType: 'json',
                         success: function(data, textStatus) {
