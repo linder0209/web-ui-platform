@@ -202,6 +202,7 @@
 	position: relative;
 	padding: 20px;
 	background-color: #E4F4D4;
+	min-height:300px;
 }
 .h-body-content-title{
 	color: #BC283D;
