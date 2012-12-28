@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>div上下左右居中实现</title>
+</head>
+<body>
+    <div id="centerBtns">
+	  <button tabindex="0">Example1</button> <button tabindex="1" style="margin-left:10px">Example2</button>
+	</div>
+
+	<p>&nbsp;</p>
+	
+	<style type="text/css">
+		#div1{
+			left: 50%; 
+			position: absolute;
+			top: 50%;
+		}
+		#div2{
+			border: 1px solid red;
+			height: 200px;
+			left: -50%;
+			position: relative;
+			top: -100px;
+			overflow: auto;
+		}
+		#div1{
+			width: 500px;
+			height: 200px;
+			margin-left: -256px;
+			margin-top: -106px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			border: 1px solid #CCCCCC;
+			padding:5px;
+		}
+	</style>
+	
+	<div id="div1">
+		 <div id="div2">
+		    不能确定div的宽度时实现div 上下左右居中<br />
+			居中显示居中显示居中显示居中显示居中显示居中显示居中显示居中显示居中显示
+			居中显示居中显示居中显示居中显示居中显示居中显示居中显示居中显示居中显示
+			居中显示居中显示居中显示居中显示居中显示居中显示居中显示居中显示居中显示
+			居中显示居中显示居中显示居中显示居中显示居中显示居中显示居中显示居中显示
+			居中显示居中显示居中显示居中显示居中显示居中显示居中显示居中显示居中显示
+		 </div>
+	</div>
+	
+	<div id="div3" style="display:none;">
+	    能确定div的宽度时实现div 上下左右居中<br />
+		居中显示居中显示居中显示居中显示居中显示居中显示居中显示居中显示居中显示
+		居中显示居中显示居中显示居中显示居中显示居中显示居中显示居中显示居中显示
+		居中显示居中显示居中显示居中显示居中显示居中显示居中显示居中显示居中显示
+		居中显示居中显示居中显示居中显示居中显示居中显示居中显示居中显示居中显示
+		居中显示居中显示居中显示居中显示居中显示居中显示居中显示居中显示居中显示
+	</div>
+	
+	<script type="text/javascript">
+		$(function() {
+			$('#centerBtns button').click(function(){
+				var tabindex = $(this).attr('tabindex');
+				if(tabindex == '0'){
+					$('#div1').show();
+					$('#div3').hide();
+				}else{
+					$('#div1').hide();
+					$('#div3').show();
+				}
+			});
+		});
+    </script>
+</body>
+</html>
