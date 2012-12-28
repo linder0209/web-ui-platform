@@ -19,6 +19,7 @@
 			    //设置当前样式
 			    el.addClass('current').parent().siblings().children().removeClass('current');
 			    
+			    window.location.hash = this.href.replace(/.+\/([^\/]+)\/index\.html/, '$1') + '|index';
 		        var section = this.href.replace(/\/[^\/]+\.html/, '');
 		        var module = section.replace(/.+\/([^\/]+)/, '$1');//模块名
 		        var xmlUrl = './web/' + module + '/xml/menu.xml';;
