@@ -193,7 +193,7 @@
 }
 
 .h-body-content-ct {
-	overflow: auto;
+	overflow: hidden;
 }
 
 .h-body-content-frame {
@@ -202,7 +202,8 @@
 	position: relative;
 	padding: 20px;
 	background-color: #E4F4D4;
-	min-height:300px;
+	min-height:500px;
+	overflow: auto;
 }
 .h-body-content-title{
 	color: #BC283D;

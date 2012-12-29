@@ -1,0 +1,9 @@
+*.class
+.project
+.classpath
+src
+build
+.settings
+.externalToolBuilders
+nbproject
+build.xml
