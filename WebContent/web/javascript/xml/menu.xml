@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <menus>
     <display-name>JavaScript Menu</display-name>
-    <description>JavaScript模块的菜单项</description>
+    <description>JavaScript模块菜单项</description>
 
     <menu>
         <id>level_1</id>
         <name>JavaScript基础</name>
-        <children id="level_1_1" name="JavaScript基础" href="" />
-        <children id="level_1_2" name="JavaScript基础" href="" />
+        <module>js_base</module>
+        <children id="level_1_1" name="JavaScript语言基础" href="./js_base/language/index.html" module="language"/>
+        <children id="level_1_2" name="JavaScript相关知识点" href="./js_base/knowledge/index.html" module="knowledge"/>
     </menu>
     <menu>
         <id>level_2</id>
-        <name>JavaScript正则表达式</name>
-        <children id="level2_1" name="JavaScript基础" href="" />
-        <children id="level2_2" name="JavaScript基础" href="" />
+        <name>正则表达式</name>
+        <module>regexp</module>
+        <children id="level2_1" name="正则表达式语法" href="./regexp/grammar/index.html" module="grammar"/>
+        <children id="level2_2" name="正则表达式难点" href="./regexp/difficulties/index.html" module="difficulties"/>
+        <children id="level2_3" name="常用正则表达式" href="./regexp/examples/index.html" module="examples" />
     </menu>
 </menus>

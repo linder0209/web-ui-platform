@@ -1,0 +1,45 @@
+@CHARSET "UTF-8";
+
+/*******************************************************************************/
+/*	该css预定义实例中用到的css，所有的样式以h-web开头 */
+/*******************************************************************************/
+
+/*******************************************************************************/
+/*实例中以目录、内容来布局的样式 */
+/*******************************************************************************/
+
+.h-web-catalogue {
+
+}
+.h-web-catalogue li{
+
+}
+.h-web-catalogue li a{
+
+}
+.h-web-paragraph {
+
+}
+.h-web-paragraph h3, .h-web-paragraph-title{
+    /*GRADIENT*/
+    background: #00b7ea; /* Old browsers */
+    background: -moz-linear-gradient(top, #00b7ea 0%, #009ec3 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #00b7ea),
+        color-stop(100%, #009ec3) ); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #00b7ea 0%, #009ec3 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #00b7ea 0%, #009ec3 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #00b7ea 0%, #009ec3 100%);
+    /* IE10+ */
+    background: linear-gradient(top, #00b7ea 0%, #009ec3 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00b7ea',
+        endColorstr='#009ec3', GradientType=0 );
+    border-bottom: 1px dashed #005B73;
+    border-top: 1px solid #005B73;
+    padding: 5px 10px;
+}
+.h-web-paragraph p{
+
+}

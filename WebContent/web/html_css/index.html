@@ -8,7 +8,7 @@
         <meta name="description" content="Web Ui Platform">
 
         <link type="text/css" rel="stylesheet" href="../../platform/javascript/syntaxhighlighter/styles/shCoreEclipse.css"/>
-        
+
         <link rel="stylesheet" href="../../platform/css/base.css" type="text/css"/>
         <link rel="stylesheet" href="../../platform/css/platform.css" type="text/css"/>
         <link rel="stylesheet" href="../../platform/css/theme/skyblue.css" type="text/css"/>
@@ -21,43 +21,44 @@
             </div>
             <div class="h-body-container">
                 <div id="panel" class="h-body-panel">
-					<h5 class="h-body-content-title">Description</h5>
-                    <div class="h-margin10-TB"></div>
-                    <div id="body_description" class="h-block-radius" style="padding:10px;">
-                    	这里的内容为个模块的简要介绍
+                    <div> 
+                        <a id="body_description"class="h-body-content-title" href="#"><i></i>Description</a>
+                        <div class="h-block-radius" style="padding:10px;margin-top: 10px;display: none;">
+                            这里的内容为个模块的简要介绍
+                        </div>
                     </div>
                     <div class="h-body-content h-clearfix">
                         <div class="h-body-content-menu" id="body_content_menu"> </div>
                         <div class="h-body-content-ct">
                             <h5 class="h-body-content-title">Examples</h5>
                             <div class="h-line h-margin10-TB"></div>
-                        	<div class="h-body-content-frame" id="body_content_frame"> </div>
+                            <div class="h-body-content-frame" id="body_content_frame"> </div>
                         </div>
                     </div>
-					<div class="h-body-content-source" id="body_content_source"> 
-						<a tabindex="0" href="#"><i></i>Example Source</a>
-						<pre style="display:none;"></pre>
-					</div>
+                    <div class="h-body-content-source" id="body_content_source"> 
+                        <a class="h-body-content-title" href="#"><i></i>Example Source</a>
+                        <pre style="display:none;"></pre>
+                    </div>
                 </div>
             </div>
         </div>
-        
+
         <script type="text/javascript" src="../../platform/javascript/jquery/jquery-1.8.2.js"></script>
         <script type="text/javascript" src="../../platform/javascript/jquery-plugin/jquery-tmpl/jquery.tmpl.js"></script>
         <script type="text/javascript" src="../../platform/javascript/jquery-plugin/xml-to-json/jquery.xml2json.js"></script>
-        
+
         <script type="text/javascript" src="../../platform/javascript/syntaxhighlighter/scripts/shCore.js"></script>
-		<script type="text/javascript" src="../../platform/javascript/syntaxhighlighter/scripts/shBrushXml.js"></script>
-		<script type="text/javascript" src="../../platform/javascript/syntaxhighlighter/scripts/shBrushJScript.js"></script>
-		
+        <script type="text/javascript" src="../../platform/javascript/syntaxhighlighter/scripts/shBrushXml.js"></script>
+        <script type="text/javascript" src="../../platform/javascript/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+
         <script type="text/javascript" src="../../platform/javascript/hopefuture/jquery.hopefuture.platform.js"></script>
         <script type="text/javascript" src="../../platform/javascript/hopefuture/jquery.hopefuture.platform.Collection.js"></script>
         <script type="text/javascript" src="../../platform/javascript/hopefuture/jquery.hopefuture.platform.P2Menu.js"></script>
-		<script type="text/javascript" src="../../platform/javascript/view/layout.js"></script>
-		
+        <script type="text/javascript" src="../../platform/javascript/view/layout.js"></script>
+
         <script type="text/javascript">
             $(function() {
-            	$.hopefuture.platform.Layout.loadLeftMenu('./xml/menu.xml', '', '');
+                $.hopefuture.platform.Layout.loadLeftMenu('./xml/menu.xml', '', '');
             });
         </script>
     </body>
