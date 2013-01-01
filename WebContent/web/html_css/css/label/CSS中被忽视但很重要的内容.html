@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>CSS基础——CSS几个不常用但很重要的样式</title>
+    </head>
+    <body>
+        <h3 class="h-web-paragraph-title">目录</h3>
+        <ol class="h-web-catalogue">
+            <li><a href="#">属性选择器</a></li>
+            <li><a href="#">CSS 背景</a></li>
+            <li><a href="#">CSS 文本</a></li>
+            
+        </ol>
+        <div class="h-web-paragraph">
+            <h3>属性选择器</h3>
+            <p>
+              可以为拥有指定属性的 HTML 元素设置样式，而不仅限于 class 和 id 属性。</p>
+            <p>注释：Internet Explorer 7 （以及更高版本）在规定了 !DOCTYPE 的情况下支持属性选择器。IE6 及更低的版本不支持属性选择器。</p>
+            <p>下面的例子为带有 title 属性的所有元素设置样式：</p>
+            <pre>
+[title]{  
+  color:red;
+}
+</pre>
+            
+              <p>属性和值选择器：下面的例子为 title="W3School" 的所有元素设置样式</p>
+              <pre>
+[title=W3School]{ 
+  border:5px solid blue;  
+}</pre>
+
+          <p>属性和值选择器 - 多个值：下面的例子为包含指定值的 title 属性的所有元素设置样式。适用于由空格分隔的属性值</p>
+              <pre>
+[title~=hello] {
+  color:red; 
+}
+<code>&lt;h1&gt;可以应用样式：&lt;/h1&gt;
+&lt;h2 title=&quot;hello world&quot;&gt;Hello world&lt;/h2&gt;
+&lt;p title=&quot;student hello&quot;&gt;Hello W3School students!&lt;/h1&gt;
+&lt;hr /&gt;
+&lt;h1&gt;无法应用样式：&lt;/h1&gt;
+&lt;h2 title=&quot;world&quot;&gt;Hello world&lt;/h2&gt;
+&lt;p title=&quot;student&quot;&gt;Hello W3School students!&lt;/p&gt;
+</code>
+</pre>
+              
+              <p>下面的例子为带有包含指定值的 lang 属性的所有元素设置样式。适用于由连字符分隔的属性值：</p>
+              <pre>
+[lang|=en] {
+  color:red; 
+}
+&lt;h1&gt;可以应用样式：&lt;/h1&gt;
+&lt;p lang=&quot;en&quot;&gt;Hello!&lt;/p&gt;
+&lt;p lang=&quot;en-us&quot;&gt;Hi!&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h1&gt;无法应用样式：&lt;/h1&gt;
+&lt;p lang=&quot;us&quot;&gt;Hi!&lt;/p&gt;
+&lt;p lang=&quot;zh&quot;&gt;Hao!&lt;/p&gt;
+</pre>
+              <p>属性选择器在为不带有 class 或 id 的表单设置样式时特别有用：</p>
+<pre>
+	input[type="text"]  {    
+		width:150px;    
+		display:block;   
+		margin-bottom:10px;    
+		background-color:yellow;    
+		font-family: 
+		Verdana, Arial;  
+	}    
+	input[type="button"]  {
+		width:120px;    
+		margin-left:35px;    
+		display:block;    
+		font-family: 
+		Verdana, Arial;  
+	}  </pre>
+
+          <h3>CSS 背景</h3>
+            <p>background-color 不能继承，其默认值是 transparent。transparent 有&ldquo;透明&rdquo;之意。也就是说，如果一个元素没有指定背景色，那么背景就是透明的，这样其祖先元素的背景才能可见。</p>
+            <h4>背景重复</h4>
+            <p>如果需要在页面上对背景图像进行平铺，可以使用background-repeat 属。</p>
+            <p>属性值 repeat 导致图像在水平垂直方向上都平铺，就像以往背景图像的通常做法一样。repeat-x 和 repeat-y 分别导致图像只在水平或垂直方向上重复，no-repeat 则不允许图像在任何方向上平铺。</p>
+            <p>默认地，背景图像将从一个元素的左上角开始。请看下面的例子：</p>
+          <pre>
+body    {     
+   background-image: url(/i/eg_bg_03.gif); 
+   background-repeat: repeat-y;    
+}  </pre>
+            <h4>背景定位</h4>
+            <p>可以利用 <a href="http://www.w3school.com.cn/css/pr_background-position.asp">background-position 属性</a>改变图像在背景中的位置。</p>
+            <p>下面的例子在 body 元素中将一个背景图像居中放置：</p>
+            <pre>
+body{   
+	background-image:url('/i/eg_bg_03.gif'); 
+	background-repeat:no-repeat; 
+	background-position:center;
+}  </pre>
+          <p>为 background-position 属性提供值有很多方法。首先，可以使用一些关键字：top、bottom、left、right 和   center。通常，这些关键字会成对出现，不过也不总是这样。还可以使用长度值，如 100px 或   5cm，最后也可以使用百分数值。不同类型的值对于背景图像的放置稍有差异。</p>
+            <p>图像放置关键字最容易理解，其作用如其名称所表明的。例如，top right 使图像放置在元素内边距区的右上角。</p>
+            <p>根据规范，位置关键字可以按任何顺序出现，只要保证不超过两个关键字 - 一个对应水平方向，另一个对象垂直方向。</p>
+            <p>如果只出现一个关键字，则认为另一个关键字是 center。</p>
+            <p>所以，如果希望每个段落的中部上方出现一个图像，只需声明如下：</p>
+            <pre>
+p {       
+	background-image:url('bgimg.gif'); 
+	background-repeat:no-repeat;
+	background-position:top;
+}  </pre>
+            <p>下面是等价的位置关键字：</p>
+            <table>
+              <tbody>
+                <tr>
+                  <th>单一关键字</th>
+                  <th>等价的关键字</th>
+                </tr>
+                <tr>
+                  <td>center</td>
+                  <td>center center</td>
+                </tr>
+                <tr>
+                  <td>top</td>
+                  <td>top center 或 center top</td>
+                </tr>
+                <tr>
+                  <td>bottom</td>
+                  <td>bottom center 或 center bottom</td>
+                </tr>
+                <tr>
+                  <td>right</td>
+                  <td>right center 或 center right</td>
+                </tr>
+                <tr>
+                  <td>left</td>
+                  <td>left center 或 center left</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>百分数值的表现方式更为复杂。假设你希望用百分数值将图像在其元素中居中，这很容易：</p>
+            <pre>
+body    { 
+	background-image:url('/i/eg_bg_03.gif');
+	background-repeat:no-repeat;  
+	background-position:50% 50%;   
+}  </pre>
+            <p>这会导致图像适当放置，其中心与其元素的中心对齐。<strong>换句话说，百分数值同时应用于元素和图像。</strong>也就是说，图像中描述为 50% 50% 的点（中心点）与元素中描述为 50% 50% 的点（中心点）对齐。</p>
+            <p>如果图像位于 0% 0%，其左上角将放在元素内边距区的左上角。如果图像位置是 100% 100%，会使图像的右下角放在右边距的右下角。</p>
+            <p>因此，如果你想把一个图像放在水平方向 2/3、垂直方向 1/3 处，可以这样声明：</p>
+            <pre>
+body    {
+	background-image:url('/i/eg_bg_03.gif');
+	background-repeat:no-repeat; 
+	background-position:66% 33%; 
+}  </pre>
+            <p>如果只提供一个百分数值，所提供的这个值将用作水平值，垂直值将假设为 50%。这一点与关键字类似。</p>
+            <p>background-position 的默认值是 0% 0%，在功能上相当于 top left。这就解释了背景图像为什么总是从元素内边距区的左上角开始平铺，除非您设置了不同的位置值。</p>
+            <p>长度值解释的是元素内边距区左上角的偏移。偏移点是图像的左上角。</p>
+            <p>比如，如果设置值为 50px 100px，图像的左上角将在元素内边距区左上角向右 50 像素、向下 100 像素的位置上：</p>
+            <pre>
+body    {      
+	background-image:url('/i/eg_bg_03.gif');     
+	background-repeat:no-repeat;  
+	background-position:50px 100px;    
+}  </pre>
+          <p>注意，这一点与百分数值不同，因为偏移只是从一个左上角到另一个左上角。也就是说，图像的左上角与 background-position 声明中的指定的点对齐。</p>
+              <h4>背景关联</h4>
+              <p>如果文档比较长，那么当文档向下滚动时，背景图像也会随之滚动。当文档滚动到超过图像的位置时，图像就会消失。</p>
+              <p>您可以通过 <a href="http://www.w3school.com.cn/css/pr_background-attachment.asp" title="CSS background-attachment 属性">background-attachment 属性</a>防止这种滚动。通过这个属性，可以声明图像相对于可视区是固定的（fixed），因此不会受到滚动的影响：</p>
+              <pre>
+body     {  
+	background-image:url(/i/eg_bg_02.gif);  
+	background-repeat:no-repeat;  
+	background-attachment:fixed    
+}  </pre>
+             
+          <p>background-attachment 属性的默认值是 scroll，也就是说，在默认的情况下，背景会随文档滚动。</p>
+                <h4>CSS 背景属性</h4>
+          <table>
+                  <tbody>
+                    <tr>
+                      <th>属性</th>
+                      <th>描述</th>
+                    </tr>
+                    <tr>
+                      <td><a href="http://www.w3school.com.cn/css/pr_background.asp" title="CSS background 属性">background</a></td>
+                      <td>简写属性，作用是将背景属性设置在一个声明中。</td>
+                    </tr>
+                    <tr>
+                      <td><a href="http://www.w3school.com.cn/css/pr_background-attachment.asp" title="CSS background-attachment 属性">background-attachment</a></td>
+                      <td>背景图像是否固定或者随着页面的其余部分滚动。</td>
+                    </tr>
+                    <tr>
+                      <td><a href="http://www.w3school.com.cn/css/pr_background-color.asp" title="CSS background-color 属性">background-color</a></td>
+                      <td>设置元素的背景颜色。</td>
+                    </tr>
+                    <tr>
+                      <td><a href="http://www.w3school.com.cn/css/pr_background-image.asp" title="CSS background-image 属性">background-image</a></td>
+                      <td>把图像设置为背景。</td>
+                    </tr>
+                    <tr>
+                      <td><a href="http://www.w3school.com.cn/css/pr_background-position.asp" title="CSS background-position 属性">background-position</a></td>
+                      <td>设置背景图像的起始位置。</td>
+                    </tr>
+                    <tr>
+                      <td><a href="http://www.w3school.com.cn/css/pr_background-repeat.asp" title="CSS background-repeat 属性">background-repeat</a></td>
+                      <td>设置背景图像是否及如何重复。</td>
+                    </tr>
+                  </tbody>
+          </table>
+          <h3>CSS 文本</h3>
+                  <p><strong>CSS 文本属性可定义文本的外观。</strong></p>
+          <p><strong>通过文本属性，您可以改变文本的颜色、字符间距，对齐文本，装饰文本，对文本进行缩进，等等。</strong></p>
+                    <h4>缩进文本</h4>
+                    <p>把 Web 页面上的段落的第一行缩进，这是一种最常用的文本格式化效果。</p>
+                    <p>CSS 提供了 <a href="http://www.w3school.com.cn/css/pr_text_text-indent.asp" title="CSS text-indent 属性">text-indent 属性</a>，该属性可以方便地实现文本缩进。</p>
+                    <p>通过使用 text-indent 属性，所有元素的第一行都可以缩进一个给定的长度，甚至该长度可以是负值。</p>
+                    <p>这个属性最常见的用途是将段落的首行缩进，下面的规则会使所有段落的首行缩进 5 em：</p>
+                    <pre>p {text-indent: 5em;}</pre>
+                    <p>注意：一般来说，可以为所有块级元素应用 text-indent，但无法将该属性应用于行内元素，图像之类的替换元素上也无法应用 text-indent 属性。不过，如果一个块级元素（比如段落）的首行中有一个图像，它会随该行的其余文本移动。</p>
+                    <p>提示：如果想把一个行内元素的第一行&ldquo;缩进&rdquo;，可以用左内边距或外边距创造这种效果。</p>
+                    <p>text-indent 还可以设置为负值。利用这种技术，可以实现很多有趣的效果，比如&ldquo;悬挂缩进&rdquo;，即第一行悬挂在元素中余下部分的左边：</p>
+                    <pre>p {text-indent: -5em;}</pre>
+          <p>不过在为 text-indent 设置负值时要当心，如果对一个段落设置了负值，那么首行的某些文本可能会超出浏览器窗口的左边界。为了避免出现这种显示问题，建议针对负缩进再设置一个外边距或一些内边距：</p>
+                    <pre>p {text-indent: -5em; padding-left: 5em;}
+                    </pre>
+                    <p>text-indent 可以使用所有长度单位，包括百分比值。</p>
+                    <p>百分数要相对于缩进元素父元素的宽度。换句话说，如果将缩进值设置为 20%，所影响元素的第一行会缩进其父元素宽度的 20%。</p>
+          <p>在下例中，缩进值是父元素的 20%，即 100 个像素：</p>
+                    <pre>div {width: 500px;} 
+p {text-indent: 20%;}   
+ &lt;div&gt;  
+&lt;p&gt;this is a paragragh&lt;/p&gt;  
+&lt;/div&gt;</pre>
+                    <p>text-indent 属性可以继承，请考虑如下标记：</p>
+                    <pre>div#outer {width: 500px;}
+div#inner {text-indent: 10%;}  
+p {width: 200px;}    
+&lt;div id="outer"&gt;  
+&lt;div id="inner"&gt;some text. some text. some text.  
+&lt;p&gt;this is a paragragh.&lt;/p&gt;  
+&lt;/div&gt;  
+&lt;/div&gt;  </pre>
+          <p>以上标记中的段落也会缩进 50 像素，这是因为这个段落继承了 id 为 inner 的 div 元素的缩进值。</p>
+            <h4>字间隔</h4>
+                    <p><a href="http://www.w3school.com.cn/css/pr_text_word-spacing.asp" title="CSS word-spacing 属性">word-spacing 属性</a>可以改变字（单词）之间的标准间隔。其默认值 normal 与设置值为 0 是一样的。</p>
+                    <p>word-spacing 属性接受一个正长度值或负长度值。如果提供一个正长度值，那么字之间的间隔就会增加。为 word-spacing 设置一个负值，会把它拉近：</p>
+          <pre>p.spread {word-spacing: 30px;}  
+p.tight {word-spacing: -0.5em;}    
+&lt;p class="spread"&gt;  
+This is a paragraph. The spaces between words will be increased.  
+&lt;/p&gt;    
+&lt;p class="tight"&gt;  This is a paragraph. The spaces between words will be decreased.  
+&lt;/p&gt;  </pre>
+            <h4>字母间隔</h4>
+                    <p><a href="http://www.w3school.com.cn/css/pr_text_letter-spacing.asp" title="CSS letter-spacing 属性">letter-spacing 属性</a>与 word-spacing 的区别在于，字母间隔修改的是字符或字母之间的间隔。</p>
+                    <p>与 word-spacing 属性一样，letter-spacing 属性的可取值包括所有长度。默认关键字是 normal（这与 letter-spacing:0 相同）。输入的长度值会使字母之间的间隔增加或减少指定的量：</p>
+          <pre>h1 {letter-spacing: -0.5em}  
+h4 {letter-spacing: 20px}    
+&lt;h1&gt;This is header 1&lt;/h1&gt;  
+&lt;h4&gt;This is header 4&lt;/h4&gt;  </pre>
+            <h4>字符转换</h4>
+                    <p><a href="http://www.w3school.com.cn/css/pr_text_text-transform.asp">text-transform 属性</a>处理文本的大小写。这个属性有 4 个值：</p>
+<pre>none
+uppercase
+lowercase
+capitalize
+</pre>
+                    <p>默认值 none 对文本不做任何改动，将使用源文档中的原有大小写。顾名思义，uppercase 和 lowercase 将文本转换为全大写和全小写字符。最后，capitalize 只对每个单词的首字母大写。</p>
+                    <p>作为一个属性，text-transform 可能无关紧要，不过如果您突然决定把所有 h1 元素变为大写，这个属性就很有用。不必单独地修改所有 h1 元素的内容，只需使用 text-transform 为你完成这个修改：</p>
+                    <pre>h1 {text-transform: uppercase}</pre>
+          <p>使用 text-transform 有两方面的好处。首先，只需写一个简单的规则来完成这个修改，而无需修改 h1 元素本身。其次，如果您以后决定将所有大小写再切换为原来的大小写，可以更容易地完成修改。</p>
+                      <h4>文本装饰</h4>
+                      <p>接下来，我们讨论 <a href="http://www.w3school.com.cn/css/pr_text_text-decoration.asp">text-decoration 属性</a>，这是一个很有意思的属性，它提供了很多非常有趣的行为。</p>
+                      <p>text-decoration 有 5 个值：</p>
+<pre>
+none
+underline
+overline
+line-through
+blink
+</pre>
+                      <p>不出所料，underline 会对元素加下划线，就像 HTML 中的 U 元素一样。overline   的作用恰好相反，会在文本的顶端画一个上划线。值 line-through 则在文本中间画一个贯穿线，等价于 HTML 中的 S 和 strike   元素。blink 会让文本闪烁，类似于 Netscape 支持的颇招非议的 blink 标记。</p>
+                      <p>none 值会关闭原本应用到一个元素上的所有装饰。通常，无装饰的文本是默认外观，但也不总是这样。例如，链接默认地会有下划线。如果您希望去掉超链接的下划线，可以使用以下 CSS 来做到这一点：</p>
+                      <pre>a {text-decoration: none;}</pre>
+                      <p>注意：如果显式地用这样一个规则去掉链接的下划线，那么锚与正常文本之间在视觉上的唯一差别就是颜色（至少默认是这样的，不过也不能完全保证其颜色肯定有区别）。</p>
+                      <p>还可以在一个规则中结合多种装饰。如果希望所有超链接既有下划线，又有上划线，则规则如下：</p>
+                      <pre>a:link a:visited {text-decoration: underline overline;}</pre>
+                      <p>不过要注意的是，如果两个不同的装饰都与同一元素匹配，胜出规则的值会完全取代另一个值。请考虑以下的规则：</p>
+                      <pre>h2.stricken {text-decoration: line-through;}  
+h2 {text-decoration: underline overline;}  </pre>
+          <p>对于给定的规则，所有 class 为 stricken 的 h2 元素都只有一个贯穿线装饰，而没有下划线和上划线，因为 <em>text-decoration 值会替换而不是累积起来</em>。</p>
+            <h4>处理空白符</h4>
+                      <p><a href="http://www.w3school.com.cn/css/pr_text_white-space.asp" title="CSS white-space 属性">white-space 属性</a>会影响到用户代理对源文档中的空格、换行和 tab 字符的处理。</p>
+                      <p>通过使用该属性，可以影响浏览器处理字之间和文本行之间的空白符的方式。从某种程度上讲，默认的 XHTML   处理已经完成了空白符处理：它会把所有空白符合并为一个空格。所以给定以下标记，它在 Web   浏览器中显示时，各个字之间只会显示一个空格，同时忽略元素中的换行：</p>
+                      <pre>&lt;p&gt;This     paragraph has    many      spaces           in it.&lt;/p&gt;</pre>
+                      <p>可以用以下声明显式地设置这种默认行为：</p>
+                      <pre>p {white-space: normal;}</pre>
+                      <p>上面的规则告诉浏览器按照平常的做法去处理：丢掉多余的空白符。如果给定这个值，换行字符（回车）会转换为空格，一行中多个空格的序列也会转换为一个空格。</p>
+                      <p>不过，如果将 white-space 设置为 pre，受这个属性影响的元素中，空白符的处理就有所不同，其行为就像 XHTML 的 pre 元素一样；空白符不会被忽略。</p>
+          <p>如果 white-space 属性的值为 pre，浏览器将会注意额外的空格，甚至回车。在这个方面，而且仅在这个方面，任何元素都可以相当于一个 pre 元素。</p>
+          <p>注意：经测试，IE 7 以及更早版本的浏览器不支持该值/p>
+          <p>与之相对的值是 nowrap，它会防止元素中的文本换行，除非使用了一个 br 元素。在 CSS 中使用 nowrap 非常类似于 HTML   4 中用 &lt;td nowrap&gt; 将一个表单元格设置为不能换行，不过 white-space 值可以应用到任何元素。</p>
+                      <p>CSS2.1 引入了值 pre-wrap 和 pre-line，这在以前版本的 CSS 中是没有的。这些值的作用是允许创作人员更好地控制空白符处理。</p>
+                      <p>如果元素的 white-space 设置为   pre-wrap，那么该元素中的文本会保留空白符序列，但是文本行会正常地换行。如果设置为这个值，源文本中的行分隔符以及生成的行分隔符也会保留。  pre-line 与 pre-wrap 相反，会像正常文本中一样合并空白符序列，但保留换行符。</p>
+                      <p>注意：我们在 IE7 和 FireFox2.0 浏览器中测试了上面的两个实例，但是结果是，值 pre-wrap 和 pre-line 都没有得到很好的支持。</p>
+                      <p>下面的表格总结了 white-space 属性的行为：</p>
+          <table>
+                        <tbody>
+                          <tr>
+                            <th>值</th>
+                            <th>空白符</th>
+                            <th>换行符</th>
+                            <th>自动换行</th>
+                          </tr>
+                          <tr>
+                            <td>pre-line</td>
+                            <td>合并</td>
+                            <td>保留</td>
+                            <td>允许</td>
+                          </tr>
+                          <tr>
+                            <td>normal</td>
+                            <td>合并</td>
+                            <td>忽略</td>
+                            <td>允许</td>
+                          </tr>
+                          <tr>
+                            <td>nowrap</td>
+                            <td>合并</td>
+                            <td>忽略</td>
+                            <td>不允许</td>
+                          </tr>
+                          <tr>
+                            <td>pre</td>
+                            <td>保留</td>
+                            <td>保留</td>
+                            <td>不允许</td>
+                          </tr>
+                          <tr>
+                            <td>pre-wrap</td>
+                            <td>保留</td>
+                            <td>保留</td>
+                            <td>允许</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                        <h4>文本方向</h4>
+                        <p>如果您阅读的是英文书籍，就会从左到右、从上到下地阅读，这就是英文的流方向。不过，并不是所有语言都如此。我们知道古汉语就是从右到左来阅读的，当然还包括希伯来语和阿拉伯语等等。CSS2 引入了一个属性来描述其方向性。</p>
+                        <p><a href="http://www.w3school.com.cn/css/pr_text_direction.asp" title="CSS direction 属性">direction 属性</a>影响块级元素中文本的书写方向、表中列布局的方向、内容水平填充其元素框的方向、以及两端对齐元素中最后一行的为止。</p>
+                        <p>注释：对于行内元素，只有当 <a href="http://www.w3school.com.cn/css/pr_unicode-bidi.asp" title="CSS unicode-bidi 属性">unicode-bidi 属性</a>设置为 embed  或 bidi-override 时才会应用 direction 属性。</p>
+          <p>direction 属性有两个值：ltr 和 rtl。大多数情况下，默认值是 ltr，显示从左到右的文本。如果显示从右到左的文本，应使用值 rtl。</p>
+            <h4>CSS 文本属性</h4>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <th>属性</th>
+                              <th>描述</th>
+                            </tr>
+                            <tr>
+                              <td><a href="http://www.w3school.com.cn/css/pr_text_color.asp">color</a></td>
+                              <td>设置文本颜色</td>
+                            </tr>
+                            <tr>
+                              <td><a href="http://www.w3school.com.cn/css/pr_text_direction.asp" title="CSS direction 属性">direction</a></td>
+                              <td>设置文本方向。</td>
+                            </tr>
+                            <tr>
+                              <td><a href="http://www.w3school.com.cn/css/pr_dim_line-height.asp">line-height</a></td>
+                              <td>设置行高。</td>
+                            </tr>
+                            <tr>
+                              <td><a href="http://www.w3school.com.cn/css/pr_text_letter-spacing.asp" title="CSS letter-spacing 属性">letter-spacing</a></td>
+                              <td>设置字符间距。</td>
+                            </tr>
+                            <tr>
+                              <td><a href="http://www.w3school.com.cn/css/pr_text_text-align.asp" title="CSS text-align 属性">text-align</a></td>
+                              <td>对齐元素中的文本。</td>
+                            </tr>
+                            <tr>
+                              <td><a href="http://www.w3school.com.cn/css/pr_text_text-decoration.asp">text-decoration</a></td>
+                              <td>向文本添加修饰。</td>
+                            </tr>
+                            <tr>
+                              <td><a href="http://www.w3school.com.cn/css/pr_text_text-indent.asp" title="CSS text-indent 属性">text-indent</a></td>
+                              <td>缩进元素中文本的首行。</td>
+                            </tr>
+                            <tr>
+                              <td>text-shadow</td>
+                              <td>设置文本阴影。CSS2 包含该属性，但是 CSS2.1 没有保留该属性。</td>
+                            </tr>
+                            <tr>
+                              <td><a href="http://www.w3school.com.cn/css/pr_text_text-transform.asp">text-transform</a></td>
+                              <td>控制元素中的字母。</td>
+                            </tr>
+                            <tr>
+                              <td>unicode-bidi</td>
+                              <td>设置文本方向。</td>
+                            </tr>
+                            <tr>
+                              <td><a href="http://www.w3school.com.cn/css/pr_text_white-space.asp" title="CSS white-space 属性">white-space</a></td>
+                              <td>设置元素中空白的处理方式。</td>
+                            </tr>
+                            <tr>
+                              <td><a href="http://www.w3school.com.cn/css/pr_text_word-spacing.asp" title="CSS word-spacing 属性">word-spacing</a></td>
+                              <td>设置字间距。</td>
+                            </tr>
+                          </tbody>
+                        </table>
+            <p> </p>
+        </div>
+    </body>
+</html>

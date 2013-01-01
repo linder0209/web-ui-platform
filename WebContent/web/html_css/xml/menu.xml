@@ -5,23 +5,23 @@
 
     <menu>
         <id>level_1</id>
-        <name>HTML基础</name>
-        <module>html_base</module>
-        <children id="level_1_1" name="html相关知识" href="./html_base/knowledge/index.html" module="knowledge" />
-        <children id="level_1_2" name="常用语义化标签" href="./html_base/items/index.html" module="items"/>
+        <name>HTML</name>
+        <module>html</module>
+        <children id="level_1_1" name="html相关知识" href="./html/knowledge/index.html" module="knowledge" />
+        <children id="level_1_2" name="常用语义化标签" href="./html/items/index.html" module="items"/>
     </menu>
     <menu>
         <id>level_2</id>
-        <name>CSS基础</name>
-        <module>css_base</module>
-        <children id="level2_1" name="css相关知识" href="./css_base/knowledge/index.html" module="knowledge" />
-		<children id="level2_1" name="css标签" href="./css_base/label/index.html" module="label" />
+        <name>CSS</name>
+        <module>css</module>
+        <children id="level2_1" name="css相关知识" href="./css/knowledge/index.html" module="knowledge" />
+		<children id="level2_2" name="css标签" href="./css/label/index.html" module="label" />
     </menu>
 	<menu>
         <id>level_3</id>
         <name>HTML CSS 综合</name>
         <module>html_css</module>
         <children id="level3_1" name="专题" href="./html_css/thematic/index.html" module="thematic" />
-		<children id="level3_1" name="常用组件库" href="./html_css/component/index.html" module="component" />
+		<children id="level3_2" name="常用组件库" href="./html_css/component/index.html" module="component" />
     </menu>
 </menus>

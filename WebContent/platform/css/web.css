@@ -9,13 +9,17 @@
 /*******************************************************************************/
 
 .h-web-catalogue {
-
+    margin: 5px 0 5px 30px;
+    list-style-type: decimal;
 }
 .h-web-catalogue li{
-
+    list-style-type: decimal;
+    padding: 5px 10px 5px 0;
 }
-.h-web-catalogue li a{
-
+.h-web-catalogue a{
+    border-bottom: 1px dashed #005B73;
+    color: #005B73;
+    font-size: 14px;
 }
 .h-web-paragraph {
 
@@ -39,7 +43,33 @@
     border-bottom: 1px dashed #005B73;
     border-top: 1px solid #005B73;
     padding: 5px 10px;
+    color: #FFFFFF;
+}
+.h-web-paragraph p, .h-web-paragraph pre, .h-web-paragraph table{
+    color: #005B73;
+    font-size: 14px;
+	margin:10px 20px;
 }
 .h-web-paragraph p{
-
+	text-indent: 2em;
+}
+.h-web-paragraph pre{
+    border: 1px dotted #778855;
+	padding:10px;
+}
+.h-web-paragraph h4{
+	color: #009EC3;
+    font-size: 14px;
+    margin-left: 20px;
+}
+.h-web-paragraph table{
+	border-collapse: collapse;
+}
+.h-web-paragraph table td, .h-web-paragraph table th{
+	border: 1px solid #888888;
+	padding: 5px;
+}
+.h-web-paragraph a{
+	text-decoration:underline;
+	color:#009EC3;
 }
