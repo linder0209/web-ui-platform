@@ -11,23 +11,23 @@
     <body>
         <h3 class="h-web-paragraph-title">目录</h3>
         <ol class="h-web-catalogue">
-            <li><a href="">什么是正则表达式</a></li>
-            <li><a href="">正则表达式常用的21个元字符</a></li>
-            <li><a href="">正则表达式优先权顺序</a></li>
-            <li><a href="">后向引用</a></li>
-            <li><a href="">零宽断言</a></li>
-            <li><a href="">贪婪与懒惰</a></li>
-            <li><a href="">处理选项</a></li>
-            <li><a href="">正则表达式对象的属性及方法</a></li>
-            <li><a href="">操作字符串中相关的方法</a></li>
-            <li><a href="">正则表达式参考资料</a></li>
+            <li><a paragraph="1" href="#">什么是正则表达式</a></li>
+            <li><a paragraph="2" href="#">正则表达式常用的21个元字符</a></li>
+            <li><a paragraph="3" href="#">正则表达式优先权顺序</a></li>
+            <li><a paragraph="4" href="#">后向引用</a></li>
+            <li><a paragraph="5" href="#">零宽断言</a></li>
+            <li><a paragraph="6" href="#">贪婪与懒惰</a></li>
+            <li><a paragraph="7" href="#">处理选项</a></li>
+            <li><a paragraph="8" href="#">正则表达式对象的属性及方法</a></li>
+            <li><a paragraph="9" href="#">操作字符串中相关的方法</a></li>
+            <li><a paragraph="10" href="#">正则表达式参考资料</a></li>
         </ol>
         <div class="h-web-paragraph">
-          <h3 class="h-web-paragraph-title">什么是正则表达式</h3>
+          <h3 paragraph="1">什么是正则表达式</h3>
             <p>在计算机科学中，是指一个用来描述或者匹配一系列符合某个句法规则的字符串。在很多文本编辑器或其他工具里，正则表达式通常被用来检索和/或替换那些符合某个模式的文本内容。许多程序设计语言都支持利用正则表达式进行字符串操作。例如，在Perl中就内建了一个功能强大的正则表达式引擎。正则表达式这个概念最初是由Unix中的工具软件（例如sed和grep）普及开的。正则表达式通常缩写成&ldquo;regex&rdquo;，单数有regexp、regex，复数有regexps、regexes、regexen。
 
             </p>
-            <h3 class="h-web-paragraph-title">正则表达式常用的21个元字符</h3>
+            <h3 paragraph="2">正则表达式常用的21个元字符</h3>
           <p>为了记忆方便，我们可以简单的把这些元字符分类。第一类为定位（也叫边界）元字符：\b、^和$；第二类为字符数字类元字符：. 、\w 、\d和\s；第三类为重复元字符，包括*、+、?、{n}、{n,}和{n,m}；第四类为选择和分组元字符：|、()和[]；第五类为反义匹配元字符，包括：\W 、\D、 \S、 \B和 [^x]</p>
             <h4>\b 元字符</h4>
           <p>\b是正则表达式规定的一个特殊代码，代表着单词的开头或结尾，也就是单词的分界处。虽然通常英文的单词是由空格，标点符号或者换行来分隔的，但是\b并不匹配这些单词分隔字符中的任何一个，它<strong>只匹配一个位置</strong>。</p>
@@ -111,7 +111,7 @@
             <p>\S：匹配任何非空白字符。等价于 [^ \f\n\r\t\v]。</p>
             <p>\B：匹配非单词边界。'er\B' 能匹配 "verb" 中的 'er'，但不能匹配 "never" 中的 'er'。</p>
             <p>[^x]：负值字符集合。匹配未包含的任意字符。例如， '[^abc]' 可以匹配 "plain" 中的'p'。 </p>
-            <h3 class="h-web-paragraph-title">正则表达式优先权顺序</h3>
+            <h3 paragraph="3">正则表达式优先权顺序</h3>
             <p>在构造正则表达式之后，就可以象数学表达式一样来求值，也就是说，可以从左至右并按照一个优先权顺序来求值。 </p>
             <p>下表从最高优先级到最低优先级列出各种正则表达式操作符的优先权顺序：</p>
           <table>
@@ -142,7 +142,7 @@
                 </tr>
               </tbody>
           </table>
-            <h3 class="h-web-paragraph-title">后向引用</h3>
+            <h3 paragraph="4">后向引用</h3>
             <p>使用小括号指定一个子表达式后，<strong>匹配这个子表达式的文本</strong>(也就是此分组捕获的内容)可以在表达式或程序中作进一步的处理。默认情况下，每个分组会自动拥有一个组号，规则是：从左向右，以分组的左括号为标志，第一个出现的分组的组号为1，第二个为2，以此类推。</p>
             
             <p>后向引用用于重复搜索前面某个分组匹配的文本。例如，\1代表分组1匹配的文本。请看前面已经提到过的示例：</p>
@@ -180,7 +180,7 @@
                 </tr>
               </tbody>
             </table>
-            <h3 class="h-web-paragraph-title">零宽断言</h3>
+            <h3 paragraph="5">零宽断言</h3>
             <p>接下来的是用于查找在某些内容(但并不包括这些内容)之前或之后的东西，也就是说它们像\b,^,$那样用于指定一个位置，这个位置应该满足一定的条件(即断言)，因此它们也被称为零宽断言。<strong>注意：断言用来声明一个应该为真的事实，正则表达式中只有当断言为真时才会继续进行匹配。</strong>下面看例子： </p>
             <p>(?=exp)也叫零宽度正预测先行断言，它断言自身出现的位置的后面能匹配表达式exp。比如\b\w+(?=ing\b)，匹配以ing结尾的单词的前面部分(除了ing以外的部分)，如查找I'm singing while you're dancing.时，它会匹配sing和danc。运行代码如下：</p>
             <pre>var str = "I'm singing while you're dancing.";<br />var reg = /\b\w+(?=ing\b)/g;<br />console.log(str.replace(reg,''));//结果输出I'm ing while you're ing.</pre>
@@ -194,7 +194,7 @@
             <pre>var reg = /^\d{3}(?!\d)/;<br />console.log(reg.test('2265i'));//false<br />console.log(reg.test('226fi'));//true
 var reg = /\b((?!abc)\w)+\b/;<br />console.log(reg.test('dabcddd'));//false<br />console.log(reg.test('226fi'));//true</pre>
             <p>&nbsp;</p>
-            <h3 class="h-web-paragraph-title">贪婪与懒惰</h3>
+            <h3 paragraph="6">贪婪与懒惰</h3>
             <p>当正则表达式中包含能接受重复的限定符时，通常的行为是（在使整个表达式能得到匹配的前提下）匹配<strong>尽可能多</strong>的字符。以这个表达式为例：a.*b，它将会匹配最长的以a开始，以b结束的字符串。如果用它来搜索aabab的话，它会匹配整个字符串aabab。这被称为贪婪匹配。</p>
             <p>有时，我们更需要懒惰匹配，也就是匹配<strong>尽可能少</strong>的字符。前面给出的限定符都可以被转化为懒惰匹配模式，只要在它后面加上一个问号?。这样.*?就意味着匹配任意数量的重复，但是在能使整个匹配成功的前提下使用最少的重复。</p>
             <pre>console.log(/a.*b/.exec('aabab'));//aabab<br />console.log(/a.*?b/.exec('aabab'));//aab</pre>
@@ -235,7 +235,7 @@ var reg = /\b((?!abc)\w)+\b/;<br />console.log(reg.test('dabcddd'));//false<br /
               </tbody>
             </table>
             <p>对于贪婪模式，先看整个字符串是否匹配，如果没有发现匹配，它去掉该字符串中最后一个字符，并再次尝试。重复这个过程直到发现匹配或者字符串不剩任何字符。对于懒惰模式，先看字符串中第一个字符是否匹配。如果单独这个字符还不够，就读入下一个字符，组成两个字符的字符串。如果还是没有发现匹配,惰性量词继续从字符串中添加字符直到发现匹配或者整个字符串都检查过也没有匹配。与贪婪量词的工作方式正好相反。</p>
-            <h3 class="h-web-paragraph-title">处理选项</h3>
+            <h3 paragraph="7">处理选项</h3>
             <p>上面介绍了几个选项如忽略大小写，处理多行等，这些选项能用来改变处理正则表达式的方式。</p>
           <table>
               <caption>
@@ -262,7 +262,7 @@ var reg = /\b((?!abc)\w)+\b/;<br />console.log(reg.test('dabcddd'));//false<br /
                 </tr>
               </tbody>
             </table>
-          <h3 class="h-web-paragraph-title">正则表达式对象的属性及方法</h3>
+          <h3 paragraph="8">正则表达式对象的属性及方法</h3>
           <p>预定义的正则表达式拥有以下静态属性：input, multiline, lastMatch, lastParen, leftContext, rightContext和$1到$9。其中input和multiline可以预设置。其他属性的值在执行过exec或test方法后被根据不同条件赋以不同的值。许多属性同时拥有长和短(perl风格)的两个名字，并且，这两个名字指向同一个值。(JavaScript模拟perl的正则表达式)
           </p>
           <table>
@@ -380,7 +380,7 @@ console.log(RegExp.leftContext);//I am singing while you are<br />console.log(Re
           <pre>var ex = /\b(d)(a)(n)(c)(i)(n)(g)(i)(n)(g)(i)(n)(g)(\b)/g.exec('I am singing while you are dancinginging.');<br />console.info(ex);<br />console.log(RegExp.$1);//d<br />console.log(RegExp.$2);//a<br />console.log(RegExp.$3);//n<br />console.log(RegExp.$4);//c<br />console.log(RegExp.$5);//i<br />console.log(RegExp.$6);//n<br />console.log(RegExp.$7);//g<br />console.log(RegExp.$8);//i<br />console.log(RegExp.$9);//n<br />console.log(RegExp.$10);//undefined</pre>
           <h4>lastIndex和source属性以及方法exec的例子</h4>
           <pre>var toMarch7 = '1 3 4 5'; <br />var regExp7 = /(\d+)\s*(\d+)/g; <br />var result7;<br />//regExp7.lastIndex = 50;//设置后会找不到查询结果<br />while((result7= regExp7.exec(toMarch7)) != null){ <br /> console.log(result7);//分别为1 3,1,3 和 4 5,4,5 <br /> console.log(regExp7.lastIndex);//分别为3和7 <br /> console.log(regExp7.source);//(\d+)\s*(\d+)<br />} </pre>
-          <h3 class="h-web-paragraph-title">操作字符串中相关的方法</h3>
+          <h3 paragraph="9">操作字符串中相关的方法</h3>
           <p>共包括match、search、replace 和split</p>
           <h4>String.match(reCat)</h4>
           <p>返回一个包含在字符串中的所有匹配的数组</p>
@@ -400,7 +400,7 @@ console.log(RegExp.leftContext);//I am singing while you are<br />console.log(Re
           <h4>String.split(reCat)  </h4>
           <p>将字符串根据传入的参数分割成子串,并返回数组</p>
           <pre>var sColor = "red, blue, yellow"; <br>var reExp = /\,/; <br>var arrs = sColor.split(reExp);//得到一个数组["red","blue","yellow" ]   注意逗号在正则表达式有特殊含义，这里需要转义</pre>
-          <h3 class="h-web-paragraph-title">正则表达式参考资料</h3>
+          <h3 paragraph="10">正则表达式参考资料</h3>
           <p><a href="http://www.iteye.com/topic/940835" target="_blank">Javascript正则表达式笔记</a></p>
         </div>
     </body>
