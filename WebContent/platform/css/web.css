@@ -48,28 +48,28 @@
 .h-web-paragraph p, .h-web-paragraph pre, .h-web-paragraph table{
     color: #005B73;
     font-size: 14px;
-	margin:10px 20px;
+    margin:10px 20px;
 }
 .h-web-paragraph p{
-	text-indent: 2em;
+    text-indent: 2em;
 }
 .h-web-paragraph pre{
     border: 1px dotted #778855;
-	padding:10px;
+    padding:10px;
 }
 .h-web-paragraph h4{
-	color: #009EC3;
+    color: #009EC3;
     font-size: 14px;
-    margin-left: 20px;
+    margin: 10px 20px;
 }
 .h-web-paragraph table{
-	border-collapse: collapse;
+    border-collapse: collapse;
 }
 .h-web-paragraph table td, .h-web-paragraph table th{
-	border: 1px solid #888888;
-	padding: 5px;
+    border: 1px solid #888888;
+    padding: 5px;
 }
 .h-web-paragraph a{
-	text-decoration:underline;
-	color:#009EC3;
+    text-decoration:underline;
+    color:#009EC3;
 }

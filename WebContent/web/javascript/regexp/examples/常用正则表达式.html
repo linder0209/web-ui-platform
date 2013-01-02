@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>正则表达式——常用正则表达式</title>
+        <link rel="stylesheet" href="../../../../platform/css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/platform.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
+    </head>
+    <body> 
+        <div class="h-web-paragraph">
+          <h3 class="h-web-paragraph-title">javascript中常用的正则表达式</h3>
+          <h4>去掉开头结尾的空白字符：/^\s+(.*?)\s+$/ </h4>
+          <p>注意, 分组里面.*?一定要是惰性的,不然这个分组会把最后的空白字符也匹配进去 </p>
+          <pre>String.prototype.trim = function(){<br>   var reExtraStr = /^\s+(.*?)\s+$/ ;<br>   return this.replace(reExtraStr,"$1");<br>};</pre>
+          <h4>去除所有的HTML标签:/<(?:.|\s)*?>/g</h4>
+          <p>运用非捕获性分组模式来处理，这样可以提高执行效率</p>
+          <pre>String.prototype.skipHTML = function(){ <br>   var regExp = /&lt;(?:.|\s)*?&gt;/g ; <br>   return this.replace(regExp,""); <br>};</pre>
+          <h4>查找一个出现在行尾的单词：/(\w+)\.$/</h4>
+          <pre>var toMarch3 = "Important word is the last one."; <br>var regExp3 = /(\w+)\.$/; <br>regExp3.test(toMarch3); <br>console.info(RegExp.$1);//one </pre>
+          <h4>查找一个出现在行首的单词：/^(\w+)/</h4>
+          <pre>var toMarch4 = "Important word is the last one."; <br>var regExp4 = /^(\w+)/ ; //或者var regExp4 = /^(.+?)\b/; <br>regExp4.test(toMarch4); <br>console.info(RegExp.$1); </pre>
+          <h4>抽取出所有的单词：/\b(\S+?)\b/g</h4>
+          <pre>var toMarch5 = "First Second Third Fourth Fifth Sixth"; <br>var regExp5 = /\b(\S+?)\b/g ; //或者 /\b(\S+)\b/g 和 /(\w+)/g <br>var sArr = toMarch5.match(regExp5); <br>console.info(sArr);//First Second Third Fourth Fifth Sixth </pre>
+          <h4>判断日期的正则表达式：/(?:[1-9]|0[1-9]|[12][0-9]|3[01])\/(?:[1-9]|0[1-9]|1[0-2])\/(?:19\d{2}|20\d{2})/</h4>
+          <pre>function isValidDate(s){ <br>    var reDate = /(?:[1-9]|0[1-9]|[12][0-9]|3[01])\/(?:[1-9]|0[1-9]|1[0-2])\/(?:19\d{2}|20\d{2})/; <br>    return reDate.test(s); <br>}</pre>
+          <p>&nbsp;</p>         
+        </div>
+    </body>
+</html>

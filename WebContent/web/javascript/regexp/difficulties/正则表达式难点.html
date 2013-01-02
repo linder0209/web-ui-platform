@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>正则表达式——正则表达式难点</title>
+        <link rel="stylesheet" href="../../../../platform/css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/platform.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
+    </head>
+    <body>
+        <h3 class="h-web-paragraph-title">目录</h3>
+        <ol class="h-web-catalogue">
+            <li><a href="">零宽断言</a></li>
+            <li><a href="">贪婪与惰性的理解</a></li>
+        </ol>
+        <div class="h-web-paragraph">
+          <h3 class="h-web-paragraph-title">零宽断言</h3>
+          <p>零宽断言也叫前瞻，分为正向前瞻和负向前瞻，看下面的代码，注意理解</p>
+          <pre>var toMarch1 = "bedroom"; <br>var toMarch2 = "bedding"; <br>var bedReg = /(bed(?=room))/; <br>console.info(bedReg.test(toMarch1)); //true <br>console.info(bedReg.exec(toMarch1)); //bed,bed <br>console.info(RegExp.$1); //bed <br>console.info(bedReg.test(toMarch2)); //false </pre>
+          <h3 class="h-web-paragraph-title">贪婪与惰性的理解</h3>
+          <p>看下面的例子</p>
+          <pre>var str = "abbb1234abbbaabbbaaabbb1234"; <br>var re = /.*bbb/g; <br>console.info(str.match(re));    //结果为abbb1234abbbaabbbaaabbb <br>re = /.*?bbb/g; <br>console.info(str.match(re));    //结果为abbb,1234abbb,aabbb,aaabbb <br>re = /a*bbb/g; <br>console.info(str.match(re));    //结果为abbb,abbb,aabbb,aaabbb <br>re = /a*?bbb/g; <br>console.info(str.match(re));    //结果为abbb,abbb,aabbb,aaabbb </pre>
+          <p>对于第一、第二和第四个打印结果容易理解：第一个str.match(re)，贪婪量词先匹配整个字串，若不匹配去掉一个尾字符，继续匹配；第二个str.match(re)，惰性量词从第一个字符开始递加去匹配，直到匹配成功，然后再从下一个字符继续匹配。第四个str.match(re)，同第二个。</p>
+          <p>对于第三个难以理解，结合网上的一些资料，本人总结如下。首先他是贪婪匹配，那么就会匹配尽可能多的a与bbb的结合，先匹配整体，若不匹配则去掉尾字符继续匹配，直到成功或者结束，这样就会匹配到abbb。而<strong>javascript中的match返回的是所有匹配，也就是说匹配成功后，会从最近的一个匹配后的下一个字符开始重新贪婪模式匹配</strong>，正是有了这个规则后，会接着从1234abbbaabbbaaabbb1234中匹配，找到abbb，重复执行找到所有的匹配结果。如果字符串是"abbb1234abbbaabbbaaabbb1234bbb"，则执行第三个匹配，结果会是：abbb,abbb,aabbb,aaabbb,bbb，最后一个结果没有a，但同样也是可以匹配的，以为a*指0个或多个a。</p>
+            <p>
+            </p>
+        </div>
+    </body>
+</html>
