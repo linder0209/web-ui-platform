@@ -47,6 +47,11 @@
             }
             //加载第一个tab
             $('#top_menu a:eq(' + index + ')').click();
+            
+            //向上事件
+            $('#upward').click(function(e){
+                document.documentElement.scrollTop = 0;
+            });
         },
         //点击左侧菜单项时回调函数
         linkMenuLoadContent: function(url) {
@@ -139,17 +144,17 @@
 
                 $('#body_content_frame').empty().html(repSource);
 				
-				//初始化目录列表事件
-				$('#body_content_frame .h-web-catalogue li a').click(function(e){
-					e.preventDefault();
-					var paragraphNum = $(this).attr('paragraph'),
-					    paragraph = $('#body_content_frame .h-web-paragraph h3[paragraph="' + paragraphNum + '"]'),
-						offset = paragraph.offset();
-					//当html文档头部包含有“文档类型声明”时，需要用document.documentElement.scrollTop获得正确的值，而document.body.scrollTop的值为0 
-					document.documentElement.scrollTop = offset.top;
-					//当html文档头部不包含任何“文档类型声明”时，需要用document.body.scrollTop获得正确的值，而document.documentElement.scrollTop的值为0
-					//document.body.scrollTop = offset.top;
-				});
+                //初始化目录列表事件
+                $('#body_content_frame .h-web-catalogue li a').click(function(e){
+                        e.preventDefault();
+                        var paragraphNum = $(this).attr('paragraph'),
+                            paragraph = $('#body_content_frame .h-web-paragraph h3[paragraph="' + paragraphNum + '"]'),
+                                offset = paragraph.offset();
+                        //当html文档头部包含有“文档类型声明”时，需要用document.documentElement.scrollTop获得正确的值，而document.body.scrollTop的值为0 
+                        document.documentElement.scrollTop = offset.top;
+                        //当html文档头部不包含任何“文档类型声明”时，需要用document.body.scrollTop获得正确的值，而document.documentElement.scrollTop的值为0
+                        //document.body.scrollTop = offset.top;
+                });
                 source = source.replace(/</g, '&lt;');
                 /**
                  * brush: js; 

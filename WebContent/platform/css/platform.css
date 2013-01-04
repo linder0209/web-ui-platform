@@ -256,3 +256,9 @@
     color: #BC283D;
     font-weight: bold;
 }
+.h-upward{
+    bottom: 10px;
+    position: fixed;
+    right: 10px;
+    cursor: pointer;
+}
