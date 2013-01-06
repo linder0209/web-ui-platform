@@ -128,6 +128,7 @@
         },
         //加载代码例子
         loadExamples: function(path) {
+		    var directory = path.replace(/\/[^\/]+\.html/,'');
             $.get(path, function(req, status, res) {
                 var source = res.responseText;
                 var repSource = source;
@@ -139,7 +140,8 @@
                 repSource = repSource.replace(/<\/?meta.*>/ig, ""); //Remove meta tag
                 repSource = repSource.replace(/<\/?!doctype.*>/ig, ""); //Remove doctype
                 repSource = repSource.replace(/<title.*>.*<\/title>/ig, ""); // Remove title tags
-                //repSource = repSource.replace(/((href|src)=["'])(?!(http|#))/ig, "$1" + directory + "/");
+                //替换a标签和img标签相对路径，该正则表达式的意思是：替换href或src中的值，并且该值开头不是http或#。该例子中用到了零宽断言
+				repSource = repSource.replace(/((href|src)=["'])(?!(http|#))/ig, '$1' + directory + '/');
 
 
                 $('#body_content_frame').empty().html(repSource);

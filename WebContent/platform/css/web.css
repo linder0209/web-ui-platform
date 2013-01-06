@@ -56,6 +56,7 @@
 .h-web-paragraph pre{
     border: 1px dotted #778855;
     padding:10px;
+    white-space: pre-wrap;
 }
 .h-web-paragraph h4{
     color: #009EC3;
@@ -72,4 +73,7 @@
 .h-web-paragraph a{
     text-decoration:underline;
     color:#009EC3;
+}
+.h-web-font-red, p.h-web-font-red{
+	color:#F94A76
 }
