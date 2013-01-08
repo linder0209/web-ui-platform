@@ -134,16 +134,16 @@
                 var repSource = source;
                 //repSource = repSource.replace(/<script.*>.*<\/script>/ig,""); // Remove script tags
                 //repSource = repSource.replace(/<\/?link.*>/ig,""); //Remove link tags
-                repSource = repSource.replace(/<\/?html.*>/ig, ""); //Remove html tag
-                repSource = repSource.replace(/<\/?body.*>/ig, ""); //Remove body tag
-                repSource = repSource.replace(/<\/?head.*>/ig, ""); //Remove head tag
-                repSource = repSource.replace(/<\/?meta.*>/ig, ""); //Remove meta tag
-                repSource = repSource.replace(/<\/?!doctype.*>/ig, ""); //Remove doctype
-                repSource = repSource.replace(/<title.*>.*<\/title>/ig, ""); // Remove title tags
+                //repSource = repSource.replace(/<\/?html.*>/ig, ""); //Remove html tag
+                //repSource = repSource.replace(/<\/?body.*>/ig, ""); //Remove body tag
+                //repSource = repSource.replace(/<\/?head.*>/ig, ""); //Remove head tag
+                //repSource = repSource.replace(/<\/?meta.*>/ig, ""); //Remove meta tag
+                //repSource = repSource.replace(/<\/?!doctype.*>/ig, ""); //Remove doctype
+                //repSource = repSource.replace(/<title.*>.*<\/title>/ig, ""); // Remove title tags
+                //直接取body标签中的值
+                repSource = repSource.match(/<(body)>(.|\s)*<\/\1>/g)[0];
                 //替换a标签和img标签相对路径，该正则表达式的意思是：替换href或src中的值，并且该值开头不是http或#。该例子中用到了零宽断言
-				repSource = repSource.replace(/((href|src)=["'])(?!(http|#))/ig, '$1' + directory + '/');
-
-
+		repSource = repSource.replace(/((href|src)=["'])(?!(http|#))/ig, '$1' + directory + '/');
                 $('#body_content_frame').empty().html(repSource);
 				
                 //初始化目录列表事件
