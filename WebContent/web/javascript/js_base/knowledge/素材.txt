@@ -17,3 +17,5 @@ scrollTop = document.body.scrollTop;
 } 
 return scrollTop; 
 }
+
+ÍøÒ³ÎÄµµ×ø±ê
