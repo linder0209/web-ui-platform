@@ -45,10 +45,10 @@
     padding: 5px 10px;
     color: #FFFFFF;
 }
-.h-web-paragraph p, .h-web-paragraph pre, .h-web-paragraph table, .h-web-paragraph h4, .h-web-paragraph img {
+.h-web-paragraph p, .h-web-paragraph pre, .h-web-paragraph table, .h-web-paragraph h4, .h-web-paragraph img, .h-web-paragraph ul {
     margin:10px 20px;
 }
-.h-web-paragraph p, .h-web-paragraph pre, .h-web-paragraph table {
+.h-web-paragraph p, .h-web-paragraph pre, .h-web-paragraph table , .h-web-paragraph ul{
     color: #005B73;
     font-size: 14px;
 }
@@ -75,6 +75,15 @@
     text-decoration:underline;
     color:#009EC3;
 }
+.h-web-paragraph ul{
+   list-style-type: disc; 
+}
+.h-web-paragraph ul li{
+    padding: 5px 0;
+    list-style-type: disc;
+    list-style-position: inside;
+}
 .h-web-font-red, p.h-web-font-red{
-	color:#F94A76
+	color:#F94A76;
+	font-weight:bold;
 }
