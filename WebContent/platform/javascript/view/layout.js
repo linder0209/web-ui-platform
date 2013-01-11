@@ -1,10 +1,9 @@
 (function($, undefined) {
 
     var pub = {
-        //模块名	
-        module: '',
+        module: '',//第一级模块名
         context: 'web/',
-        moduleContext: '',
+        currentModules : '',//记录当前所有模块上下文
         initWebUI: function() {
             var me = this;
             //顶部菜单点击事件
@@ -19,8 +18,7 @@
                 arrows.css('left', left + 'px');
                 //设置当前样式
                 el.addClass('current').parent().siblings().children().removeClass('current');
-
-                //window.location.hash = this.href.replace(/.+\/([^\/]+)\/index\.html/, '$1') + '|index';
+                
                 var section = this.href.replace(/\/[^\/]+\.html/, '');
                 var module = section.replace(/.+\/([^\/]+)/, '$1');//模块名
                 var xmlUrl = './web/' + module + '/xml/menu.xml';
@@ -33,19 +31,16 @@
 
             //默认加载第一个tab
             var index = 0;
-            if (window.location.hash) {
-                if (window.location.hash.indexOf('|') !== -1) {
-                    var modules = $('#top_menu a').map(function(index, element) {
-                        var href = element.href;
-                        var section = href.replace(/\/[^\/]+\.html/, '');
-                        var module = section.replace(/.+\/([^\/]+)/, '$1');//模块名
-                        return module;
-                    }).get();
-                    var module = window.location.hash.split('|')[0].substring(1);
-                    index = modules.indexOf(module);
-                }
+            if (window.location.hash && window.location.hash.indexOf('|') !== -1) {
+                var modules = $('#top_menu a').map(function(index, element) {
+                    var href = element.href;
+                    var section = href.replace(/\/[^\/]+\.html/, '');
+                    var module = section.replace(/.+\/([^\/]+)/, '$1');//模块名
+                    return module;
+                }).get();
+                var module = window.location.hash.split('|')[0].substring(1);//去掉#号
+                index = modules.indexOf(module);
             }
-            //加载第一个tab
             $('#top_menu a:eq(' + index + ')').click();
             
             //向上事件
@@ -53,42 +48,7 @@
                 document.documentElement.scrollTop = 0;
             });
         },
-        //点击左侧菜单项时回调函数
-        linkMenuLoadContent: function(url) {
-            var me = this;
-            var module = this.module;
-            if (this.context && this.module) {
-                url = this.context + module + url.replace('.', '');
-            }
-            var section = url.replace(/\/[^\/]+\.html/, '');
-            $('#body_content_menu').load(url + ' .h-demo-nav-menu', function() {
-                $('#body_content_menu a').each(function() {
-                    var el = $(this);
-                    this.setAttribute('href', section + '/' + this.getAttribute('href').replace(/.+\/([^\/]+)/, '$1'));
-                    el.attr('target', 'body_content_frame');
-                    el.click(function() {
-                        $(this).parent().addClass('current').siblings().removeClass('current');
-                        //Set the hash to the actual page without ".html"
-                        var href = this.getAttribute('href');
-                        var part = href.replace(/\/[^\/]+\.html/, '').replace(me.context, '');
-                        var parts = part.replace('./', '').split('/');
-                        var hash = parts[0];
-                        var moduleContext = me.context + parts[0];
-                        for (var i = 1, len = parts.length; i < len; i++) {
-                            hash += '|' + parts[i];
-                            moduleContext += '/' + parts[i];
-                        }
-                        window.location.hash = hash;
-                        me.moduleContext = moduleContext;
-                        me.loadExamples(href);
-                        //阻止默认点击事件
-                        return false;
-                    });
-                });
-
-                $('#body_content_menu a:eq(0)').click();
-            });
-        },
+        
         //加载左侧菜单列表
         loadLeftMenu: function(xmlUrl, module, context) {
             if (module !== undefined) {
@@ -108,14 +68,17 @@
             pMenu.loadMenu();
 
             var level1Node, level2Node;
-            if (window.location.hash) {
-                if (window.location.hash.indexOf('|') !== -1) {
-                    var modules = window.location.hash.split('|'),
-                            len = modules.length;
-                    level1Node = modules[len - 2];
-                    level2Node = modules[len - 1];
+            if (window.location.hash && window.location.hash.indexOf('|') !== -1) {
+                var modules = window.location.hash.split('|');
+                if (module !== undefined) {//这里兼顾直接从二级根目录下访问
+                    level1Node = modules[0].substring(1);//去掉#号
+                    level2Node = modules[1];
+                }else{
+                   level1Node = modules[1];
+                    level2Node = modules[2]; 
                 }
             }
+            //定位当前的菜单项
             pMenu.setCurrentMenuByModule(level1Node, level2Node);
             
             //初始化描述和源代码折叠事件
@@ -126,9 +89,64 @@
                 return false;
             });
         },
+                
+        //点击左侧菜单项时回调函数
+        linkMenuLoadContent: function(url) {
+            var me = this;
+            var module = this.module;
+            //记录所有上下文模块
+            var _modules = url.split('/');
+            this.currentModules = (module ? '|' : '') + _modules[1] + '|' + _modules[2];
+            if (this.context && this.module) {
+                url = this.context + module + url.replace('.', '');
+            }
+            var section = url.replace(/\/[^\/]+\.html/, '');
+            $('#body_content_menu').load(url + ' .h-demo-nav-menu', function() {
+                $('#body_content_menu a').each(function(index, element) {
+                    var el = $(this);
+                    this.setAttribute('href', section + '/' + this.getAttribute('href').replace(/.+\/([^\/]+)/, '$1'));
+                    el.attr('target', 'body_content_frame');
+                    el.click(function() {
+                        $(this).parent().addClass('current').siblings().removeClass('current');
+                        var href = this.getAttribute('href'),
+                            aliasName = this.getAttribute('aliasName');
+                        me.loadExamples(href, aliasName);
+                        //阻止默认点击事件
+                        return false;
+                    });
+                });
+                
+                //默认加载第一篇文章
+                var index = 0;
+                if (window.location.hash && window.location.hash.indexOf(me.currentModules) !== -1) {//判断是否是当前上下文
+                    //所有文章
+                    var articles = $('#body_content_menu a').map(function(index, element) {
+                        return $(element).attr('aliasName');
+                    }).get();
+                    var article = window.location.hash.split('|');
+                    article = article[article.length - 1];//取最后一个
+                    if(articles.indexOf(article) != -1){
+                        index = articles.indexOf(article);
+                    }
+                }
+                $('#body_content_menu a:eq('+ index + ')').click();
+            });
+        },
+        
         //加载代码例子
-        loadExamples: function(path) {
-		    var directory = path.replace(/\/[^\/]+\.html/,'');
+        loadExamples: function(path, aliasName) {
+            //Set the hash to the actual page without ".html"
+            var part = path.replace(/\/[^\/]+\.html/, '').replace(this.context, '');
+            var parts = part.replace('./', '').split('/');
+            var hash = parts[0];
+            for (var i = 1, len = parts.length; i < len; i++) {
+                hash += '|' + parts[i];
+            }
+            if(aliasName){
+                hash += '|' + aliasName;
+            }
+            window.location.hash = hash;
+            var directory = path.replace(/\/[^\/]+\.html/,'');
             $.get(path, function(req, status, res) {
                 var source = res.responseText;
                 var repSource = source;
