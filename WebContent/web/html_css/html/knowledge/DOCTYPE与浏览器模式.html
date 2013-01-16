@@ -21,7 +21,15 @@
             <h3 paragraph="1">DOCTYPE 的诞生</h3>
             <p>DOCTYPE，或者称为 Document Type Declaration（文档类型声明，缩写 DTD）。通常情况下，DOCTYPE 位于一个 HTML 文档的最前面的位置，位于根元素 HTML 的起始标签之前。因为浏览器必须在解析 HTML 文档正文之前就确定当前文档的类型，以决定其需要采用的渲染模式，不同的渲染模式会影响到浏览器对于 CSS 代码甚至 JavaScript 脚本的解析。尤其是在 IE 系列浏览器中，由 DOCTYPE 所决定的 HTML 页面的渲染模式至关重要。</p>
             <p>首先看看当一个 HTML 文档在没有 DOCTYPE 时，页面在各浏览器中会如何渲染及解析。我们尝试生成一个在最顶端没有 DOCTYPE 的 HTML 文档：</p>
-            <pre>&lt;html&gt;  &lt;head&gt;&lt;/head&gt;  &lt;body&gt;  &lt;script&gt;  document.write(document.compatMode);  &lt;/script&gt;  &lt;/body&gt;  &lt;/html&gt;</pre>
+            <pre>&lt;html&gt;  
+&lt;head&gt;
+&lt;/head&gt;
+  &lt;body&gt;
+  &lt;script&gt;
+  document.write(document.compatMode);
+  &lt;/script&gt;
+  &lt;/body&gt;  
+&lt;/html&gt;</pre>
             <p>这个页面在所有的浏览器中均返回一致的结果，页面上打印出了&ldquo;BackCompat&rdquo;。 document.compatMode 属性最初由微软在 IE 中创造出来，这是一个只读的属性，返回一个字符串，只可能存在两种返回值：</p>
             <ul>
                 <li>BackCompat：标准兼容模式（Standards-compliant mode）未开启；</li>
