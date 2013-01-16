@@ -12,10 +12,10 @@
         <h3 class="h-web-paragraph-title">目录</h3>
         <ol class="h-web-catalogue">
             <li><a paragraph="1" href="#">window对象中坐标和位置的相关属性</a></li>
-            <li><a paragraph="2" href="#">document对象中坐标和位置的相关属性</a></li>
+            <li><a paragraph="2" href="#">document.body对象中坐标和位置的相关属性</a></li>
 			<li><a paragraph="3" href="#">其他DOM元素对象中坐标和位置的相关属性</a></li>
         </ol>
-        <div class="h-web-paragraph">
+    <div class="h-web-paragraph">
           <h3 paragraph="1">window对象中坐标和位置的相关属性</h3>
           <p>包含以下几个属性</p>
           <p>浏览器距离屏幕y坐标值：window.screenTop ，firefox中用window.screen.top代替</p>
@@ -31,20 +31,23 @@
 console.log(window.screen.top);//firefox中用该属性代替window.screenTop<br>console.log(window.screen.left);//firefox中用该属性代替window.screenLeft<br>console.log(window.screen.height); //屏幕的高度<br>console.log(window.screen.width); //屏幕的宽度
 console.log(window.screen.availTop); //屏幕可见工作区y坐标<br>console.log(window.screen.availLeft); //屏幕可见工作区x坐标<br>console.log(window.screen.availHeight); //屏幕可见工作区高度，即除去任务栏的高度<br>console.log(window.screen.availWidth);//屏幕可见工作区宽度，即除去任务栏的宽度
 </pre>
-		  <h3 paragraph="2">document对象中坐标和位置的相关属性</h3>
+		  <h3 paragraph="2">document.body对象中坐标和位置的相关属性</h3>
           
           <p>包含以下几个属性</p>
-          <p>浏览器距离屏幕y坐标值：document.body.clientWidth</p>
-          <p>浏览器距离屏幕x坐标值：document.body.clientHeight </p>
-          <p>屏幕的高度：window.screen.height  </p>
-          <p>屏幕的宽度：window.screen.width  </p>
-          <p>屏幕可见工作区y坐标：window.screen.availTop</p>
-          <p>屏幕可见工作区x坐标：window.screen.availLeft</p>
-          <p>屏幕可用工作区高度：window.screen.availHeight  </p>
-          <p>屏幕可用工作区宽度：window.screen.availWidth</p>
-          <p>看下面的测试代码</p>
-          <pre>console.log(document.body.clientWidth);//页面可视宽度，不包括滚动条<br>console.log(document.body.clientHeight);//页面可视高度，不包括滚动条<br>console.log(document.body.offsetWidth);//body实际宽度，不包括滚动条和外边距margin，但包括边框和内边距<br>console.log(document.body.offsetHeight);//body实际高度，同上<br>console.log(document.body.scrollWidth);//页面实际宽度，不包括滚动条<br>console.log(document.body.scrollHeight);//页面实际高度，不包括滚动条
-console.log(document.body.scrollTop);//竖向滚动条的坐标<br>console.log(document.body.scrollLeft);//横向滚动条的坐标</pre>
+          <p>document.body.clientWidth</p>
+          <p>document.body.clientHeight </p>
+          <p>document.body.clientLeft </p>
+          <p>document.body.clientTop </p>
+          <p>document.body.offsetWidth </p>
+          <p>document.body.offsetHeight </p>
+          <p>document.body.offsetLeft </p>
+          <p>document.body.offsetTop </p>
+          <p>document.body.scrollWidth </p>
+          <p>document.body.scrollHeight </p>
+          <p>document.body.scrollLeft </p>
+          <p>document.body.scrollTop </p>
+          
+          
           <p>我们分别在各种文档模式（DOCTYPE，或者称为Document Type Declaration（文档类型声明，缩写 DTD））和常见浏览器下测试。其中文档模式选用以下几种：</p>
           <p>隐式（即不设置文档模式）</p>
           <p>Frameset模式：&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot; &quot;http://www.w3.org/TR/html4/frameset.dtd&quot;&gt;</p>
@@ -54,9 +57,10 @@ console.log(document.body.scrollTop);//竖向滚动条的坐标<br>console.log(d
           <p>常用浏览器选用Firefox、Chrome和万恶的IE（尤其IE6和7）</p>
           <p>首先我们熟悉一下DOCTYPE，参考<a href="#html_css|html|knowledge|article_1" target="_blank">我写的文章</a></p>
           <p>看以下测试代码</p>
-          <pre>&lt;html&gt;<br>    &lt;head&gt;<br>        &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /&gt;<br>        &lt;title&gt;&lt;/title&gt;<br>        &lt;style type="text/css"&gt;<br>            body{<br>                margin: 10px;<br>                padding: 10px;<br>                border: 10px solid;<br>            }<br>        &lt;/style&gt;<br>    &lt;/head&gt;<br>    &lt;body&gt;<br>        &lt;div style="width:2400px;height: 1000px;"&gt;<br>            测试内容<br>        &lt;/div&gt;<br>    &lt;/body&gt;<br>&lt;/html&gt;</pre>
+          <pre>&lt;html&gt;<br>    &lt;head&gt;<br>        &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /&gt;<br>        &lt;title&gt;&lt;/title&gt;<br>        &lt;style type="text/css"&gt;<br>            body{<br>				border: 5px solid;<br>                height: 600px;<br>                width: 800px;<br>                margin: 10px;<br>                padding: 20px;<br>            }<br>        &lt;/style&gt;<br>    &lt;/head&gt;<br>    &lt;body&gt;<br>        &lt;div style="width:2400px;height: 1000px;"&gt;<br>            测试内容<br>        &lt;/div&gt;<br>    &lt;/body&gt;
+	&lt;script type=&quot;text/javascript&quot;&gt;<br>        console.log(document.body.clientWidth);<br>        console.log(document.body.clientHeight);<br>        console.log(document.body.clientLeft);<br>        console.log(document.body.clientTop);<br>        console.log(document.body.offsetWidth);<br>        console.log(document.body.offsetHeight);<br>        console.log(document.body.offsetLeft);<br>        console.log(document.body.offsetTop);<br>        console.log(document.body.scrollWidth);<br>        console.log(document.body.scrollHeight);<br>        console.log(document.body.scrollTop);<br>        console.log(document.body.scrollLeft);<br>    &lt;/script&gt;<br>&lt;/html&gt;</pre>
           <p>下面几个列表是在不同浏览器下采用不同文档模式类型显示的上面代码运行结果（屏幕分辨率是：1600 X 900，浏览器最大化）</p>
-          <p class="h-web-font-red">说明：body的外边距是20px，内边距是20px，边框是20px，滚动条的高度和宽度各浏览器之间是不同的（firefox是17px</p>
+          <p class="h-web-font-red">说明：body的外边距是20px，内边距是20px，边框是20px，滚动条的高度和宽度是17px</p>
           
           <table>
               <caption>
@@ -80,91 +84,91 @@ console.log(document.body.scrollTop);//竖向滚动条的坐标<br>console.log(d
                 <tr>
                   <td>document.body.clientWidth</td>
                   <td>1583</td>
-                  <td>820</td>
-                  <td>820</td>
-                  <td>820</td>
-                  <td>820</td>
-                  <td>除了隐式为页面可视宽度，其他为body的width+内边距（padding），如果不设置width，则宽度为1543，即不包括外边距、边框和滚动条</td>
+                  <td>840</td>
+                  <td>840</td>
+                  <td>840</td>
+                  <td>840</td>
+                  <td>除了隐式为页面可视宽度（不包括滚动条），其他为body的width+内边距（padding），如果不设置width，则宽度为1553，即不包括外边距、边框和滚动条</td>
                 </tr>
                 <tr>
                   <td>document.body.clientHeight</td>
                   <td>732</td>
-                  <td>620</td>
-                  <td>620</td>
-                  <td>620</td>
-                  <td>620</td>
-                  <td>除了隐式为页面可视高度，其他为body的height+内边距（padding）</td>
+                  <td>640</td>
+                  <td>640</td>
+                  <td>640</td>
+                  <td>640</td>
+                  <td>除了隐式为页面可视高度（不包括滚动条），其他为body的height+内边距（padding），如果不设置height，则宽度为1040，body内容的高度+padding</td>
                 </tr>
                 <tr>
                   <td>document.body.clientLeft</td>
                   <td>0</td>
-                  <td>10</td>
-                  <td>10</td>
-                  <td>10</td>
-                  <td>10</td>
-                  <td>获取offsetLeft属性和客户区域的实际左边之间的距离，即外边距margin-left，隐式除外</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>获取body的border-left-width，隐式除外</td>
                 </tr>
                 <tr>
                   <td>document.body.clientTop</td>
                   <td>0</td>
-                  <td>10</td>
-                  <td>10</td>
-                  <td>10</td>
-                  <td>10</td>
-                  <td>获取 offsetTop 属性和客户区域的实际顶端之间的距离，即margin-top，隐式除外</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>获取body的border-top-width，隐式除外</td>
                 </tr>
                 <tr>
                   <td>document.body.offsetWidth</td>
-                  <td>840</td>
-                  <td>840</td>
-                  <td>840</td>
-                  <td>840</td>
-                  <td>840</td>
+                  <td>850</td>
+                  <td>850</td>
+                  <td>850</td>
+                  <td>850</td>
+                  <td>850</td>
                   <td>获取body的实际宽度，不包括滚动条和外边距margin，但包括边框和内边距，如果不设置宽度为：1563</td>
                 </tr>
                 <tr>
                   <td>document.body.offsetHeight</td>
-                  <td>640</td>
-                  <td>640</td>
-                  <td>640</td>
-                  <td>640</td>
-                  <td>640</td>
-                  <td>获取body的实际高度，不包括滚动条和外边距margin，但包括边框和内边距</td>
+                  <td>650</td>
+                  <td>650</td>
+                  <td>650</td>
+                  <td>650</td>
+                  <td>650</td>
+                  <td>获取body的实际高度，不包括滚动条和外边距margin，但包括边框和内边距，如果不设置height，则宽度为1040，body内容的高度+padding</td>
                 </tr>
                 <tr>
                   <td>document.body.offsetLeft</td>
-                  <td>-10</td>
-                  <td>-10</td>
-                  <td>-10</td>
-                  <td>-10</td>
-                  <td>-10</td>
+                  <td>-5</td>
+                  <td>-5</td>
+                  <td>-5</td>
+                  <td>-5</td>
+                  <td>-5</td>
                   <td>获取body相对于页面坐标计算的左侧位置。注意是负值</td>
                 </tr>
                 <tr>
                   <td>document.body.offsetTop</td>
-                  <td>-10</td>
-                  <td>-10</td>
-                  <td>-10</td>
-                  <td>-10</td>
-                  <td>-10</td>
+                  <td>-5</td>
+                  <td>-5</td>
+                  <td>-5</td>
+                  <td>-5</td>
+                  <td>-5</td>
                   <td>获取body相对于页面坐标计算的上侧侧位置。注意是负值</td>
                 </tr>
                 <tr>
                   <td>document.body.scrollWidth</td>
-                  <td>2430</td>
-                  <td>820</td>
-                  <td>820</td>
-                  <td>820</td>
-                  <td>820</td>
+                  <td>2435</td>
+                  <td>840</td>
+                  <td>840</td>
+                  <td>840</td>
+                  <td>840</td>
                   <td>获取<SPAN replace="1">body对象</SPAN>的滚动宽度，如果不设置body宽度则为1543，即等于clientWidth。如果为隐式则指body内容的实际宽度</td>
                 </tr>
                 <tr>
                   <td>document.body.scrollHeight</td>
-                  <td>1030</td>
-                  <td>620</td>
-                  <td>620</td>
-                  <td>620</td>
-                  <td>620</td>
+                  <td>1035</td>
+                  <td>640</td>
+                  <td>640</td>
+                  <td>640</td>
+                  <td>640</td>
                   <td>获取<SPAN replace="1">body对象</SPAN>的滚动高度度，即等于clientHeight。如果为隐式则指body内容的实际高度</td>
                 </tr>
                 <tr>
@@ -188,7 +192,344 @@ console.log(document.body.scrollTop);//竖向滚动条的坐标<br>console.log(d
               </tbody>
           </table>
           
-          http://wangjianwei866.blog.163.com/blog/static/9295823200910385817632/
-        </div>
+          <table>
+              <caption>
+                chrome 24 下各属性运行值
+              </caption>
+              <thead>
+                <tr>
+                  <th rowspan="2">属性</th>
+                  <th colspan="5">在各文档模式下运行</th>
+                  <th rowspan="2">说明</th>
+                </tr>
+                <tr>
+                  <th>隐式</th>
+                  <th>Frameset模式</th>
+                  <th>Strict模式</th>
+                  <th>Transitional模式</th>
+                  <th>html5模式</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>document.body.clientWidth</td>
+                  <td>1583</td>
+                  <td>840</td>
+                  <td>840</td>
+                  <td>840</td>
+                  <td>840</td>
+                  <td>除了隐式为页面可视宽度（不包括滚动条），其他为body的width+内边距（padding），如果不设置width，则宽度为1553，即不包括外边距、边框和滚动条</td>
+                </tr>
+                <tr>
+                  <td>document.body.clientHeight</td>
+                  <td>732</td>
+                  <td>640</td>
+                  <td>640</td>
+                  <td>640</td>
+                  <td>640</td>
+                  <td>除了隐式为页面可视高度（不包括滚动条），其他为body的height+内边距（padding），如果不设置height，则宽度为1040，body内容的高度+padding</td>
+                </tr>
+                <tr>
+                  <td>document.body.clientLeft</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>获取body的border-left-width</td>
+                </tr>
+                <tr>
+                  <td>document.body.clientTop</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>获取body的border-top-width</td>
+                </tr>
+                <tr>
+                  <td>document.body.offsetWidth</td>
+                  <td>850</td>
+                  <td>850</td>
+                  <td>850</td>
+                  <td>850</td>
+                  <td>850</td>
+                  <td>获取body的实际宽度，不包括滚动条和外边距margin，但包括边框和内边距，如果不设置宽度为：1563</td>
+                </tr>
+                <tr>
+                  <td>document.body.offsetHeight</td>
+                  <td>650</td>
+                  <td>650</td>
+                  <td>650</td>
+                  <td>650</td>
+                  <td>650</td>
+                  <td>获取body的实际高度，不包括滚动条和外边距margin，但包括边框和内边距，如果不设置height，则宽度为1040，body内容的高度+padding</td>
+                </tr>
+                <tr>
+                  <td>document.body.offsetLeft</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>获取body相对于页面坐标计算的左侧位置。</td>
+                </tr>
+                <tr>
+                  <td>document.body.offsetTop</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>获取body相对于页面坐标计算的上侧侧位置。</td>
+                </tr>
+                <tr>
+                  <td>document.body.scrollWidth</td>
+                  <td>2435</td>
+                  <td>2435</td>
+                  <td>2435</td>
+                  <td>2435</td>
+                  <td>2435</td>
+                  <td>指body中内容的实际宽度</td>
+                </tr>
+                <tr>
+                  <td>document.body.scrollHeight</td>
+                  <td>1035</td>
+                  <td>1035</td>
+                  <td>1035</td>
+                  <td>1035</td>
+                  <td>1035</td>
+                  <td>指body中内容的实际高度</td>
+                </tr>
+                <tr>
+                  <td>document.body.scrollLeft</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>设置或获取位于<SPAN replace="1">对象</SPAN>左边界和窗口中目前可见内容的最左端之间的距离。</td>
+                </tr>
+                <tr>
+                  <td>document.body.scrollTop</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>设置或获取位于<SPAN replace="1">对象</SPAN>最顶端和窗口中可见内容的最顶端之间的距离。</td>
+                </tr>
+              </tbody>
+          </table>
+          
+          <table>
+              <caption>
+                IE8 下各属性运行值
+              </caption>
+              <thead>
+                <tr>
+                  <th rowspan="2">属性</th>
+                  <th colspan="5">在各文档模式下运行</th>
+                  <th rowspan="2">说明</th>
+                </tr>
+                <tr>
+                  <th>隐式</th>
+                  <th>Frameset模式</th>
+                  <th>Strict模式</th>
+                  <th>Transitional模式</th>
+                  <th>html5模式</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>document.body.clientWidth</td>
+                  <td>1573</td>
+                  <td>840</td>
+                  <td>840</td>
+                  <td>840</td>
+                  <td>840</td>
+                  <td>除了隐式为页面可视宽度（不包括滚动条），其他为body的width+内边距（padding），如果不设置width，则宽度为1553，即不包括外边距、边框和滚动条</td>
+                </tr>
+                <tr>
+                  <td>document.body.clientHeight</td>
+                  <td>693</td>
+                  <td>640</td>
+                  <td>640</td>
+                  <td>640</td>
+                  <td>640</td>
+                  <td>除了隐式为页面可视高度（不包括滚动条），其他为body的height+内边距（padding），如果不设置height，则宽度为1040，body内容的高度+padding</td>
+                </tr>
+                <tr>
+                  <td>document.body.clientLeft</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>获取body的border-left-width</td>
+                </tr>
+                <tr>
+                  <td>document.body.clientTop</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>获取body的border-top-width</td>
+                </tr>
+                <tr>
+                  <td>document.body.offsetWidth</td>
+                  <td>1600</td>
+                  <td>850</td>
+                  <td>850</td>
+                  <td>850</td>
+                  <td>850</td>
+                  <td>隐式模式下为页面的宽度，包括外边距、滚动条、边框和内边距；其他获取body的实际宽度，不包括滚动条和外边距margin，但包括边框和内边距，如果不设置宽度为：1549</td>
+                </tr>
+                <tr>
+                  <td>document.body.offsetHeight</td>
+                  <td>720</td>
+                  <td>650</td>
+                  <td>650</td>
+                  <td>650</td>
+                  <td>650</td>
+                  <td>隐式模式下为页面的高度，包括外边距、滚动条、边框和内边距；其他获取body的实际高度，不包括滚动条和外边距margin，但包括边框和内边距</td>
+                </tr>
+                <tr>
+                  <td>document.body.offsetLeft</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>获取body相对于页面坐标计算的左侧位置。注意是负值</td>
+                </tr>
+                <tr>
+                  <td>document.body.offsetTop</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>获取body相对于页面坐标计算的上侧侧位置。注意是负值</td>
+                </tr>
+                <tr>
+                  <td>document.body.scrollWidth</td>
+                  <td>2460</td>
+                  <td>2420（ie7为2460）</td>
+                  <td>2420（ie7为2460）</td>
+                  <td>2420（ie7为2460）</td>
+                  <td>2420（ie7为2460）</td>
+                  <td>指body中内容的实际宽度+body的margin-left，隐式下为计算body中的内容的宽度+body外边距和边框</td>
+                </tr>
+                <tr>
+                  <td>document.body.scrollHeight</td>
+                  <td>1060</td>
+                  <td>1020（ie7为1060）</td>
+                  <td>1020（ie7为1060）</td>
+                  <td>1020（ie7为1060）</td>
+                  <td>1020（ie7为1060）</td>
+                  <td>指body中内容的实际高度+body的margin-top，隐式下为计算body中的内容的高度+body外边距和边框</td>
+                </tr>
+                <tr>
+                  <td>document.body.scrollLeft</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>设置或获取位于<SPAN replace="1">对象</SPAN>左边界和窗口中目前可见内容的最左端之间的距离。</td>
+                </tr>
+                <tr>
+                  <td>document.body.scrollTop</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>设置或获取位于<SPAN replace="1">对象</SPAN>最顶端和窗口中可见内容的最顶端之间的距离。</td>
+                </tr>
+              </tbody>
+          </table>
+          
+          <p>通过以上运行结果，下面分组总结</p>
+          <h4>document.body.clientWidth 、 
+          document.body.clientHeight  、
+          document.body.clientLeft、
+          document.body.clientTop</h4>
+          <p>在标准兼容模式下，即document.compatMode值为CSS1Compat，各大浏览器返回的值是一样的。
+          document.body.clientWidth返回的值为body的width+内边距，的。
+          document.body.clientHeight返回的值为body的height+内边距、
+          document.body.clientLeft为border-left-width的值、
+          document.body.clientTop为border-top-width的值。<a href="http://www.w3.org/TR/cssom-view/#dom-element-clientwidth" target="_blank">看w3c中的解释</a>。</p>
+          
+      <p>但在document.compatMode值为BackCompat下，是返回页面可视化高宽度，不包括滚动条，但在ie下还不包括外边距</p>
+ 		<h4>document.body.offsetWidth 、 
+          document.body.offsetHeight  、
+          document.body.offsetLeft、
+          document.body.offsetTop</h4>
+          
+        <p>这几个属性与offsetParent 有关，而body除外。详细<a href="http://www.w3.org/TR/cssom-view/#offset-attributes" target="_blank">看w3c的解释</a></p>
+          <h4>document.body.scrollWidth 、 
+          document.body.scrollHeight  、
+          document.body.scrollLeft、
+          document.body.scrollTop</h4>
+          
+        <p>这几个属性与滚动元素有关。详细<a href="http://www.w3.org/TR/cssom-view/#element-scrolling-members" target="_blank">看w3c的解释</a></p>
+      <h3 paragraph="3">其他DOM元素对象中坐标和位置的相关属性</h3>
+      <p>在第二节中介绍body的相关属性实际上就是DOM元素中的一个特例，下面来看所有DOM元素的这些属性。</p>
+      <p>我们结合官方提供的文档来分析一下这些属性。这些属性可以分为三组：client、offset和scroll，首先看client</p>
+      <h4>clientWidth 、 
+          clientHeight  、
+          clientLeft、
+          clientTop</h4>
+      <p>The clientTop, clientLeft, clientWidth, and clientHeight attributes must return zero if the element does not have any associated CSS layout box or if the CSS layout box is inline.</p>
+      <p>翻译为：如果元素没有关联的css layout box（即本身没有内容，也没有边框和边距，祖先元素也没有高宽度）或者该元素为级联元素（行内元素），则这些属性返回0。</p>
+      <p class="h-web-font-red">clientTop 返回元素的'border-top-width'值</p>
+      <p class="h-web-font-red">clientLeft 返回元素的'border-left-width'值</p>
+      <p class="h-web-font-red">clientWidth 返回元素的可视宽度（包括内边距padding，但不包括边框、外边距和滚动条），即元素的宽度+padding-滚动条宽度</p>
+      <p class="h-web-font-red">clientHeight 返回元素的可视高度（包括内边距padding，但不包括边框、外边距和滚动条），即元素的高度+padding-滚动条宽度</p>
+      <p>以上属性firefox、chrome在标准模式和怪异模式下显示都是一样的。ie在怪异模式下计算结果为，clientWidth：元素的宽度减去边框再减去滚动条；clientHeight：元素的高度减去边框再减去滚动条。ie在正常模式下与firefox一样。clientLeft和clientTop在标准和怪异模式下都与firefox一样。</p>
+      <h4>offsetParent、offsetWidth 、 
+          offsetHeight  、
+          offsetLeft、
+          offsetTop</h4>
+      <p>offsetParent在以下情况下返回null</p>
+      <ul>
+        <li>The element does not have an associated CSS layout box.</li>
+        <li>The element is the root element.</li>
+        <li>The element is <a href="http://www.w3.org/TR/cssom-view/#the-html-body-element">the HTML body element</a>.</li>
+        <li>The element's computed value of the 'position' property is fixed.</li>
+      </ul>
+      <p>对于最后一种情况，firefox下也可以返回offsetParent</p>
+      <p>offsetParent返回最近祖先元素的规则需要判断祖先元素，规则为：</p>
+      <ul>
+        <li>The computed value of the 'position' property is not static.</li>
+        <li>It is <a href="http://www.w3.org/TR/cssom-view/#the-html-body-element">the HTML body element</a>.</li>
+        <li>The computed value of the 'position' property of the element is static and the ancestor is one of the following <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/infrastructure.html#html-elements" title="HTML elements">HTML elements</a>: td, th, or table.</li>
+      </ul>
+      <p>offsetLeft 返回offsetParent的padding边缘到该元素的border边缘的y-coordinate距离</p>
+      <p>offsetTop 返回offsetParent的padding边缘到该元素的border边缘的x-coordinate距离</p>
+      <p>如果offsetParent为空，则返回“the coordinate of the left <a href="http://www.w3.org/TR/cssom-view/#border-edge">border edge</a> of the first CSS layout box associated with the element”</p>
+      <p>offsetWidth和offsetWidth返回元素的大小加上内边距和边框，即有以下简单计算</p>
+      <p class="h-web-font-red">offsetWidth = clientWidth + borderLeftWidth +borderRightWidth + srollWidth = width + border +padding</p>
+      <p class="h-web-font-red">offsetHeight = clientHeight + borderTopWidth +borderBottomWidth + srollWidth = height + border +padding</p>
+      <p class="h-web-font-red">注意ie的怪异模式跟标准模式不一样</p>
+      
+      <h4>scrollIntoView方法，scrollWidth 、 
+          scrollHeight  、
+          scrollLeft、
+          scrollTop</h4>
+      <p>scrollLeft和scrollTop简单的理解就是元素滚动条的相对元素本身的移动坐标，详细解释参考w3c，<span class="h-web-font-red">该属性是可写的</span></p>
+      <p>scrollWidth：Return the computed value of the 'padding-left' property, plus the computed value of the 'padding-right', plus the <a href="http://www.w3.org/TR/cssom-view/#content">content</a> width of the element.</p>
+      <p>scrollHeight：Return the computed value of the 'padding-top' property, plus the computed value of the 'padding-bottom', plus the <a href="http://www.w3.org/TR/cssom-view/#content">content</a> height of the element.</p>
+      <p class="h-web-font-red">注意：1、需要减去scroll的宽度，2、是指内容的实际宽度，而非可见宽度</p>
+      <p class="h-web-font-red">注意ie的怪异模式跟标准模式不一样</p>
+      <p>scrollIntoView方法的作用是让该元素的最左边、最上边靠近父元素的border边缘</p>
+      <p>以下是测试代码</p>
+      <pre>&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>    &lt;head&gt;<br>        &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /&gt;<br>        &lt;title&gt;&lt;/title&gt;<br>        &lt;style type="text/css"&gt;<br>            #outerDiv{<br>                padding: 15px;<br>                margin: 25px;<br>                border: 5px solid #005B73;<br>                width: 300px;<br>                height:200px;<br>                overflow: auto;<br>            }<br>            <br>            #innerDiv{<br>                padding: 9px;<br>                margin: 21px;<br>                border: 8px solid #005B73;<br>                width: 500px;<br>                height:300px;<br>                overflow: scroll;<br>            }<br>        &lt;/style&gt;<br>    &lt;/head&gt;<br>    &lt;body&gt;<br>        &lt;div id="outerDiv"&gt;<br>            &lt;div style="overflow:scroll;"&gt;上侧div&lt;/div&gt;<br>            &lt;div id="innerDiv"&gt;<br>                测试内容<br>            &lt;/div&gt;<br>        &lt;/div&gt;<br>    &lt;/body&gt;<br>    &lt;script type="text/javascript"&gt;<br>        var innerDiv = document.getElementById('innerDiv');<br>        console.log('clientWidth 的值： ' + innerDiv.clientWidth);<br>        console.log('clientHeight 的值： ' + innerDiv.clientHeight);<br>        console.log('clientLeft 的值： ' + innerDiv.clientLeft);<br>        console.log('clientTop 的值： ' + innerDiv.clientTop);<br>        <br>        console.log('offsetParent 的值： ' + innerDiv.offsetParent);<br>        console.log('offsetWidth 的值： ' + innerDiv.offsetWidth);<br>        console.log('offsetHeight 的值： ' + innerDiv.offsetHeight);<br>        console.log('offsetLeft 的值： ' + innerDiv.offsetLeft);<br>        console.log('offsetTop 的值： ' + innerDiv.offsetTop);<br>        <br>        console.log('scrollWidth 的值： ' + innerDiv.scrollWidth);<br>        console.log('scrollHeight 的值： ' + innerDiv.scrollHeight);<br>        console.log('scrollLeft 的值： ' + innerDiv.scrollLeft);<br>        console.log('scrollTop 的值： ' + innerDiv.scrollTop);<br>    &lt;/script&gt;<br>&lt;/html&gt;</pre>
+      <p>&nbsp;</p>
+      <p>参考资料：<a href="http://www.w3.org/TR/cssom-view/" target="_blank">w3c官方解释</a></p>      
+      </div>
     </body>
 </html>

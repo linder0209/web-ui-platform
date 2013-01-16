@@ -11,13 +11,19 @@
     <body>
         <h3 class="h-web-paragraph-title">目录</h3>
         <ol class="h-web-catalogue">
-            <li><a paragraph="1" href="#">window对象中坐标和位置的相关属性</a></li>
-            <li><a paragraph="2" href="#"> document对象中坐标和位置的相关属性</a></li>
-			<li><a paragraph="3" href="#">其他DOM元素对象中坐标和位置的相关属性</a></li>
+            <li><a paragraph="1" href="#">jQuery中相关方法</a></li>
+            <li><a paragraph="2" href="#">jQuery UI中相关方法</a></li>
         </ol>
         <div class="h-web-paragraph">
-          <h3 paragraph="1">window对象中坐标和位置的相关属性</h3>
-          
+            <h3 paragraph="1">jQuery中相关方法</h3>
+            <h3 paragraph="1">jQuery UI中相关方法</h3>
+            <h4>.scrollParent()</h4>
+            <p>Get the closest ancestor element that is scrollable.</p>
+            <p>
+          返回某一元素有滚动条的最近祖先节点。</p>
+            <p>如果该元素position为fixed或直接父节点没有滚动条，则该元素有滚动条的父节点为document<br>
+            </p>
+            <p>判断直接父节点是否有滚动条分为两种情况，一种是该元素有定位，另一种没有定位，如果是定位，除了判断祖先节点overflow的设置，还需加上定位判断，否则直接判断祖先节点的overflow设置。这里ie与其他浏览器有所不同。</p>
         </div>
     </body>
 </html>

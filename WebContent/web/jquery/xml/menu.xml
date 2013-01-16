@@ -14,9 +14,9 @@
         <id>level_2</id>
         <name>jQuery UI</name>
         <module>jqueryui</module>
-        <children id="level2_1" name="jQuery UI API" href="" module="api" />
-        <children id="level2_2" name="jQuery UI 源码分析" href="" module="source" />
-        <children id="level2_2" name="jQuery UI 皮肤" href="" module="skin" />
-        <children id="level2_2" name="jQuery UI 插件扩展" href="" module="plugin" />
+        <children id="level2_1" name="jQuery UI 源码分析" href="./jqueryui/source/index.html" module="source" />
+        <children id="level2_2" name="jQuery UI API" href="" module="api" />
+        <children id="level2_3" name="jQuery UI 皮肤" href="" module="skin" />
+        <children id="level2_4" name="jQuery UI 插件扩展" href="" module="plugin" />
     </menu>
 </menus>

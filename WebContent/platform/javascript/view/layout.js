@@ -170,9 +170,11 @@
                         e.preventDefault();
                         var paragraphNum = $(this).attr('paragraph'),
                             paragraph = $('#body_content_frame .h-web-paragraph h3[paragraph="' + paragraphNum + '"]'),
-                                offset = paragraph.offset();
+                            offset = paragraph.offset();
                         //当html文档头部包含有“文档类型声明”时，需要用document.documentElement.scrollTop获得正确的值，而document.body.scrollTop的值为0 
-                        document.documentElement.scrollTop = offset.top;
+                        if(offset){
+                            document.documentElement.scrollTop = offset.top;
+                        }
                         //当html文档头部不包含任何“文档类型声明”时，需要用document.body.scrollTop获得正确的值，而document.documentElement.scrollTop的值为0
                         //document.body.scrollTop = offset.top;
                 });
