@@ -17,7 +17,71 @@
         </ol>
         <div class="h-web-paragraph">
             <h3 paragraph="1">UI Core</h3>
-            <p paragraph="1">首先看源文件jquery.ui.core.js</p>
+            <p>首先看源文件jquery.ui.core.js，该文件中定义了以下api</p>
+            <h4>scrollParent()方法</h4>
+            <p>Get the closest ancestor element that is scrollable.</p>
+            <p>返回某一元素有滚动条的最近祖先节点。</p>
+            <p>如果该元素position为fixed或直接父节点没有滚动条，则该元素有滚动条的父节点为document<br>
+            </p>
+            <p>判断直接父节点是否有滚动条分为两种情况，一种是该元素有定位，另一种没有定位，如果是定位，除了判断祖先节点overflow的设置，还需加上定位判断，否则直接判断祖先节点的overflow设置。这里ie与其他浏览器有所不同。</p>
+            <p class="h-web-font-red"><em>Note: This method only works on jQuery objects containing one element.</em></p>
+            <h4>zIndex()方法</h4>
+            <p>Get the z-index for an element.</p>
+            <p>设置或返回元素的zIndex，注意，如果当前元素没有定位（即position不是fixed、relative和absolute）会查找其有定位的祖先节点的zIndex</p>
+            <h4>uniqueId()方法</h4>
+            <p>Generate and apply a unique id for the set of matched elements.</p>
+            <p>如果元素没有属性id，则设置其id属性值，是以ui-id-开头的</p>
+            <h4>removeUniqueId()方法</h4>
+            <p paragraph="1">Remove ids that were set by .uniqueId() for the set of matched elements.</p>
+            <p paragraph="1">删除元素的id属性值，注意只删除uniqueId方法加入的id，本身存在的id不删除</p>
+            <h4>选择器（selectors） :data() Selector、:focusable Selector 和 :tabbable Selector</h4>
+            <p>第一个匹配指设置了data的元素；第二个是匹配可以获取焦点的dom元素，匹配规制为：首先该元素可见（即该元素或祖先元素没有设置display为none，并且该元素也不是input为hidden的元素，这种情况的判断是通过$.expr.filters.visible( element )来实现的；再就是该元素以及祖先元素的visibility不能为hidden），其次如果元素为input|select|textarea|button|object，则需判断是否设置了disabled ，如果是a标签，则需判断是否设置了href或tabIndex，对于其他html标签，则只需判断是否设置了tabIndex即可。最后一个匹配规制是在第二个基础上必须设置了tabIndex属性。</p>
+            <p>看以下例子</p>
+            <pre>$( ":data(color)" ).each(function() {<br>var element = $( this );<br>element.css( "backgroundColor", element.data( "color" ) );<br>});</pre>
+          <pre>&lt;div&gt;&lt;input value="text input"&gt;&lt;/div&gt;<br>&lt;div&gt;&lt;a&gt;anchor without href&lt;/a&gt;&lt;/div&gt;<br>&lt;div&gt;&lt;a href="#"&gt;anchor with href&lt;/a&gt;&lt;/div&gt;<br>&lt;div&gt;&lt;p&gt;paragraph without tabindex&lt;/p&gt;&lt;/div&gt;<br>&lt;div&gt;&lt;p tabindex="1"&gt;paragraph with tabindex&lt;/p&gt;&lt;/div&gt;
+$( ":focusable" ).css( "border-color", "red" );//1 3 5 匹配成功</pre>
+            <pre>&lt;div&gt;&lt;input value="no tabindex"&gt;&lt;/div&gt;<br>&lt;div&gt;&lt;input tabindex="5" value="positive tabindex"&gt;&lt;/div&gt;<br>&lt;div&gt;&lt;input tabindex="-1" value="negative tabindex"&gt;&lt;/div&gt;
+$( ":tabbable" ).css( "border-color", "red" );// 1 2 匹配成功，不设置tabindex时也匹配成功</pre>
+             <h4>disableSelection和enableSelection方法</h4>
+
+            <p>禁止鼠标选择和解除鼠标选择</p>
+            <h4>jQuery ui plugin</h4>
+            <p>$.ui.hasScroll : function( el, a )</p>
+            <p>判断元素el是否有滚动条，默认判断垂直滚动条，a设为left则判断横向滚动条</p>
+            <p>$.ui.hasScroll.isOver: function( y, x, top, left, height, width ) </p>
+            <p>判断坐标x，y是否落在了给定的坐标范围内</p>
+            
+          <h3 paragraph="2">Utilities</h3>
+            
+            <p>该模块中包含了jquery.ui.position.js、jquery.ui.widget.js和jquery.ui.mouse.js</p>
+            <p>1、首先看源文件jquery.ui.position.js，该文件中主要围绕$.fn.position（该方法扩展了jQuery中的$.fn.position）展开。<span class="h-web-font-red">该文件可脱离jquery ui 单独作为工具类使用</span>。</p>
+            <h4>$.position.scrollbarWidth()</h4>
+          <p>返回滚动条的宽度，该方法只会计算一次，会吧计算的结果缓存到变量中，计算的过程中动态插入了可滚动的div来辅助计算。</p>
+            <h4>$.position.getScrollInfo: function( within ) </h4>
+
+            <p>返回元素垂直和水平滚动条的宽度，返回值格式为：{width:0,height:0}。该方法传入的参数within需要调用$.position.getWithinInfo(element)包装一下。</p>
+            <h4>$.fn.position(options ) </h4>
+            <p>设置一个元素相对于另一个元素的位置坐标</p>
+            <p>参数options有以下几个选项</p>
+            <p>my：设置该元素定位的参照点，是以该元素来计算坐标的。默认值为: 'center'，相当于'center center'，该选项中有两个值，前一个值指水平方向，后一个指垂直方向。A single value such as "right" will be normalized to "right center", "top" will be normalized to "center top"，还可以设置为以下值："right+10 top-25%"。</p>
+          <p>at：设置该元素要定位的坐标点，是以目标元素来计算的。默认值为: 'center'，可设置的值与<span class="h-web-font-red">'my'</span>中一样。</p>
+          <p>of：指参照的目标元素，Type: <a href="http://api.jquery.com/Types#Selector" target="_blank">Selector</a> or <a href="http://api.jquery.com/Types#Element" target="_blank">Element</a> or <a href="http://api.jquery.com/Types#jQuery" target="_blank">jQuery</a> or <a href="http://api.jquery.com/Types#Event" target="_blank">Event</a>，默认值为null，如果为null则调用jQuery中的方法$.fn.position返回该元素坐标值。</p>
+          <p>collision：当元素坐标超出window窗口时所采取的策略，有以下几种：flip，翻转（投影）；fit，远离窗口边缘，flipfit，首先翻转，再远离；none，不检测。默认值为"flip"</p>
+          <p>using：可以设置该选项，传入回调函数</p>
+          <p>within：碰壁检查参考的DOM元素，指collision的参考值。Type: Selector or Element or jQuery</p>
+          
+          
+          <h4>$.support.offsetFractions</h4>
+          <p>判断css设置像素值是否支持小数</p>
+          <p>2、下面看jquery.ui.widget.js文件</p>
+          <h4>$.widget = function( name, base, prototype )</h4>
+          <p>该方法提供了创建jQuery ui的工厂方法。</p>
+          <p>下面以创建ui.dialog来分析该方法的执行过程</p>
+          <pre>$.widget("ui.dialog", {<br>   //...<br>});</pre>
+          <p>当执行上面的方法时</p>
+          
+          
+          <p>&nbsp;</p>
             
             <p>参考资料</p>
             <p><a href="http://api.jqueryui.com/" target="_blank">jQuery UI API</a></p>
