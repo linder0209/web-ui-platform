@@ -9,6 +9,72 @@
         <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
     </head>
     <body>
-        http://www.cnblogs.com/dail/archive/2010/06/28/1766805.html
+    <h3 class="h-web-paragraph-title">目录</h3>
+        <ol class="h-web-catalogue">
+            <li><a paragraph="1" href="#">The jQuery UI CSS Framework</a></li>
+            <li><a paragraph="2" href="#">Framework Classes</a></li>
+            <li><a paragraph="3" href="#">怎样构件CSS Framework</a></li>
+            <li><a paragraph="4" href="#">参考资料</a></li>
+        </ol>
+    <div class="h-web-paragraph">
+      <h3 paragraph="1">The jQuery UI CSS Framework</h3>
+        <p>jQuery UI 包含了一个强大的 CSS 框架来帮助我们设计 jQuery UI 组件，这个框架包含了许多普通用户经常会用到的 class，可以利用jQuery UI ThemeRoller 来生成自己想要的主题。当你在使用 jQuery UI CSS 框架来开发插件时，你必须要遵守一些约定，这样才能更好地使用 jQuery UI  CSS 框架。        </p>
+        
+      <h3 paragraph="2">Framework Classes</h3>
+        
+        <p>jQuery UI中两大核心的css文件是ui.core.css和ui.theme.css。这两个css样式文件贯穿于整个基于jQuery UI的界面中。我们可以通过jQuery UI ThemeRoller来生成自己想要的样式。下面分类看这两个css文件中定义的class样式。</p>
+        <h4>Layout Helpers</h4>
+        <p>.ui-helper-hidden: 给元素设置 display: none 属性。</p>
+        <p>.ui-helper-hidden-accessible: 利用绝对定位使其元素不可见</p>
+        <p>.ui-helper-reset: 重置元素样式为默认值： padding, margins, text-decoration, list-style,等属性</p>
+        <p>.ui-helper-clearfix: 设置包裹浮动元素的父元素样式，用来清除浮层</p>
+        <p>.ui-helper-zfix: 当元素需要覆盖在最上面是设置此属性</p>
+        <h4>Widget Containers</h4>
+        <p>.ui-widget: 这个 class 会被用在外部容器上，它会给内部的元素统一字体、字号。</p>
+        <p>.ui-widget-header: 这个 class 会被用在标题容器上，同样，它也主要是给容器内部的元素统一一些属性的</p>
+      <p>.ui-widget-content: 这个 class 会被用在内容容器上，作用同上</p>
+        <h4>Interaction States</h4>
+        <p>.ui-state-default: 元素的默认样式</p>
+        <p>.ui-state-hover: 元素为hover状态的样式</p>
+        <p>.ui-state-focus:元素为focus状态的样式</p>
+      <p>.ui-state-active:元素为active状态（一般为鼠标选中）的样式</p>
+        <h4>Interaction Cues</h4>
+        <p>.ui-state-highlight: 设置高亮样式</p>
+        <p>.ui-state-error: 设置错误样式</p>
+        <p>.ui-state-error-text: 设置文本错误样式</p>
+        <p>.ui-state-disabled: 设置禁用样式</p>
+        <p>.ui-priority-primary: 设置高优先级样式</p>
+        <p>.ui-priority-secondary: 设置低优先级样式</p>
+        <h4>Icons</h4>
+        <h5>States and images</h5>
+        <p>.ui-icon: 图标元素的基础 class，它会设置一个 16px 大小的正方形，隐藏内部文字，把背景设置成当前状态的背景</p>
+        <h5>Icon types</h5>
+        <p>当你给 a 设置了 &ldquo;.ui-icon&rdquo; class 后，你可以再设置一个描述性的 class，格式如下： .ui-icon-{icon type}-{icon sub description}-{direction}.</p>
+        <p>例如一个单一的三角形图标： .ui-icon-triangle-1-e        </p>
+        <h4>Misc Visuals</h4>
+      <h5>Corner Radius helpers</h5>
+      <p>.ui-corner-tl: 给元素的左上角设置圆角</p>
+      <p>.ui-corner-tr: 给元素的右上角设置圆角</p>
+      <p>.ui-corner-bl: 给元素的左下角设置圆角</p>
+      <p>.ui-corner-br: 给元素的右下角设置圆角</p>
+      <p>.ui-corner-top: 给元素的上部设置圆角</p>
+      <p>.ui-corner-bottom: 给元素的下部设置圆角</p>
+      <p>.ui-corner-right: 给元素的右边设置圆角</p>
+      <p>.ui-corner-left: 给元素的左边设置圆角</p>
+      <p>.ui-corner-all: 设置所有圆角</p>
+      <h5>Overlay & Shadow      </h5>
+      <p>.ui-widget-overlay: 设置遮罩层</p>
+      <p>.ui-widget-shadow: 设置阴影</p>
+      
+      <h3 paragraph="3">怎样构件CSS Framework</h3>
+      
+      <p>在写jQuery ui widget的时候合适的利用这些css就可以做出和jQuery ui theme兼容的自定义ui来。 jQuery ui 提供了一些基本的widget，但是他提供了很好的机制来创建widget。在jQuery css framework中包含了基本的css样式（视觉和感觉诸如颜色，字体大小，图标等），而在ui的css中，则需要定义构建widget结构的css，比如margin，padding，position等。在开发widget的时候也要尽量遵循这一原则，这样才能很好的利用jquery theme roller来应用样式，从而在整体上保持一致      </p>
+      <h3 paragraph="4">参考资料</h3>
+        <p><a href="http://docs.jquery.com/UI/Theming/API" target="_blank">官方文档</a></p>
+        <p><a href="http://www.dozer.cc/2011/04/translate-jquery-ui-css-framework-docs" target="_blank">翻译官方文档</a></p>
+        <p><a href="http://www.cnblogs.com/dail/archive/2010/06/28/1766987.html" target="_blank">Dail总结的</a></p>
+        
+        
+        </div>
     </body>
 </html>
