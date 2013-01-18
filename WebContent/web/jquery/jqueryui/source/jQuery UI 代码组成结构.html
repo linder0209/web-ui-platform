@@ -55,7 +55,7 @@ $( ":tabbable" ).css( "border-color", "red" );// 1 2 匹配成功，不设置tab
           <h3 paragraph="2">Utilities</h3>
             
             <p>该模块中包含了jquery.ui.position.js、jquery.ui.widget.js和jquery.ui.mouse.js</p>
-            <p>1、首先看源文件jquery.ui.position.js，该文件中主要围绕$.fn.position（该方法扩展了jQuery中的$.fn.position）展开。<span class="h-web-font-red">该文件可脱离jquery ui 单独作为工具类使用</span>。</p>
+            <p>首先看源文件jquery.ui.position.js，该文件中主要围绕$.fn.position（该方法扩展了jQuery中的$.fn.position）展开。<span class="h-web-font-red">该文件可脱离jquery ui 单独作为工具类使用</span>。</p>
             <h4>$.position.scrollbarWidth()</h4>
           <p>返回滚动条的宽度，该方法只会计算一次，会吧计算的结果缓存到变量中，计算的过程中动态插入了可滚动的div来辅助计算。</p>
             <h4>$.position.getScrollInfo: function( within ) </h4>
@@ -74,7 +74,7 @@ $( ":tabbable" ).css( "border-color", "red" );// 1 2 匹配成功，不设置tab
           
           <h4>$.support.offsetFractions</h4>
           <p>判断css设置像素值是否支持小数</p>
-          <p>2、下面看jquery.ui.widget.js文件</p>
+          <p>下面看jquery.ui.widget.js文件</p>
           <h4>$.widget = function( name, base, prototype )</h4>
           <p>该方法提供了创建jQuery UI的工厂方法，核心是创建构造方法并利用桥接方法组装到$对象中。以下是核心代码</p>
           <pre>        //构造函数，分两种情况，直接new constructor，或者调用父类中_createWidget<br>        constructor = $[ namespace ][ name ] = function(options, element) {        <br>            if (!this._createWidget) {<br>                return new constructor(options, element);<br>            }<br>            if (arguments.length) {<br>                this._createWidget(options, element);<br>            }<br>        };</pre>
@@ -87,12 +87,123 @@ $( ":tabbable" ).css( "border-color", "red" );// 1 2 匹配成功，不设置tab
           <pre>//定义了创建组件的公共方法<br>    $.Widget = function( /* options, element */ ) {<br>    };<br>    $.Widget._childConstructors = [];<br><br>    $.Widget.prototype = {<br>        widgetName: "widget",<br>        widgetEventPrefix: "",<br>        defaultElement: "&lt;div&gt;",<br>        options: {//默认提供了两个属性<br>            disabled: false,<br>            // callbacks<br>            create: null<br>        },<br>        /**<br>         * 创建组件会调用该方法<br>         * @param {type} options<br>         * @param {type} element<br>         */<br>        _createWidget: function(options, element) {<br>            element = $(element || this.defaultElement || this)[ 0 ];<br>            this.element = $(element);<br>            this.uuid = uuid++;<br>            this.eventNamespace = "." + this.widgetName + this.uuid;<br>            this.options = $.widget.extend({},<br>                    this.options,<br>                    this._getCreateOptions(),<br>                    options);<br><br>            this.bindings = $();<br>            this.hoverable = $();<br>            this.focusable = $();<br><br>            if (element !== this) {<br>                // 1.9 BC for #7810<br>                // TODO remove dual storage<br>                $.data(element, this.widgetName, this);<br>                $.data(element, this.widgetFullName, this);<br>                this._on(true, this.element, {<br>                    remove: function(event) {<br>                        if (event.target === element) {<br>                            this.destroy();<br>                        }<br>                    }<br>                });<br>                //设置原生的 document和window对象，注意取法，没有直接用document和window赋值<br>                this.document = $(element.style ?<br>                        // element within the document<br>                        element.ownerDocument :<br>                        // element is window or document<br>                        element.document || element);<br>                this.window = $(this.document[0].defaultView || this.document[0].parentWindow);<br>            }<br>            //调用_create方法，这里会切换到$.each( prototype, function( prop, value ) {此处定义的方法，在此处再调用实现组件时创建的_create方法<br>            this._create();<br>            this._trigger("create", null, this._getCreateEventData());<br>            this._init();<br>        },<br>        <br>        ...<br>    };</pre>
           <p>除了代码中几个属性和方法，实现jQuery UI的关键父类还提供了以下方法，现逐一介绍</p>
           <img src="images/$.Widget.prototype类图.jpg" />
-          <p>&nbsp;</p>
-          <p>下面以创建ui.dialog来分析该方法的执行过程</p>
-          <pre>$.widget("ui.dialog", {<br>   //...<br>});</pre>
-          <p>当执行上面的方法时</p>
-          <p>&nbsp;</p>
-          <p>以下是代码调用过程图</p>
+          
+          <h5>options</h5>
+          <p>选项中默认有两个属性disabled和create。disabled可以设置其显示状态，create可以设置回调函数，即事件，当创建时执行该函数。例如</p>
+          <pre>$('#dialogDemo').dialog({create: function(){console.info(11)}});<br>$("#dialogDemo").dialog( "option", "disabled", true );//置为灰色</pre>
+          
+          <h5>_createWidget</h5>
+          
+          <p>组件构造函数，<span class="h-web-font-red">该方法是$.Widget本身定义的，不需要扩展</span></p>
+          
+          <h5>_create()</h5>
+          
+          <p>这个方法就是创建widget的方法，在页面调用widget的时候，就会执行此方法，来构建widget。Widget的绝大大多数行为和结构都是在这里创建的。所以要想创建jQuery UI，则必须重写该方法。该方法没有参数。</p>
+          <h5>_getCreateOptions()</h5>
+          <p>自定义创建options，该方法大多数情况下不需重写，除非返回比较复杂的options时，一般情况下在定义的时候即把想要设置的options初始化即可。jquery.ui.spinner.js中实现了方法_getCreateOptions()</p>
+          <h5>_getCreateEventData()</h5>
+          <p>返回要创建的事件数据</p>
+          <h5>_init()</h5>
+          <p>这个方法大多数时候不会被重写，这个方法在构建widget的时候在_create后执行。</p>
+          <p class="h-web-font-red">当widget被创建的时候，_create()和_init()这两个方法都会被创建，而当页面再次调用widget的时候，则只执行_init()方法</p>
+          <h5>destroy()</h5>
+          <p>Removes the jQuery.Widget functionality completely. This will return the element back to its pre-init state</p>
+          <p>对于destroy方法，在删除掉该组件的实例化时会被执行！所以在destroy的方法中必须将widget自己加的html结构删除掉。还原成应用widget前的状态。</p>
+          <h5>_destroy()</h5>
+          <p>The public <a href="http://api.jqueryui.com/jQuery.widget/#method-destroy" target="_blank">destroy()</a> method cleans up all common data, events, etc. and then delegates out to _destroy() for custom, widget-specific, cleanup. </p>
+          <h5>widget()</h5>
+          <p>返回组件中的DOM元素          </p>
+          <h5>option(options)</h5>
+          <p>设置一个或更多选项</p>
+          <h5>_setOptions(options)</h5>
+          <p>当设置option()时调用该方法，该方法根据需要可以重写</p>
+          <h5>_setOption(key, value)</h5>
+          <p>_setOptions调用时，会循环调用该方法。此方法提供了options的属性的设置，一般情况下如果options里面的参数不需要特殊处理（校验，类型转换，以及设置属性的时候触发某一操作等）的时候不需要对此方法进行重写。</p>
+          <h5>enable()</h5>
+          <p>显示组件为正常状态</p>
+          <h5>disable()</h5>
+          <p>置灰组件</p>
+          <h5>_on( [element ], handlers)</h5>
+          <p>给元素绑定事件，即给$('.selector')绑定事件，这样就可以触发该事件</p>
+          <h5>_off( element, eventName )</h5>
+          <p>解除事件</p>
+          <h5>_delay(fn [, delay ])</h5>
+          <p>延迟要执行的函数</p>
+          <h5>_hoverable(element )</h5>
+          <p>设置元素element可以应用样式.ui-state-hover的行为，即鼠标进入mouseenter和离开mouseleave的事件</p>
+          <h5>_focusable(element)</h5>
+          <p>同上，设置焦点行为</p>
+          <h5>_trigger(type [, event ] [, data ])</h5>
+          <p>如果有自定义的事件，可以采用widget为我们封装好的方法来处理_trigger()这个方法来处理，其调用方法 this._trigger(type, event, data)，第一个参数为时间类型，第二个参数为事件event对象，第三个参数为事件要传递的参数。The event name is the widget name + type.</p>
+          <h5>_show( element, option [, callback ] )</h5>
+          <p>组件显示</p>
+          <h5>_hide( element, option [, callback ] )</h5>
+          <p>隐藏组件</p>
+          
+          <p>下面是一个简单的widget例子，<span class="h-web-font-red">主要重写了_create和_init()方法</span></p>
+          <pre>//此widget是将textbox进行修饰一下的。自身没有css，采用的是jquery ui css framework的样式<br>            (function($) {<br>                //ui默认采用jquery的ui前缀，后面的是widget名称<br>                $.widget("ui.textboxdecorator", {<br>                    //此widget中没有options<br>                    options: {<br>                    },<br>                    _create:function(){<br>                        this.hasElement = true;<br>                        if(this.element.length == 0){<br>                            this.hasElement = false;<br>                            return;<br>                        }<br>                        var currentEl = this.element[0];<br>                        //验证是否是需要装饰的元素<br>                        if (!(currentEl.tagName.toLowerCase() === "input" || currentEl.tagName.toLowerCase() === "textarea")) {<br>                            this.hasElement = false;<br>                            return;<br>                        }<br>                        if (!(currentEl.type.toLowerCase() === "text" || currentEl.type.toLowerCase() === "password")) {<br>                            if (currentEl.tagName.toLowerCase() === "input")<br>                                this.hasElement = false;<br>                                return;<br>                        }<br>                    },<br>                    _init: function() {<br>                        if(!this.hasElement){<br>                            return;<br>                        }<br>                        //this.element也就是调用此widget的元素<br>                        var e = this.element;<br>                        //ui-widget widget基本的样式，ui-state-default。默认状态的样式；ui- corner-all 圆角<br>                        this.element.addClass("ui-widget ui-state-default ui-corner-all");<br>                        //添加hover效果和active效果<br>                        this.element.mouseover(function() {<br>                            e.addClass("ui-state-hover");<br>                        }).mouseout(function() {<br>                            e.removeClass("ui-state-hover");<br>                        }).mousedown(function() {<br>                            e.addClass("ui-state-active");<br>                        }).mouseup(function() {<br>                            e.removeClass("ui-state-active");<br>                        });<br>                    },<br>                    //销毁时，移除widget增加的样式<br>                    destroy: function() {<br>                        this.element.removeClass("ui-widget ui-state-default ui-corner-all ui-state-hover ui-state-active");<br>                    }<br>                });<br>            })(jQuery);</pre>
+          <p>运行效果</p>
+          
+          <p>
+             <input type="text" name="inputDemo" id="inputDemo"/>
+          </p>
+          <script type="text/javascript">
+		      //此widget是将textbox进行修饰一下的。自身没有css，采用的是jquery ui css framework的样式
+            (function($) {
+                //ui默认采用jquery的ui前缀，后面的是widget名称
+                $.widget("ui.textboxdecorator", {
+                    //此widget中没有options
+                    options: {
+                    },
+                    _create:function(){
+                        this.hasElement = true;
+                        if(this.element.length == 0){
+                            this.hasElement = false;
+                            return;
+                        }
+                        var currentEl = this.element[0];
+                        //验证是否是需要装饰的元素
+                        if (!(currentEl.tagName.toLowerCase() === "input" || currentEl.tagName.toLowerCase() === "textarea")) {
+                            this.hasElement = false;
+                            return;
+                        }
+                        if (!(currentEl.type.toLowerCase() === "text" || currentEl.type.toLowerCase() === "password")) {
+                            if (currentEl.tagName.toLowerCase() === "input")
+                                this.hasElement = false;
+                                return;
+                        }
+                    },
+                    _init: function() {
+                        if(!this.hasElement){
+                            return;
+                        }
+                        //this.element也就是调用此widget的元素
+                        var e = this.element;
+                        //ui-widget widget基本的样式，ui-state-default。默认状态的样式；ui- corner-all 圆角
+                        this.element.addClass("ui-widget ui-state-default ui-corner-all");
+                        //添加hover效果和active效果
+                        this.element.mouseover(function() {
+                            e.addClass("ui-state-hover");
+                        }).mouseout(function() {
+                            e.removeClass("ui-state-hover");
+                        }).mousedown(function() {
+                            e.addClass("ui-state-active");
+                        }).mouseup(function() {
+                            e.removeClass("ui-state-active");
+                        });
+                    },
+                    //销毁时，移除widget增加的样式
+                    destroy: function() {
+                        this.element.removeClass("ui-widget ui-state-default ui-corner-all ui-state-hover ui-state-active");
+                    }
+                });
+            })(jQuery);
+            
+            $(function(){
+                $('#inputDemo').textboxdecorator();
+            });
+		  </script>
+          <p>以下是widget创建和实例化时代码调用过程图</p>
           <img src="images/jQuery UI组件定义类和实例化过程.jpg" />
           <p>&nbsp;</p>
           

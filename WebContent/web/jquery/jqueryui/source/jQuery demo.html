@@ -14,7 +14,11 @@
         
         <script type="text/javascript">
             $(function(){
-                $('#dialogDemo').dialog({});
+                $('#dialogDemo').dialog({create: function(){console.info(11)}});
+                //var disabled = $( "#dialogDemo" ).dialog( "option", "disabled" );
+                //alert(disabled);
+                // setter
+                $( "#dialogDemo" ).dialog( "option", "disabled", true );
             });
         </script>
     </body>

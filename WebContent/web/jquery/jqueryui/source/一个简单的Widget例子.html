@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title></title>
+        <link rel="stylesheet" href="../../../../platform/javascript/jquery-ui/css/ui-lightness/jquery-ui-1.9.2.custom.css" type="text/css"/>
+    </head>
+    <body>
+        <div>
+            <input type="text" name="inputDemo" id="inputDemo"/>
+        </div>
+        <script type="text/javascript" src="../../../../platform/javascript/jquery/jquery-1.8.2.js"></script>
+        <script type="text/javascript" src="../../../../platform/javascript/jquery-ui/jquery-ui-1.9.2.custom.js"></script>
+
+        <script type="text/javascript">
+            //此widget是将textbox进行修饰一下的。自身没有css，采用的是jquery ui css framework的样式
+            (function($) {
+                //ui默认采用jquery的ui前缀，后面的是widget名称
+                $.widget("ui.textboxdecorator", {
+                    //此widget中没有options
+                    options: {
+                    },
+                    _create:function(){
+                        this.hasElement = true;
+                        if(this.element.length == 0){
+                            this.hasElement = false;
+                            return;
+                        }
+                        var currentEl = this.element[0];
+                        //验证是否是需要装饰的元素
+                        if (!(currentEl.tagName.toLowerCase() === "input" || currentEl.tagName.toLowerCase() === "textarea")) {
+                            this.hasElement = false;
+                            return;
+                        }
+                        if (!(currentEl.type.toLowerCase() === "text" || currentEl.type.toLowerCase() === "password")) {
+                            if (currentEl.tagName.toLowerCase() === "input")
+                                this.hasElement = false;
+                                return;
+                        }
+                    },
+                    _init: function() {
+                        if(!this.hasElement){
+                            return;
+                        }
+                        //this.element也就是调用此widget的元素
+                        var e = this.element;
+                        //ui-widget widget基本的样式，ui-state-default。默认状态的样式；ui- corner-all 圆角
+                        this.element.addClass("ui-widget ui-state-default ui-corner-all");
+                        //添加hover效果和active效果
+                        this.element.mouseover(function() {
+                            e.addClass("ui-state-hover");
+                        }).mouseout(function() {
+                            e.removeClass("ui-state-hover");
+                        }).mousedown(function() {
+                            e.addClass("ui-state-active");
+                        }).mouseup(function() {
+                            e.removeClass("ui-state-active");
+                        });
+                    },
+                    //销毁时，移除widget增加的样式
+                    destroy: function() {
+                        this.element.removeClass("ui-widget ui-state-default ui-corner-all ui-state-hover ui-state-active");
+                    }
+                });
+            })(jQuery);
+            
+            $(function(){
+                $('#inputDemo').textboxdecorator();
+            });
+        </script>
+    </body>
+</html>
