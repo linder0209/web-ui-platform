@@ -5,7 +5,7 @@
 /*******************************************************************************/
 
 /*******************************************************************************/
-/*实例中以目录、内容来布局的样式 */
+/*实例中目录、内容布局样式 */
 /*******************************************************************************/
 
 .h-web-catalogue {
@@ -21,9 +21,34 @@
     color: #005B73;
     font-size: 14px;
 }
-.h-web-paragraph {
 
+/**
+* 段落:用到了css中内容生成（Generated Content）属性
+* counter-increment 和 counter-reset ie8以上支持
+**/
+.h-web-paragraph {
+    counter-reset:section;
 }
+.h-web-paragraph h3{
+    counter-reset:sub1_section;/*每显示一个h3，需要重置 sub1_section */
+}
+.h-web-paragraph h4{
+    counter-reset:sub2_section;/*每显示一个h4，需要重置 sub2_section */
+}
+.h-web-paragraph h3:before{
+    content:"第" counter(section) "节： ";
+    counter-increment:section;/*每显示一个h3，则section增量一次*/
+}
+
+.h-web-paragraph h4:before{
+    counter-increment:sub1_section;/*每显示一个h4，则 sub1_section 增量一次*/
+    content:counter(section) "." counter(sub1_section) " ";
+}
+.h-web-paragraph h5:before{
+    counter-increment:sub2_section;/*每显示一个h5，则 sub2_section 增量一次*/
+    content:counter(section) "." counter(sub1_section) ". " counter(sub2_section) " ";
+}
+
 .h-web-paragraph h3, .h-web-paragraph-title{
     /*GRADIENT*/
     background: #00b7ea; /* Old browsers */
@@ -64,6 +89,11 @@
     color: #009EC3;
     font-size: 14px;
 }
+.h-web-paragraph h5{
+    color:  #007997;
+    font-size: 13px;
+    margin:10px 40px;
+}
 .h-web-paragraph table{
     border-collapse: collapse;
 }
@@ -98,3 +128,4 @@
     color:#F94A76;
     font-weight:bold;
 }
+

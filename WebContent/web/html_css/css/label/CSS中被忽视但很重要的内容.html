@@ -994,13 +994,77 @@ li:first-child {text-transform:uppercase;}</pre>
         <p>说明该属性用于定义元素之前或之后放置的生成内容。默认地，这往往是行内内容，不过该内容创建的框类型可以用属性 display 控制。例子</p>
         <pre>a:after    {    content: " (" attr(href) ")";    }</pre>
         <h5>counter-increment</h5>
-        <p>&nbsp;</p>
-        <span class="h-web-font-red">content 	
- 	
-counter-reset 	
-quotes待补充</span>
-<h3 paragraph="11">CSS参考手册</h3>
-<p><a href="http://www.w3school.com.cn/css/css_reference.asp" target="_blank">w3c CSS 参考手册</a></p>
+        <p>递增或递减一个或多个计数器。counter-increment 属性设置某个选取器每次出现的计数器增量。默认增量是 1。</p>
+        <p class="h-web-font-red">注意： 如果使用了 "display: none"，则无法增加计数。如使用 "visibility: hidden"，则可增加计数。IE8以上支持</p>
+        <p>看下面例子</p>
+        <pre>&lt;style type=&quot;text/css&quot;&gt;
+.css-demo-counter-increment{<br>    counter-reset:demo_section;
+    color: #009EC3;<br>    line-height: 30px;<br>    margin-left: 20px;
+    border: 1px solid;<br>	padding: 10px;<br>}<br>.css-demo-counter-increment h1{<br>    counter-reset:demo_subsection;/*每显示一个h1，需要重置subsection*/<br>}<br><br>.css-demo-counter-increment h1:before{<br>    content:"段落" counter(demo_section) ". ";<br>    counter-increment:demo_section;/*每显示一个h1，则section增量一次*/<br>}<br>.css-demo-counter-increment h2{
+    margin-left:20px;
+}<br>.css-demo-counter-increment h2:before{<br>    counter-increment:demo_subsection;/*每显示一个h2，则subsection增量一次*/<br>    content:counter(demo_section) "." counter(demo_subsection) " ";<br>}
+&lt;/style&gt;
+&lt;div class=&quot;css-demo-counter-increment&quot;&gt;
+	&lt;h1&gt;HTML tutorials&lt;/h1&gt;<br>	&lt;h2&gt;HTML Tutorial&lt;/h2&gt;<br>	&lt;h2&gt;XHTML Tutorial&lt;/h2&gt;<br>	&lt;h2&gt;CSS Tutorial&lt;/h2&gt;<br><br>	&lt;h1&gt;Scripting tutorials&lt;/h1&gt;<br>	&lt;h2&gt;JavaScript&lt;/h2&gt;<br>	&lt;h2&gt;VBScript&lt;/h2&gt;<br><br>	&lt;h1&gt;XML tutorials&lt;/h1&gt;<br>	&lt;h2&gt;XML&lt;/h2&gt;<br>	&lt;h2&gt;XSL&lt;/h2&gt;
+&lt;/div&gt;</pre>
+        <p>以下是运行效果</p>
+        <style type="text/css">
+.css-demo-counter-increment{
+    counter-reset:demo_section;
+    color: #009EC3;
+    line-height: 30px;
+    margin-left: 20px;
+	border: 1px solid;
+	padding: 10px;
+}
+.css-demo-counter-increment h1{
+    counter-reset:demo_subsection;/*每显示一个h1，需要重置subsection*/
+}
+
+.css-demo-counter-increment h1:before{
+    content:"段落" counter(demo_section) ". ";
+    counter-increment:demo_section;/*每显示一个h1，则section增量一次*/
+}
+.css-demo-counter-increment h2{
+    margin-left:20px;
+}
+.css-demo-counter-increment h2:before{
+    counter-increment:demo_subsection;/*每显示一个h2，则subsection增量一次*/
+    content:counter(demo_section) "." counter(demo_subsection) " ";
+}
+</style>
+<div class="css-demo-counter-increment">
+	<h1>HTML tutorials</h1>
+	<h2>HTML Tutorial</h2>
+	<h2>XHTML Tutorial</h2>
+	<h2>CSS Tutorial</h2>
+
+	<h1>Scripting tutorials</h1>
+	<h2>JavaScript</h2>
+	<h2>VBScript</h2>
+
+	<h1>XML tutorials</h1>
+	<h2>XML</h2>
+	<h2>XSL</h2>
+</div>
+<h5><a href="http://www.w3school.com.cn/css/pr_gen_counter-reset.asp" target="_blank">counter-reset</a></h5>
+<p>创建或重置一个或多个计数器。counter-reset 属性设置某个选择器出现次数的计数器的值。默认为 0。例子</p>
+<pre>h1{<br>  counter-reset:subsection 7;<br>}</pre>
+        <p>以上代码重置subsection为 7 </p>
+        
+        <h5><a href="http://www.w3school.com.cn/css/pr_gen_quotes.asp" target="_blank">quotes</a></h5>
+        <p>设置嵌套引用的引号类型。quotes 属性设置嵌套引用（embedded quotation）的引号类型。例子</p>
+        <pre>q:lang(en){<br>  quotes: '"' '"' "'" "'";<br>}<br><br>HTML 代码：<br>&lt;html lang="en"&gt; 
+&lt;head&gt; 
+&lt;/head&gt; 
+&lt;body&gt; 
+&lt;p&gt;&lt;q&gt;This is a &lt;q&gt;big&lt;/q&gt; quote&lt;/q&gt;&lt;/p&gt; 
+&lt;/body&gt; 
+&lt;/html&gt; 
+<br>输出：<br>"This is a 'big' quote"</pre>
+
+		<h3 paragraph="11">CSS参考手册</h3>
+		<p><a href="http://www.w3school.com.cn/css/css_reference.asp" target="_blank">w3c CSS 参考手册</a></p>
         </div>
     </body>
 </html>
