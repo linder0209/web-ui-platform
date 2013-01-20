@@ -12,13 +12,17 @@
         <h3 class="h-web-paragraph-title">目录</h3>
         <ol class="h-web-catalogue">
             <li><a paragraph="1" href="#">UI Core</a></li>
-            <li><a paragraph="2" href="#">Utilities</a></li>
-            <li><a paragraph="3" href="#">Widgets</a></li>
+            <li><a paragraph="2" href="#">Utilities-position</a></li>
+            <li><a paragraph="3" href="#">Utilities-widget组件基础类</a></li>
+            <li><a paragraph="4" href="#">Utilities-Mouse Interaction</a></li>
+            
+            <li><a paragraph="5" href="#">jQuery UI 相关组件Widgets</a></li>
+            <li><a paragraph="6" href="#">jQuery UI 中实现了鼠标交互（Mouse Interaction）的组件Widgets</a></li>
         </ol>
         <div class="h-web-paragraph">
             <h3 paragraph="1">UI Core</h3>
-            <p>说明：下面书写的内容是基于jQuery UI 1.9.2</p>
-            <p>首先看源文件jquery.ui.core.js，该文件中定义了以下api</p>
+            <p>说明：下面书写的内容是基于jQuery UI 1.10.0</p>
+          <p>UI Core在文件jquery.ui.core.js中定义，该文件中定义了以下api</p>
             <h4>scrollParent()方法</h4>
             <p>Get the closest ancestor element that is scrollable.</p>
             <p>返回某一元素有滚动条的最近祖先节点。</p>
@@ -48,13 +52,10 @@ $( ":tabbable" ).css( "border-color", "red" );// 1 2 匹配成功，不设置tab
             <p>禁止鼠标选择和解除鼠标选择</p>
             <h4>jQuery ui plugin</h4>
             <p>$.ui.hasScroll : function( el, a )</p>
-            <p>判断元素el是否有滚动条，默认判断垂直滚动条，a设为left则判断横向滚动条</p>
-            <p>$.ui.hasScroll.isOver: function( y, x, top, left, height, width ) </p>
-            <p>判断坐标x，y是否落在了给定的坐标范围内</p>
+          <p>判断元素el是否有滚动条，默认判断垂直滚动条，a设为left则判断横向滚动条          </p>
+          <h3 paragraph="2">Utilities-position</h3>
             
-          <h3 paragraph="2">Utilities</h3>
-            
-            <p>该模块中包含了jquery.ui.position.js、jquery.ui.widget.js和jquery.ui.mouse.js</p>
+            <p>jQuery UI position在文件jquery.ui.position.js中定义，该文件中定义了以下api</p>
             <p>首先看源文件jquery.ui.position.js，该文件中主要围绕$.fn.position（该方法扩展了jQuery中的$.fn.position）展开。<span class="h-web-font-red">该文件可脱离jquery ui 单独作为工具类使用</span>。</p>
             <h4>$.position.scrollbarWidth()</h4>
           <p>返回滚动条的宽度，该方法只会计算一次，会吧计算的结果缓存到变量中，计算的过程中动态插入了可滚动的div来辅助计算。</p>
@@ -74,9 +75,11 @@ $( ":tabbable" ).css( "border-color", "red" );// 1 2 匹配成功，不设置tab
           
           <h4>$.support.offsetFractions</h4>
           <p>判断css设置像素值是否支持小数</p>
-          <p>下面看jquery.ui.widget.js文件</p>
+          
+          <h3 paragraph="3">Utilities-widget组件基础类</h3>
+          <p>jQuery UI widget基础类定义在文件jquery.ui.widget.js中，该文件定义了所有UI组件的父类，和组件扩展类，所有的组件都是基于该类实现的。首先看关键方法$.widget</p>
           <h4>$.widget = function( name, base, prototype )</h4>
-          <p>该方法提供了创建jQuery UI的工厂方法，核心是创建构造方法并利用桥接方法组装到$对象中。以下是核心代码</p>
+          <p>该方法提供了创建jQuery UI的工厂方法，核心是创建组件构造方法并利用桥接方法把组件构造方法和组件名组装到$对象中。以下是核心代码</p>
           <pre>        //构造函数，分两种情况，直接new constructor，或者调用父类中_createWidget<br>        constructor = $[ namespace ][ name ] = function(options, element) {        <br>            if (!this._createWidget) {<br>                return new constructor(options, element);<br>            }<br>            if (arguments.length) {<br>                this._createWidget(options, element);<br>            }<br>        };</pre>
           <pre>        //把相关的属性和方法赋给constructor.prototype，主要是父类$.Widget.prototype
         //和子类自定义的prototype，还有自己扩展的几个属性<br>        constructor.prototype = $.widget.extend(basePrototype, {<br>            widgetEventPrefix: existingConstructor ? basePrototype.widgetEventPrefix : name<br>        }, prototype, {<br>            constructor: constructor,<br>            namespace: namespace,<br>            widgetName: name,<br>            widgetBaseClass: fullName,<br>            widgetFullName: fullName<br>        });</pre>
@@ -205,8 +208,47 @@ $( ":tabbable" ).css( "border-color", "red" );// 1 2 匹配成功，不设置tab
 		  </script>
           <p>以下是widget创建和实例化时代码调用过程图</p>
           <img src="images/jQuery UI组件定义类和实例化过程.jpg" />
-          <p>&nbsp;</p>
           
+          <h3 paragraph="4">Utilities-Mouse Interaction</h3>
+          
+          
+          <p>鼠标交互定义在文件jquery.ui.mouse.js中，他依赖于jquery.ui.widget.js，作为其他组件的抽象类来构建，其他组件有鼠标交互行为需要继承实现该类。方法_mouseStart(), _mouseDrag(), _mouseStop(), and _mouseCapture()需要继承该类的组件实现。下面的代码给出怎样继承该类。</p>
+          <pre>$.widget("ui.draggable", $.ui.mouse, {});</pre>
+          <p>下面看一下该抽象类中提供的API</p>
+          <h4>$.ui.mouse API</h4>
+          <h5>cancel属性</h5>
+          <p>设置默认要阻止的的元素，该类中默认值为：input,textarea,button,select,option。例如</p>
+          <pre>$( ".selector" ).mouse({ cancel: ".title" });</pre>
+          <h5>delay属性</h5>
+          <p>延迟执行</p>
+          <h5>distance属性</h5>
+          <p>设置按下鼠标移动多少像素才执行鼠标交互行为</p>
+          <h5>_mouseInit()方法</h5>
+          <p>初始化鼠标事件，必须在widget's _create() method中调用。</p>
+          <h5>_mouseDestroy()方法</h5>
+          <p>销毁鼠标事件，必须在widget's _destroy() method中调用。</p>
+          <h5>_mouseDown()方法</h5>
+          <p>鼠标按下触发该方法</p>
+          <h5>_mouseMove()方法</h5>
+          <p>鼠标移动</p>
+          <h5>_mouseUp()方法</h5>
+          <p>鼠标抬起</p>
+          <h5>_mouseDistanceMet()方法</h5>
+          <p>鼠标移动的距离是否满足</p>
+          <h5>_mouseDelayMet()方法</h5>
+          <p>延迟的时间是否满足</p>
+          <h5>_mouseStart()方法</h5>
+          <p>鼠标开始</p>
+          <h5>_mouseDrag()方法</h5>
+          <p>鼠标拖拽</p>
+          <h5>_mouseStop()方法</h5>
+          <p>鼠标按下移动停止</p>
+          <h5>_mouseCapture()方法</h5>
+          <p>处理鼠标交互是否开始，默认返回true。</p>
+          
+          <h3 paragraph="5">jQuery UI 相关组件Widgets</h3>
+          
+          <h3 paragraph="6">jQuery UI 中实现了鼠标交互（Mouse Interaction）的组件Widgets</h3>
           
           <p>&nbsp;</p>
             
