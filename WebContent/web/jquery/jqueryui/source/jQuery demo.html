@@ -10,16 +10,27 @@
         <div id="dialogDemo">
             This is a dialog demo.
         </div>
+
+        <div id="accordion">
+            <h3>First header</h3>
+            <div>First content panel</div>
+            <h3>Second header</h3>
+            <div>Second content panel</div>
+        </div>
         <script type="text/javascript" src="../../../../platform/javascript/jquery/jquery.js"></script>
         <script type="text/javascript" src="../../../../platform/javascript/jquery-ui/jquery-ui-custom.js"></script>
-        
+
         <script type="text/javascript">
-            $(function(){
-                $('#dialogDemo').dialog({create: function(){console.info(11)}});
+            $(function() {
+                $('#dialogDemo').dialog({create: function() {
+                        console.info(11)
+                    }});
                 //var disabled = $( "#dialogDemo" ).dialog( "option", "disabled" );
                 //alert(disabled);
                 // setter
-                $( "#dialogDemo" ).dialog( "option", "disabled", true );
+                $("#dialogDemo").dialog("option", "disabled", true);
+                $("#accordion").accordion({active: 2});
+
             });
         </script>
     </body>

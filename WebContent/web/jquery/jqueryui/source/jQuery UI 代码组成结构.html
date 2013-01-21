@@ -18,6 +18,8 @@
             
             <li><a paragraph="5" href="#">jQuery UI 相关组件Widgets</a></li>
             <li><a paragraph="6" href="#">jQuery UI 中实现了鼠标交互（Mouse Interaction）的组件Widgets</a></li>
+            <li><a paragraph="7" href="#">Effects（jQuery UI中的效果）</a></li>
+            
         </ol>
         <div class="h-web-paragraph">
             <h3 paragraph="1">UI Core</h3>
@@ -248,10 +250,44 @@ $( ":tabbable" ).css( "border-color", "red" );// 1 2 匹配成功，不设置tab
           
           <h3 paragraph="5">jQuery UI 相关组件Widgets</h3>
           
-          <h3 paragraph="6">jQuery UI 中实现了鼠标交互（Mouse Interaction）的组件Widgets</h3>
+          <h4>Accordion</h4>
+          <p>折叠展开组件，依赖jquery.ui.core.js和jquery.ui.widget.js</p>
+          <h4>Autocomplete</h4>
+          <p>下拉框自动完成组件，可以扩展该组件实现checkbox组件，见例子中ui.combobox组件。Autocomplete组件依赖于：jquery.ui.core.js、jquery.ui.widget.js、jquery.ui.position.js和	jquery.ui.menu.js</p>
+          <h4>Button</h4>
+          <p>jQuery UI 通用button按钮，依赖于jquery.ui.core.js和jquery.ui.widget.js</p>
+          <h4>Datepicker</h4>
+          <p>该组件依赖jquery.ui.core.js，并没有依赖jquery.ui.widget.js，也就是说不是基于$.Widget构建的，而且在实现过程中用到了单例模式，这是一种思想，在<span class="h-web-font-red">创建其他组件是也可以参考该单例实现</span>，比如colorpicker等。另外，网上还有基于他开发的插件Timepicker，参见jquery.ui.timepicker.js。</p>
+          <h4>Dialog</h4>
+          <p>对话框组件，依赖jquery.ui.core.js、jquery.ui.widget.js、jquery.ui.button.js、jquery.ui.draggable.js、	jquery.ui.mouse.js、jquery.ui.position.js和jquery.ui.resizable.js</p>
+          <h4>Menu</h4>
+          <p>该类实现菜单功能，依赖jquery.ui.core.js、jquery.ui.widget.js和	jquery.ui.position.js</p>
+          <h4>Progressbar</h4>
+          <p>进度条组件，依赖jquery.ui.core.js和jquery.ui.widget.js</p>
+          <h4>Slider</h4>
+          <p>滑动条组件，依赖jquery.ui.core.js、jquery.ui.mouse.js和jquery.ui.widget.js</p>
+          <h4>Spinner</h4>
+          <p>下拉列表，自增自减组件，依赖 jquery.ui.core.js、jquery.ui.widget.js和  jquery.ui.button.js</p>
+          <h4>Tabs</h4>
+          <p>标签组件，依赖jquery.ui.core.js和	jquery.ui.widget.js</p>
+          <h4>Tooltip </h4>
+          <p>提示性组件，依赖jquery.ui.core.js、jquery.ui.widget.js和	jquery.ui.position.js</p>
           
-          <p>&nbsp;</p>
-            
+          <h3 paragraph="6">jQuery UI 中实现了鼠标交互（Mouse Interaction）的组件Widgets</h3>
+          <h4>Draggable</h4>
+          <p>定义可拖拽的元素，依赖jquery.ui.core.js、jquery.ui.mouse.js和	jquery.ui.widget.js</p>
+          <h4>Droppable</h4>
+          <p>创建拖拽的目标元素，依赖jquery.ui.core.js、jquery.ui.widget.js、jquery.ui.mouse.js和jquery.ui.draggable.js</p>
+          <h4>Resizable</h4>
+          <p>创建可改变大小的元素，依赖jquery.ui.core.js、jquery.ui.mouse.js和	jquery.ui.widget.js</p>
+          <h4>Selectable</h4>
+          <p>设置可选择的元素的样式和效果，依赖jquery.ui.core.js、jquery.ui.mouse.js和jquery.ui.widget.js</p>
+          <h4>Sortable </h4>
+          <p>创建可以动态改变序列的元素，依赖jquery.ui.core.js、jquery.ui.mouse.js和	jquery.ui.widget.js</p>
+          
+          <h3 paragraph="7">Effects（jQuery UI中的效果）</h3>
+          <p>jQuery UI 提供了几种默认的动画效果。首先看effects core 文件jquery.ui.effect.js。该文件中首先定义了jQuery.Color类，下面看看这个类是干什么的以及他的用法。</p>
+          <p>&nbsp;</p>     
             <p>参考资料</p>
             <p><a href="http://api.jqueryui.com/" target="_blank">jQuery UI API</a></p>
         </div>
