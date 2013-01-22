@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>jQuery plugins —— slector 插件</title>
+        <link rel="stylesheet" href="../../../../platform/css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/platform.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
+    </head>
+    <body>
+        <div class="h-web-paragraph">
+            <link rel="stylesheet" href="./css/hopefuture.ui.selector.css" type="text/css"/>
+            <script type="text/javascript" src="./javascript/hopefuture.ui.selector.js" ></script>
+            <p>以下是例子</p>
+
+            <div>
+                <select name="selectorDemo1" id="selectorDemo1" >
+                    <option value="elem_1">elem 1</option>
+                    <option value="elem_2">elem 2</option>
+                    <option value="elem_3">elem 3</option>
+                    <option value="elem_4">elem 4</option>
+                    <option value="elem_5">elem 5</option>
+                </select>
+            </div>
+            <script type="text/javascript">
+                $(function() {
+                    $('#selectorDemo1').hopeselector();
+                });
+            </script>
+        </div>
+    </body>
+</html>

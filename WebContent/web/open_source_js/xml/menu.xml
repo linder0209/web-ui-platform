@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menus>
+    <display-name>其他开源类库 Menu</display-name>
+    <description>其他开源类库模块菜单项</description>
+
+    <menu>
+        <id>level_1</id>
+        <name>JS运行平台——Node.js</name>
+        <module>node</module>
+        <children id="level_1_1" name="Node.js学习" href="./node/study/index.html" module="study"/>
+    </menu>
+</menus>

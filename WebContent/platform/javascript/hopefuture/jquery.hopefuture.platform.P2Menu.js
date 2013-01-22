@@ -101,7 +101,18 @@
                         success: function(data, status, resp) {
                             var json = $.xml2json(data);
                             var collection = new $.hopefuture.platform.Collection();
-                            collection.addAll(json.menu);
+                            var menus = json.menu;
+                            if(!$.isArray(menus)){
+                                menus = [json.menu];
+                            }
+                            //对于children是一个的话，由于解析成不是数组，这里需要处理一下
+                            $(menus).each(function(index, element){
+                                if(!$.isArray(element.children)){
+                                    element.children = [element.children];
+                                }
+                            });
+                            
+                            collection.addAll(menus);
                             me.data = collection;
                             me.loadData(collection);
                         },

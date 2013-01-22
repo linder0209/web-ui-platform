@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>JS运行平台Node.js ——NPM的安装与配置</title>
+        <link rel="stylesheet" href="../../../../platform/css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/platform.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
+    </head>
+    <body>
+        <div class="h-web-paragraph">
+            <p>这里只简单的介绍在window环境下的安装与配置，在其他系统下安装以及详细介绍
+                <a href="http://www.infoq.com/cn/articles/nodejs-npm-install-config" target="_blank">参考这里</a>
+            </p>
+            <p>1、Node.js的安装</p>
+            <p>首先到官方http://nodejs.org/下载最近的版本，这里我们可以下载msi格式的安装文件，免去环境变量的配置，我们也可以到http://nodejs.org/dist/下载其他版本。下载后直接安装即可。</p>
+            <p>2、NPM的安装</p>
+            <p>NPM的全称是Node Package Manager。首先下载NPM源码，我们利用git（Git-1.8.0-preview20121022.exe）从github上下载，执行以下命令下载到指定目录下（假设clone到D盘的node目录下）</p>
+            <pre>git clone --recursive git://github.com/isaacs/npm.git </pre>
+            <p>下载成功后，会创建npm文件夹，进入该目录，执行如下命令，如果提示node: command not found，则需要确保正确设置了node.exe的环境变量path。如果安装在C盘下，需要设置path为C:\Program Files\nodejs，<span class="h-web-font-red">注意最后没有“\”</span>。如果用Git-1.8.0-preview20121022.exe不能执行以下代码，则用cmd.exe，<span class="h-web-font-red">注意需要用管理员身份才能运行，即找到该文件所在的目录，右键该文件，以管理员身份运行</span>。</p>
+            <pre>cd D:\node\npm <br>node cli.js install npm -gf
+npm install underscore </pre>
+            <p>分别运行完以上命令后，会返回以下内容</p>
+            <pre>underscore@1.4.3 node_modules\underscore</pre>
+            <p>说明运行成功。</p>
+            <p>&nbsp;</p>
+        </div>
+    </body>
+</html>

@@ -18,4 +18,17 @@
         <children id="level2_2" name="jQuery UI 皮肤" href="./jqueryui/skin/index.html" module="skin" />
         <children id="level2_3" name="jQuery UI 插件扩展" href="" module="plugin" />
     </menu>
+    <menu>
+        <id>level_3</id>
+        <name>jQuery plugins</name>
+        <module>plugins</module>
+        <children id="level3_1" name="" href="./plugins/source/index.html" module="source" />
+    </menu>
+    
+    <menu>
+        <id>level_4</id>
+        <name>jQuery plugins(自己开发的)</name>
+        <module>myplugins</module>
+        <children id="level4_1" name="与表单form有关的插件" href="./myplugins/forms/index.html" module="forms" />
+    </menu>
 </menus>
