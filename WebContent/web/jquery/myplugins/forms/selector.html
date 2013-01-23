@@ -3,18 +3,31 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>jQuery plugins —— slector 插件</title>
+        <link rel="stylesheet" href="../../../../platform/javascript/jquery-ui/css/jquery-ui.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/javascript/jquery-ui/css/jquery.ui.theme.css" type="text/css"/>
+
         <link rel="stylesheet" href="../../../../platform/css/base.css" type="text/css"/>
         <link rel="stylesheet" href="../../../../platform/css/platform.css" type="text/css"/>
         <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
         <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
+
+        <style type="text/css">
+            body{
+                margin: 20px;
+            }
+        </style>
+        <script type="text/javascript" src="../../../../platform/javascript/jquery/jquery.js"></script>
+        <script type="text/javascript" src="../../../../platform/javascript/jquery-ui/jquery-ui-custom.js"></script>
     </head>
     <body>
         <div class="h-web-paragraph">
             <link rel="stylesheet" href="./css/hopefuture.ui.selector.css" type="text/css"/>
             <script type="text/javascript" src="./javascript/hopefuture.ui.selector.js" ></script>
             <p>以下是例子</p>
-
+            <button id="addSelectorItem">添加新的item</button>
+            <br />
             <div>
+                例子一：
                 <select name="selectorDemo1" id="selectorDemo1" >
                     <option value="elem_1">elem 1</option>
                     <option value="elem_2">elem 2</option>
@@ -23,9 +36,22 @@
                     <option value="elem_5">elem 5</option>
                 </select>
             </div>
+            <div style="margin-top: 20px;">
+                例子二：
+                <select name="selectorDemo2" id="selectorDemo2">
+                    <optgroup label="Friends" value="111"><option value="1">Yoda</option>
+                        <option selected="" value="2">Obiwan</option></optgroup>
+                    <optgroup label="Enemies" value="222"><option value="3">Palpatine</option>
+                        <option selected="" value="4">Darth Vader</option></optgroup>
+                </select>
+            </div>
             <script type="text/javascript">
                 $(function() {
                     $('#selectorDemo1').hopeselector();
+                    $('#selectorDemo2').hopeselector();
+                    $('#addSelectorItem').click(function() {
+                        $('#selectorDemo1').hopeselector('add', 'text', 'value')
+                    });
                 });
             </script>
         </div>
