@@ -55,7 +55,8 @@
             this._createElements();
             var element = this.element.addClass('ui-helper-hidden');
 
-            this.uiSelectorCt = $(this.container).width(this.options.width).height(this.options.height);
+            this.uiSelectorCt = $(this.container).width(this.options.width).height(this.options.height)
+            .addClass('ui-widget ui-widget-content ui-corner-all');
             this.uiSelector = $(this.selectorUl).appendTo(this.uiSelectorCt);
             this.element.after(this.uiSelectorCt);
             var me = this;
@@ -118,13 +119,17 @@
             };
             events['mouseenter .' + this.selectorCls.selectableCls] = function(event) {
                  var target = $(event.currentTarget);
-                 target.addClass('ui-state-active');
+                 target.addClass('ui-state-focus');
             };
             events['mouseleave .' + this.selectorCls.selectableCls] = function(event) {
                  var target = $(event.currentTarget);
-                 target.removeClass('ui-state-active');
+                 target.removeClass('ui-state-focus');
             };
             
+            events['click .' + this.selectorCls.selectableCls] = function(event) {
+                 var target = $(event.currentTarget);
+                 //target.toggleClass('ui-state-active');
+            };
             this._on(this.uiSelector, events);
         },
                 
@@ -171,7 +176,7 @@
             if(!ct){
                 ct = this.uiSelector;
             }
-            var liEl = $(this.selectorLi).appendTo(ct).addClass(this.selectorCls.selectableCls);
+            var liEl = $(this.selectorLi).appendTo(ct).addClass(this.selectorCls.selectableCls + ' ui-corner-all');
             $(applyTemplate(this.selectorContent, liData)).appendTo(liEl).data('selector-value', value);
         },
         
@@ -179,7 +184,7 @@
             if(!ct){
                 ct = this.uiSelector;
             }
-            var liEl = $(this.selectorLi).appendTo(ct).addClass(this.selectorCls.labelCls);
+            var liEl = $(this.selectorLi).appendTo(ct).addClass(this.selectorCls.labelCls + ' ui-corner-all');
             $(applyTemplate(this.selectorContent, {text: text})).appendTo(liEl).data('selector-value', value);
             
             liEl = $(this.selectorLi).appendTo(ct);
