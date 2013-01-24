@@ -20,15 +20,15 @@
         <script type="text/javascript" src="../../../../platform/javascript/jquery-ui/jquery-ui-custom.js"></script>
     </head>
     <body>
-        <div class="h-web-paragraph">
+        <div>
             <link rel="stylesheet" href="./css/hopefuture.ui.selector.css" type="text/css"/>
             <script type="text/javascript" src="./javascript/hopefuture.ui.selector.js" ></script>
             <p>以下是例子</p>
-            <button id="addSelectorItem">添加新的item</button>
             <br />
             <div>
-                例子一：
-                <select name="selectorDemo1" id="selectorDemo1" >
+                例子一：multiple
+                <div><button id="addSelectorItem">添加新的item</button></div>
+                <select name="selectorDemo1" id="selectorDemo1">
                     <option value="elem_1">elem 1</option>
                     <option value="elem_2">elem 2</option>
                     <option value="elem_3">elem 3</option>
@@ -37,7 +37,8 @@
                 </select>
             </div>
             <div style="margin-top: 20px;">
-                例子二：
+                例子二：multiple 分组
+                <div><button id="addSelectorItem2">添加新的item</button></div>
                 <select name="selectorDemo2" id="selectorDemo2">
                     <optgroup label="Friends" value="111"><option value="1">Yoda</option>
                         <option selected="" value="2">Obiwan</option></optgroup>
@@ -45,12 +46,149 @@
                         <option selected="" value="4">Darth Vader</option></optgroup>
                 </select>
             </div>
+            
+            <div style="margin-top: 20px;">
+                例子三：源元素不是select，通过传入数据或url来来展现selector tree，可支持多级
+                <div>
+                    <button id="addSelectorItem3_1">清空并添加添加新的item</button>
+                    <button id="addSelectorItem3_2">添加新的item</button>
+                    <button id="addSelectorItem3_3">插入新的item</button>
+                </div>
+                <div id="selectorDemo3"></div>
+                
+            </div>
+            
+            <div style="margin-top: 20px;">
+                例子四：单选框
+                <select name="selectorDemo4" id="selectorDemo4">
+                    <option value="elem_1">elem 1</option>
+                    <option value="elem_2">elem 2</option>
+                    <option value="elem_3">elem 3</option>
+                    <option value="elem_4">elem 4</option>
+                    <option value="elem_5">elem 5</option>
+                </select>
+                
+            </div>
+            
             <script type="text/javascript">
                 $(function() {
-                    $('#selectorDemo1').hopeselector();
-                    $('#selectorDemo2').hopeselector();
+                    $('#selectorDemo1,#selectorDemo2').hopeselector();
                     $('#addSelectorItem').click(function() {
-                        $('#selectorDemo1').hopeselector('add', 'text', 'value')
+                        
+                    });
+                    
+                    var data = [{
+                        id: '1',
+                        text: 'item1',
+                        value: '1',
+                        children: [{
+                                id: '11',
+                                text: 'item11',
+                                value: '11',
+                                children: [{
+                                        id: '111',
+                                        text: 'item111',
+                                        value: '111',
+                                        leaf : true
+                                },{
+                                        id: '112',
+                                        text: 'item112',
+                                        value: '112',
+                                        leaf : true
+                                }]
+                            },{
+                                id: '12',
+                                text: 'item12',
+                                value: '12',
+                                leaf: true
+                            }]
+                    },{
+                        id: '2',
+                        text: 'item2',
+                        value: '2',
+                        children: [{
+                                id: '21',
+                                text: 'item21',
+                                value: '21',
+                                leaf: true
+                            },{
+                                id: '22',
+                                text: 'item22',
+                                value: '22',
+                                leaf: true
+                            }]
+                    },{
+                        id: '3',
+                        text: 'item3',
+                        value: '3'
+                    }];
+                    $('#selectorDemo3').hopeselector({
+                        data: data
+                    });
+                    
+                    $('#addSelectorItem3_1, #addSelectorItem3_2').click(function(){
+                        var data = [{
+                            id: '1',
+                            text: 'China',
+                            value: '1',
+                            children: [{
+                                    id: '11',
+                                    text: 'beijing',
+                                    value: '11',
+                                    children: [{
+                                            id: '111',
+                                            text: 'shijingshan',
+                                            value: '111',
+                                            leaf : true
+                                    },{
+                                            id: '112',
+                                            text: 'chaoyang',
+                                            value: '112',
+                                            leaf : true
+                                    }]
+                                },{
+                                    id: '12',
+                                    text: 'shanghai',
+                                    value: '12',
+                                    leaf: true
+                                }]
+                        }];
+                        $('#selectorDemo3').hopeselector('add', data, $(this).attr('id') == 'addSelectorItem3_1');
+                    });
+                    
+                    $('#addSelectorItem3_3').click(function(){
+                        var data = [{
+                            id: '232332',
+                            text: 'year',
+                            value: 'sdsdf',
+                            children: [{
+                                    id: '35rtrrt',
+                                    text: 'month',
+                                    value: '11',
+                                    children: [{
+                                            id: 'afsfdf',
+                                            text: 'day day',
+                                            value: '111',
+                                            leaf : true
+                                    },{
+                                            id: 'gddgdf',
+                                            text: 'day day',
+                                            value: '112',
+                                            leaf : true
+                                    }]
+                                },{
+                                    id: '35rtrrtsdd',
+                                    text: 'month month',
+                                    value: '12',
+                                    leaf: true
+                                }]
+                        }];
+                    
+                        $('#selectorDemo3').hopeselector('insert', data, '11');
+                    });
+                    
+                    $('#selectorDemo4').hopeselector({
+                        multiple : false
                     });
                 });
             </script>
