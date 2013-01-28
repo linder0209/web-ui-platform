@@ -104,7 +104,7 @@
             $('#body_content_menu').load(url + ' .h-demo-nav-menu', function() {
                 $('#body_content_menu a').each(function(index, element) {
                     var el = $(this);
-                    this.setAttribute('href', section + '/' + this.getAttribute('href').replace(/.+\/([^\/]+)/, '$1'));
+                    this.setAttribute('href', section + '/' + this.getAttribute('href'));
                     el.attr('target', 'body_content_frame');
                     el.click(function() {
                         $(this).parent().addClass('current').siblings().removeClass('current');
@@ -162,7 +162,7 @@
                 repSource = repSource.match(/<(body)[^>]*>(.|\s)*<\/\1>/ig)[0];
                 repSource = repSource.replace(/<\/?body.*>/ig, ""); //Remove body tag
                 //替换a标签和img标签相对路径，该正则表达式的意思是：替换href或src中的值，并且该值开头不是http或#。该例子中用到了零宽断言
-		repSource = repSource.replace(/((href|src)=["'])(?!(http|#))/ig, '$1' + directory + '/');
+                repSource = repSource.replace(/((href|src)=["'])(?!(http|#))/ig, '$1' + directory + '/');
                 $('#body_content_frame').empty().html(repSource);
 				
                 //初始化目录列表事件

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menus>
+    <display-name>Web前端学习资料 Menu</display-name>
+    <description>Web前端学习资料模块的菜单项</description>
+
+    <menu>
+        <id>level_1</id>
+        <name>综合</name>
+        <module>comprehensive</module>
+        <children id="level_1_1" name="网络资源参考" href="./comprehensive/resource/index.html" module="resource" />
+        <children id="level_1_2" name="div+css页面设计参考" href="./comprehensive/reference/index.html" module="reference" />
+    </menu>
+</menus>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menus>
+    <display-name>我的类库 Menu</display-name>
+    <description>我的类库模块的菜单项</description>
+
+    <menu>
+        <id>level_1</id>
+        <name>综合</name>
+        <module>comprehensive</module>
+        <children id="level_1_1" name="专题" href="./comprehensive/thematic/index.html" module="resource" />
+    </menu>
+</menus>

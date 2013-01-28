@@ -70,7 +70,10 @@
     padding: 5px 10px;
     color: #FFFFFF;
 }
-.h-web-paragraph p, .h-web-paragraph pre, .h-web-paragraph table, .h-web-paragraph h4, .h-web-paragraph img, .h-web-paragraph ul {
+.h-web-paragraph h3{
+    margin:10px 0;
+}
+.h-web-paragraph p, .h-web-paragraph pre, .h-web-paragraph table, .h-web-paragraph h4, .h-web-paragraph > img, .h-web-paragraph ul {
     margin:10px 20px;
 }
 .h-web-paragraph p, .h-web-paragraph pre, .h-web-paragraph table , .h-web-paragraph ul{
@@ -127,5 +130,13 @@
 .h-web-font-red, p.h-web-font-red{
     color:#F94A76;
     font-weight:bold;
+}
+
+/**
+ * 内容容器  
+**/
+.h-web-content-cantainer{
+    max-height: 600px;
+    overflow: auto;
 }
 
