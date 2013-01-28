@@ -3,10 +3,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>jQuery UI 源码分析 —— jQuery UI 代码组成结构</title>
+        
+        <link rel="stylesheet" href="../../../../platform/javascript/jquery-ui/css/jquery-ui.css" type="text/css"/>
         <link rel="stylesheet" href="../../../../platform/css/base.css" type="text/css"/>
         <link rel="stylesheet" href="../../../../platform/css/platform.css" type="text/css"/>
         <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
         <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
+        
+        <script type="text/javascript" src="../../../../platform/javascript/jquery/jquery.js"></script>
+        <script type="text/javascript" src="../../../../platform/javascript/jquery-ui/jquery-ui-custom.js"></script>
+        
     </head>
     <body>
         <h3 class="h-web-paragraph-title">目录</h3>
@@ -19,6 +25,7 @@
             <li><a paragraph="5" href="#">jQuery UI 相关组件Widgets</a></li>
             <li><a paragraph="6" href="#">jQuery UI 中实现了鼠标交互（Mouse Interaction）的组件Widgets</a></li>
             <li><a paragraph="7" href="#">Effects（jQuery UI中的效果）</a></li>
+            <li><a paragraph="8" href="#">组件中部分方法和属性详解</a></li>
             
         </ol>
         <div class="h-web-paragraph">
@@ -287,7 +294,72 @@ $( ":tabbable" ).css( "border-color", "red" );// 1 2 匹配成功，不设置tab
           
           <h3 paragraph="7">Effects（jQuery UI中的效果）</h3>
           <p>jQuery UI 提供了几种默认的动画效果。首先看effects core 文件jquery.ui.effect.js。该文件中首先定义了jQuery.Color类，下面看看这个类是干什么的以及他的用法。</p>
-          <p>&nbsp;</p>     
+          <p>&nbsp;</p>  
+          
+          <h3 paragraph="8">组件中部分方法和属性详解</h3>
+          <h4>关于widget中option的设置和获取，下面以例子来分析</h4>
+          <p>
+              例子1：dialog组件
+          option width的测试</p>
+          <p>
+            <span id="optionsDemo" style="display: none;">这是一个测试，用dialog来测试</span>
+            <button id="optionsDemoBtn">打开</button>
+            <button id="optionsDemoBtn2">改变属性</button>
+          </p>
+          <p>从运行结果以及代码跟踪来看，对于重新设置option时，首先执行桥接函数中的</p>
+          <pre>instance.option( options || {} )._init();</pre>
+            <script type="text/javascript">
+              $(function(){
+                  $('#optionsDemoBtn').click(function(){
+                      $('#optionsDemo').dialog();
+                  });
+                  $('#optionsDemoBtn2').click(function(){
+                      console.info($('#optionsDemo').dialog('option', 'width'));
+                      $('#optionsDemo').dialog('option', 'width', 500);
+                      console.info($('#optionsDemo').dialog('option', 'width'));
+                  });
+              });
+          </script>
+            <p>然后分别调用_setOptions和_setOption方法，所以组件中会重新实现该方法，来提供option对应的功能，如果不提供，则</p>
+            <pre>$('#optionsDemo').jQuery.Widget('option', 'width', 500);
+            </pre>
+            <p>不会起作用。对于一些属性，虽然没有直接提供，但是间接的实现了该功能，比如dialog中的width，重新设置该值时会重新执行_size()方法。如果不想提供该option的重新设置功能，只是在创建时传入参数，则不实现该option对应的功能即可。</p>
+            <p>例子2：menu组件 option position的测试</p>
+            
+            <ul id="optionsMenu" style="display: none;">
+                <li><a href="#">Item 1</a></li>
+                <li><a href="#">Item 2</a></li>
+                <li><a href="#">Item 3</a>
+                <ul>
+                <li><a href="#">Item 3-1</a></li>
+                <li><a href="#">Item 3-2</a></li>
+                <li><a href="#">Item 3-3</a></li>
+                <li><a href="#">Item 3-4</a></li>
+                <li><a href="#">Item 3-5</a></li>
+                </ul>
+                </li>
+                <li><a href="#">Item 4</a></li>
+                <li><a href="#">Item 5</a></li>
+            </ul>
+            
+            <p>
+                <button id="optionsMenuBtn">打开</button>
+                <button id="optionsMenuBtn2">改变属性</button>
+            </p>
+            <p>从运行结果来看，menu组件中并没有实现position的重新设置功能</p>
+            <script type="text/javascript">
+              $(function(){
+                  $('#optionsMenuBtn').click(function(){
+                      $('#optionsMenu').menu().show();
+                  });
+                  $('#optionsMenuBtn2').click(function(){
+                      $('#optionsMenu').menu('option', 'position', { my: "center", at: "right-50 top+100" ,of: $('#optionsMenuBtn')});
+                      $('#optionsMenu').menu('option', 'menus',  'div');
+                      console.info($('#optionsMenu').menu('option', 'position'));
+                  });
+              });
+          </script>
+          
             <p>参考资料</p>
             <p><a href="http://api.jqueryui.com/" target="_blank">jQuery UI API</a></p>
         </div>

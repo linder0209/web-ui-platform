@@ -8,7 +8,7 @@
         <name>HTML</name>
         <module>html</module>
         <children id="level_1_1" name="html相关知识" href="./html/knowledge/index.html" module="knowledge" />
-        <children id="level_1_2" name="常用语义化标签" href="./html/items/index.html" module="items"/>
+        <children id="level_1_2" name="语义化标签" href="./html/items/index.html" module="items"/>
     </menu>
     <menu>
         <id>level_2</id>

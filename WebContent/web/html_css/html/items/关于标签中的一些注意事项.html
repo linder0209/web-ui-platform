@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>html标签——关于标签中的一些注意事项</title>
+        <link rel="stylesheet" href="../../../../platform/css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/platform.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
+    </head>
+    <body>
+        <h3 class="h-web-paragraph-title">目录</h3>
+        <ol class="h-web-catalogue">
+            <li><a paragraph="1" href="#">标签之间的嵌套关系注意事项</a></li>
+        </ol>
+        <div class="h-web-paragraph">
+            <h3 paragraph="1">标签之间的嵌套关系注意事项</h3>
+            
+            <h4>p标签</h4>
+            <p>W3c的html4.0.1明确规定P标签是不能包含块元素的</p>
+            <p><a href="http://www.w3.org/TR/html401/struct/text.html#edef-P" target="_blank" >The P element represents a paragraph. It cannot contain block-level elements (including P itself).</a></p>
+            <p>如果p中含有块元素div，浏览器会解析成</p>
+            <pre>&lt;p&gt;&lt;/p&gt;<br>&lt;div&gt;&lt;/div&gt;<br>&lt;p&gt;&lt;/p&gt;</pre>
+            <p>&nbsp;</p>
+        </div>
+    </body>
+</html>
