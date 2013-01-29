@@ -11,6 +11,7 @@
 .h-web-catalogue {
     margin: 5px 0 5px 30px;
     list-style-type: decimal;
+    color: #005B73;
 }
 .h-web-catalogue li{
     list-style-type: decimal;

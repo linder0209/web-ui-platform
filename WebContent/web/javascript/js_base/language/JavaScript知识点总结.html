@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>JavaScript 语言基础 —— JavaScript知识点总结</title>
+        <link rel="stylesheet" href="../../../../platform/css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/platform.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
+    </head>
+    <body>
+        <h3 class="h-web-paragraph-title">目录</h3>
+        <ol class="h-web-catalogue">
+            <li><a paragraph="1" href="#">window.location.hash的用法</a></li>
+            <li><a paragraph="2" href="#">jQuery UI——core中相关方法</a></li>
+            <li><a paragraph="3" href="#">jQuery UI——position中相关方法</a></li>
+        </ol>
+        <div class="h-web-paragraph">
+            <h3 paragraph="1">window.location.hash</h3>
+            <p>用来设置页面的锚点值，可以获取或设置页面的标签值，主要是结合ajax来使用，模仿实现页面的“前进”、“后退”功能。<span class="h-web-font-red">注意：IE6和IE7不支持</span>。</p>
+            <p>也可以用window.location.hash来伪造地址栏中的假地址，需要结合ajax实现，用户看不到实际访问的url。如以下代码，处理href变为hash</p>
+            <pre>window.location.hash = this.href.replace(/.+\/([^\/]+)\/index\.html/,'$1') + '|default';</pre>
+            <p>上面正则表达式的意思是：匹配“除换行符以外的任意字符一次或多次”，接着是“/”，然后是“除去/的任意字符一次或多次”，最后是“/index.html”。
+                匹配成功后，用正则表达式括号中的匹配内容替换。这里用到了正则表达式中的“后向引用”。例如可以匹配以下内容: “../list/list2/index.html”，
+                这时括号中匹配的值为“list2”，所以上面的表达式执行结果为：list2|default    
+            </p>
+        </div>
+    </body>
+</html>

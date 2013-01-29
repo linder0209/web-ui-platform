@@ -5,6 +5,12 @@
 
     <menu>
         <id>level_1</id>
+        <name>JavaScript常用功能类</name>
+        <module>classlib</module>
+        <children id="level_1_1" name="JavaScript公共类库" href="./classlib/utils/index.html" module="utils" />
+    </menu>
+    <menu>
+        <id>level_2</id>
         <name>综合</name>
         <module>comprehensive</module>
         <children id="level_1_1" name="专题" href="./comprehensive/thematic/index.html" module="resource" />

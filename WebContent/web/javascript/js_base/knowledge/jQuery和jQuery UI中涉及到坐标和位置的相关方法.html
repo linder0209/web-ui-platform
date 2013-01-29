@@ -12,12 +12,13 @@
         <h3 class="h-web-paragraph-title">目录</h3>
         <ol class="h-web-catalogue">
             <li><a paragraph="1" href="#">jQuery中相关方法</a></li>
-            <li><a paragraph="2" href="#">jQuery UI中相关方法</a></li>
+            <li><a paragraph="2" href="#">jQuery UI——core中相关方法</a></li>
+            <li><a paragraph="3" href="#">jQuery UI——position中相关方法</a></li>
         </ol>
     <div class="h-web-paragraph">
             <h3 paragraph="1">jQuery中相关方法</h3>
             
-            <h3 paragraph="2">jQuery UI中相关方法</h3>
+            <h3 paragraph="2">jQuery UI——core中相关方法</h3>
             <h4>$.fn.scrollParent()</h4>
             <p>Get the closest ancestor element that is scrollable.</p>
             <p>
@@ -28,6 +29,28 @@
       <p class="h-web-font-red"><em>Note: This method only works on jQuery objects containing one element.</em></p>
         <h4>$.ui.hasScroll : function( el, a )</h4>
             <p>判断元素el是否有滚动条，默认判断垂直滚动条，a设为left则判断横向滚动条</p>
+      <h3 paragraph="3">jQuery UI——position中相关方法</h3>
+            
+            <p>jQuery UI position在文件jquery.ui.position.js中定义，该文件主要围绕$.fn.position（该方法扩展了jQuery中的$.fn.position）展开。</p>
+            <p><span class="h-web-font-red">该文件可脱离jquery ui 单独作为工具类使用</span>。</p>
+            <h4>$.position.scrollbarWidth()</h4>
+          <p>返回滚动条的宽度，该方法只会计算一次，会吧计算的结果缓存到变量中，计算的过程中动态插入了可滚动的div来辅助计算。</p>
+            <h4>$.position.getScrollInfo: function( within ) </h4>
+
+            <p>返回元素垂直和水平滚动条的宽度，返回值格式为：{width:0,height:0}。该方法传入的参数within需要调用$.position.getWithinInfo(element)包装一下。</p>
+            <h4>$.fn.position(options ) </h4>
+            <p>设置一个元素相对于另一个元素的位置坐标</p>
+            <p>参数options有以下几个选项</p>
+            <p>my：设置该元素定位的参照点，是以该元素来计算坐标的。默认值为: 'center'，相当于'center center'，该选项中有两个值，前一个值指水平方向，后一个指垂直方向。A single value such as "right" will be normalized to "right center", "top" will be normalized to "center top"，还可以设置为以下值："right+10 top-25%"。</p>
+          <p>at：设置该元素要定位的坐标点，是以目标元素来计算的。默认值为: 'center'，可设置的值与<span class="h-web-font-red">'my'</span>中一样。</p>
+          <p>of：指参照的目标元素，Type: <a href="http://api.jquery.com/Types#Selector" target="_blank">Selector</a> or <a href="http://api.jquery.com/Types#Element" target="_blank">Element</a> or <a href="http://api.jquery.com/Types#jQuery" target="_blank">jQuery</a> or <a href="http://api.jquery.com/Types#Event" target="_blank">Event</a>，默认值为null，如果为null则调用jQuery中的方法$.fn.position返回该元素坐标值。</p>
+          <p>collision：当元素坐标超出window窗口时所采取的策略，有以下几种：flip，翻转（投影）；fit，远离窗口边缘，flipfit，首先翻转，再远离；none，不检测。默认值为"flip"</p>
+          <p>using：可以设置该选项，传入回调函数</p>
+          <p>within：碰壁检查参考的DOM元素，指collision的参考值。Type: Selector or Element or jQuery</p>
+          
+          
+          <h4>$.support.offsetFractions</h4>
+          <p>判断css设置像素值是否支持小数</p>
       </div>
     </body>
 </html>
