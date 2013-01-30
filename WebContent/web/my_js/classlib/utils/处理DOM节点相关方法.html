@@ -7,8 +7,11 @@
         <link rel="stylesheet" href="../../../../platform/css/platform.css" type="text/css"/>
         <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
         <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
+        
+        <script type="text/javascript" src="../../../../platform/javascript/jquery/jquery.js"></script>
     </head>
     <body>
+        <script type="text/javascript" src="js/jquery.util.element.js" ></script>
         <h3 class="h-web-paragraph-title">目录</h3>
         <ol class="h-web-catalogue">
             <li><a paragraph="1" href="#">类介绍</a></li>
@@ -19,6 +22,23 @@
             <p>该类基于jQuery构建，参考ExtJs中处理DOM节点的方法实现，主要补充了jQuery中没有提供的，但开发过程中常用到的方法或属性。
                 <span class="h-web-font-red">主要有：待说明</span></p>
             <h3 paragraph="2">方法</h3>
+            <h4>getViewportWidth()</h4>
+          <p>返回页面可视化宽度。</p>
+          <p>demo</p>
+          <pre>console.log($.util.Element.getViewportWidth());</pre>
+          <p>运行结果：<span class="h-web-font-red" id="getViewportWidth"></span></p>
+          <script type="text/javascript">
+		     $('#getViewportWidth').text($.util.Element.getViewportWidth());
+		  </script>
+            <h4>getViewportHeight()</h4>
+          <p>返回页面可视化高度。</p>
+          <p>demo</p>
+          <pre>console.log($.util.Element.getViewportHeight());</pre>
+          <p>运行结果：<span class="h-web-font-red" id="getViewportHeight"></span></p>
+          <script type="text/javascript">
+		     $('#getViewportHeight').text($.util.Element.getViewportHeight());
+		  </script>
+          <p>&nbsp;</p>
         </div>
     </body>
 </html>

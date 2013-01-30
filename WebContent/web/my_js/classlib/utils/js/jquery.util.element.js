@@ -8,31 +8,30 @@
     $.util = $.util || {};
 
     $.util.Element = (function() {
-
-        var check = function(r) {
-            return r.test(navigator.userAgent.toLowerCase());
-        },
-                doc = document,
-                isOpera = check(/opera/),
-                isIE = !isOpera && check(/msie/),
-                isStrict = doc.compatMode == 'CSS1Compat';
+        var doc = document;
 
         var element = {
-            //return the page viewport width
+            /**
+             * 返回页面可视化宽度
+             * 该方法不同于ExtJs中的实现，与之有区别
+             * $.support.boxModel 返回 true表明浏览器是严格模式即：document.compatMode 为 'CSS1Compat'
+             * return the page viewport width
+             * @returns {}
+             */
             getViewportWidth: function() {
-                return !isStrict && !isOpera ? doc.body.clientWidth : isIE
-                        ? doc.documentElement.clientWidth
-                        : self.innerWidth;
+                return self.innerWidth ? self.innerWidth :
+                        ($.support.boxModel ? doc.documentElement.clientWidth : doc.body.clientWidth);
             },
-            //return the page viewport height
+            /**
+             * 返回页面可视化高度
+             * return the page viewport height
+             * @returns {}
+             */
             getViewportHeight: function() {
-                return isIE ? (isStrict
-                        ? doc.documentElement.clientHeight
-                        : doc.body.clientHeight) : self.innerHeight;
+                return self.innerHeight ? self.innerHeight :
+                        ($.support.boxModel ? doc.documentElement.clientHeight : doc.body.clientHeight);
             }
         };
         return element;
     })();
-
-
 })(jQuery);
