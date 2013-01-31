@@ -84,6 +84,10 @@
 .h-web-paragraph p{
     text-indent: 2em;
 }
+.h-web-paragraph p:first-letter{
+    font-weight: bold;
+    color:#005B73;
+}
 .h-web-paragraph pre{
     border: 1px dotted #778855;
     padding:10px;
@@ -141,3 +145,17 @@
     overflow: auto;
 }
 
+.h-web-section p{
+    color: #005B73;
+    font-size: 14px;
+}
+
+.h-web-section h4{
+    margin:10px 0;
+    color: #009EC3;
+    font-size: 14px;
+}
+.h-web-section a{
+    text-decoration:underline;
+    color:#009EC3;
+}

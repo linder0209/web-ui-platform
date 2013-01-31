@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>css盒子模型</title>
+        <link rel="stylesheet" href="../../../../platform/css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/platform.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
+    </head>
+    <body>
+        <div class="h-web-paragraph">
+            <p>关于css盒子模型，以前总是不太清楚，尤其对于margin和padding老是混淆。其实主要是没有系统的学习一下，没有理解其内在实现和布局结构。我们只要掌握了盒子模型中的几个属性，就会自然而然地学会了css盒子模型，再练习一下demo，就可以完全掌握其实现原理。首先通过一张flash来看一下盒子模型中margin、background-color、background-image、border和padding，以及他们之间的关系。</p>
+            <p><a href="images/CSSBoxModel.swf" target="_blank"><img src="images/cssmodel.jpg" border="0" /></a></p>
+            <p>从上面的flash可以清楚的看到盒子模型各属性的内部结构，下面给出一
+            例子</p>
+            <style type="text/css">
+			   #cssBoxModel{
+				   width:200px;
+				   height:200px;
+				   border:5px solid #3A9EA7;
+				   margin:15px;
+				   padding:25px;
+				   background-color:#EF935A;
+				   color:#ED2754;
+			   }
+			</style>
+          <div style="background-color:#62C7D2;padding:10px;">
+                盒子
+            	<div id="cssBoxModel">
+            		CSS box model 
+            	</div>
+                盒子
+            </div>
+            <p><a href="http://alexander.bokee.com/4748589.html" target="_blank">参考资源</a></p>
+            
+    </div>
+    </body>
+</html>

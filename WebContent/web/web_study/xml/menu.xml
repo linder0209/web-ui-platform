@@ -10,4 +10,14 @@
         <children id="level_1_1" name="网络资源参考" href="./comprehensive/resource/index.html" module="resource" />
         <children id="level_1_2" name="div+css页面设计参考" href="./comprehensive/reference/index.html" module="reference" />
     </menu>
+    
+    <menu>
+        <id>level_2</id>
+        <name>web前端知识点总结</name>
+        <module>knowledgePoint</module>
+        <children id="level_2_1" name="知识点总结" href="./knowledgePoint/knowledge/index.html" module="knowledge" />
+        <children id="level_2_2" name="前端开发工具" href="./knowledgePoint/developmentTool/index.html" module="developmentTool" />
+        <children id="level_2_3" name="前端开发规范" href="./knowledgePoint/specifications/index.html" module="specifications" />
+        <children id="level_2_4" name="前端性能优化" href="./knowledgePoint/performance/index.html" module="performance" />
+    </menu>
 </menus>

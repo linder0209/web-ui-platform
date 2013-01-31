@@ -163,6 +163,9 @@
                 repSource = repSource.replace(/<\/?body.*>/ig, ""); //Remove body tag
                 //替换a标签和img标签相对路径，该正则表达式的意思是：替换href或src中的值，并且该值开头不是http或#。该例子中用到了零宽断言
                 repSource = repSource.replace(/((href|src)=["'])(?!(http|#))/ig, '$1' + directory + '/');
+                
+                //替换样式中图片背景
+                repSource = repSource.replace(/(url\(\s*["']?\s*)(?!(http|#))/ig, '$1' + directory + '/');
                 $('#body_content_frame').empty().html(repSource);
 				
                 //初始化目录列表事件

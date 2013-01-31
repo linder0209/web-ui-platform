@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>ie bug</title>
+        <link rel="stylesheet" href="../../../../platform/css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/platform.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
+    </head>
+    <body>
+        <div class="h-web-paragraph">
+            
+            待整理
+            1、3px bug
+
+            2、IE6的双倍边距bug
+            当浮动后设置左侧外边距时后，最左侧将显示为双倍边距，比如设置为20，而在IE6下却显示40px，解决这个问题只需应用一个样式，大家记住就可以了
+            display:inline;
+
+            3、
+            这里的#menu ul li a本来是可以不加float:left的，但IE6下在li没有设置宽度，#menu ul li a设置display:block的情况下，将会显示错乱，所以需要在a上增加float:left来修正。万恶的IE6，怎么就淘汰不掉呢
+        </div>
+    </body>
+</html>

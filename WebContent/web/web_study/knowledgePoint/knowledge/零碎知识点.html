@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>零碎知识点</title>
+        <link rel="stylesheet" href="../../../../platform/css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/platform.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
+    </head>
+    <body>
+        <div class="h-web-paragraph">
+            <p>
+            块级元素的垂直相邻外边距会合并，而行内元素实际上不占上下外边距。行内元素的的左右外边距不会合并。同样地，浮动元素的外边距也不会合并。允许指定负的外边距值，不过使用时要小心。</p>
+            <p>一般的块级元素诸如段落&lt;p&gt;、标题&lt;h1&gt;&lt;h2&gt;...、列表,&lt;ul&gt;&lt;ol&gt;&lt;li&gt; 、表格&lt;table&gt;、表单&lt;form&gt;、DIV&lt;div&gt;和BODY&lt;body&gt;等元素。而内联元素则如: 表单元素&lt;input&gt;、超级链接&lt;a&gt;、图像&lt;img&gt;、&lt;span&gt; ........ 块级元素的显著特点是：每个块级元素都是从一个新行开始显示，而且其后的无素也需另起一行进行显示。</p>
+            <p>可以用css的display:inline将块级元素改变为内联元素，也可以用display:block将内联元素改变为块元素。</p>
+            <p>在 CSS 中，任何元素都可以浮动。浮动元素会生成一个块级框，而不论它本身是何种元素；且要指明一个宽度，否则它会尽可能地窄；另外当可供浮动的空间小于浮动元素时，它会跑到下一行，直到拥有足够放下它的空间。</p>
+            <p>标签的默认样式<br>
+              大多数标签都有自己的默认样式，比如body默认有外边距，ul前有圆点及左侧的内边距，h1-h6字体大小各不相同，em默认为斜体，strong表示粗体。正因为有这些默认样式，一个设计合理的页面，即使没有加载样式，也能让用户很容易阅读。但现在的网页设计，这些默认样式对我们没用，所以需要清除掉，为了方便，建议用标签重定义方式，这样可以很简单地把全局的样式给统一起来。另外页面中的图片添加链接后会默认添加个边框，ul默认情况下会在列表前添加圆点，这些都是需要去掉的。如以下代码</p>
+            <p>body, ul, li, h1, h2, h3, h4, h5, h6, p, form, dl, dt, dd { margin: 0px; padding: 0px; font-size: 12px; font-weight: normal; }<br>
+              ul { list-style: none; }<br>
+              img { border-style: none; }</p>
+            <p>li:hover,当鼠标划过li时的样式。其中:hover和链接一样，同属于伪类，但有一点注意，目前IE6只支持a的伪类，其它标签的伪类不支持，所以要想在IE6下也显示正确，需要借助js来实现，我们定义一个类.current （自己命名，需和JS中相同）;然后当鼠标划过后，用JS给当前li添加上这个样式上，根据css的优先级：指定的高于继承的原则，就实现了IE6下的正确显示。所以需要加上JS和样式#menu ul li.current{ }。即需要处理鼠标的移入、移出li上的事件。</p>
+            <p>首字下沉效果的设置，设置css伪类首字:first-letter<br>
+          p:first-letter { font-family: &quot;microsoft yahei&quot;; font-size: 40px; float: left; padding-right: 10px; line-height: 1; }</p>
+            <p>ul无序和ol有序列表<br>
+              无序列表，是以ul包含li的形式，默认每行前的符号是圆点，可以通过样式表改为无、方块，空心圆等。有序列表是以ol包含li的形式，是以数字为项目符号的，无序列表也可以用css定义显示成有序列表，</p>
+            <p>label标签常常被大家忽略了，合理利用会使页面的用户体验得到提升，我们可以对表单的说明文字使用label标签，这样当用户点击文字时，光标就定位到表单上了<br>
+              &lt;label for=&quot;name&quot;&gt;姓名：&lt;/label&gt;<br>
+            &lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;name&quot; /&gt;</p>
+            <p>&lt;img&gt;元素的alt和title有什么异同？alt作为图片的替代文字出现（当加载图片失败时），title是图片的解释文字（tooltip）<br>
+            </p>
+
+        </div>
+    </body>
+</html>

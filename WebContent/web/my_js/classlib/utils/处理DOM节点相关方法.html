@@ -38,6 +38,8 @@
           <script type="text/javascript">
 		     $('#getViewportHeight').text($.util.Element.getViewportHeight());
 		  </script>
+          <p>方法getViewportWidth和getViewportHeight实现代码</p>
+          <pre>(function($, undefined) {<br>    $.util = $.util || {};<br><br>    $.util.Element = (function() {<br>        var doc = document;<br><br>        var element = {<br>            /**<br>             * 返回页面可视化宽度<br>             * 该方法不同于ExtJs中的实现，与之有区别<br>             * $.support.boxModel 返回 true表明浏览器是严格模式即：document.compatMode 为 'CSS1Compat'<br>             * return the page viewport width<br>             * @returns {}<br>             */<br>            getViewportWidth: function() {<br>                return self.innerWidth ? self.innerWidth :<br>                        ($.support.boxModel ? doc.documentElement.clientWidth : doc.body.clientWidth);<br>            },<br>            /**<br>             * 返回页面可视化高度<br>             * return the page viewport height<br>             * @returns {}<br>             */<br>            getViewportHeight: function() {<br>                return self.innerHeight ? self.innerHeight :<br>                        ($.support.boxModel ? doc.documentElement.clientHeight : doc.body.clientHeight);<br>            }<br>        };<br>        return element;<br>    })();<br>})(jQuery);</pre>
           <p>&nbsp;</p>
         </div>
     </body>

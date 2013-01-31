@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>jpg、gif、png格式的图片应用在网站中的区别</title>
+        <link rel="stylesheet" href="../../../../platform/css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/platform.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
+    </head>
+    <body>
+        <div class="h-web-section">
+          <h4><strong>Jpeg格式特点:</strong></h4>
+          <p>
+          1.透明性,它并不支持透明。<br>
+          2.动画,它也不支持动画。<br>
+          3.损耗性,除了一些比如说旋转（仅仅是90、180、270度旋转），裁切，从标准类型到先进类型，编辑图片的原数据之外，所有其它操作对jpeg图像的处理都会使得它的质量损失。所以我们在编辑过程一般用png作为过渡格式。<br>
+          4.隔行渐进显示,它支持隔行渐进显示（但是ie浏览器并不支持这个属性，但是ie会在整个图像信息完全到达的时候显示）。<br>
+          </p>
+          <h4><strong>Gif格式特点:</strong></h4>
+			<p>
+          </strong>1.透明性,Gif是一种布尔透明类型，既它可以是全透明，也可以是全不透明，但是它并没有半透明（alpha 透明）。<br>
+          2.动画,Gif这种格式支持动画。<br>
+          3.无损耗性,Gif是一种无损耗的图像格式，这也意味着你可以对gif图片做任何操作也不会使 得图像质量产生损耗。<br>
+          4.水平扫描,Gif是使用了一种叫作LZW的算法进行压缩的，当压缩gif的过程中，像素是由上到下水平压缩的，这也意味着同等条件下，横向的gif图片比竖向的gif图片更加小。例如500*10的图片比10*500的图片更加小<br>
+          5.间隔渐进显示,Gif支持可选择性的间隔渐进显示<br>
+          <br>
+          由以上特点看出只有256种颜色的gif图片不适合照片，但它适合对颜色要求不高的图形（比如说图标，图表等），它并不是最优的选择，我们会在后面中看到png是最优的选择。<br>
+          <br>
+          由上可以看出Jpeg是最适web上面的摄影图片和数字照相机中。<br>
+          <br>
+          </p>
+          <h4><strong>Png格式特点:</strong></h4>
+          <p>
+          </strong>1.类型,Png这种图片格式包括了许多子类，但是在实践中大致可以分为256色的png和全色的png，你完全可以用256色的png代替gif，用全色的png代替jpeg<br>
+          2.透明性,Png是完全支持alpha透明的（透明，半透明，不透明），尽管有两个怪异的现象在ie6（下面详细讨论）<br>
+          3.动画,它不支持动画<br>
+          <br>
+          PNG图片格式现在包含三种类型：<br>
+          1.PNG8      256色PNG的别名<br>
+          2.PNG24     全色PNG的别名<br>
+          3.PNG32     全色PNG的别名<br>
+          <br>
+          基本上PNG32就是PNG24，但是附带了全alpha通道。就是说每个像素上不仅存储了24位真色彩信息还存储了8位的alpha通道信息，就如同GIF能存储透明和不透明信息一样。当我们把图片放到不太搭配的背景上的时候，透明PNG图片的边缘会显示得更加平滑。<br>
+          当然，我也知道你的想法，&ldquo;但是Photoshop也能生成带透明通道的PNG图片！&rdquo;我也知道，它只是表面上这么说是PNG24，让我也产生困惑了。<br>
+          作为一个伤感的Fireworks倡导者，我只使用PNG32支持附带alpha通道的真色彩图片。不管怎样，如果你习惯使用Photoshop，你就应该知道，Photoshop在&ldquo;存储为WEB格式&rdquo;中只提供PNG8和PNG24两种PNG格式。<br>
+          我敢肯定你经常会勾选&ldquo;支持透明&rdquo;选项，以获得带有透明度的PNG图片，但是这样你就获取了一张PNG32图片。——Photoshop只是觉得把PNG32这个名称给隐藏掉了。奇怪吧？……<br>
+          <br>
+          对png8的误解<br>
+          Png8的在ie中的怪异表现：<br>
+          半透明的png8在ie6以下的浏览器显示为全透明。<br>
+          Alpha透明的全色PNG（png32）在ie6中会出现背景颜色（通常是灰色）。<br>
+          <br>
+          由上面可以总结：<br>
+          （a）全透明的png8可以在任一浏览器正常显示（就像gif一样）。半透明的png8在除了ie6及其以下的浏览器下错误的显示成全透明，其它浏览器都能正常显示半透明。这个bug并不需要特殊对待，因为在不支持半透明的浏览器下只是显示为全透明，对用户体验影响不大，它反而是透明gif的加强版。<br>
+          （b）第二个bug没有什么好的方法解决，只能通过影响性能的方法AlphaImageLoader与需要加特殊标签（VML）。<br>
+          <br>
+          因此得出结论就是：请使用PNG8。<br>
+          Png8的软件问题：<br>
+          Photoshop只能导出布尔透明的PNG8。<br>
+          Fireworks既能导出布尔透明的PNG8，也能导出alpha透明的PNG8.</p>
+          <p>相关参考链接</p>
+          <p><a href="http://hududumo.iteye.com/blog/1593397" target="_blank">GIF、JPG、PNG 比较</a></p>
+          <p><a href="http://wayfarer.iteye.com/blog/441726">GIF、JPG和PNG</a></p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+    </div>
+    </body>
+</html>
