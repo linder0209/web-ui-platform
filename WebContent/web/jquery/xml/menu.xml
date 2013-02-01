@@ -9,6 +9,7 @@
         <module>foundation</module>
         <children id="level_1_1" name="jQuery API" href="./foundation/api/index.html" module="api" />
         <children id="level_1_2" name="jQuery 源码分析" href="./foundation/source/index.html" module="source"/>
+        <children id="level_1_3" name="jQuery 参考资料" href="./foundation/information/index.html" module="information"/>
     </menu>
     <menu>
         <id>level_2</id>

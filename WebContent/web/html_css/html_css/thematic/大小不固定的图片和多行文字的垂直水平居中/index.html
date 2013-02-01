@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>大小不固定的图片和多行文字的垂直水平居中</title>
+        <link rel="stylesheet" href="../../../../platform/css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/platform.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
+
+    </head>
+    <body>
+        <h3 class="h-web-paragraph-title">目录</h3>
+        <ol class="h-web-catalogue">
+            <li><a paragraph="1" href="#">类介绍</a></li>
+            <li><a paragraph="2" href="#">方法</a></li>
+        </ol>
+        <div class="h-web-paragraph">
+            <h3 paragraph="1">类介绍</h3>
+            <p>该类基于jQuery构建，参考ExtJs中处理DOM节点的方法实现，主要补充了jQuery中没有提供的，但开发过程中常用到的方法或属性。
+                <span class="h-web-font-red">主要有：待说明</span></p>
+            <h3 paragraph="2">方法</h3>
+            <h4>getViewportWidth()</h4>
+            <p>返回页面可视化宽度。</p>
+            <p>demo</p>
+            <pre>console.log($.util.Element.getViewportWidth());</pre>
+            <p>运行结果：<span class="h-web-font-red" id="getViewportWidth"></span></p>
+            <script type="text/javascript">
+                $('#getViewportWidth').text($.util.Element.getViewportWidth());
+            </script>
+            <h4>getViewportHeight()</h4>
+            <p>返回页面可视化高度。</p>
+            <p>demo</p>
+            <pre>console.log($.util.Element.getViewportHeight());</pre>
+            <p>运行结果：<span class="h-web-font-red" id="getViewportHeight"></span></p>
+            <script type="text/javascript">
+                $('#getViewportHeight').text($.util.Element.getViewportHeight());
+            </script>
+            <p>方法getViewportWidth和getViewportHeight实现代码</p>
+            <pre>(function($, undefined) {<br>    $.util = $.util || {};<br><br>    $.util.Element = (function() {<br>        var doc = document;<br><br>        var element = {<br>            /**<br>             * 返回页面可视化宽度<br>             * 该方法不同于ExtJs中的实现，与之有区别<br>             * $.support.boxModel 返回 true表明浏览器是严格模式即：document.compatMode 为 'CSS1Compat'<br>             * return the page viewport width<br>             * @returns {}<br>             */<br>            getViewportWidth: function() {<br>                return self.innerWidth ? self.innerWidth :<br>                        ($.support.boxModel ? doc.documentElement.clientWidth : doc.body.clientWidth);<br>            },<br>            /**<br>             * 返回页面可视化高度<br>             * return the page viewport height<br>             * @returns {}<br>             */<br>            getViewportHeight: function() {<br>                return self.innerHeight ? self.innerHeight :<br>                        ($.support.boxModel ? doc.documentElement.clientHeight : doc.body.clientHeight);<br>            }<br>        };<br>        return element;<br>    })();<br>})(jQuery);</pre>
+            <p>&nbsp;</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>IE下CSS背景图拉伸或压缩，即自适应</title>
+    </head>
+    <body>
+        <style type="text/css">
+            table { border: 1px solid #00F; width: 500px; height: 200px; color: #00f; text-align: center;}
+            td {border: 1px solid #00F;}
+        </style>
+        <table style="background-image:url(images/bg.jpg);background-repeat: no-repeat;">
+            <tr>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+                <td>24</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>31</td>
+                <td>32</td>
+                <td>33</td>
+                <td>34</td>
+                <td>35</td>
+            </tr>
+        </table>
+        <br />
+        <table style="filter:progid:dximagetransform.microsoft.alphaimageloader(src='images/bg.jpg', sizingmethod='scale');background-repeat: no-repeat; 
+               background-positon: 100%, 100%; ">
+            <tr>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+                <td>24</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>31</td>
+                <td>32</td>
+                <td>33</td>
+                <td>34</td>
+                <td>35</td>
+            </tr>
+        </table>
+    </body>
+</html>

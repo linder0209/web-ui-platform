@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>notice右下角通知显示</title>
+        <style type="text/css">
+            html, body, div, h2, p {
+                color: #333333;
+                font: 12px arial,"宋体",tahoma,helvetica,sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <style type="text/css">
+            .xx-tl {
+                background: url("images/xx-tl.png") no-repeat scroll 0 0 transparent;
+                padding-left: 4px;
+            }
+            .xx-tr {
+                background: url("images/xx-tr.png") no-repeat scroll 100% 0 transparent;
+                padding-right: 4px;
+            }
+            .xx-tc {
+                background: url("images/xx-tc.png") repeat-x scroll 0 0 transparent;
+                height: 4px;
+                overflow: hidden;
+            }
+            .xx-ml {
+                background: url("images/xx-ml.png") repeat-y scroll 0 0 transparent;
+                padding-left: 4px;
+            }
+            .xx-mr {
+                background: url("images/xx-mr.png") repeat-y scroll 100% 0 transparent;
+                padding-right: 4px;
+            }
+            .xx-mc {
+                background: url("images/xx-mc.png") repeat-x scroll 0 0 transparent;
+                padding: 5px 10px 10px;
+                position: relative;
+            }
+            .xx-bl {
+                background: url("images/xx-bl.png") no-repeat scroll 0 0 transparent;
+                padding-left: 4px;
+            }
+            .xx-br {
+                background: url("images/xx-br.png") no-repeat scroll 100% 0 transparent;
+                padding-right: 4px;
+            }
+            .xx-bc {
+                background: url("images/xx-bc.png") repeat-x scroll 0 0 transparent;
+                height: 4px;
+            }
+            .xx-mc h2 {
+                color: #0A4C9F;
+                font-size: 14px;
+                font-weight: 700;
+                height: 30px;
+                line-height: 30px;
+                margin-bottom: 5px;
+            }
+            .xx-mc p {
+                line-height: 22px;
+                padding: 0 2px;
+            }
+            .xx-close {
+                background: url("images/xx-close.gif") no-repeat scroll 0 0 transparent;
+                cursor: pointer;
+                height: 9px;
+                position: absolute;
+                right: 8px;
+                top: 8px;
+                width: 8px;
+            }
+            .xx-alarm {
+                background: url("images/xx-alarm.gif") no-repeat scroll 0 3px transparent;
+                padding-left: 30px;
+            }
+        </style>
+
+        <div id="xtxx2"
+             style="height: 150px; width: 266px; right: 5px; bottom: 5px; position: absolute; z-index: 20000; visibility: visible;"
+             class="">
+            <div class="xx-tl">
+                <div class="xx-tr">
+                    <div class="xx-tc">&nbsp;</div>
+                </div>
+            </div>
+            <div class="xx-ml">
+                <div class="xx-mr">
+                    <div style="height: 123px" class="xx-mc">
+                        <h2 class="xx-alarm">系统消息</h2>
+                        <span class="xx-close" id="ext-gen50">&nbsp;</span>
+                        <p id="popupNoticeContent">您好：
+                            在审批流程【ZHM处理方式TEST】的节点【多人串行】上有任务【[ZHM处理方式TEST]1117-21】急需要您处理！
+
+                            [2011-11-21]</p>
+                    </div>
+                </div>
+            </div>
+            <div class="xx-bl">
+                <div class="xx-br">
+                    <div class="xx-bc">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
