@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>带动画的边框样式（利用背景图实现）</title>
+        <link rel="stylesheet" href="../../../../../platform/css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../../platform/css/platform.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../../platform/css/theme/skyblue.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../../platform/css/web.css" type="text/css"/>
+
+    </head>
+    <body>
+        <div class="h-web-paragraph">
+            <p>效果</p>
+            <style type="text/css">
+                .animat-border.top {
+                    background: url(images/flash_top.gif) repeat-x left top;
+                    height: 20px;
+                    width: 100px;
+                }
+                .animat-border .bottom {
+                    height: 100%;
+                    background: url(images/flash_bottom.gif) repeat-x left bottom;
+                }
+                .animat-border .left {
+                    width: 2px; 
+                    height: 100%;
+                    background: url(images/flash_left.gif) repeat-y left top;
+                    float: left;
+                    clear: both;
+                }
+                .animat-border .right {
+                    width: 2px;
+                    height: 100%;
+                    background: url(images/flash_right.gif) repeat-y left top;
+                    float: right;
+                }
+            </style>
+            <div class="animat-border top">
+                <div class="bottom">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+            </div>
+            
+            <p>代码</p>
+            <pre>&lt;style type="text/css"&gt;<br>    .animat-border.top {<br>        background: url(images/flash_top.gif) repeat-x left top;<br>        height: 20px;<br>        width: 100px;<br>    }<br>    .animat-border .bottom {<br>        height: 100%;<br>        background: url(images/flash_bottom.gif) repeat-x left bottom;<br>    }<br>    .animat-border .left {<br>        width: 2px; <br>        height: 100%;<br>        background: url(images/flash_left.gif) repeat-y left top;<br>        float: left;<br>        clear: both;<br>    }<br>    .animat-border .right {<br>        width: 2px;<br>        height: 100%;<br>        background: url(images/flash_right.gif) repeat-y left top;<br>        float: right;<br>    }<br>&lt;/style&gt;<br>&lt;div class="animat-border top"&gt;<br>    &lt;div class="bottom"&gt;<br>        &lt;div class="left"&gt;&lt;/div&gt;<br>        &lt;div class="right"&gt;&lt;/div&gt;<br>    &lt;/div&gt;<br>&lt;/div&gt;</pre>
+            <p>&nbsp;</p>
+        </div>
+    </body>
+</html>

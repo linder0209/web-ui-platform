@@ -188,9 +188,9 @@
                  * quick-code: false; 设置是否启用“双击”快速代码复制和粘贴。
                  * toolbar : false 设置是否显示工具栏。
                  */
-                $('#body_content_source pre').empty();
-                $('<pre type="syntaxhighlighter" class="brush: js; html-script: true; quick-code: false; toolbar : false" ></pre>').html(source).appendTo('#body_content_source pre');
-                SyntaxHighlighter.highlight();
+                //$('#body_content_source pre').empty();
+                //$('<pre type="syntaxhighlighter" class="brush: js; html-script: true; quick-code: false; toolbar : false" ></pre>').html(source).appendTo('#body_content_source pre');
+                //SyntaxHighlighter.highlight();
             }, 'html');
         }
     };

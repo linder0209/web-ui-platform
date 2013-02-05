@@ -28,7 +28,41 @@
             <p>label标签常常被大家忽略了，合理利用会使页面的用户体验得到提升，我们可以对表单的说明文字使用label标签，这样当用户点击文字时，光标就定位到表单上了<br>
               &lt;label for=&quot;name&quot;&gt;姓名：&lt;/label&gt;<br>
             &lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;name&quot; /&gt;</p>
-            <p>&lt;img&gt;元素的alt和title有什么异同？alt作为图片的替代文字出现（当加载图片失败时），title是图片的解释文字（tooltip）<br>
+            <p>&lt;img&gt;元素的alt和title有什么异同？alt作为图片的替代文字出现（当加载图片失败时），title是图片的解释文字（tooltip）</p>
+            <p>html DOM 节点</p>
+            <p>1、根节点<br>
+              有两种特殊的文档属性可用来访问根节点：<br>
+              document.documentElement<br>
+              document.body<br>
+              第一个属性可返回存在于 XML 以及 HTML 文档中的文档根节点。<br>
+            第二个属性是对 HTML 页面的特殊扩展，提供了对 &lt;body&gt; 标签的直接访问。</p>
+            <p>2、HTML DOM 节点信息<br>
+              nodeName、nodeValue 以及 nodeType 包含有关于节点的信息。</p>
+            <p>节点信息<br>
+              每个节点都拥有包含着关于节点某些信息的属性。这些属性是：<br>
+              nodeName（节点名称）<br>
+              nodeValue（节点值）<br>
+              nodeType（节点类型）</p>
+            <p>nodeName<br>
+              nodeName 属性含有某个节点的名称。<br>
+              元素节点的 nodeName 是标签名称<br>
+              属性节点的 nodeName 是属性名称<br>
+              文本节点的 nodeName 永远是 #text<br>
+              文档节点的 nodeName 永远是 #document<br>
+              注释：nodeName 所包含的 XML 元素的标签名称永远是大写的</p>
+            <p>nodeValue<br>
+              对于文本节点，nodeValue 属性包含文本。<br>
+              对于属性节点，nodeValue 属性包含属性值。<br>
+              nodeValue 属性对于文档节点和元素节点是不可用的。<br>
+              nodeType<br>
+              nodeType 属性可返回节点的类型。</p>
+            <p>最重要的节点类型是：<br>
+              元素类型	节点类型<br>
+              元素		1<br>
+              属性		2<br>
+              文本		3<br>
+              注释		8<br>
+              文档		9<br>
             </p>
 
         </div>
