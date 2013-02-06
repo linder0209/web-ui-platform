@@ -10,6 +10,7 @@
     </head>
     <body>
         <div class="h-web-paragraph">
+            <h3>零碎知识点1</h3>
             <p>
             块级元素的垂直相邻外边距会合并，而行内元素实际上不占上下外边距。行内元素的的左右外边距不会合并。同样地，浮动元素的外边距也不会合并。允许指定负的外边距值，不过使用时要小心。</p>
             <p>一般的块级元素诸如段落&lt;p&gt;、标题&lt;h1&gt;&lt;h2&gt;...、列表,&lt;ul&gt;&lt;ol&gt;&lt;li&gt; 、表格&lt;table&gt;、表单&lt;form&gt;、DIV&lt;div&gt;和BODY&lt;body&gt;等元素。而内联元素则如: 表单元素&lt;input&gt;、超级链接&lt;a&gt;、图像&lt;img&gt;、&lt;span&gt; ........ 块级元素的显著特点是：每个块级元素都是从一个新行开始显示，而且其后的无素也需另起一行进行显示。</p>
@@ -64,7 +65,257 @@
               注释		8<br>
               文档		9<br>
             </p>
-
+            <h3>html、xhtml、css总结</h3>
+            <p>1、未来的 HTML 版本不允许省略结束标签。</p>
+            <p>2、在 XHTML、XML 以及未来版本的 HTML 中，所有元素必须被关闭。如&lt;br /&gt;</p>
+            <p>3、HTML 提示：使用小写标签<br>
+              HTML 标签对大小写不敏感：&lt;P&gt; 等同于 &lt;p&gt;。许多网站都使用大写的 HTML 标签。<br>
+              W3School 使用的是小写标签，因为万维网联盟（W3C）在 HTML 4 中推荐使用小写，而在未来 (X)HTML 版本中强制使用小写。</p>
+            <p>4、HTML 提示：使用小写属性<br>
+              属性和属性值对大小写不敏感。<br>
+              不过，万维网联盟在其 HTML 4 推荐标准中推荐小写的属性/属性值。<br>
+              而 XHTML 要求使用小写的属性/属性值。</p>
+            <p>5、始终为属性值加引号<br>
+              属性值应该始终被包括在引号内。双引号是最常用的，不过使用单引号也没有问题。<br>
+              在某些个别的情况下，比如属性值本身就含有双引号，那么您必须使用单引号，例如：<br>
+              name='Bill &quot;HelloWorld&quot; Gates'</p>
+            <p>6、浏览器会自动地在标题的前后添加空行。如：h1、h2到h6<br>
+              默认情况下，HTML 会自动地在块级元素前后添加一个额外的空行，比如段落、标题元素前后。<br>
+            </p>
+            <p>7、标题很重要<br>
+              请确保将 HTML heading 标签只用于标题。不要仅仅是为了产生粗体或大号的文本而使用标题。<br>
+              搜索引擎使用标题为您的网页的结构和内容编制索引。<br>
+              因为用户可以通过标题来快速浏览您的网页，所以用标题来呈现文档结构是很重要的。<br>
+              应该将 h1 用作主标题（最重要的），其后是 h2（次重要的），再其次是 h3，以此类推。</p>
+            <p>8、<br>
+              文本格式化标签<br>
+              标签	描述<br>
+              &lt;b&gt;	定义粗体文本。<br>
+              &lt;big&gt;	定义大号字。<br>
+              &lt;em&gt;	定义着重文字。<br>
+              &lt;i&gt;	定义斜体字。<br>
+              &lt;small&gt;	定义小号字。<br>
+              &lt;strong&gt;	定义加重语气。<br>
+              &lt;sub&gt;	定义下标字。<br>
+              &lt;sup&gt;	定义上标字。<br>
+              &lt;ins&gt;	定义插入字。<br>
+              &lt;del&gt;	定义删除字。<br>
+              &lt;s&gt;	不赞成使用。使用 &lt;del&gt; 代替。<br>
+              &lt;strike&gt;	不赞成使用。使用 &lt;del&gt; 代替。<br>
+              &lt;u&gt;	不赞成使用。使用样式（style）代替。</p>
+            <p>以上实际用的较少，可以用css来代替<br>
+            </p>
+            <p>9、应该避免使用下面这些标签和属性：<br>
+              标签	描述<br>
+              &lt;center&gt;	定义居中的内容。<br>
+              &lt;font&gt; 和 &lt;basefont&gt;	定义 HTML 字体。<br>
+              &lt;s&gt; 和 &lt;strike&gt;	定义删除线文本<br>
+              &lt;u&gt;	定义下划线文本<br>
+              属性	描述<br>
+              align	定义文本的对齐方式<br>
+              bgcolor	定义背景颜色<br>
+              color	定义文本颜色</p>
+            <p>10、命名锚的语法：<br>
+              &lt;a name=&quot;label&quot;&gt;Text to be displayed&lt;/a&gt;<br>
+              提示：锚的名称可以是任何你喜欢的名字。<br>
+              实例<br>
+              HTML 文档内部的已命名的锚：<br>
+              &lt;a name=&quot;tips&quot;&gt;Useful Tips Section&lt;/a&gt;<br>
+              然后，我们创建指向相同文档中“有用的提示”部分的链接：<br>
+              &lt;a href=&quot;#tips&quot;&gt;Visit the Useful Tips Section&lt;/a&gt;<br>
+              或者，创建从另一个页面指向该文档中“有用的提示”部分的链接：<br>
+              &lt;a href=&quot;http://www.w3school.com.cn/html_links.htm#tips&quot;&gt;<br>
+              Visit the Useful Tips Section<br>
+              &lt;/a&gt;<br>
+              在上面的代码中，我们将 # 符号和锚名称添加到 URL 的末端，就可以直接链接到 tips 这个命名锚了。<br>
+            </p>
+            <p>11、&lt;optgroup&gt; 标签定义选项组。<br>
+              optgroup 元素用于组合选项。当您使用一个长的选项列表时，对相关的选项进行组合会使处理更加容易。<br>
+              实例<br>
+              通过 &lt;optgroup&gt; 标签把相关的选项组合在一起：<br>
+              &lt;select&gt;<br>
+  &lt;optgroup label=&quot;Swedish Cars&quot;&gt;<br>
+  &lt;option value =&quot;volvo&quot;&gt;Volvo&lt;/option&gt;<br>
+  &lt;option value =&quot;saab&quot;&gt;Saab&lt;/option&gt;<br>
+  &lt;/optgroup&gt;</p>
+            <p> &lt;optgroup label=&quot;German Cars&quot;&gt;<br>
+  &lt;option value =&quot;mercedes&quot;&gt;Mercedes&lt;/option&gt;<br>
+  &lt;option value =&quot;audi&quot;&gt;Audi&lt;/option&gt;<br>
+  &lt;/optgroup&gt;<br>
+  &lt;/select&gt;</p>
+            <p>12、img标签 替换文本属性（Alt）<br>
+              alt 属性用来为图像定义一串预备的可替换的文本。替换文本属性的值是用户定义的。<br>
+              &lt;img src=&quot;boat.gif&quot; alt=&quot;Big Boat&quot;&gt;<br>
+              在浏览器无法载入图像时，替换文本属性告诉读者她们失去的信息。此时，浏览器将显示这个替代性的文本而不是图像。为页面上的图像都加上替换文本属性是个好习惯，这样有助于更好的显示信息，并且对于那些使用纯文本浏览器的人来说是非常有用的。<br>
+              而title 是提示信息<br>
+            </p>
+            <p>13、热点的创建<br>
+              &lt;html&gt;<br>
+              &lt;body&gt;</p>
+            <p>&lt;p&gt;请点击图像上的星球，把它们放大。&lt;/p&gt;</p>
+            <p>&lt;img<br>
+              src=&quot;/i/eg_planets.jpg&quot;<br>
+              border=&quot;0&quot; usemap=&quot;#planetmap&quot;<br>
+              alt=&quot;Planets&quot; /&gt;</p>
+            <p>&lt;map name=&quot;planetmap&quot; id=&quot;planetmap&quot;&gt;</p>
+            <p>&lt;area<br>
+              shape=&quot;circle&quot;<br>
+              coords=&quot;180,139,14&quot;<br>
+              href =&quot;/example/html/venus.html&quot;<br>
+              target =&quot;_blank&quot;<br>
+              alt=&quot;Venus&quot; /&gt;</p>
+            <p>&lt;area<br>
+              shape=&quot;circle&quot;<br>
+              coords=&quot;129,161,10&quot;<br>
+              href =&quot;/example/html/mercur.html&quot;<br>
+              target =&quot;_blank&quot;<br>
+              alt=&quot;Mercury&quot; /&gt;</p>
+            <p>&lt;area<br>
+              shape=&quot;rect&quot;<br>
+              coords=&quot;0,0,110,260&quot;<br>
+              href =&quot;/example/html/sun.html&quot;<br>
+              target =&quot;_blank&quot;<br>
+              alt=&quot;Sun&quot; /&gt;</p>
+            <p>&lt;/map&gt;</p>
+            <p>&lt;p&gt;&lt;b&gt;注释：&lt;/b&gt;img 元素中的 &quot;usemap&quot; 属性引用 map 元素中的 &quot;id&quot; 或 &quot;name&quot; 属性（根据浏览器），所以我们同时向 map 元素添加了 &quot;id&quot; 和 &quot;name&quot; 属性。&lt;/p&gt;</p>
+            <p>&lt;/body&gt;<br>
+              &lt;/html&gt;</p>
+            <p>14、背景设置注意事项</p>
+            <p>提示：如果你打算使用背景图片，你需要紧记一下几点：<br>
+              背景图像是否增加了页面的加载时间。小贴士：图像文件不应超过 10k。<br>
+              背景图像是否与页面中的其他图象搭配良好。<br>
+              背景图像是否与页面中的文字颜色搭配良好。<br>
+              图像在页面中平铺后，看上去还可以吗？<br>
+              对文字的注意力被背景图像喧宾夺主了吗？</p>
+            <p>15、颜色名<br>
+              大多数的浏览器都支持颜色名集合。<br>
+              提示：仅仅有 16 种颜色名被 W3C 的 HTML4.0 标准所支持。它们是：aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive, purple, red, silver, teal, white, yellow。<br>
+            </p>
+            <p>16、XHTML 是什么？<br>
+              XHTML 指可扩展超文本标签语言（EXtensible HyperText Markup Language）。<br>
+              XHTML 的目标是取代 HTML。<br>
+              XHTML 与 HTML 4.01 几乎是相同的。<br>
+              XHTML 是更严格更纯净的 HTML 版本。<br>
+              XHTML 是作为一种 XML 应用被重新定义的 HTML。<br>
+              XHTML 是一个 W3C 标准。</p>
+            <p>17、更多的 XHTML 语法规则：<br>
+              属性名称必须小写<br>
+              属性值必须加引号<br>
+              属性不能简写<br>
+              用 Id 属性代替 name 属性<br>
+              XHTML DTD 定义了强制使用的 HTML 元素<br>
+            </p>
+            <p>18、语言属性（lang）<br>
+              lang 属性应用于几乎所有的 XHTML 元素。它定义元素内部的内容的所用语言的类型。<br>
+              如果在某元素中使用 lang 属性，就必须添加额外的 xml:lang，像这样：<br>
+              &lt;div lang=&quot;no&quot; xml:lang=&quot;no&quot;&gt;Heia Norge!&lt;/div&gt;</p>
+            <p>19、所有 XHTML 文档必须进行文件类型声明（DOCTYPE declaration）。在 XHTML 文档中必须存在html、head、body元素，而 title 元素必须位于在 head 元素中。<br>
+              下面是一个最小化的 XHTML 文件模板：<br>
+              &lt;!DOCTYPE Doctype goes here&gt;<br>
+              &lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;<br>
+              &lt;head&gt;<br>
+              &lt;title&gt;Title goes here&lt;/title&gt;<br>
+              &lt;/head&gt;</p>
+            <p>&lt;body&gt;<br>
+              &lt;/body&gt;</p>
+            <p>&lt;/html&gt;</p>
+            <p>20、键盘属性 (Keyboard Attributes)<br>
+              属性	值	描述<br>
+              accesskey	字符	设置访问某元素的键盘快捷键<br>
+              tabindex	数	设置某元素的Tab次序<br>
+            </p>
+            <p>21、XHTML 规则概要<br>
+              将传统的 HTML 转换为 XHTML 1.0 是快捷且无痛的，只要你遵守一些简单的规则和容易的方针。不管是否使用过 HTML，都不会妨碍你使用 XHTML。<br>
+              使用恰当的文档类型声明和命名空间。<br>
+              使用 meta 元素声明你的内容类型。<br>
+              使用小写字母书写所有的元素和属性。<br>
+              为所有的属性值加引号。<br>
+              为所有的属性分配值。<br>
+              关闭所有的标签。<br>
+              使用空格和斜线关闭空标签。<br>
+              不要在注释中写双下划线。<br>
+              确保小于号及和号为 &lt; 和 &amp;</p>
+            <p>22、同时，避免使用已被废弃的 HTML 元素比如 &lt;font&gt;，或者无语义的元素比如 &lt;br /&gt;，来模拟其实不存在的逻辑结构。<br>
+              比如，不要像这样做：<br>
+              &lt;font size=&quot;7&quot;&gt;我的主题&lt;/font&gt;&lt;br /&gt;<br>
+              介绍性文字&lt;br /&gt;&lt;br /&gt;<br>
+              &lt;font size=&quot;6&quot;&gt;补充性的观点&lt;/font&gt;&lt;br /&gt;<br>
+              相关文字&lt;br /&gt;<br>
+            </p>
+            <p>23、层叠次序<br>
+              当同一个 HTML 元素被不止一个样式定义时，会使用哪个样式呢？<br>
+              一般而言，所有的样式会根据下面的规则层叠于一个新的虚拟样式表中，其中数字 4 拥有最高的优先权。<br>
+              浏览器缺省设置<br>
+              外部样式表<br>
+              内部样式表（位于 &lt;head&gt; 标签内部）<br>
+              内联样式（在 HTML 元素内部）<br>
+            </p>
+            <p>24、继承及其问题<br>
+              根据 CSS，子元素从父元素继承属性。但是它并不总是按此方式工作。<br>
+              IE/Windows 直到 IE6 还存在相关的问题，在表格内的字体样式会被忽略。</p>
+            <p>25、不可以在内联元素 &lt;span&gt; 中嵌入 &lt;p&gt; <br>
+            </p>
+            <p>26、CSS 属性选择器 Internet Explorer 7 （以及更高版本）在规定了 !DOCTYPE 的情况下支持属性选择器。IE6 及更低的版本不支持属性选择器。</p>
+            <p>input[type=&quot;text&quot;]<br>
+              {<br>
+              width:150px;<br>
+              display:block;<br>
+              margin-bottom:10px;<br>
+              background-color:yellow;<br>
+              font-family: Verdana, Arial;<br>
+              }</p>
+            <p>input[type=&quot;button&quot;]<br>
+              {<br>
+              width:120px;<br>
+              margin-left:35px;<br>
+              display:block;<br>
+              font-family: Verdana, Arial;<br>
+              }</p>
+            <p>27、不要在属性值与单位之间留有空格。假如你使用 “margin-left: 20 px” 而不是 “margin-left: 20px” ，它仅在 IE 6 中有效，但是在 Mozilla/Firefox 或 Netscape 中却无法正常工作。</p>
+            <p>&nbsp;</p>
+            <p>28、background-color 不能继承，其默认值是 transparent。transparent 有“透明”之意。也就是说，如果一个元素没有指定背景色，那么背景就是透明的，这样其祖先元素的背景才能可见。background-image 也不能继承。事实上，所有背景属性都不能继承。<br>
+            </p>
+            <p>29、背景定位<br>
+              可以利用 background-position 属性改变图像在背景中的位置。<br>
+              下面的例子在 body 元素中将一个背景图像居中放置：<br>
+              body<br>
+              { <br>
+              background-image:url('/i/eg_bg_03.gif');<br>
+              background-repeat:no-repeat;<br>
+              background-position:center;<br>
+              }<br>
+              为 background-position 属性提供值有很多方法。首先，可以使用一些关键字：top、bottom、left、right 和 center。通常，这些关键字会成对出现，不过也不总是这样。还可以使用长度值，如 100px 或 5cm，最后也可以使用百分数值。不同类型的值对于背景图像的放置稍有差异。<br>
+              关键字<br>
+              图像放置关键字最容易理解，其作用如其名称所表明的。例如，top right 使图像放置在元素内边距区的右上角。<br>
+              根据规范，位置关键字可以按任何顺序出现，只要保证不超过两个关键字 - 一个对应水平方向，另一个对象垂直方向。<br>
+              如果只出现一个关键字，则认为另一个关键字是 center。<br>
+            </p>
+            <p>30、如果文档比较长，那么当文档向下滚动时，背景图像也会随之滚动。当文档滚动到超过图像的位置时，图像就会消失。<br>
+              您可以通过 background-attachment 属性防止这种滚动。通过这个属性，可以声明图像相对于可视区是固定的（fixed），因此不会受到滚动的影响：<br>
+              body <br>
+              {<br>
+              background-image:url(/i/eg_bg_02.gif);<br>
+              background-repeat:no-repeat;<br>
+              background-attachment:fixed<br>
+              }</p>
+            <p>&nbsp;</p>
+            <p>31、缩进文本<br>
+              把 Web 页面上的段落的第一行缩进，这是一种最常用的文本格式化效果。<br>
+              CSS 提供了 text-indent 属性，该属性可以方便地实现文本缩进。<br>
+              通过使用 text-indent 属性，所有元素的第一行都可以缩进一个给定的长度，甚至该长度可以是负值。<br>
+              这个属性最常见的用途是将段落的首行缩进，下面的规则会使所有段落的首行缩进 5 em：<br>
+              p {text-indent: 5em;}<br>
+              注意：一般来说，可以为所有块级元素应用 text-indent，但无法将该属性应用于行内元素，图像之类的替换元素上也无法应用 text-indent 属性。不过，如果一个块级元素（比如段落）的首行中有一个图像，它会随该行的其余文本移动。<br>
+              提示：如果想把一个行内元素的第一行“缩进”，可以用左内边距或外边距创造这种效果。</p>
+            <p>浏览器支持<br>
+              所有浏览器都支持 text-indent 属性。<br>
+              注释：任何的版本的 Internet Explorer （包括 IE8）都不支持属性值 &quot;inherit&quot;。<br>
+              可能的值<br>
+              值	描述<br>
+              length	定义固定的缩进。默认值：0。<br>
+              %	定义基于父元素宽度的百分比的缩进。<br>
+              inherit	规定应该从父元素继承 text-indent 属性的值。</p>
+            <p></p>
         </div>
     </body>
 </html>

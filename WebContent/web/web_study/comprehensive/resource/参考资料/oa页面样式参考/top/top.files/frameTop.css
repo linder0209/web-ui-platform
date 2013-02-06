@@ -1,0 +1,42 @@
+BODY {
+	FONT-SIZE: 12px; COLOR: #006699; FONT-FAMILY: ??
+}
+TD {
+	FONT-SIZE: 12px; COLOR: #006699; FONT-FAMILY: ??
+}
+TH {
+	FONT-SIZE: 12px; COLOR: #006699; FONT-FAMILY: ??
+}
+BODY {
+	MARGIN: 0px; BACKGROUND-COLOR: #7cafe3
+}
+A {
+	FONT-SIZE: 12px; COLOR: #ffffff; FONT-FAMILY: ??; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #ffffff
+}
+A:hover {
+	COLOR: #ffffff
+}
+A:active {
+	COLOR: #ffffff
+}
+.menuLayer {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; WIDTH: 75px; COLOR: #ffffff; LINE-HEIGHT: 26px; FONT-FAMILY: "??"; TEXT-ALIGN: center
+}
+.menuLayer2 {
+	FONT-SIZE: 12px; COLOR: #ffffff; LINE-HEIGHT: 26px; FONT-FAMILY: "??"; TEXT-ALIGN: center
+}
+.mouseMove {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(../img/top/button.gif); WIDTH: 75px; LINE-HEIGHT: 26px; TEXT-ALIGN: center
+}
+.mouseOut {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; WIDTH: 75px; LINE-HEIGHT: 26px; TEXT-ALIGN: center
+}
+.NavBg {
+	BACKGROUND-IMAGE: url(../img/top/buttonBg.gif); BACKGROUND-REPEAT: repeat-x; HEIGHT: 26px
+}
+.textButton {
+	CURSOR: hand; COLOR: #ffffff
+}
