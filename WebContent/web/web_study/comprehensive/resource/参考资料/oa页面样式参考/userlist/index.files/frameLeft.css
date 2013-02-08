@@ -1,0 +1,39 @@
+BODY {
+	FONT-SIZE: 12px; COLOR: #006699; FONT-FAMILY: ??
+}
+TD {
+	FONT-SIZE: 12px; COLOR: #006699; FONT-FAMILY: ??
+}
+TH {
+	FONT-SIZE: 12px; COLOR: #006699; FONT-FAMILY: ??
+}
+BODY {
+	BACKGROUND-IMAGE: url(../img/frameLeftBg.gif); MARGIN: 0px; BACKGROUND-REPEAT: repeat-y
+}
+A {
+	FONT-SIZE: 12px; COLOR: #384c89; FONT-FAMILY: ??; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #384c89
+}
+A:hover {
+	COLOR: #384c89
+}
+A:active {
+	COLOR: #384c89
+}
+.menuTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; VERTICAL-ALIGN: bottom; COLOR: #2a366a; TEXT-INDENT: 10px; LINE-HEIGHT: 30px; FONT-FAMILY: "??"
+}
+.menuText {
+	FONT-SIZE: 12px; COLOR: #0066cc; TEXT-INDENT: 10px; LINE-HEIGHT: 22px
+}
+.mouseMove {
+	BORDER-RIGHT: #0066cc 1px solid; BORDER-TOP: #0066cc 1px solid; BORDER-LEFT: #0066cc 1px solid; TEXT-INDENT: 10px; LINE-HEIGHT: 20px; BORDER-BOTTOM: #0066cc 1px solid; BACKGROUND-COLOR: #e1f2fc
+}
+.mouseOut {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; TEXT-INDENT: 10px; LINE-HEIGHT: 22px; BORDER-RIGHT-WIDTH: 0px
+}
+.mouseClick {
+	BORDER-RIGHT: #0066cc 1px solid; BORDER-TOP: #0066cc 1px solid; BORDER-LEFT: #0066cc 1px solid; TEXT-INDENT: 10px; LINE-HEIGHT: 20px; BORDER-BOTTOM: #0066cc 1px solid; BACKGROUND-COLOR: #f1fafe
+}

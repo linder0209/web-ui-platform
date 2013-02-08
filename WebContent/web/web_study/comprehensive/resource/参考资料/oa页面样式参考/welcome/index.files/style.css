@@ -1,0 +1,93 @@
+BODY {
+	MARGIN: 0px
+}
+TD {
+	FONT-SIZE: 12px; TEXT-INDENT: 5px; LINE-HEIGHT: 20px; FONT-FAMILY: "??"
+}
+A {
+	FONT-SIZE: 12px; COLOR: #0066cc; FONT-FAMILY: ??
+}
+A:visited {
+	COLOR: #ff9900
+}
+A:hover {
+	COLOR: #0065ce
+}
+A:active {
+	COLOR: #ff6633
+}
+.toolbarStyle {
+	LINE-HEIGHT: 30px; BORDER-BOTTOM: #91b0dc 2px solid; HEIGHT: 30px; BACKGROUND-COLOR: #ceddf0
+}
+.areaStyle {
+	BORDER-RIGHT: #97adc2 1px solid; BORDER-TOP: #97adc2 1px solid; BORDER-LEFT: #97adc2 1px solid; BORDER-BOTTOM: #97adc2 1px solid; BACKGROUND-COLOR: #eff6fe
+}
+.areaStyle2 {
+	BORDER-RIGHT: #97adc2 1px solid; BORDER-TOP: #97adc2 1px solid; BORDER-LEFT: #97adc2 1px solid; BORDER-BOTTOM: #97adc2 1px solid; BACKGROUND-COLOR: #e3f1fe
+}
+.resumeTitleBg {
+	BORDER-RIGHT: #959a9e 1px solid; BORDER-TOP: #959a9e 1px solid; FONT-WEIGHT: bold; BACKGROUND-IMAGE: url(../img/resumeTitleBg.gif); VERTICAL-ALIGN: bottom; BORDER-LEFT: #959a9e 1px solid; COLOR: #0e3167; TEXT-INDENT: 15px; BORDER-BOTTOM: #959a9e 1px solid; HEIGHT: 27px
+}
+.resumeTextBg {
+	BORDER-RIGHT: #959a9e 1px solid; BORDER-LEFT: #959a9e 1px solid; BORDER-BOTTOM: #959a9e 1px solid; BACKGROUND-COLOR: #e3f1fe
+}
+.resumeText {
+	LINE-HEIGHT: 20px
+}
+.buttonStyle {
+	HEIGHT: 23px
+}
+.textBoxStyle {
+	BORDER-RIGHT: #666666 1px solid; BORDER-TOP: #666666 1px solid; BORDER-LEFT: #666666 1px solid; BORDER-BOTTOM: #666666 1px solid
+}
+.H1 {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #0066cc; TEXT-INDENT: 5px; LINE-HEIGHT: 35px; BORDER-BOTTOM: #0099cc 1px solid; FONT-FAMILY: "??"
+}
+.H1-a {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px
+}
+.H2 {
+	LINE-HEIGHT: 25px
+}
+.H3 {
+	LINE-HEIGHT: 35px; HEIGHT: 35px
+}
+.H4 {
+	BORDER-TOP: #91b0dc 1px solid; FONT-WEIGHT: bold; TEXT-INDENT: 10px; LINE-HEIGHT: 30px; BORDER-BOTTOM: #91b0dc 1px solid; BACKGROUND-COLOR: #ceddf0
+}
+.H5 {
+	COLOR: #ff0000; TEXT-INDENT: 10px
+}
+.H6 {
+	FONT-WEIGHT: bold; COLOR: #ff0000; TEXT-INDENT: 10px; LINE-HEIGHT: 30px
+}
+.H7 {
+	FONT-WEIGHT: bold; VERTICAL-ALIGN: bottom; COLOR: #333333; TEXT-INDENT: 15px; LINE-HEIGHT: 35px; BORDER-BOTTOM: #cccccc 1px solid
+}
+.noteStyle {
+	FONT-SIZE: 12px; COLOR: #666666; TEXT-INDENT: 5px; LINE-HEIGHT: 30px
+}
+.buttonStyle_layer {
+	FONT-WEIGHT: 800; FONT-SIZE: 12px; WIDTH: 80px; CURSOR: hand; LINE-HEIGHT: 25px; BACKGROUND-COLOR: #9bc5ef; TEXT-ALIGN: center
+}
+.frameStyle_border {
+	BORDER-RIGHT: #8d96a7 1px solid; BORDER-TOP: #8d96a7 1px solid; BORDER-LEFT: #8d96a7 1px solid; BORDER-BOTTOM: #8d96a7 1px solid; BACKGROUND-COLOR: #eff6fe
+}
+.DataGridBg {
+	BACKGROUND-COLOR: #eff6fe
+}
+.DataGridTitle {
+	LINE-HEIGHT: 25px; HEIGHT: 25px; BACKGROUND-COLOR: #a7c9ef
+}
+.DataGridAlternatingItem {
+	FONT-SIZE: 12px; LINE-HEIGHT: 22px; BACKGROUND-COLOR: #ffffff
+}
+.DataGridList {
+	BORDER-RIGHT: #cccccc 1px solid; BORDER-TOP: #cccccc 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #cccccc 1px solid; LINE-HEIGHT: 22px; BORDER-BOTTOM: #cccccc 1px solid
+}
+.DataGridFooter {
+	LINE-HEIGHT: 25px; BACKGROUND-COLOR: #a7c9ef
+}
+.DataGridSelected {
+	BORDER-BOTTOM-COLOR: #ff9900; LINE-HEIGHT: 25px
+}

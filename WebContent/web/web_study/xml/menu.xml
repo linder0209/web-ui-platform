@@ -7,7 +7,7 @@
         <id>level_1</id>
         <name>综合</name>
         <module>comprehensive</module>
-        <children id="level_1_1" name="网络资源参考" href="./comprehensive/resource/index.html" module="resource" />
+        <children id="level_1_1" name="资源参考" href="./comprehensive/resource/index.html" module="resource" />
         <children id="level_1_2" name="div+css页面设计参考" href="./comprehensive/reference/index.html" module="reference" />
     </menu>
     
