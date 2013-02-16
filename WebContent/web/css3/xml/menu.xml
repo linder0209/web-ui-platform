@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menus>
+    <display-name>CSS3 Menu</display-name>
+    <description>CSS3 模块菜单项</description>
+
+    <menu>
+        <id>level_1</id>
+        <name>CSS3 参考资料</name>
+        <module>reference</module>
+        <children id="level_1_1" name="CSS3 Properties" href="./reference/properties/index.html" module="properties" />
+    </menu>
+	<menu>
+        <id>level_2</id>
+        <name>CSS3 实例</name>
+        <module>instance</module>
+		<children id="level_2_2" name="CSS3综合实例" href="./instance/comprehensive/index.html" module="comprehensive" />
+    </menu>
+	<menu>
+        <id>level_3</id>
+        <name>CSS3 工具</name>
+        <module>tools</module>
+        <children id="level_3_1" name="CSS3代码生成工具" href="./tools/code/index.html" module="code" />
+    </menu>
+</menus>
