@@ -18,4 +18,10 @@
         <children id="level2_2" name="正则表达式难点" href="./regexp/difficulties/index.html" module="difficulties"/>
         <children id="level2_3" name="常用正则表达式" href="./regexp/examples/index.html" module="examples" />
     </menu>
+	<menu>
+        <id>level_3</id>
+        <name>JavaScript 开发工具</name>
+        <module>tools</module>
+        <children id="level3_1" name="JavaScript doc生成器" href="./tools/doc/index.html" module="doc"/>
+    </menu>
 </menus>

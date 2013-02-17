@@ -12,8 +12,7 @@
         <h3 class="h-web-paragraph-title">目录</h3>
         <ol class="h-web-catalogue">
             <li><a paragraph="1" href="#">window.location.hash的用法</a></li>
-            <li><a paragraph="2" href="#">jQuery UI——core中相关方法</a></li>
-            <li><a paragraph="3" href="#">jQuery UI——position中相关方法</a></li>
+			<li><a paragraph="2" href="#">模态窗口返回时还在当前页面显示的处理</a></li>
         </ol>
         <div class="h-web-paragraph">
             <h3 paragraph="1">window.location.hash</h3>
@@ -24,6 +23,8 @@
                 匹配成功后，用正则表达式括号中的匹配内容替换。这里用到了正则表达式中的“后向引用”。例如可以匹配以下内容: “../list/list2/index.html”，
                 这时括号中匹配的值为“list2”，所以上面的表达式执行结果为：list2|default    
             </p>
+			<h3 paragraph="2">模态窗口返回时还在当前页面显示的处理</h3>
+			<p>在head标签中加入该代码&lt;base target="_self"/&gt;即可</p>
         </div>
     </body>
 </html>

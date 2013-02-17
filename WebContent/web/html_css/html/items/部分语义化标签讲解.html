@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>html标签——部分语义化标签讲解</title>
+        <link rel="stylesheet" href="../../../../platform/css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/platform.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
+    </head>
+    <body>
+        <h3 class="h-web-paragraph-title">目录</h3>
+        <ol class="h-web-catalogue">
+            <li><a paragraph="1" href="#">HTML 水平线</a></li>
+            <li><a paragraph="2" href="#">HTML 文本格式化</a></li>
+            <li><a paragraph="3" href="#">图像标签</a></li>
+            <li><a paragraph="4" href="#">表格标签</a></li>
+            <li><a paragraph="5" href="#">列表标签</a></li>
+            <li><a paragraph="6" href="#">HTML 头部元素</a></li>
+            <li><a paragraph="7" href="#">HTML 中有用的字符实体</a></li>
+            <li><a paragraph="8" href="#">HTTP 状态消息</a></li>
+            
+        </ol>
+        <div class="h-web-paragraph">
+            <h3 paragraph="1">HTML 水平线</h3>
+            <p> &lt;hr /&gt;标签在 HTML 页面中创建水平线。hr 元素可用于分隔内容。</p>
+            <p>例子</p>
+            <pre>&lt;p&gt;hr 标签定义水平线：&lt;/p&gt;<br>&lt;hr /&gt;<br>&lt;p&gt;这是段落。&lt;/p&gt;<br>&lt;hr /&gt;<br>&lt;p&gt;这是段落。&lt;/p&gt;<br>&lt;hr /&gt;<br>&lt;p&gt;这是段落。&lt;/p&gt;</pre>
+            <p>运行效果</p>
+			
+			<div style="padding:20px;border:1px solid #cccccc;">
+              <p>hr 标签定义水平线：</p>
+                <hr />
+                <p>这是段落。</p>
+                <hr />
+                <p>这是段落。</p>
+                <hr />
+                <p>这是段落。</p>
+            </div>
+          <p>
+            	实际上hr解析出来就是没有高度，边框为1px的块元素，注意上边框和下边框的颜色不一致，hr默认的margin为 ”6px 0;“，用户根据需要可修改。
+            </p>
+            <h3 paragraph="2">HTML 文本格式化</h3>
+            <h4>文本格式化标签</h4>
+            <table cellspacing="0" cellpadding="0">
+              <tr>
+                <th>标签</th>
+                <th>描述</th>
+              </tr>
+              <tr>
+                <td><a href="http://www.w3school.com.cn/tags/tag_font_style.asp" target="_blank">&lt;b&gt;</a></td>
+                <td>定义粗体文本。</td>
+              </tr>
+              <tr>
+                <td><a href="http://www.w3school.com.cn/tags/tag_font_style.asp" target="_blank">&lt;big&gt;</a></td>
+                <td>定义大号字。</td>
+              </tr>
+              <tr>
+                <td><a href="http://www.w3school.com.cn/tags/tag_phrase_elements.asp" target="_blank">&lt;em&gt;</a></td>
+                <td>定义着重文字。</td>
+              </tr>
+              <tr>
+                <td><a href="http://www.w3school.com.cn/tags/tag_font_style.asp" target="_blank">&lt;i&gt;</a></td>
+                <td>定义斜体字。</td>
+              </tr>
+              <tr>
+                <td><a href="http://www.w3school.com.cn/tags/tag_font_style.asp" target="_blank">&lt;small&gt;</a></td>
+                <td>定义小号字。</td>
+              </tr>
+              <tr>
+                <td><a href="http://www.w3school.com.cn/tags/tag_phrase_elements.asp" target="_blank">&lt;strong&gt;</a></td>
+                <td>定义加重语气。</td>
+              </tr>
+              <tr>
+                <td><a href="http://www.w3school.com.cn/tags/tag_sup.asp" target="_blank">&lt;sub&gt;</a></td>
+                <td>定义下标字。</td>
+              </tr>
+              <tr>
+                <td><a href="http://www.w3school.com.cn/tags/tag_sup.asp" target="_blank">&lt;sup&gt;</a></td>
+                <td>定义上标字。</td>
+              </tr>
+              <tr>
+                <td><a href="http://www.w3school.com.cn/tags/tag_ins.asp" target="_blank">&lt;ins&gt;</a></td>
+                <td>定义插入字。</td>
+              </tr>
+              <tr>
+                <td><a href="http://www.w3school.com.cn/tags/tag_del.asp" target="_blank">&lt;del&gt;</a></td>
+                <td>定义删除字。</td>
+              </tr>
+              <tr>
+                <td><a href="http://www.w3school.com.cn/tags/tag_strike.asp" target="_blank">&lt;s&gt;</a></td>
+                <td><em>不赞成使用。</em>使用 &lt;del&gt; 代替。</td>
+              </tr>
+              <tr>
+                <td><a href="http://www.w3school.com.cn/tags/tag_strike.asp" target="_blank">&lt;strike&gt;</a></td>
+                <td><em>不赞成使用。</em>使用 &lt;del&gt; 代替。</td>
+              </tr>
+              <tr>
+                <td><a href="http://www.w3school.com.cn/tags/tag_u.asp" target="_blank">&lt;u&gt;</a></td>
+                <td><em>不赞成使用。</em>使用样式（style）代替。</td>
+              </tr>
+            </table>
+            <h4>“计算机输出”标签</h4>
+            <table cellspacing="0" cellpadding="0">
+              <tr>
+                <th>标签</th>
+                <th>描述</th>
+              </tr>
+              <tr>
+                <td><a href="http://www.w3school.com.cn/tags/tag_phrase_elements.asp" target="_blank">&lt;code&gt;</a></td>
+                <td>定义计算机代码。</td>
+              </tr>
+              <tr>
+                <td><a href="http://www.w3school.com.cn/tags/tag_phrase_elements.asp" target="_blank">&lt;kbd&gt;</a></td>
+                <td>定义键盘码。</td>
+              </tr>
+              <tr>
+                <td><a href="http://www.w3school.com.cn/tags/tag_phrase_elements.asp" target="_blank">&lt;samp&gt;</a></td>
+                <td>定义计算机代码样本。</td>
+              </tr>
+              <tr>
+                <td><a href="http://www.w3school.com.cn/tags/tag_font_style.asp" target="_blank">&lt;tt&gt;</a></td>
+                <td>定义打字机代码。</td>
+              </tr>
+              <tr>
+                <td><a href="http://www.w3school.com.cn/tags/tag_phrase_elements.asp" target="_blank">&lt;var&gt;</a></td>
+                <td>定义变量。</td>
+              </tr>
+              <tr>
+                <td><a href="http://www.w3school.com.cn/tags/tag_pre.asp" target="_blank">&lt;pre&gt;</a></td>
+                <td>定义预格式文本。</td>
+              </tr>
+              <tr>
+                <td>&lt;listing&gt;</td>
+                <td><em>不赞成使用。</em>使用 &lt;pre&gt; 代替。</td>
+              </tr>
+              <tr>
+                <td>&lt;plaintext&gt;</td>
+                <td><em>不赞成使用。</em>使用 &lt;pre&gt; 代替。</td>
+              </tr>
+              <tr>
+                <td>&lt;xmp&gt;</td>
+                <td><em>不赞成使用。</em>使用 &lt;pre&gt; 代替。</td>
+              </tr>
+            </table>
+          <h4>引用、引用和术语定义</h4>
+            <table>
+              <tbody>
+                <tr>
+                  <th>标签</th>
+                  <th>描述</th>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_abbr.asp" target="_blank">&lt;abbr&gt;</a></td>
+                  <td>定义缩写。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_acronym.asp" target="_blank">&lt;acronym&gt;</a></td>
+                  <td>定义首字母缩写。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_address.asp" target="_blank">&lt;address&gt;</a></td>
+                  <td>定义地址。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_bdo.asp" target="_blank">&lt;bdo&gt;</a></td>
+                  <td>定义文字方向。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_blockquote.asp" target="_blank">&lt;blockquote&gt;</a></td>
+                  <td>定义长的引用。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_q.asp" target="_blank">&lt;q&gt;</a></td>
+                  <td>定义短的引用语。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_phrase_elements.asp" target="_blank">&lt;cite&gt;</a></td>
+                  <td>定义引用、引证。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_phrase_elements.asp" target="_blank">&lt;dfn&gt;</a></td>
+                  <td>定义一个定义项目。</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>上述语义化标签定义了常用的几种格式文本化标签，实际上这些标签都可以通过常用的标签用css样式来实现。以上标签常用的有b、em、i等。</p>
+            <h3 paragraph="3">图像标签</h3>
+            <table>
+              <tbody>
+                <tr>
+                  <th>标签</th>
+                  <th>描述</th>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_img.asp" target="_blank">&lt;img&gt;</a></td>
+                  <td>定义图像。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_map.asp" target="_blank">&lt;map&gt;</a></td>
+                  <td>定义图像地图。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_area.asp" target="_blank">&lt;area&gt;</a></td>
+                  <td>定义图像地图中的可点击区域。</td>
+                </tr>
+              </tbody>
+            </table>
+          <h3 paragraph="4">表格标签</h3>
+            <table>
+              <tbody>
+                <tr>
+                  <th>表格</th>
+                  <th>描述</th>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_table.asp" target="_blank">&lt;table&gt;</a></td>
+                  <td>定义表格</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_caption.asp" target="_blank">&lt;caption&gt;</a></td>
+                  <td>定义表格标题。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_th.asp" target="_blank">&lt;th&gt;</a></td>
+                  <td>定义表格的表头。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_tr.asp" target="_blank">&lt;tr&gt;</a></td>
+                  <td>定义表格的行。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_td.asp" target="_blank">&lt;td&gt;</a></td>
+                  <td>定义表格单元。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_thead.asp" target="_blank">&lt;thead&gt;</a></td>
+                  <td>定义表格的页眉。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_tbody.asp" target="_blank">&lt;tbody&gt;</a></td>
+                  <td>定义表格的主体。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_tfoot.asp" target="_blank">&lt;tfoot&gt;</a></td>
+                  <td>定义表格的页脚。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_col.asp" target="_blank">&lt;col&gt;</a></td>
+                  <td>定义用于表格列的属性。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_colgroup.asp" target="_self">&lt;colgroup&gt;</a></td>
+                  <td>定义表格列的组。</td>
+                </tr>
+              </tbody>
+            </table>
+          <h3 paragraph="5">列表标签</h3>
+            <table>
+              <tbody>
+                <tr>
+                  <th width="30%">标签</th>
+                  <th width="70%">描述</th>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_ol.asp" target="_blank">&lt;ol&gt;</a></td>
+                  <td>定义有序列表。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_ul.asp" target="_blank">&lt;ul&gt;</a></td>
+                  <td>定义无序列表。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_li.asp" target="_blank">&lt;li&gt;</a></td>
+                  <td>定义列表项。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_dl.asp" target="_blank">&lt;dl&gt;</a></td>
+                  <td>定义定义列表。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_dt.asp" target="_blank">&lt;dt&gt;</a></td>
+                  <td>定义定义项目。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_dd.asp" target="_blank">&lt;dd&gt;</a></td>
+                  <td>定义定义的描述。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_dir.asp" target="_blank">&lt;dir&gt;</a></td>
+                  <td>已废弃。使用 &lt;ul&gt; 代替它。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_menu.asp" target="_blank">&lt;menu&gt;</a></td>
+                  <td>已废弃。使用 &lt;ul&gt; 代替它。</td>
+                </tr>
+              </tbody>
+            </table>
+          <h3 paragraph="6">HTML 头部元素</h3>
+            <table>
+              <tbody>
+                <tr>
+                  <th>标签</th>
+                  <th>描述</th>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_head.asp" title="HTML <head> 标签" target="_blank">&lt;head&gt;</a></td>
+                  <td>定义关于文档的信息。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_title.asp" title="HTML <title> 标签" target="_blank">&lt;title&gt;</a></td>
+                  <td>定义文档标题。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_base.asp" title="HTML <base> 标签" target="_blank">&lt;base&gt;</a></td>
+                  <td>定义页面上所有链接的默认地址或默认目标。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_link.asp" title="HTML <link> 标签" target="_blank">&lt;link&gt;</a></td>
+                  <td>定义文档与外部资源之间的关系。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_meta.asp" title="HTML <meta> 标签" target="_blank">&lt;meta&gt;</a></td>
+                  <td>定义关于 HTML 文档的元数据。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_script.asp" title="HTML <script> 标签" target="_blank">&lt;script&gt;</a></td>
+                  <td>定义客户端脚本。</td>
+                </tr>
+                <tr>
+                  <td><a href="http://www.w3school.com.cn/tags/tag_style.asp" title="HTML <style> 标签" target="_blank">&lt;style&gt;</a></td>
+                  <td>定义文档的样式信息。</td>
+                </tr>
+              </tbody>
+            </table>
+          <h3 paragraph="7">HTML 中有用的字符实体</h3>
+            <table>
+              <tbody>
+                <tr>
+                  <th>显示结果</th>
+                  <th>描述</th>
+                  <th>实体名称</th>
+                  <th>实体编号</th>
+                </tr>
+                <tr>
+                  <td> </td>
+                  <td>空格</td>
+                  <td>&amp;nbsp;</td>
+                  <td>&amp;#160;</td>
+                </tr>
+                <tr>
+                  <td>&lt;</td>
+                  <td>小于号</td>
+                  <td>&amp;lt;</td>
+                  <td>&amp;#60;</td>
+                </tr>
+                <tr>
+                  <td>&gt;</td>
+                  <td>大于号</td>
+                  <td>&amp;gt;</td>
+                  <td>&amp;#62;</td>
+                </tr>
+                <tr>
+                  <td>&amp;</td>
+                  <td>和号</td>
+                  <td>&amp;amp;</td>
+                  <td>&amp;#38;</td>
+                </tr>
+                <tr>
+                  <td>"</td>
+                  <td>引号</td>
+                  <td>&amp;quot;</td>
+                  <td>&amp;#34;</td>
+                </tr>
+                <tr>
+                  <td>'</td>
+                  <td>撇号 </td>
+                  <td>&amp;apos; (IE不支持)</td>
+                  <td>&amp;#39;</td>
+                </tr>
+                <tr>
+                  <td>￠</td>
+                  <td>分</td>
+                  <td>&amp;cent;</td>
+                  <td>&amp;#162;</td>
+                </tr>
+                <tr>
+                  <td>£</td>
+                  <td>镑</td>
+                  <td>&amp;pound;</td>
+                  <td>&amp;#163;</td>
+                </tr>
+                <tr>
+                  <td>¥</td>
+                  <td>日圆</td>
+                  <td>&amp;yen;</td>
+                  <td>&amp;#165;</td>
+                </tr>
+                <tr>
+                  <td>€</td>
+                  <td>欧元</td>
+                  <td>&amp;euro;</td>
+                  <td>&amp;#8364;</td>
+                </tr>
+                <tr>
+                  <td>§</td>
+                  <td>小节</td>
+                  <td>&amp;sect;</td>
+                  <td>&amp;#167;</td>
+                </tr>
+                <tr>
+                  <td>©</td>
+                  <td>版权</td>
+                  <td>&amp;copy;</td>
+                  <td>&amp;#169;</td>
+                </tr>
+                <tr>
+                  <td>®</td>
+                  <td>注册商标</td>
+                  <td>&amp;reg;</td>
+                  <td>&amp;#174;</td>
+                </tr>
+                <tr>
+                  <td>™</td>
+                  <td>商标</td>
+                  <td>&amp;trade;</td>
+                  <td>&amp;#8482;</td>
+                </tr>
+                <tr>
+                  <td>×</td>
+                  <td>乘号</td>
+                  <td>&amp;times;</td>
+                  <td>&amp;#215;</td>
+                </tr>
+                <tr>
+                  <td>÷</td>
+                  <td>除号</td>
+                  <td>&amp;divide;</td>
+                  <td>&amp;#247;</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>如需完整的实体符号参考，请访问我们的 <a href="http://www.w3school.com.cn/tags/html_ref_entities.html" title="HTML ISO-8859-1 参考手册">HTML 实体符号参考手册</a>。</p>
+            <h3 paragraph="8">HTTP 状态消息</h3>
+              <p>当浏览器从 web 服务器请求服务时，可能会发生错误。</p>
+              <p>从而有可能会返回下面的一系列状态消息：</p>
+              <h4>1xx: 信息</h4>
+              <table>
+                <tbody>
+                  <tr>
+                    <th>消息:</th>
+                    <th>描述:</th>
+                  </tr>
+                  <tr>
+                    <td>100 Continue</td>
+                    <td>服务器仅接收到部分请求，但是一旦服务器并没有拒绝该请求，客户端应该继续发送其余的请求。</td>
+                  </tr>
+                  <tr>
+                    <td>101 Switching Protocols</td>
+                    <td>服务器转换协议：服务器将遵从客户的请求转换到另外一种协议。</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h4>2xx: 成功</h4>
+              <table>
+                <tbody>
+                  <tr>
+                    <th>消息:</th>
+                    <th>描述:</th>
+                  </tr>
+                  <tr>
+                    <td>200 OK</td>
+                    <td>请求成功（其后是对GET和POST请求的应答文档。）</td>
+                  </tr>
+                  <tr>
+                    <td>201 Created</td>
+                    <td>请求被创建完成，同时新的资源被创建。</td>
+                  </tr>
+                  <tr>
+                    <td>202 Accepted</td>
+                    <td>供处理的请求已被接受，但是处理未完成。</td>
+                  </tr>
+                  <tr>
+                    <td>203 Non-authoritative Information</td>
+                    <td>文档已经正常地返回，但一些应答头可能不正确，因为使用的是文档的拷贝。</td>
+                  </tr>
+                  <tr>
+                    <td>204 No Content</td>
+                    <td>没有新文档。浏览器应该继续显示原来的文档。如果用户定期地刷新页面，而Servlet可以确定用户文档足够新，这个状态代码是很有用的。</td>
+                  </tr>
+                  <tr>
+                    <td>205 Reset Content</td>
+                    <td>没有新文档。但浏览器应该重置它所显示的内容。用来强制浏览器清除表单输入内容。</td>
+                  </tr>
+                  <tr>
+                    <td>206 Partial Content</td>
+                    <td>客户发送了一个带有Range头的GET请求，服务器完成了它。</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h4>3xx: 重定向</h4>
+              <table>
+                <tbody>
+                  <tr>
+                    <th>消息:</th>
+                    <th>描述:</th>
+                  </tr>
+                  <tr>
+                    <td>300 Multiple Choices</td>
+                    <td>多重选择。链接列表。用户可以选择某链接到达目的地。最多允许五个地址。</td>
+                  </tr>
+                  <tr>
+                    <td>301 Moved Permanently</td>
+                    <td>所请求的页面已经转移至新的url。</td>
+                  </tr>
+                  <tr>
+                    <td>302 Found</td>
+                    <td>所请求的页面已经临时转移至新的url。</td>
+                  </tr>
+                  <tr>
+                    <td>303 See Other</td>
+                    <td>所请求的页面可在别的url下被找到。</td>
+                  </tr>
+                  <tr>
+                    <td>304 Not Modified</td>
+                    <td>未按预期修改文档。客户端有缓冲的文档并发出了一个条件性的请求（一般是提供If-Modified-Since头表示客户只想比指定日期更新的文档）。服务器告诉客户，原来缓冲的文档还可以继续使用。</td>
+                  </tr>
+                  <tr>
+                    <td>305 Use Proxy</td>
+                    <td>客户请求的文档应该通过Location头所指明的代理服务器提取。</td>
+                  </tr>
+                  <tr>
+                    <td>306 <em>Unused</em></td>
+                    <td>此代码被用于前一版本。目前已不再使用，但是代码依然被保留。</td>
+                  </tr>
+                  <tr>
+                    <td>307 Temporary Redirect</td>
+                    <td>被请求的页面已经临时移至新的url。</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h4>4xx: 客户端错误</h4>
+              <table>
+                <tbody>
+                  <tr>
+                    <th>消息:</th>
+                    <th>描述:</th>
+                  </tr>
+                  <tr>
+                    <td>400 Bad Request</td>
+                    <td>服务器未能理解请求。</td>
+                  </tr>
+                  <tr>
+                    <td>401 Unauthorized</td>
+                    <td>被请求的页面需要用户名和密码。</td>
+                  </tr>
+                  <tr>
+                    <td>402 Payment Required</td>
+                    <td>此代码尚无法使用。</td>
+                  </tr>
+                  <tr>
+                    <td>403 Forbidden</td>
+                    <td>对被请求页面的访问被禁止。</td>
+                  </tr>
+                  <tr>
+                    <td>404 Not Found</td>
+                    <td>服务器无法找到被请求的页面。</td>
+                  </tr>
+                  <tr>
+                    <td>405 Method Not Allowed</td>
+                    <td>请求中指定的方法不被允许。</td>
+                  </tr>
+                  <tr>
+                    <td>406 Not Acceptable</td>
+                    <td>服务器生成的响应无法被客户端所接受。</td>
+                  </tr>
+                  <tr>
+                    <td>407 Proxy Authentication Required</td>
+                    <td>用户必须首先使用代理服务器进行验证，这样请求才会被处理。</td>
+                  </tr>
+                  <tr>
+                    <td>408 Request Timeout</td>
+                    <td>请求超出了服务器的等待时间。</td>
+                  </tr>
+                  <tr>
+                    <td>409 Conflict</td>
+                    <td>由于冲突，请求无法被完成。</td>
+                  </tr>
+                  <tr>
+                    <td>410 Gone</td>
+                    <td>被请求的页面不可用。</td>
+                  </tr>
+                  <tr>
+                    <td>411 Length Required</td>
+                    <td>"Content-Length" 未被定义。如果无此内容，服务器不会接受请求。</td>
+                  </tr>
+                  <tr>
+                    <td>412 Precondition Failed</td>
+                    <td>请求中的前提条件被服务器评估为失败。</td>
+                  </tr>
+                  <tr>
+                    <td>413 Request Entity Too Large</td>
+                    <td>由于所请求的实体的太大，服务器不会接受请求。</td>
+                  </tr>
+                  <tr>
+                    <td>414 Request-url Too Long</td>
+                    <td>由于url太长，服务器不会接受请求。当post请求被转换为带有很长的查询信息的get请求时，就会发生这种情况。</td>
+                  </tr>
+                  <tr>
+                    <td>415 Unsupported Media Type</td>
+                    <td>由于媒介类型不被支持，服务器不会接受请求。</td>
+                  </tr>
+                  <tr>
+                    <td>416 </td>
+                    <td>服务器不能满足客户在请求中指定的Range头。</td>
+                  </tr>
+                  <tr>
+                    <td>417 Expectation Failed</td>
+                    <td> </td>
+                  </tr>
+                </tbody>
+              </table>
+              <h4>5xx: 服务器错误</h4>
+              <table>
+                <tbody>
+                  <tr>
+                    <th>消息:</th>
+                    <th>描述:</th>
+                  </tr>
+                  <tr>
+                    <td>500 Internal Server Error</td>
+                    <td>请求未完成。服务器遇到不可预知的情况。</td>
+                  </tr>
+                  <tr>
+                    <td>501 Not Implemented</td>
+                    <td>请求未完成。服务器不支持所请求的功能。</td>
+                  </tr>
+                  <tr>
+                    <td>502 Bad Gateway</td>
+                    <td>请求未完成。服务器从上游服务器收到一个无效的响应。</td>
+                  </tr>
+                  <tr>
+                    <td>503 Service Unavailable</td>
+                    <td>请求未完成。服务器临时过载或当机。</td>
+                  </tr>
+                  <tr>
+                    <td>504 Gateway Timeout</td>
+                    <td>网关超时。</td>
+                  </tr>
+                  <tr>
+                    <td>505 HTTP Version Not Supported</td>
+                    <td>服务器不支持请求中指明的HTTP协议版本。</td>
+                  </tr>
+                </tbody>
+              </table>
+            <p>&nbsp;</p>
+        </div>
+    </body>
+</html>
