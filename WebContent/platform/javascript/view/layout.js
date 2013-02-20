@@ -1,12 +1,5 @@
 (function($, undefined) {
-    var getViewportWidth = function() {
-            return self.innerWidth ? self.innerWidth :
-                    ($.support.boxModel ? doc.documentElement.clientWidth : doc.body.clientWidth);
-        },
-        getViewportHeight = function() {
-            return self.innerHeight ? self.innerHeight :
-                    ($.support.boxModel ? doc.documentElement.clientHeight : doc.body.clientHeight);
-        };
+    var element = $.hopefuture.platform.Element;
     var pub = {
         module: '', //第一级模块名
         context: 'web/',
@@ -84,8 +77,8 @@
                         left: 0,
                         top: 0,
                         backgroundColor: '#FFFFFF',
-                        width: getViewportWidth() - $.position.scrollbarWidth(),
-                        minHeight : getViewportHeight(),
+                        width: element.getViewportWidth() - $.position.scrollbarWidth(),
+                        minHeight : element.getDocumentHeight(),
                         paddingTop: 5
                     });
                 }

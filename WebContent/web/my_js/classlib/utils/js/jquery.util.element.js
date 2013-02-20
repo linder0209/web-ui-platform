@@ -30,6 +30,19 @@
             getViewportHeight: function() {
                 return self.innerHeight ? self.innerHeight :
                         ($.support.boxModel ? doc.documentElement.clientHeight : doc.body.clientHeight);
+            },
+                    
+            /**
+             * 得到页面的实际高度
+             */
+            getDocumentHeight: function() {
+                return Math.max(!$.support.boxModel ? doc.body.scrollHeight : doc.documentElement.scrollHeight, this.getViewportHeight());
+            },
+            /**
+             * 得到页面的实际宽度
+             */
+            getDocumentWidth: function() {
+                return Math.max(!$.support.boxModel ? doc.body.scrollWidth : doc.documentElement.scrollWidth, this.getViewportWidth());
             }
         };
         return element;

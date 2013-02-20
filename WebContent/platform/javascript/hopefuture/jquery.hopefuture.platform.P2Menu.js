@@ -147,7 +147,7 @@
          * @param data
          */
         loadData: function(data) {
-            this.container.append($.tmpl('menuItemTemplate', data.items)).append('<div class="h-menu-buttom-margin"></div>');
+            this.container.empty().append($.tmpl('menuItemTemplate', data.items)).append('<div class="h-menu-buttom-margin"></div>');
             this.initEvent();
             if(this.loadCurrentMenu === true){//是否加载第一个菜单项
             	var level1NodeId = data.itemAt(0).id,
