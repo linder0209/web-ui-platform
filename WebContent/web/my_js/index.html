@@ -16,35 +16,8 @@
 
     </head>
     <body>
-        <div class="h-body h-clearfix">
-            <div id="p2Menu" class="h-body-sidebar">
-                <!-- 动态加载菜单项 -->
-            </div>
-            <div class="h-body-container">
-                <div id="panel" class="h-body-panel">
-                    <div> 
-                        <a id="body_description" class="h-body-content-title" href="#"><i></i>Description</a>
-                        <div class="h-block-radius" style="padding:10px;margin-top: 10px;display: none;">
-                            这里的内容为个模块的简要介绍
-                        </div>
-                    </div>
-                    <div class="h-body-content h-clearfix">
-                        <div class="h-body-content-menu" id="body_content_menu"> </div>
-                        <div class="h-body-content-ct">
-                            <h5 class="h-body-content-title">Examples</h5>
-                            <div class="h-line h-margin10-TB"></div>
-                            <div class="h-body-content-frame" id="body_content_frame"> </div>
-                        </div>
-                    </div>
-                    <div class="h-body-content-source" id="body_content_source"> 
-                        <a class="h-body-content-title" href="#"><i></i>Example Source</a>
-                        <pre style="display:none;"></pre>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <script type="text/javascript" src="../../platform/javascript/jquery/jquery.js"></script>
+        <script type="text/javascript" src="../../platform/javascript/jquery-ui/jquery-ui-custom.js"></script>
         <script type="text/javascript" src="../../platform/javascript/jquery-plugin/jquery-tmpl/jquery.tmpl.js"></script>
         <script type="text/javascript" src="../../platform/javascript/jquery-plugin/xml-to-json/jquery.xml2json.js"></script>
 
@@ -59,6 +32,7 @@
 
         <script type="text/javascript">
             $(function() {
+                $.hopefuture.platform.Layout.initElement();
                 $.hopefuture.platform.Layout.loadLeftMenu('./xml/menu.xml', '', '');
             });
         </script>

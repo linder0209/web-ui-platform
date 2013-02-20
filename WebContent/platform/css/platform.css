@@ -113,12 +113,11 @@
     overflow: hidden;
     width: 16px;
     height: 16px;
-    background-repeat: no-repeat;
-    background-image: url("./images/arrow_right.png");
+    background: url("./images/web_ui_sprites.png") no-repeat -16px 0px;
 }
 
 .h-menu-panel.active .h-menu-icon {
-    background-image: url("./images/arrow_down.png");
+    background-position: 0px 0px;
 }
 
 .h-menu-header span {
@@ -211,7 +210,7 @@
     line-height: 20px;
 }
 .h-body-content-title i{
-    background: url("./images/icon_collapsed.png") no-repeat;
+    background: url("./images/web_ui_sprites.png") no-repeat -63px 0px;
     cursor: pointer;
     display: inline-block;
     float: left;
@@ -221,9 +220,19 @@
 }
 
 .h-body-content-title.expand i {
-    background: url("./images/icon_expand.png") no-repeat;
+    background-position: -37px 0px;
 }
-
+.h-body-content-zoom{
+    background: url("./images/web_ui_sprites.png") no-repeat -3px -20px;
+    width: 33px;
+    height: 33px;
+    display: inline-block;
+    cursor: pointer;
+    margin-right: 5px;
+}
+.h-body-content-zoom.reduce{
+    background-position: -45px -20px; 
+}
 .h-body-content-source {
     margin-top: 10px;
 }

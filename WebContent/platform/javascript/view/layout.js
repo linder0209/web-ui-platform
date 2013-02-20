@@ -1,32 +1,133 @@
 (function($, undefined) {
-
+    var getViewportWidth = function() {
+            return self.innerWidth ? self.innerWidth :
+                    ($.support.boxModel ? doc.documentElement.clientWidth : doc.body.clientWidth);
+        },
+        getViewportHeight = function() {
+            return self.innerHeight ? self.innerHeight :
+                    ($.support.boxModel ? doc.documentElement.clientHeight : doc.body.clientHeight);
+        };
     var pub = {
-        module: '',//第一级模块名
+        module: '', //第一级模块名
         context: 'web/',
-        currentModules : '',//记录当前所有模块上下文
+        currentModules: '', //记录当前所有模块上下文
+
+        /**
+         * 初始化模板内容，主要是主页面显示区域<div id="webUiBody">中的内容
+         * @returns {undefined}
+         */
+        initElement: function() {
+            var webUiBodyTmpl = '<div class="h-body h-clearfix"> \n\
+                    <div id="p2Menu" class="h-body-sidebar"> \n\
+                        <!-- 动态加载菜单项 --> \n\
+                    </div> \n\
+                    <div class="h-body-container"> \n\
+                        <div id="panel" class="h-body-panel"> \n\
+                            <div>  \n\
+                                <a id="body_description" class="h-body-content-title" href="#"><i></i>Description</a> \n\
+                                <div class="h-block-radius h-padding10 h-margin10-T" style="display: none;"> \n\
+                                    这里的内容为个模块的简要介绍 \n\
+                                </div> \n\
+                            </div> \n\
+                            <div class="h-body-content h-clearfix"> \n\
+                                <div class="h-body-content-menu" id="body_content_menu"> </div> \n\
+                                <div class="h-body-content-ct" id="body_content_ct"> \n\
+                                    <div class="h-clearfix"> \n\
+                                        <span class="h-body-content-zoom h-float-r" id="body_content_zoom"></span> \n\
+                                        <h5 class="h-body-content-title">Examples</h5> \n\
+                                    </div> \n\
+                                    <div class="h-line h-margin10-TB"></div> \n\
+                                    <div class="h-body-content-frame" id="body_content_frame"> </div> \n\
+                                </div> \n\
+                            </div> \n\
+                            <div class="h-body-content-source" id="body_content_source">  \n\
+                                <a class="h-body-content-title" href="#"><i></i>Example Source</a> \n\
+                                <pre style="display:none;"></pre> \n\
+                            </div> \n\
+                        </div> \n\
+                    </div> \n\
+                </div>';
+            var webUiBody = $('#webUiBody');
+            if(webUiBody.length > 0 ){
+                webUiBody.html(webUiBodyTmpl);
+            }else{
+                $(document.body).html(webUiBodyTmpl);
+            }
+            
+            this.initEvent();
+        },
+        
+        initEvent: function() {
+            //初始化描述和源代码折叠事件
+            $('#body_content_source a, #body_description').click(function(e) {
+                var next = $(this).next();
+                $(this).toggleClass('expand');
+                next.toggle();
+                return false;
+            });
+
+            //放大缩小事件
+            $('#body_content_zoom').click(function() {
+                var el = $(this),
+                        ct = $('#body_content_ct');
+                if (el.hasClass('reduce')) {
+                    ct.css({
+                        position: 'static',
+                        backgroundColor: '',
+                        width: '',
+                        minHeight: '',
+                        paddingTop: 0
+                    });
+                } else {
+                    ct.css({
+                        position: 'absolute',
+                        left: 0,
+                        top: 0,
+                        backgroundColor: '#FFFFFF',
+                        width: getViewportWidth() - $.position.scrollbarWidth(),
+                        minHeight : getViewportHeight(),
+                        paddingTop: 5
+                    });
+                }
+                el.toggleClass('reduce');
+            });
+            
+            /**
+             * 返回到最上面处理代码
+             * 此处应换成合适的图标，待换
+             */
+            var upward = $('#upward');
+            if(upward.length == 0){
+                upward = $('<div class="h-upward" id="upward">Top</div>').appendTo(document.body);
+            }
+            upward.click(function(e) {
+                document.documentElement.scrollTop = 0;
+            });
+        },
+                
         initWebUI: function() {
+            this.initElement();
+            
             var me = this;
             //顶部菜单点击事件
             $('#top_menu a').click(function(e) {
                 e.preventDefault();
                 //定位箭头
                 var el = $(this),
-                    arrows = $('#top_menu').next(),
-                    pos = el.position(),
-                    width = el.outerWidth(true),
-                    left = pos.left + width / 2 - arrows.outerWidth() / 2;
+                        arrows = $('#top_menu').next(),
+                        pos = el.position(),
+                        width = el.outerWidth(true),
+                        left = pos.left + width / 2 - arrows.outerWidth() / 2;
                 arrows.css('left', left + 'px');
                 //设置当前样式
                 el.addClass('current').parent().siblings().children().removeClass('current');
-                
+
                 var section = this.href.replace(/\/[^\/]+\.html/, '');
                 var module = section.replace(/.+\/([^\/]+)/, '$1');//模块名
                 var xmlUrl = './web/' + module + '/xml/menu.xml';
-                
+
                 me.module = module;
-                $('#webUiBody').load(this.href + ' .h-body', function() {
-                    me.loadLeftMenu(xmlUrl);
-                });
+                me.loadLeftMenu(xmlUrl);
             });
 
             //默认加载第一个tab
@@ -42,13 +143,8 @@
                 index = modules.indexOf(module);
             }
             $('#top_menu a:eq(' + index + ')').click();
-            
-            //向上事件
-            $('#upward').click(function(e){
-                document.documentElement.scrollTop = 0;
-            });
         },
-        
+                
         //加载左侧菜单列表
         loadLeftMenu: function(xmlUrl, module, context) {
             if (module !== undefined) {
@@ -73,23 +169,15 @@
                 if (module !== undefined) {//这里兼顾直接从二级根目录下访问
                     level1Node = modules[0].substring(1);//去掉#号
                     level2Node = modules[1];
-                }else{
-                   level1Node = modules[1];
-                    level2Node = modules[2]; 
+                } else {
+                    level1Node = modules[1];
+                    level2Node = modules[2];
                 }
             }
             //定位当前的菜单项
             pMenu.setCurrentMenuByModule(level1Node, level2Node);
-            
-            //初始化描述和源代码折叠事件
-            $('#body_content_source a, #body_description').click(function(e) {
-                var next = $(this).next();
-                $(this).toggleClass('expand');
-                next.toggle();
-                return false;
-            });
+
         },
-                
         //点击左侧菜单项时回调函数
         linkMenuLoadContent: function(url) {
             var me = this;
@@ -109,13 +197,13 @@
                     el.click(function() {
                         $(this).parent().addClass('current').siblings().removeClass('current');
                         var href = this.getAttribute('href'),
-                            aliasName = this.getAttribute('aliasName');
+                                aliasName = this.getAttribute('aliasName');
                         me.loadExamples(href, aliasName);
                         //阻止默认点击事件
                         return false;
                     });
                 });
-                
+
                 //默认加载第一篇文章
                 var index = 0;
                 if (window.location.hash && window.location.hash.indexOf(me.currentModules) !== -1) {//判断是否是当前上下文
@@ -125,14 +213,13 @@
                     }).get();
                     var article = window.location.hash.split('|');
                     article = article[article.length - 1];//取最后一个
-                    if(articles.indexOf(article) != -1){
+                    if (articles.indexOf(article) != -1) {
                         index = articles.indexOf(article);
                     }
                 }
-                $('#body_content_menu a:eq('+ index + ')').click();
+                $('#body_content_menu a:eq(' + index + ')').click();
             });
         },
-        
         //加载代码例子
         loadExamples: function(path, aliasName) {
             //Set the hash to the actual page without ".html"
@@ -142,11 +229,11 @@
             for (var i = 1, len = parts.length; i < len; i++) {
                 hash += '|' + parts[i];
             }
-            if(aliasName){
+            if (aliasName) {
                 hash += '|' + aliasName;
             }
             window.location.hash = hash;
-            var directory = path.replace(/\/[^\/]+\.html/,'');
+            var directory = path.replace(/\/[^\/]+\.html/, '');
             $.get(path, function(req, status, res) {
                 var source = res.responseText;
                 var repSource = source;
@@ -163,23 +250,23 @@
                 repSource = repSource.replace(/<\/?body.*>/ig, ""); //Remove body tag
                 //替换a标签和img标签相对路径，该正则表达式的意思是：替换href或src中的值，并且该值开头不是http或#。该例子中用到了零宽断言
                 repSource = repSource.replace(/((href|src)=["'])(?!(http|#))/ig, '$1' + directory + '/');
-                
+
                 //替换样式中图片背景
                 repSource = repSource.replace(/(url\(\s*["']?\s*)(?!(http|#))/ig, '$1' + directory + '/');
                 $('#body_content_frame').empty().html(repSource);
-				
+
                 //初始化目录列表事件
-                $('#body_content_frame .h-web-catalogue li a').click(function(e){
-                        e.preventDefault();
-                        var paragraphNum = $(this).attr('paragraph'),
+                $('#body_content_frame .h-web-catalogue li a').click(function(e) {
+                    e.preventDefault();
+                    var paragraphNum = $(this).attr('paragraph'),
                             paragraph = $('#body_content_frame .h-web-paragraph h3[paragraph="' + paragraphNum + '"]'),
                             offset = paragraph.offset();
-                        //当html文档头部包含有“文档类型声明”时，需要用document.documentElement.scrollTop获得正确的值，而document.body.scrollTop的值为0 
-                        if(offset){
-                            document.documentElement.scrollTop = offset.top;
-                        }
-                        //当html文档头部不包含任何“文档类型声明”时，需要用document.body.scrollTop获得正确的值，而document.documentElement.scrollTop的值为0
-                        //document.body.scrollTop = offset.top;
+                    //当html文档头部包含有“文档类型声明”时，需要用document.documentElement.scrollTop获得正确的值，而document.body.scrollTop的值为0 
+                    if (offset) {
+                        document.documentElement.scrollTop = offset.top;
+                    }
+                    //当html文档头部不包含任何“文档类型声明”时，需要用document.body.scrollTop获得正确的值，而document.documentElement.scrollTop的值为0
+                    //document.body.scrollTop = offset.top;
                 });
                 source = source.replace(/</g, '&lt;');
                 /**
