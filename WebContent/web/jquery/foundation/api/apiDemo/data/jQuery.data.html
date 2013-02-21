@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Example:Store then retrieve a value from the div element.
+	<br />
+
+	<style>
+		div.example1 {
+			color: blue;
+		}
+		
+		span.example1S {
+			color: red;
+		}
+	</style>
+	<div class="example1">
+		The values stored were <span class="example1S"></span> and <span  class="example1S"></span>
+	</div>
+	<script>
+		var div = $("div.example1")[0];
+		jQuery.data(div, "test", {
+			first : 16,
+			last : "pizza!"
+		});
+		$("span.example1S:first").text(jQuery.data(div, "test").first);
+		$("span.example1S:last").text(jQuery.data(div, "test").last);
+	</script>
+
+   <p>&nbsp;</p>
+
+	2.Example:Get the data named "blah" stored at for an element.
+	<br />
+
+	<style>
+		div.example2 {
+			margin: 5px;
+			background: yellow;
+		}
+		
+		button {
+			margin: 5px;
+			font-size: 14px;
+		}
+		
+		p {
+			margin: 5px;
+			color: blue;
+		}
+		
+		span.example2S {
+			color: red;
+		}
+	</style>
+	<div class="example2">A div</div>
+	<button>Get "blah" from the div</button>
+	<button>Set "blah" to "hello"</button>
+
+	<button>Set "blah" to 86</button>
+	<button>Remove "blah" from the div</button>
+	<p>
+		The "blah" value of this div is <span class="example2S">?</span>
+	</p>
+	<script>
+		$("button").click(function(e) {
+			var value, div = $("div.example2")[0];
+
+			switch ($("button").index(this)) {
+			case 0:
+				value = jQuery.data(div, "blah");
+				break;
+			case 1:
+				jQuery.data(div, "blah", "hello");
+				value = "Stored!";
+				break;
+			case 2:
+				jQuery.data(div, "blah", 86);
+				value = "Stored!";
+				break;
+			case 3:
+				jQuery.removeData(div, "blah");
+				value = "Removed!";
+				break;
+			}
+
+			$("span.example2S").text("" + value);
+		});
+	</script>
+
+</body>
+</html>

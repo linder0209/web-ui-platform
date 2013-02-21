@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Example: Handle click and double-click for the paragraph.
+	<br />
+
+	<style>
+		p {
+			background: yellow;
+			font-weight: bold;
+			cursor: pointer;
+			padding: 5px;
+		}
+		
+		p.over {
+			background: #ccc;
+		}
+		
+		span {
+			color: red;
+		}
+	</style>
+	<p>Click or double click here.</p>
+	<span></span>
+	<script>
+		$("p").bind("click", function(event) {
+			var str = "( " + event.pageX + ", " + event.pageY + " )";
+			$("span").text("Click happened! " + str);
+		});
+		$("p").bind("dblclick", function() {
+			$("span").text("Double-click happened in " + this.nodeName);
+		});
+		$("p").bind("mouseenter mouseleave", function(event) {
+			$(this).toggleClass("over");
+		});
+	</script>
+
+
+	2.Example:You can pass some extra data before the event handler
+   <br />
+   <div>demo</div>
+	<script type="text/javascript">
+		function handler(event) {
+			alert(event.data.foo);
+		}
+		$("div").bind("click", {
+			foo : "bar"
+		}, handler)
+	</script>
+	
+	<br />
+	3.Example:Cancel a default action and prevent it from bubbling up by returning false
+	
+	<br />
+	<b>Returning false from a handler is equivalent to calling both .preventDefault() and .stopPropagation() on the event object.</b>
+	<br /><br />
+	<b>$("form").bind("submit", function() { return false; })<br /></b>
+	<br />
+	<b>
+		$("form").bind("submit", function(event) {<br />
+			event.preventDefault();<br />
+			event.stopPropagation();<br />
+		});<br />
+	</b>
+	
+	<br />
+	
+	4.Example: Bind custom events.
+	<br />
+
+	<style>
+		p.example4 {
+			color: red;
+		}
+		
+		span.example4S {
+			color: blue;
+		}
+	</style>
+	<p class="example4">Has an attached custom event.</p>
+	<button>Trigger custom event</button>
+	<span style="display: none;" class="example4S"></span>
+	<script>
+		$("p.example4").bind(
+				"myCustomEvent",
+				function(e, myName, myValue) {
+					$(this).text(myName + ", hi there!");
+					$("span.example4S").stop().css("opacity", 1).text(
+							"myName = " + myName).fadeIn(30).fadeOut(1000);
+				});
+		$("button").click(function() {
+			$("p.example4").trigger("myCustomEvent", [ "John","Value" ]);
+		});
+	</script>
+    <br /><br />
+    5.Example: Bind multiple events simultaneously.
+    <br />
+    
+    <b>
+	    $("div.test").bind({<br />
+		  click: function(){<br />
+		    $(this).addClass("active");<br />
+		  },<br />
+		  mouseenter: function(){<br />
+		    $(this).addClass("inside");<br />
+		  },<br />
+		  mouseleave: function(){<br />
+		    $(this).removeClass("inside");<br />
+		  }<br />
+		});<br />
+	</b>
+</body>
+</html>

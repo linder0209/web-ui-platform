@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Example: Get the values from a form, iterate through them
+
+	<style>
+body,select {
+	font-size: 12px;
+}
+
+form {
+	margin: 5px;
+}
+
+p {
+	color: red;
+	margin: 5px;
+	font-size: 14px;
+}
+
+b {
+	color: blue;
+}
+</style>
+
+
+	<form>
+		<div>
+			<input type="text" name="a" value="1" id="a" />
+		</div>
+		<div>
+			<input type="text" name="b" value="2" id="b" />
+		</div>
+		<div>
+			<input type="hidden" name="c" value="3" id="c" />
+		</div>
+		<div>
+			<textarea name="d" rows="8" cols="40">4</textarea>
+		</div>
+		<div>
+			<select name="e">
+				<option value="5" selected="selected">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+			</select>
+		</div>
+		<div>
+			<input type="checkbox" name="f" value="8" id="f" />
+		</div>
+		<div>
+			<input type="submit" name="g" value="Submit" id="g" />
+		</div>
+	</form>
+	<script>
+		$('form').submit(function() {
+			console.log($(this).serializeArray());
+			return false;
+		});
+	</script>
+
+</body>
+</html>

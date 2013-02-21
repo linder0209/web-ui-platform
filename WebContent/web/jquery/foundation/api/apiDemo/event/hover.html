@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Example:To add a special style to list items that are being hovered over, try:
+	<br />
+
+	<style>
+		ul {
+			margin-left: 20px;
+			color: blue;
+		}
+		
+		li {
+			cursor: default;
+		}
+		
+		span {
+			color: red;
+		}
+	</style>
+	<ul>
+		<li>Milk</li>
+		<li>Bread</li>
+		<li class='fade'>Chips</li>
+
+		<li class='fade'>Socks</li>
+	</ul>
+	<script>
+		$("li").hover(function() {
+			$(this).append($("<span> ***</span>"));
+		}, function() {
+			$(this).find("span:last").remove();
+		});
+       
+		//To unbind the above example use:
+		// $("li").unbind('mouseenter mouseleave');
+		//li with fade class
+		$("li.fade").hover(function() {
+			$(this).fadeOut(100);
+			$(this).fadeIn(500);
+		});
+	</script>
+
+	<br /><br />
+    2.Example:Slide the next sibling LI up or down on hover, and toggle a class.
+	<br /><br />
+	<style>
+		ul.example2 {
+			margin-left: 20px;
+			color: blue;
+		}
+		
+		.example2 li {
+			cursor: default;
+		}
+		
+		li.active {
+			background: black;
+			color: white;
+		}
+		
+		span {
+			color: red;
+		}
+	</style>
+	<ul class="example2">
+		<li>Milk</li>
+		<li>White</li>
+		<li>Carrots</li>
+		<li>Orange</li>
+		<li>Broccoli</li>
+		<li>Green</li>
+	</ul>
+	<script>
+		$(".example2 li").filter(":odd").hide().end().filter(":even").hover(
+				function() {
+					$(this).toggleClass("active").next().stop(true, true)
+							.slideToggle();
+				});
+	</script>
+
+
+</body>
+</html>

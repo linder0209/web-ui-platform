@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Example:Find the unique siblings of all yellow li elements in the 3 lists (including other yellow li elements if appropriate).
+
+	<style>
+		ul {
+			float: left;
+			margin: 5px;
+			font-size: 16px;
+			font-weight: bold;
+		}
+		
+		p {
+			color: blue;
+			margin: 10px 20px;
+			font-size: 16px;
+			padding: 5px;
+			font-weight: bolder;
+		}
+		
+		.hilite {
+			background: yellow;
+		}
+	</style>
+	<ul>
+		<li>One</li>
+
+		<li>Two</li>
+		<li class="hilite">Three</li>
+		<li>Four</li>
+	</ul>
+
+	<ul>
+		<li>Five</li>
+		<li>Six</li>
+		<li>Seven</li>
+
+	</ul>
+	<ul>
+		<li>Eight</li>
+		<li class="hilite">Nine</li>
+
+		<li>Ten</li>
+		<li class="hilite">Eleven</li>
+	</ul>
+	<p>
+		Unique siblings: <b></b>
+	</p>
+	<script>
+		var len = $(".hilite").siblings().css("color", "red").length;
+		$("b").text(len);
+	</script>
+
+   <p>&nbsp;</p>
+   
+   2.Example: Find all siblings with a class "selected" of each div.
+   <br/>
+
+	<div>
+		<span>Hello</span>
+	</div>
+
+	<p class="selected">Hello Again</p>
+	<p>And Again</p>
+	<script>
+	    //siblings 指前后相邻的元素
+		$("p").siblings(".selected").css("background", "yellow");
+	</script>
+
+</body>
+</html>

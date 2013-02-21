@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Example: Filter resolve value:
+	<br />
+
+	<script>
+		var defer = $.Deferred(), filtered = defer.pipe(function(value) {
+			return value * 2;
+		});
+
+		defer.resolve(5);
+		filtered.done(function(value) {
+			alert("Value is ( 2*5 = ) 10: " + value);
+		});
+	</script>
+	<p>&nbsp;</p>
+
+	2.Example:Filter reject value:
+	<br />
+
+	<script type="text/javascript">
+		var defer = $.Deferred(), filtered = defer.pipe(null, function(value) {
+			return value * 3;
+		});
+
+		defer.reject(6);
+		filtered.fail(function(value) {
+			alert("Value is ( 3*6 = ) 18: " + value);
+		});
+	</script>
+
+
+</body>
+</html>

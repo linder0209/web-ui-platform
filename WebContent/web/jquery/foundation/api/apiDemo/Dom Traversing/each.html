@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Suppose we had a simple unordered list on the page:
+	<ul id="example1U">
+		<li>foo</li>
+		<li>bar</li>
+	</ul>
+	<span id='example1' style="color:#CCCCCC;'"></span>
+	<script type="text/javascript">
+		$(function() {
+			$('#example1U li').each(function(index, element) {
+				//console.info('element: ' + element);
+				//console.info(index + ': ' + $(this).text());
+				$('#example1').append('element: ' + element + ';' + index + ': ' + $(this).text() + '<br>');
+			});
+		});
+	</script>
+
+    <p>&nbsp;</p>
+	2.Example: Iterates over three divs and sets their color property.
+	<style>
+		div.example2 {
+			color: red;
+			text-align: center;
+			cursor: pointer;
+			font-weight: bolder;
+			width: 300px;
+		}
+	</style>
+
+	<div class="example2">Click here</div>
+	<div class="example2">to iterate through</div>
+	<div class="example2">these divs.</div>
+	<script>
+		$(document.body).click(function() {
+			$("div.example2").each(function(i) {
+				if (this.style.color != "blue") {
+					this.style.color = "blue";
+				} else {
+					this.style.color = "";
+				}
+			});
+		});
+	</script>
+
+    <p>&nbsp;</p>
+	3.Example: If you want to have the jQuery object instead of the regular
+	DOM element, use the $(this) function, for example:
+    <br/>
+	<style>
+		ul.example3U {
+			font-size: 18px;
+			margin: 0;
+		}
+		
+		span.example3S {
+			color: blue;
+			text-decoration: underline;
+			cursor: pointer;
+		}
+		
+		.example3 {
+			font-style: italic;
+		}
+	</style>
+	To do list:
+	<span class="example3S">(click here to change)</span>
+	<ul class="example3U">
+		<li>Eat</li>
+		<li>Sleep</li>
+
+		<li>Be merry</li>
+	</ul>
+	<script>
+		$("span.example3S").click(function() {
+			$("ul.example3U li").each(function() {
+				$(this).toggleClass("example3");
+			});
+		});
+	</script>
+
+    <p>&nbsp;</p>
+    4.Example: You can use 'return' to break out of each() loops early.
+    <br/>
+	<style>
+		div.example4D {
+			width: 40px;
+			height: 40px;
+			margin: 5px;
+			float: left;
+			border: 2px blue solid;
+			text-align: center;
+		}
+		
+		span.example4S {
+			color: red;
+		}
+	</style>
+	<button>Change colors</button>
+	<span class="example4S"></span>
+	<div class="example4D"></div>
+	<div class="example4D"></div>
+
+	<div class="example4D"></div>
+	<div class="example4D"></div>
+	<div class="example4D" id="stop">Stop here</div>
+	<div class="example4D"></div>
+
+	<div class="example4D"></div>
+	<div class="example4D"></div>
+	<script>
+		$("button").click(function() {
+			$("div.example4D").each(function(index, domEle) {
+				// domEle == this
+				$(domEle).css("backgroundColor", "yellow");
+				if ($(this).is("#stop")) {
+					$("span.example4S").text("Stopped at div index #" + index);
+					return false;
+				}
+			});
+		});
+	</script>
+
+    <p>&nbsp;</p>
+    5.Example: Object is pseudo-array.
+    <div id="values"></div>
+    <script>
+		var arr = [1,2,3,4];
+		$(arr).each(function(index,element){
+			//console.info(element);
+			$('#values').append(element + '&nbsp;');
+		});
+		
+		$({aa:'aa',bb:'bb'}).each(function(index,element){
+			//console.info(element);
+			$('#values').append(element + '&nbsp;');
+		});
+		jQuery.each({ focus: "focusin", blur: "focusout" },function(key,value){
+			console.info('key: ' + key);
+			console.info('value: ' + value);
+		});
+		jQuery.each([1,2,3,4],function(key,value){
+			console.info('key: ' + key);
+			console.info('value: ' + value);
+		});
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	<p>
+		<b> The .toggle() method binds a handler for the click event, so the rules outlined for the triggering of click apply here as well.
+		</b>
+	</p>
+	1.Example: Click to toggle highlight on the list item.
+	<style>
+		ul {
+			margin: 10px;
+			list-style: inside circle;
+			font-weight: bold;
+		}
+		
+		li {
+			cursor: pointer;
+		}
+	</style>
+	<ul>
+		<li>Go to the store</li>
+		<li>Pick up dinner</li>
+		<li>Debug crash</li>
+
+		<li>Take a jog</li>
+	</ul>
+	<script>
+		$("li").toggle(function() {
+			$(this).css({
+				"list-style-type" : "disc",
+				"color" : "blue"
+			});
+		}, function() {
+			$(this).css({
+				"list-style-type" : "disc",
+				"color" : "red"
+			});
+		}, function() {
+			$(this).css({
+				"list-style-type" : "",
+				"color" : ""
+			});
+		});
+	</script>
+
+</body>
+</html>

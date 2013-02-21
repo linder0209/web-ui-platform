@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Example:Increase the width of #box by 200 pixels
+	<br/>
+	<style>
+		#box {
+			background: black;
+			color: snow;
+			width: 100px;
+			padding: 10px;
+		}
+	</style>
+
+	<div id="box">Click me to grow</div>
+
+	<script>
+		$("#box").bind("click", function() {
+			$(this).css("width", "+=200");
+		});
+	</script>
+    <p>&nbsp;</p>
+    
+    2.Example:Increase the size of a div when you click it:
+
+	<style>
+		div {
+			width: 20px;
+			height: 15px;
+			background-color: #f33;
+		}
+	</style>
+
+	<div>click</div>
+	<div>click</div>
+
+	<script>
+		$("div").click(function() {
+			$(this).css({
+				width : function(index, value) {
+					return parseFloat(value) * 1.2;
+				},
+				height : function(index, value) {
+					return parseFloat(value) * 1.2;
+				}
+
+			});
+		});
+		var p = $.extend(true,{row2List:[12,13,14]},{row2List:[16]});
+		console.info(p.row2List);
+	</script>
+
+
+</body>
+</html>

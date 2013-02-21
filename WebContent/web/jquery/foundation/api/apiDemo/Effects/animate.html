@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+   <h4 style="color:red;">
+	    animate( params, [duration], [easing], [callback] )
+	    <p>&nbsp;</p>
+	    params	Options	<br /><br />
+		A set of style attributes that you wish to animate, and to what end.<br /><br />
+		duration (Optional)	String, Number	<br /><br />
+		A string representing one of the predefined speeds ("slow" or "fast") or the number of milliseconds to run the animation (e.g. 1000).<br /><br />
+		easing (Optional)	String	<br /><br />
+		The name of the easing effect that you want to use (plugin required). There are two built-in values, "linear" and "swing".<br /><br />
+		callback (Optional)	Function	<br /><br />
+		A function to be executed whenever the animation completes, executes once for each element animated against.<br /><br />
+   </h4>
+	1.Example:
+	<br />
+	<script type="text/javascript">
+	 $(document).ready(function(){
+		    
+		    // Using multiple unit types within one animation.
+		    $("#go").click(function(){
+		      $("#block").animate({ 
+		        width: "70%",
+		        opacity: 0.4,
+		        marginLeft: "0.6in",
+		        fontSize: "3em", 
+		        borderWidth: "10px"
+		      }, 1500 );
+		    });
+
+		  });
+		  </script>
+	<style>
+		div {
+			background-color: #bca;
+			width: 100px;
+			border: 1px solid green;
+		}
+	</style>
+	<button id="go">» Run</button>
+	<div id="block">Hello!</div>
+
+	2.Example
+
+	<script>
+	  $(document).ready(function(){
+	    
+	    $("#right").click(function(){
+	      $(".block").animate({"left": "+=50px"}, "slow");
+	    });
+	
+	    $("#left").click(function(){
+	      $(".block").animate({"left": "-=50px"}, "slow");
+	    });
+	
+	  });
+  </script>
+	<style>
+		div.example2 {
+			position: absolute;
+			background-color: #abc;
+			left: 50px;
+			width: 90px;
+			height: 90px;
+			margin: 5px;
+		}
+	</style>
+	<button id="left">«</button>
+	<button id="right">»</button>
+	<div class="block example2"></div>
+	<br /><br />
+	3.Example
+	<br />
+	<p class="example3" style="border:2px solid #333333;height:100px;">
+	
+	</p>
+	<button id="example3B">Example3</button>
+	<script type="text/javascript">
+	    $('#example3B').click(function(){
+	    	$("p.example3").animate({
+	  	      "height": "toggle", "opacity": "toggle"
+	  	    }, "slow");
+	    });
+	</script>
+	
+	<br />
+	
+	4.Example
+    <br />
+	<script>
+	  $(document).ready(function(){
+	    
+	    $("#go1").click(function(){
+	      $("#block1").animate( { width:"90%" }, { queue:false, duration:3000 } )
+	         .animate( { fontSize:"24px" }, 1500 )
+	         .animate( { borderRightWidth:"15px" }, 1500);
+	    });
+	
+	    $("#go2").click(function(){
+	      $("#block2").animate( { width:"90%"}, 1000 )
+	         .animate( { fontSize:"24px" } , 1000 )
+	         .animate( { borderLeftWidth:"15px" }, 1000);
+	    });
+	
+	    $("#go3").click(function(){
+	      $("#go1").add("#go2").click();
+	    });
+	
+	    $("#go4").click(function(){
+	      $("div").css({width:"", fontSize:"", borderWidth:""});
+	    });
+	
+	  });
+  </script>
+	<style>
+		div.example4 {
+			background-color: #bca;
+			width: 200px;
+			height: 1.1em;
+			text-align: center;
+			border: 2px solid green;
+			margin: 3px;
+			font-size: 14px;
+		}
+		
+		button {
+			font-size: 14px;
+		}
+	</style>
+	<button id="go1">» Animate Block1</button>
+	<button id="go2">» Animate Block2</button>
+	<button id="go3">» Animate Both</button>
+	<button id="go4">» Reset</button>
+	<div class="example4" id="block1">Block1</div>
+	<div class="example4" id="block2">Block2</div>
+
+</body>
+
+</html>

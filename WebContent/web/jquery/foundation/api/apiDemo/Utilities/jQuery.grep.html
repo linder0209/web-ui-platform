@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+   <h4 style="color:red;">
+       jQuery.grep( array, callback, [invert] ) <br /><br />
+	   Finds the elements of an array which satisfy a filter function. The original array is not affected. <br /><br />
+		The filter function will be passed two arguments: the current array item and its index. The filter function must return 'true' to include the item in the result array. <br /><br />
+		</h4>
+	1.Example:
+	<br />
+	<script type="text/javascript">
+	$(document).ready(function(){
+	    
+	    var arr = [ 1, 9, 3, 8, 6, 1, 5, 9, 4, 7, 3, 8, 6, 9, 1 ];
+	    $("div").text(arr.join(", "));
+
+	    arr = jQuery.grep(arr, function(n, i){
+	      return (n != 5 && i > 4);
+	    });
+	    $("p").text(arr.join(", "));
+
+	    arr = jQuery.grep(arr, function (a) { return a != 9; });
+	    $("span").text(arr.join(", "));
+
+	  });
+	  </script>
+	  <style>
+	  div { color:blue; }
+	  p { color:green; margin:0; }
+	  span { color:red; }
+	  </style>
+	  <div></div>
+	  <p></p>
+	  <span></span>
+
+</body>
+
+</html>

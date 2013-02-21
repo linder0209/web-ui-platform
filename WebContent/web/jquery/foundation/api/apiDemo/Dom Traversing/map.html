@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Example
+	<br>
+	<form method="post" action="">
+		<fieldset>
+			<div>
+				<label for="two">2</label> <input type="checkbox" value="2" id="two"
+					name="number[]">
+			</div>
+			<div>
+				<label for="four">4</label> <input type="checkbox" value="4"
+					id="four" name="number[]">
+			</div>
+			<div>
+				<label for="six">6</label> <input type="checkbox" value="6" id="six"
+					name="number[]">
+			</div>
+			<div>
+				<label for="eight">8</label> <input type="checkbox" value="8"
+					id="eight" name="number[]">
+			</div>
+		</fieldset>
+	</form>
+
+	We can get a comma-separated list of checkbox IDs:
+	<p id="example1" style="color:#CCCCCC;"></p>
+	<br>
+	<script type="text/javascript">
+		var values = $(':checkbox').map(function() {
+			return this.id;
+		}).get().join(',');
+		$('#example1').text(values);
+	</script>
+	
+	<p>&nbsp;</p>
+	2.Example: A contrived example to show some functionality.
+	<br>
+	<style>
+		body {
+			font-size: 16px;
+		}
+		
+		ul {
+			float: left;
+			margin: 0 30px;
+			color: blue;
+		}
+		
+		#results {
+			color: red;
+		}
+	</style>
+	<ul>
+		<li>First</li>
+		<li>Second</li>
+		<li>Third</li>
+
+		<li>Fourth</li>
+		<li>Fifth</li>
+	</ul>
+	<ul id="results">
+
+	</ul>
+	<script>
+		var mappedItems = $("li").map(function(index) {
+			var replacement = $("<li>").text($(this).text()).get(0);
+			if (index == 0) {
+				/* make the first item all caps */
+				$(replacement).text($(replacement).text().toUpperCase());
+			} else if (index == 1 || index == 3) {
+				/* delete the second and fourth items */
+				replacement = null;
+			} else if (index == 2) {
+				/* make two of the third item and add some text */
+				replacement = [ replacement, $("<li>").get(0) ];
+				$(replacement[0]).append("<b> - A</b>");
+				$(replacement[1]).append("Extra <b> - B</b>");
+			}
+
+			/* replacement will be a dom element, null, 
+			   or an array of dom elements */
+			return replacement;
+		});
+		$("#results").append(mappedItems);
+	</script>
+
+</body>
+</html>

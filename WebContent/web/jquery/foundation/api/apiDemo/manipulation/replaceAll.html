@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+   <div style="color:red;font-weight:bold;">
+		The .replaceAll() method is corollary to .replaceWith(), but with the
+		source and target reversed. Consider this DOM structure:
+		<br /> 替换目标，前者替换后者
+	</div>
+	<pre>$('&lt;h2&gt;New heading&lt;/h2&gt;').replaceAll('.inner');</pre>
+	<p>&nbsp;</p>
+	1.Example:Replace all the paragraphs with bold words.
+	<br />
+
+	<p>Hello</p>
+	<p>cruel</p>
+	<p>World</p>
+	<script>$("<b>Paragraph. </b>").replaceAll("p"); // check replaceWith() examples</script>
+
+
+</body>
+</html>

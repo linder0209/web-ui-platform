@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Example:Adds the class "selected" to the matched elements.
+
+	<style>
+		p {
+			margin: 8px;
+			font-size: 16px;
+		}
+		
+		.selected {
+			color: blue;
+		}
+		
+		.highlight {
+			background: yellow;
+		}
+	</style>
+
+	<p>Hello</p>
+	<p>and</p>
+	<p>Goodbye</p>
+
+	<script>
+		$("p:last").addClass("selected");
+		$("p:last").addClass("selected highlight");
+
+	</script>
+    
+    <p>&nbsp;</p>
+	2.Example:Pass in a function to .addClass() to add the "green" class to a div that already has a "red" class.
+	<style>
+		div {
+			background: white;
+		}
+		
+		.red {
+			background: red;
+		}
+		
+		.red.green {
+			background: green;
+		}
+	</style>
+
+	<div>This div should be white</div>
+	<div class="red">This div will be green because it now has the
+		"green" and "red" classes. It would be red if the addClass function
+		failed.</div>
+	<div>This div should be white</div>
+	<span>There are zero green divs</span>
+
+	<script>
+		$("div").addClass(function(index, currentClass) {
+			var addedClass;
+
+			if (currentClass === "red") {
+				addedClass = "green";
+				$("span").text("There is one green div");
+			}
+
+			return addedClass;
+		});
+	</script>
+
+</body>
+</html>

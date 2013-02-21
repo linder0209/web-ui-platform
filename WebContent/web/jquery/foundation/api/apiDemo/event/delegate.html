@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Example: Click a paragraph to add another. Note that .delegate()
+	attaches a click event handler to all paragraphs - even new ones.
+	<br />
+
+	<style>
+		p {
+			background: yellow;
+			font-weight: bold;
+			cursor: pointer;
+			padding: 5px;
+		}
+		
+		p.over {
+			background: #ccc;
+		}
+		
+		span {
+			color: red;
+		}
+	</style>
+	<p>Click me!</p>
+
+	<span></span>
+	<script>
+		$("body").delegate("p", "click", function() {
+			$(this).after("<p>Another paragraph!</p>");
+		});
+		
+		//等同于
+		$("body").on("click", "p", function() {
+			$(this).after("<p>Another paragraph!</p>");
+		});
+	</script>
+    
+    <br /> <br/> 
+    2.Example:Can bind custom events too.
+
+	<style>
+		p.example2 {
+			color: red;
+		}
+		
+		span.example2S {
+			color: blue;
+		}
+	</style>
+	<p class="example2">Has an attached custom event.</p>
+	<button>Trigger custom event</button>
+	<span style="display: none;" class="example2S"></span>
+	<script>
+		$("body").delegate(
+				"p.example2",
+				"myCustomEvent",
+				function(e, myName, myValue) {
+					$(this).text("Hi there!");
+					$("span.example2S").stop().css("opacity", 1).text(
+							"myName = " + myName).fadeIn(30).fadeOut(1000);
+				});
+		$("button").click(function() {
+			$("p.example2").trigger("myCustomEvent");
+		});
+	</script>
+
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Example: Create a Deferred and set two timer-based functions to
+	either resolve or reject the Deferred after a random interval.
+	Whichever one fires first "wins" and will call one of the callbacks.
+	The second timeout has no effect since the Deferred is already complete
+	(in a resolved or rejected state) from the first timeout action. Also
+	set a timer-based progress notification function, and call a progress
+	handler that adds "working..." to the document body.
+	<br />
+
+	<script>
+		function asyncEvent() {
+			var dfd = new jQuery.Deferred();
+
+			// Resolve after a random interval
+			setTimeout(function() {
+				dfd.resolve("hurray");
+			}, Math.floor(400 + Math.random() * 2000));
+
+			// Reject after a random interval
+			setTimeout(function() {
+				dfd.reject("sorry");
+			}, Math.floor(400 + Math.random() * 2000));
+
+			// Show a "working..." message every half-second
+			setTimeout(function working() {
+				if (dfd.state() === "pending") {
+					dfd.notify("working... ");
+					setTimeout(working, 500);
+				}
+			}, 1);
+
+			// Return the Promise so caller can't change the Deferred
+			return dfd.promise();
+		}
+
+		// Attach a done, fail, and progress handler for the asyncEvent
+		$.when(asyncEvent()).then(function(status) {
+			alert(status + ', things are going well');
+		}, function(status) {
+			alert(status + ', you fail this time');
+		}, function(status) {
+			$("body").append(status);
+		});
+	</script>
+	<p>&nbsp;</p>
+
+	2.Example:Use the target argument to promote an existing object to a
+	Promise:
+	<br />
+
+	<script type="text/javascript">
+		// Existing object
+		var obj = {
+			hello : function(name) {
+				alert("Hello " + name);
+			}
+		},
+		// Create a Deferred
+		defer = $.Deferred();
+
+		// Set object as a promise
+		defer.promise(obj);
+
+		// Resolve the deferred
+		defer.resolve("John");
+
+		// Use the object as a Promise
+		obj.done(function(name) {
+			obj.hello(name); // will alert "Hello John"
+		}).hello("Karl"); // will alert "Hello Karl"
+	</script>
+
+
+</body>
+</html>

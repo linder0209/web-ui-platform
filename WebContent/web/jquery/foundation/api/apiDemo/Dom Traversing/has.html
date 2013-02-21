@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	<style>
+		.full {
+			border: 1px solid red;
+		}
+	</style>
+
+	<ul>
+		<li>Does the UL contain an LI?</li>
+	</ul>
+
+	<script>
+		$("ul").append(
+				"<li>" + ($("ul").has("li").length ? "Yes" : "No") + "</li>");
+		$("ul").has("li").addClass("full");
+	</script>
+
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Example:
+	<br />
+	<script type="text/javascript">
+	$(document).ready(function(){
+	    
+	    var arr = [ "a", "b", "c", "d", "e" ]
+	    $("div").text(arr.join(", "));
+
+	    arr = jQuery.map(arr, function(n, i){
+	      return (n.toUpperCase() + i);
+	    });
+	    $("p").text(arr.join(", "));
+
+	    arr = jQuery.map(arr, function (a) { return a + a; });
+	    $("span").text(arr.join(", "));
+
+	  });
+	  </script>
+	  <style>
+	  div { color:blue; }
+	  p { color:green; margin:0; }
+	  span { color:red; }
+	  </style>
+	  <div></div>
+	  <p></p>
+	  <span></span>
+
+</body>
+
+</html>

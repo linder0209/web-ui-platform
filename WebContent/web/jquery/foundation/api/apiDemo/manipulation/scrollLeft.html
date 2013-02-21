@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	<p>&nbsp;</p>
+	1.Example:Get the scrollLeft of a paragraph.
+    <br />
+	<style>
+		p {
+			margin: 10px;
+			padding: 5px;
+			border: 2px solid #666;
+		}
+	</style>
+	<p>Hello</p>
+	<p></p>
+	<script>
+		var p = $("p:first");
+		$("p:last").text("scrollLeft:" + p.scrollLeft());
+	</script>
+
+    <p>&nbsp;</p>
+	2.Example:Set the scrollLeft of a div.
+    <br />
+
+	<style>
+		div.demo {
+			background: #CCCCCC none repeat scroll 0 0;
+			border: 3px solid #666666;
+			margin: 5px;
+			padding: 5px;
+			position: relative;
+			width: 200px;
+			height: 100px;
+			overflow: auto;
+		}
+		
+		p.example2 {
+			margin: 10px;
+			padding: 5px;
+			border: 2px solid #666;
+			width: 1000px;
+			height: 1000px;
+		}
+	</style>
+	<div class="demo">
+		<h1>lalala</h1>
+		<p class="example2">Hello</p>
+	</div>
+	<script>
+		$("div.demo").scrollLeft(300);
+	</script>
+
+</body>
+</html>

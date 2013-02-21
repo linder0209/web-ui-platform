@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Example:Watch for a focus to occur within the paragraphs on the page.
+	<br />
+
+	<style>
+		span {
+			display: none;
+		}
+	</style>
+	<p>
+		<input type="text" /> <span>focusin fire</span>
+	</p>
+	<p>
+		<input type="password" /> <span>focusin fire</span>
+	</p>
+	<script>
+		$("p").focusin(function() {
+			$(this).find("span").css('display', 'inline').fadeOut(1000);
+		});
+	</script>
+	<br /><br />
+    2.Example:Watch for a loss of focus to occur inside paragraphs and note the difference between the focusout count and the blur count.
+	<br /><br />
+	<style>
+		.inputs {
+			float: left;
+			margin-right: 1em;
+		}
+		
+		.inputs p {
+			margin-top: 0;
+		}
+	</style>
+
+	<div class="inputs">
+		<p>
+			<input type="text" /><br /> <input type="text" />
+		</p>
+		<p>
+			<input type="password" />
+		</p>
+	</div>
+	<div id="fo">focusout fire</div>
+	<div id="b">blur fire</div>
+
+	<script>
+		var fo = 0, b = 0;
+		$(".inputs p").focusout(function() {
+			fo++;
+			$("#fo").text("focusout fired: " + fo + "x");
+		}).blur(function() {
+			b++;
+			$("#b").text("blur fired: " + b + "x");
+
+		});
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Prevents other event handlers from being called.
+	<br />
+
+	<style>
+		p {
+			height: 30px;
+			width: 150px;
+			background-color: #ccf;
+		}
+		
+		div {
+			height: 30px;
+			width: 150px;
+			background-color: #cfc;
+		}
+	</style>
+	<p>paragraph</p>
+	<div>division</div>
+	<script>
+		$("p").click(function(event) {
+			event.stopImmediatePropagation();//除了阻止冒泡，也会阻止在该元素上注册的事件
+			event.stopPropagation();//只会阻止冒泡
+		});
+		$("p").click(function(event) {
+			// This function won't be executed
+			$(this).css("background-color", "#f00");
+		});
+		$("div").click(function(event) {
+			// This function will be executed
+			$(this).css("background-color", "#f00");
+		});
+	</script>
+
+
+
+</body>
+</html>

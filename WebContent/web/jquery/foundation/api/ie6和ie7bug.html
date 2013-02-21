@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>ie6 ie7 ie8  $.html() bug</title>
+        <link rel="stylesheet" href="../../../../platform/css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/platform.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
+        
+        <script type="text/javascript" src="../../../../platform/javascript/jquery/jquery.js"></script>
+    </head>
+    <body>
+        <div class="h-web-paragraph">
+            <p>
+                在IE 6 7 8下，只要前面有转义符时，而且存在没有闭合的html标签时，就会产生bug，前面没有转义符时不会发生，当用模板实现时会产生前面有转义符的情况。
+            </p>
+            <p class="h-web-font-red" id="demo1"></p>
+        </div>
+        <script type="text/javascript">
+            $(function() {
+                //只要前面有转义符时，而且存在没有闭合的html标签时，就会产生bug，前面没有转义符时不会发生，
+                //当用模板实现时会产生前面有转义符的情况
+                var html = "\r\n<div>IE7 cann't parse correctly the untight code.</div></div></div>";
+                $('#demo1').html(html);//It cann't parse correctly.
+                //$('#demo1')[0].innerHTML = html; //It can parse correctly.
+                //$('#demo1').html('\r\n<input><input></div>');//It cann't parse correctly.
+            });
+        </script>
+    </body>
+</html>

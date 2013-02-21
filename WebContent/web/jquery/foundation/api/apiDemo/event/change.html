@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Example: Attaches a change event to the select that gets the text for each selected option and writes them in the div. 
+	It then triggers the event for the initial text draw.
+	<br />
+
+	<style>
+		div {
+			color: red;
+		}
+	</style>
+	<select name="sweets" multiple="multiple">
+		<option>Chocolate</option>
+		<option selected="selected">Candy</option>
+
+		<option>Taffy</option>
+		<option selected="selected">Caramel</option>
+		<option>Fudge</option>
+		<option>Cookie</option>
+
+	</select>
+	<div></div>
+	<button>调用change</button>
+	<p>可以直接调用change()来处理change中注册的监听函数</p>
+	<script>
+		$("select").change(function() {
+			var str = "";
+			$("select option:selected").each(function() {
+				str += $(this).text() + " ";
+			});
+			$("div").text(str);
+		});//.change();
+		
+		$('button').click(function(){
+			//$("select").change();
+			//或者
+			$("select").trigger("change");
+		});
+	</script>
+
+</body>
+</html>

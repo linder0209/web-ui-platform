@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+   <p style="color:red;font-weight:blod;">
+   		The .val() method is primarily used to get the values of form elements such as input, select and textarea. In the case of 
+   		&lt;select multiple="multiple"&gt; 
+   		elements, the .val() method returns an array containing each selected option; if no option is selected, it returns null. 
+   		<br />
+   		For selects and checkboxes, you can also use the :selected and :checked selectors to get at values, for example:
+
+		$('select.foo option:selected').val();    // get the value from a dropdown select
+		$('select.foo').val();                    // get the value from a dropdown select even easier
+		$('input:checkbox:checked').val();        // get the value from a checked checkbox
+		$('input:radio[name=bar]:checked').val(); // get the value from a set of radio buttons
+		<br />
+		
+	    Note: At present, using .val() on textarea elements strips carriage return characters from the browser-reported value.
+	    When this value is sent to the server via XHR however, carriage returns are preserved (or added by browsers which do not include them in the raw value). 
+	    A workaround for this issue can be achieved using a valHook as follows:
+
+		$.valHooks.textarea = {
+		    get: function( elem ) {
+		        return elem.value.replace( /\r?\n/g, "\r\n" );
+		    }
+		};
+		
+   </p>
+	1.Example:Get the single value from a single select and an array of values from a multiple select and display their values.
+	<br />
+
+	<style>
+		p.example1 {
+			color: red;
+			margin: 4px;
+		}
+		
+		b {
+			color: blue;
+		}
+	</style>
+	<p class="example1"></p>
+
+	<select id="single">
+		<option>Single</option>
+		<option>Single2</option>
+	</select>
+
+	<select id="multiple" multiple="multiple">
+		<option selected="selected">Multiple</option>
+		<option>Multiple2</option>
+		<option selected="selected">Multiple3</option>
+	</select>
+
+	<script>
+		function displayVals() {
+			var singleValues = $("#single").val();
+			var multipleValues = $("#multiple").val() || [];
+			$("p.example1").html(
+					"<b>Single:</b> " + singleValues + " <b>Multiple:</b> "
+							+ multipleValues.join(", "));
+		}
+
+		$("select").change(displayVals);
+		displayVals();
+	</script>
+    <p>&nbsp;</p>
+
+	2.Example: Use the function argument to modify the value of an input
+	box.
+
+	<p>Type something and then click or tab out of the input.</p>
+	<input type="text" value="type something" />
+
+	<script>
+		$('input').bind('blur', function() {
+			$(this).val(function(i, val) {
+				return val.toUpperCase();
+			});
+		});
+	</script>
+     <p>&nbsp;</p>
+
+	3.Example: Textarea
+	
+	<textarea rows="4" cols="20" id="textarea1"></textarea>
+	<div id="textareaContent"></div>
+	<script type="text/javascript">
+		$.valHooks.textarea = {
+		    get: function( elem ) {
+		        return elem.value.replace( /\r?\n/g, "\r\n" );
+		    }
+		};
+		$('#textarea1').blur(function(){
+			$('#textareaContent').text($.valHooks.textarea.get(this));
+		});
+	</script>
+</body>
+</html>

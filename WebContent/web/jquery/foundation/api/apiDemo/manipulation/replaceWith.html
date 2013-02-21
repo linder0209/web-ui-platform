@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	<p>&nbsp;</p>
+	1.Example:On click, replace the button with a div containing the same
+	word.
+	<br />
+
+	<style>
+button {
+	display: block;
+	margin: 3px;
+	color: red;
+	width: 200px;
+}
+
+div {
+	color: red;
+	border: 2px solid blue;
+	width: 200px;
+	margin: 3px;
+	text-align: center;
+}
+</style>
+
+	<button>First</button>
+	<button>Second</button>
+	<button>Third</button>
+
+	<script>
+		$("button").click(function() {
+			$(this).replaceWith("<div>" + $(this).text() + "</div>");
+		});
+	</script>
+
+	<p>&nbsp;</p>
+	2.Example: Replace all paragraphs with bold words.
+	<br />
+	<p class="example2">Hello</p>
+	<p class="example2">cruel</p>
+	<p class="example2">World</p>
+
+	<script>
+		$("p.example2").replaceWith( "<b>Paragraph. </b>" );
+	</script>
+	<p>&nbsp;</p>
+	3.Example: On click, replace each paragraph with a div that is already
+	in the DOM and selected with the $() function. Notice it doesn't clone
+	the object but rather moves it to replace the paragraph.
+	<br />
+	<style>
+		div.example3Div {
+			border: 2px solid blue;
+			color: red;
+			margin: 3px;
+		}
+		
+		p.example3 {
+			border: 2px solid red;
+			color: blue;
+			margin: 3px;
+			cursor: pointer;
+		}
+	</style>
+
+	<p class="example3">Hello</p>
+	<p class="example3">cruel</p>
+	<p class="example3">World</p>
+
+	<div class="example3Div">Replaced!</div>
+
+	<script>
+		$("p.example3").click(function() {
+			$(this).replaceWith($("div"));
+		});
+	</script>
+
+   <p>&nbsp;</p>
+	4.Example: On button click, replace the containing div with its child divs and append the class name of the selected element to the paragraph.
+	<br />
+
+	<style>
+		.container {
+			background-color: #991;
+		}
+		
+		.inner {
+			color: #911;
+		}
+	</style>
+
+	<p class="example4">
+		<button>Replace!</button>
+	</p>
+	<div class="container">
+		<div class="inner">Scooby</div>
+		<div class="inner">Dooby</div>
+		<div class="inner">Doo</div>
+	</div>
+
+	<script>
+		$('button').bind("click", function() {
+			var $container = $("div.container").replaceWith(function() {
+				return $(this).contents();
+			});
+
+			$("p.example4").append($container.attr("class"));
+		});
+	</script>
+
+</body>
+</html>

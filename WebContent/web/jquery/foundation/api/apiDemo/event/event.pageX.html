@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Show the mouse position relative to the left and top edges of the document (within the iframe).
+	<br />
+
+	<style>
+		body {
+			background-color: #eef;
+		}
+		
+		div {
+			padding: 20px;
+		}
+	</style>
+	<div id="log"></div>
+	<script>
+		$(document).bind('mousemove', function(e) {
+			$("#log").text("e.pageX: " + e.pageX + ", e.pageY: " + e.pageY);
+		});
+	</script>
+
+</body>
+</html>

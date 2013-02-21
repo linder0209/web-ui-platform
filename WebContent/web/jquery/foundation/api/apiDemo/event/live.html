@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	<p>
+		<b> As of jQuery 1.7, the .live() method is deprecated. Use .on()
+			to attach event handlers. Users of older versions of jQuery should
+			use .delegate() in preference to .live(). </b>
+		<br />
+		<b>
+			不赞成使用该方法和die，而换用on和off方法
+		</b>
+	</p>
+	1.Example:Click a paragraph to add another. Note that .live() binds the
+	click event to all paragraphs - even new ones.
+
+	<style>
+		p {
+			background: yellow;
+			font-weight: bold;
+			cursor: pointer;
+			padding: 5px;
+		}
+		
+		p.over {
+			background: #ccc;
+		}
+		
+		span {
+			color: red;
+		}
+	</style>
+	<p>Click me!</p>
+
+	<span></span>
+	<script>
+		$("p").live("click", function() {
+			$(this).after("<p>Another paragraph!</p>$ta");
+		})
+	</script>
+
+</body>
+</html>

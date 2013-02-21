@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Display previous handler's return value
+	<br />
+
+	<button>display event.result</button>
+	<p></p>
+
+	<script>
+		$("button").click(function(event) {
+			return "hey";
+		});
+		$("button").click(function(event) {
+			$("p").html(event.result);
+		});
+	</script>
+
+
+</body>
+</html>

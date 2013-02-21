@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Find all parent elements of each b.
+	<style>
+		b,span,p,html body {
+			padding: .5em;
+			border: 1px solid;
+		}
+		
+		b {
+			color: blue;
+		}
+		
+		strong {
+			color: red;
+		}
+	</style>
+	<div>
+		<p>
+			<span> <b>My parents are: </b>
+			</span>
+
+		</p>
+	</div>
+	<script>
+		var parentEls = $("b").parents().map(function() {
+			return this.tagName;
+		}).get().join(", ");
+		
+		parentEls += ' the level2 is ' + $("b").parents().eq(2)[0].tagName;
+		$("b").append("<strong>" + parentEls + "</strong>");
+	</script>
+    <br>
+    parents方法结果是从最近父节点向上排序的，所以可以调用方法
+    $("b").parents().eq(0);定位到某一层上
+</body>
+</html>

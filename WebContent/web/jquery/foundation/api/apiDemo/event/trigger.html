@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	<p>
+		<b> </b>
+	</p>
+	1.Example: Clicks to button #2 also trigger a click for button #1.
+	<br />
+	<style type="text/css">
+		button {
+			margin: 10px;
+		}
+		
+		div {
+			color: blue;
+			font-weight: bold;
+		}
+		
+		span {
+			color: red;
+		}
+	</style>
+	<button>Button #1</button>
+	<button>Button #2</button>
+	<div>
+		<span>0</span> button #1 clicks.
+	</div>
+
+	<div>
+		<span>0</span> button #2 clicks.
+	</div>
+	<script>
+		$("button:first").click(function() {
+			update($("span:first"));
+		});
+		$("button:last").click(function() {
+			//$("button:first").trigger('click');
+			$("button:first").triggerHandler('click');
+			update($("span:last"));
+		});
+
+		function update(j) {
+			var n = parseInt(j.text(), 10);
+			j.text(n + 1);
+		}
+	</script>
+
+   <p>&nbsp;</p>
+	2.Example:the difference between trigger and triggerHandler
+	<br />
+	<button id="old">.trigger("focus")</button>
+	<button id="new">.triggerHandler("focus")</button><br/><br/>
+	
+	<input type="text" value="To Be Focused"/>
+	<script>
+	
+	$("#old").click(function(){
+	$("input").trigger("focus");
+	});
+	$("#new").click(function(){
+	$("input").triggerHandler("focus");
+	});
+	$("input").focus(function(){
+	$("<span>Focused!</span>").appendTo("body").fadeOut(1000);
+	});
+	
+	</script>
+	
+</body>
+</html>

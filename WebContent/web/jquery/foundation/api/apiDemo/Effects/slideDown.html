@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Example:
+	<br />
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			$(document.body).click(function() {
+				if ($("div:first").is(":hidden")) {
+					$("div").slideDown("slow");
+				} else {
+					$("div").hide();
+				}
+			});
+
+		});
+	</script>
+	<style>
+		div {
+			background: #de9a44;
+			margin: 3px;
+			width: 80px;
+			height: 40px;
+			display: none;
+			float: left;
+		}
+	</style>
+
+
+	Click me!
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+
+
+</html>

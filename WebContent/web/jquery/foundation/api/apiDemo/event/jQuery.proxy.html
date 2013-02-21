@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	<p>
+		<b> 
+		代理函数，相当于javascript中的call和apply，只是扩展了该功能
+		</b>
+		<br /><br />
+	</p>
+	1.Example:Change the context of functions bound to a click handler
+	using the "function, context" signature. Unbind the first handler after
+	first click.
+	<p>
+		<button type="button" id="test">Test</button>
+	</p>
+	<div id="log"></div>
+
+	<script>
+		var me = {
+			type : "zombie",
+			test : function(event) {
+				// Without proxy, `this` would refer to the event target
+				// use event.target to reference that element.
+				var element = event.target;
+				$(element).css("background-color", "red");
+
+				// With proxy, `this` refers to the me object encapsulating
+				// this function.
+				$("#log").append("Hello " + this.type + "<br>");
+				$("#test").unbind("click", this.test);
+			}
+		};
+
+		var you = {
+			type : "person",
+			test : function(event) {
+				$("#log").append(this.type + " ");
+			}
+		};
+
+		// execute you.test() in the context of the `you` object
+		// no matter where it is called
+		// i.e. the `this` keyword will refer to `you`
+		var youClick = $.proxy(you.test, you);
+
+		// attach click handlers to #test
+		$("#test")
+		// this === "zombie"; handler unbound after first click
+		.click($.proxy(me.test, me))
+		// this === "person"
+		.click(youClick)
+		// this === "zombie"
+		.click($.proxy(you.test, me))
+		// this === "<button>g___ element"
+		.click(you.test);
+	</script>
+
+
+	<p>&nbsp;</p>
+	2.Example:Enforce the context of the function using the "context, function name" signature. Unbind the handler after first click.
+	<br />
+
+	<p><button id="test2">Test</button></p>
+	<p id="log2"></p>
+
+	<script>
+	  var obj = {
+	    name: "John",
+	    test: function() {
+	      $("#log2").append( this.name );
+	      $("#test2").unbind("click", obj.test);
+	    }
+	  };
+	
+	  $("#test2").click( jQuery.proxy( obj, "test" ) );
+	</script>
+
+
+
+</body>
+</html>

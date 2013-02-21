@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Example:
+	<br />
+	<script type="text/javascript">
+	$(document).ready(function(){
+	    
+	    var arr = jQuery.makeArray(document.getElementsByTagName("div"));
+	    arr.reverse(); // use an Array method on list of dom elements
+	    $(arr).appendTo(document.body);
+
+	  });
+	  </script>
+	  <style>
+	  div { color:red; }
+	  </style>
+	  <div>First</div>
+	  <div>Second</div>  
+	  <div>Third</div>
+	  <div>Fourth</div>
+
+</body>
+
+</html>

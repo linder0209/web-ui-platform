@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Example:Display the checked property and attribute of a checkbox as it changes.
+	<br />
+
+	<style>
+		p {
+			margin: 20px 0 0
+		}
+		
+		b {
+			color: blue;
+		}
+	</style>
+
+	<input id="check1" type="checkbox" checked="checked">
+	<label for="check1">Check me</label>
+	<p></p>
+
+	<script>
+		$("input").change(
+				function() {
+					var $input = $(this);
+					$("p").html(
+							".attr('checked'): <b>" + $input.attr('checked')
+									+ "</b><br>" + ".prop('checked'): <b>"
+									+ $input.prop('checked') + "</b><br>"
+									+ ".is(':checked'): <b>"
+									+ $input.is(':checked'))
+							+ "</b>";
+				}).change();
+	</script>
+    
+    <p>&nbsp;</p>
+    
+    2.Example:Disable all checkboxes on the page.
+    <br />
+	<style>
+		img {
+			padding: 10px;
+		}
+		
+		div {
+			color: red;
+			font-size: 24px;
+		}
+	</style>
+
+	<input type="checkbox" checked="checked" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" checked="checked" />
+
+	<script>
+		$("input[type='checkbox']").filter(':gt(0)').prop({
+			disabled : true
+		});
+	</script>
+
+   <p>&nbsp;</p>
+	3.Example: prop removeProp
+	<br />
+	<div id="prop"></div>
+	<script type="text/javascript">
+		var $para = $("#prop");
+		//html中不会显示该属性，如果要显示该属性，可以使用attr来设置
+		$para.prop("luggageCode", 1234);
+		$para.append("The secret luggage code is: ", String($para.prop("luggageCode")), ". ");
+		$para.removeProp("luggageCode");
+		$para.append("Now the secret luggage code is: ", String($para.prop("luggageCode")), ". ");	</script>
+</body>
+</html>

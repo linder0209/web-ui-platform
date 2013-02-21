@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Example:Turns divs yellow based on a random slice.
+
+	<style>
+		div {
+			width: 40px;
+			height: 40px;
+			margin: 10px;
+			float: left;
+			border: 2px solid blue;
+		}
+		
+		span {
+			color: red;
+			font-weight: bold;
+		}
+		
+		button {
+			margin: 5px;
+		}
+	</style>
+	<p>
+		<button>Turn slice yellow</button>
+		<span>Click the button!</span>
+	</p>
+	<ul>
+		<li style="overflow: hidden;">
+			<div></div>
+			<div></div>
+		
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		
+			<div></div>
+			<div></div>
+		</li>
+	</ul>
+	<script>
+		function colorEm() {
+			var $div = $("div");
+			var start = Math.floor(Math.random() * $div.length);
+			var end = Math.floor(Math.random() * ($div.length - start)) + start
+					+ 1;
+			if (end == $div.length)
+				end = undefined;
+			$div.css("background", "");
+			if (end)
+				$div.slice(start, end).css("background", "yellow");
+			else
+				$div.slice(start).css("background", "yellow");
+
+			$("span").text(
+					'$("div").slice(' + start + (end ? ', ' + end : '')
+							+ ').css("background", "yellow");');
+			$div.css("border-color", "blue");
+			$div.slice(-4, -1).css("border-color", "green");
+			
+			$("p").slice(-1).wrapInner("<b></b>")
+		}
+
+		$("button").click(colorEm);
+	</script>
+
+    <p style="color:red;">
+    	方法slice类似于Array中的slice，取其中的subset
+    	注意参数start和end，是从start开始end介绍，包括start，但是不包括end，也可以是否数，指从倒数第一个开始（包括），到多少结束
+    	<br/>
+    	 如果end大于length，则取length，start大于end时，返回length为0
+    </p>
+
+</body>
+</html>

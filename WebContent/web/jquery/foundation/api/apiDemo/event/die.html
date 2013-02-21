@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Can bind and unbind events to the colored button.
+	<br />
+
+	<style>
+		button {
+			margin: 5px;
+		}
+		
+		button#theone {
+			color: red;
+			background: yellow;
+		}
+	</style>
+	<button id="theone">Does nothing...</button>
+	<button id="bind">Bind Click</button>
+	<button id="unbind">Unbind Click</button>
+
+	<div style="display: none;">Click!</div>
+	<script>
+		function aClick() {
+			$("div").show().fadeOut("slow");
+		}
+		$("#bind").click(function() {
+			$("#theone").live("click", aClick).text("Can Click!");
+		});
+		$("#unbind").click(function() {
+			$("#theone").die("click", aClick).text("Does nothing...");
+		});
+	</script>
+
+
+	<br /> <br/> 
+    2.Example:To unbind all live events from all paragraphs, write:
+	<br /> <br/> 
+	$("p").die()
+    <br /> <br/> 
+    
+    3.Example:To unbind all live click events from all paragraphs, write:
+    <br /> <br/>
+	$("p").die( "click" )
+</body>
+</html>

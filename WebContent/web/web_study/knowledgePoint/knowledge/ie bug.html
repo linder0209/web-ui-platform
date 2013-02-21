@@ -9,17 +9,32 @@
         <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
     </head>
     <body>
+        <h3 class="h-web-paragraph-title">目录</h3>
+        <ol class="h-web-catalogue">
+            <li><a paragraph="1" href="#">IE6 3px bug</a></li>
+            <li><a paragraph="2" href="#">IE6的双倍边距bug</a></li>
+            <li><a paragraph="3" href="#"></a></li>
+            <li><a paragraph="4" href="#">IE 6/7 Resize Bug</a></li>
+            <li><a paragraph="5" href="#"></a></li>
+            <li><a paragraph="6" href="#"></a></li>
+            <li><a paragraph="7" href="#"></a></li>
+            <li><a paragraph="8" href="#"></a></li>
+            <li><a paragraph="9" href="#"></a></li>
+            <li><a paragraph="10" href="#"></a></li>
+        </ol>
         <div class="h-web-paragraph">
+            <h3 paragraph="1">IE6 3px bug</h3>
+            <p>&nbsp;</p>
+
+            <h3 paragraph="2">IE6的双倍边距bug</h3>
+            <p>当浮动后设置左侧外边距时后，最左侧将显示为双倍边距，比如设置为20，而在IE6下却显示40px，解决这个问题只需应用一个样式，大家记住就可以了
+                display:inline;</p>
+
+            <h3 paragraph="3"></h3>
+            <p>这里的#menu ul li a本来是可以不加float:left的，但IE6下在li没有设置宽度，#menu ul li a设置display:block的情况下，将会显示错乱，所以需要在a上增加float:left来修正。万恶的IE6，怎么就淘汰不掉呢</p>
             
-            待整理
-            1、3px bug
-
-            2、IE6的双倍边距bug
-            当浮动后设置左侧外边距时后，最左侧将显示为双倍边距，比如设置为20，而在IE6下却显示40px，解决这个问题只需应用一个样式，大家记住就可以了
-            display:inline;
-
-            3、
-            这里的#menu ul li a本来是可以不加float:left的，但IE6下在li没有设置宽度，#menu ul li a设置display:block的情况下，将会显示错乱，所以需要在a上增加float:left来修正。万恶的IE6，怎么就淘汰不掉呢
+            <h3 paragraph="4">IE 6/7 Resize Bug</h3>
+            
         </div>
     </body>
 </html>

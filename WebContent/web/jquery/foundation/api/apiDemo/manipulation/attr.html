@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Example:Set some attributes for all
+	<br/>
+
+	<style>
+		img {
+			padding: 10px;
+		}
+		
+		div {
+			color: red;
+			font-size: 24px;
+		}
+	</style>
+
+	<img />
+	<img />
+	<img />
+
+	<div>
+		<B>Attribute of Ajax</B>
+	</div>
+
+	<script>
+		$("img").attr({
+			src : "http://api.jquery.com/images/hat.gif",
+			title : "jQuery",
+			alt : "jQuery Logo"
+		});
+		$("div").text($("img").attr("alt"));
+	</script>
+   
+   <p>&nbsp;</p>
+   
+   2.Example: Set the id for divs based on the position in the page.
+   <br/>
+
+	<style>
+		div {
+			color: blue;
+		}
+		
+		span {
+			color: red;
+		}
+		
+		b {
+			font-weight: bolder;
+		}
+	</style>
+
+	<div id="divParent">
+		Zero-th <span></span>
+	</div>
+	<div>
+		First <span></span>
+	</div>
+	<div>
+		Second <span></span>
+	</div>
+
+	<script>
+		$("div").attr("id", function(index,attr) {
+			return (attr ? attr + '-' : '') + "div-id" + index;
+		}).each(function() {
+			$("span", this).html("(ID = '<b>" + this.id + "</b>')");
+		});
+	</script>
+
+
+</body>
+</html>

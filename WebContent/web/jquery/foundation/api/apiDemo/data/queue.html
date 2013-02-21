@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Example: Show the length of the queue.
+	<br />
+
+	<style>
+		div {
+			margin: 3px;
+			width: 40px;
+			height: 40px;
+			position: absolute;
+			left: 0px;
+			top: 60px;
+			background: green;
+			display: none;
+		}
+		
+		div.newcolor {
+			background: blue;
+		}
+		
+		p {
+			color: red;
+		}
+	</style>
+
+	<p>
+		The queue length is: <span></span>
+	</p>
+	<div></div>
+	<script>
+		var div = $("div");
+
+		function runIt() {
+			//慢慢展现
+			div.show("slow");
+			//动画效果，移动到left为200px处，2000指每2000毫秒移动一次
+			div.animate({
+				left : '+=200'
+			}, 2000);
+			div.slideToggle(1000);//向上折叠隐藏
+			div.slideToggle("fast");//快速显示
+			div.animate({
+				left : '-=200'
+			}, 1500);
+			div.hide("slow");
+			div.show(1200);
+			//重复执行该动画效果
+			div.slideUp("normal", runIt);
+			
+		}
+
+		//显示动画处理函数中fx queue数量
+		function showIt() {
+			var n = div.queue("fx");
+			$("span").text(n.length);
+			setTimeout(showIt, 100);
+		}
+
+		runIt();
+		showIt();
+	</script>
+
+	2.Example:Queue a custom function.
+	<br />
+
+	<style>
+		div.example2 {
+			margin: 3px;
+			width: 40px;
+			height: 40px;
+			position: absolute;
+			left: 0px;
+			top: 230px;
+			background: green;
+			display: none;
+		}
+		
+		div.newcolor {
+			background: blue;
+		}
+	</style>
+	Click here...
+	<div class="example2"></div>
+	<script>
+		$(document.body).click(function() {
+			$("div.example2").show("slow");
+			$("div.example2").animate({
+				left : '+=200'
+			}, 2000);
+			$("div.example2").queue(function() {
+				$(this).addClass("newcolor");
+				$(this).dequeue();
+			});
+			$("div.example2").animate({
+				left : '-=200'
+			}, 500);
+			$("div.example2").queue(function() {
+				$(this).removeClass("newcolor");
+				$(this).dequeue();
+			});
+			$("div.example2").slideUp();
+		});
+	</script>
+
+
+</body>
+</html>

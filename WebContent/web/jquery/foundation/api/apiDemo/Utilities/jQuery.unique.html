@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Example:
+	<h4 style="color:red;">
+       Remove all duplicate elements from an array of elements. Note that this only works on arrays of DOM elements, not strings or numbers. <br /><br />
+	</h4>
+	
+	<br />
+	<script type="text/javascript">
+	$(document).ready(function(){
+	    $('button').click(function(){
+	    	var divs = $("div").get();
+
+		    // add 3 elements of class dup too (they are divs)
+		    divs = divs.concat($(".dup").get());
+		    $("div:eq(1)").text("Pre-unique there are " + divs.length + " elements.");
+
+		    divs = jQuery.unique(divs);
+		    $("div:eq(2)").text("Post-unique there are " + divs.length + " elements.")
+		                  .css("color", "red");
+	    });
+
+	  });
+	  </script>
+	  <style>
+	  div { color:blue; }
+	  </style>
+	  <div>There are 6 divs in this document.</div>
+	  <div>2</div>
+	  <div class="dup">3</div>
+	  <div class="dup">4</div>
+	  <div class="dup">5</div>
+	  <div>6</div>
+	  
+	  <button>Remove all duplicate</button>
+
+</body>
+
+</html>

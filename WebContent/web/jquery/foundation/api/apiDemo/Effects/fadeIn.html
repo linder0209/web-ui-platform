@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Example:
+	<br />
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			$("a").click(function() {
+				$("div").fadeIn(3000, function() {
+					$("span").fadeIn(100);
+				});
+				return false;
+			});
+
+		});
+	</script>
+	<style>
+		p {
+			position: relative;
+			width: 400px;
+			height: 90px;
+		}
+		
+		div {
+			position: absolute;
+			width: 400px;
+			height: 65px;
+			font-size: 36px;
+			text-align: center;
+			color: yellow;
+			background: red;
+			padding-top: 25px;
+			top: 0;
+			left: 0;
+			display: none;
+		}
+		
+		span {
+			display: none;
+		}
+	</style>
+	<p>
+		Let it be known that the party of the first part and the party of the
+		second part are henceforth and hereto directed to assess the
+		allegations for factual correctness... (<a href="#">click!</a>)
+	<div>
+		<span>CENSORED!</span>
+	</div>
+	</p>
+</body>
+
+</html>

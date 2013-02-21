@@ -1,4 +1,19 @@
 (function($, undefined) {
+    //ie8（包括ie8）以下版本不支持数组方法 indexOf
+    if(!Array.prototype.indexOf){
+        Array.prototype.indexOf = function(item){
+            var me = this;
+            if(me.length == 0){
+                return -1;
+            }
+            for (var i = 0, len = me.length; i < len; i++) {
+                if(item == me[i]){
+                    return i;
+                }
+            }
+            return -1;
+        };
+    }
     var element = $.hopefuture.platform.Element;
     var pub = {
         module: '', //第一级模块名
@@ -79,7 +94,8 @@
                         backgroundColor: '#FFFFFF',
                         width: element.getViewportWidth() - $.position.scrollbarWidth(),
                         minHeight : element.getDocumentHeight(),
-                        paddingTop: 5
+                        paddingTop: 5,
+                        zIndex: 1
                     });
                 }
                 el.toggleClass('reduce');
@@ -268,9 +284,9 @@
                  * quick-code: false; 设置是否启用“双击”快速代码复制和粘贴。
                  * toolbar : false 设置是否显示工具栏。
                  */
-                //$('#body_content_source pre').empty();
-                //$('<pre type="syntaxhighlighter" class="brush: js; html-script: true; quick-code: false; toolbar : false" ></pre>').html(source).appendTo('#body_content_source pre');
-                //SyntaxHighlighter.highlight();
+                $('#body_content_source pre').empty();
+                $('<pre type="syntaxhighlighter" class="brush: js; html-script: true; quick-code: false; toolbar : false" ></pre>').html(source).appendTo('#body_content_source pre');
+                SyntaxHighlighter.highlight();
             }, 'html');
         }
     };

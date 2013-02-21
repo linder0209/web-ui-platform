@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Example: Find the very next sibling of each disabled button and change its text "this button is disabled".
+	<style>
+		span {
+			color: blue;
+			font-weight: bold;
+		}
+		
+		button {
+			width: 100px;
+		}
+	</style>
+	<div>
+		<button disabled="disabled">First</button>
+		- <span></span>
+	</div>
+	<div>
+		<button>Second</button>
+		- <span></span>
+	</div>
+
+	<div>
+		<button disabled="disabled">Third</button>
+		- <span></span>
+	</div>
+	<script>
+		$("button[disabled]").next().text("this button is disabled");
+	</script>
+ 
+   <p>&nbsp;</p>
+
+	2.Example: Find the very next sibling of each paragraph. Keep only the
+	ones with a class "selected".
+
+
+	<p class="example2">Hello</p>
+	<p class="noselected">Hello no selected</p>
+	<p class="selected">Hello Again</p>
+	
+	<p class="example2-1">Hello</p>
+	<p class="selected">Hello Again</p>
+	<script>
+		$("p.example2").next(".selected").css("background", "yellow");
+		$("p.example2-1").next(".selected").css("background", "yellow");
+	</script>
+
+</body>
+</html>

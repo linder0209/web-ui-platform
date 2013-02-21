@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Within a for loop, pass the value of i to the .on() method so that
+	the current iteration's value is preserved.
+	<br />
+
+	<button>0</button>
+	<button>1</button>
+	<button>2</button>
+	<button>3</button>
+	<button>4</button>
+
+	<div id="log"></div>
+
+	<script>
+		var logDiv = $("#log");
+
+		/* Note: This code is for demonstration purposes only. */
+		for ( var i = 0; i < 5; i++) {
+			$("button").eq(i).on(
+					"click",
+					{
+						value : i
+					},
+					function(event) {
+						var msgs = [ "button = " + $(this).index(),
+								"event.data.value = " + event.data.value,
+								"i = " + i ];
+						logDiv.append(msgs.join(", ") + "<br>");
+					});
+		}
+		
+	</script>
+	
+	<br /> <br />
+	
+	2.Example:When a button in any box class is clicked, change the box's background color to red.
+
+    <div class="box">
+     <input value="1"/>
+     <input value="2"/>
+     <input value="3"/>
+     <input value="4"/>
+     <input value="5" id="input1"/>
+    </div>
+    
+    <div id="father" style="padding:20px;border:1px solid yellow;">
+              父亲
+       <div style="border:1px solid red;">儿子</div>
+    </div>
+    <script type="text/javascript">
+       /**
+        *
+
+        This property is most often useful in delegated events attached by .delegate() or .on(), 
+        where the event handler is attached at an ancestor of the element being processed.
+        It can be used, for example, to identify and remove event handlers at the delegation point.
+
+        For non-delegated event handlers attached directly to an element, event.delegateTarget will always be equal to event.currentTarget.
+
+       **/
+   	    $(".box").on("click", "input", function(event) {
+    	  $(event.delegateTarget).css("background-color", "red");//指".box"
+    	  $(event.currentTarget).css("background-color", "orange");
+    	  $(event.target).css("color", "green");
+    	}); 
+       
+       $('#father').click(function(event){
+    	   console.info(event.currentTarget == this);//指father本身
+    	   console.info(event.target == this);//指鼠标所点击的元素
+    	   $(event.currentTarget).css("background-color", "orange").append('指father本身');
+    	   $(event.target).css("background-color", "blue").append('指鼠标所点击的元素');
+       });
+    </script>
+
+	
+</body>
+</html>

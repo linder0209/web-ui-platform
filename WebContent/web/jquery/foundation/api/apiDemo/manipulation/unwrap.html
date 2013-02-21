@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Example:Wrap/unwrap a div around each of the paragraphs.
+	<br />
+
+	<style>
+		div {
+			border: 2px solid blue;
+		}
+		
+		p {
+			background: yellow;
+			margin: 4px;
+		}
+	</style>
+	<button>wrap/unwrap</button>
+	<p>Hello</p>
+	<p>cruel</p>
+	<p>World</p>
+	<script>
+		$("button").toggle(function() {
+			$("p").wrap("<div></div>");
+		}, function() {
+			$("p").unwrap();
+		});
+	</script>
+
+</body>
+</html>

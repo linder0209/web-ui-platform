@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	<p>
+		<b> In addition to their ability to handle events on descendant
+			elements not yet created, another advantage of delegated events is
+			their potential for much lower overhead when many elements must be
+			monitored. On a data table with 1,000 rows in its tbody, this example
+			attaches a handler to 1,000 elements: 
+		</b>
+		<br /><br />
+		<b> 
+			$("#dataTable tbody tr").on("click", function(event){ alert($(this).text()); }); 
+		</b>
+		<br /><br />
+		<b>
+			A delegated-events approach attaches an event handler to only one
+			element, the tbody, and the event only needs to bubble up one level
+			(from the clicked tr to tbody): 
+		</b>
+		<br /><br />
+		<b> $("#dataTable tbody").on("click", "tr", function(event){ alert($(this).text()); });
+		</b> 
+	</p>
+	1.Example:Attach and trigger custom (non-browser) events.
+	<style>
+		p.example1 {
+			color: red;
+		}
+		
+		span.example1S {
+			color: blue;
+		}
+	</style>
+	<p class="example1">Has an attached custom event.</p>
+	<button>Trigger custom event</button>
+	<span class="example1S" style="display: none;"></span>
+	<script>
+		$("p.example1").on(
+				"myCustomEvent",
+				function(e, myName, myValue) {
+					$(this).text(myName + ", hi there!");
+					$("span.example1S").stop().css("opacity", 1).text(
+							"myName = " + myName).fadeIn(30).fadeOut(1000);
+				});
+		$("button").click(function() {
+			$("p.example1").trigger("myCustomEvent", [ "John" ]);
+		});
+	</script>
+
+    <p>&nbsp;</p>
+	2.Example:Attach multiple event handlers simultaneously using a map.
+	<br />
+
+	<style>
+		.test {
+			color: #000;
+			padding: .5em;
+			border: 1px solid #444;
+		}
+		
+		.active {
+			color: #900;
+		}
+		
+		.inside {
+			background-color: aqua;
+		}
+	</style>
+	<div class="test">test div</div>
+	<script>
+		$("div.test").on({
+			click : function() {
+				$(this).toggleClass("active");
+			},
+			mouseenter : function() {
+				$(this).addClass("inside");
+			},
+			mouseleave : function() {
+				$(this).removeClass("inside");
+			}
+		});
+	</script>
+
+
+</body>
+</html>

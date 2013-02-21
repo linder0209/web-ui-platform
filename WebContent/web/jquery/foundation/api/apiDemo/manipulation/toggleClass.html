@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Example:Toggle the class 'highlight' when a paragraph is clicked.
+	<br />
+
+	<style>
+		p {
+			margin: 4px;
+			font-size: 16px;
+			font-weight: bolder;
+			cursor: pointer;
+		}
+		
+		.blue1 {
+			color: blue;
+		}
+		
+		.highlight1 {
+			background: yellow;
+		}
+	</style>
+	<p class="blue1">Click to toggle</p>
+	<p class="blue1 highlight1">highlight</p>
+	<p class="blue1">on these</p>
+	<p class="blue1">paragraphs</p>
+	<script>
+		$("p").click(function() {
+			$(this).toggleClass("highlight1");
+		});
+	</script>
+
+
+	<p>&nbsp;</p>
+    
+    2.Example:Add the "highlight" class to the clicked paragraph on every third click of that paragraph, remove it every first and second click.
+    <br />
+	<style>
+		p.example2 {
+			margin: 4px;
+			font-size: 16px;
+			font-weight: bolder;
+			cursor: pointer;
+		}
+		
+		.blue2 {
+			color: blue;
+		}
+		
+		.highlight2 {
+			background: red;
+		}
+	</style>
+	<p class="example2 blue2">
+		Click to toggle (<span>clicks: 0</span>)
+	</p>
+	<p class="example2 blue2 highlight2">
+		highlight (<span>clicks: 0</span>)
+	</p>
+	<p class="example2 blue2">
+		on these (<span>clicks: 0</span>)
+	</p>
+
+	<p class="example2 blue2">
+		paragraphs (<span>clicks: 0</span>)
+	</p>
+	<script>
+		var count = 0;
+		$("p.example2").each(function() {
+			var $thisParagraph = $(this);
+			var count = 0;
+			$thisParagraph.click(function() {
+				count++;
+				$thisParagraph.find("span").text('clicks: ' + count);
+				$thisParagraph.toggleClass("highlight2", count % 3 == 0);
+			});
+		});
+	</script>
+
+
+	<p>&nbsp;</p>
+	3.Example: Toggle the class name(s) indicated on the buttons for each div. 
+	<br />
+	<style>
+		.wrap>div {
+			float: left;
+			width: 100px;
+			margin: 1em 1em 0 0;
+			padding-left: 3px;
+			border: 1px solid #abc;
+		}
+		
+		div.a {
+			background-color: aqua;
+		}
+		
+		div.b {
+			background-color: burlywood;
+		}
+		
+		div.c {
+			background-color: cornsilk;
+		}
+	</style>
+
+	<div class="buttons">
+		<button>toggle</button>
+		<button class="a">toggle a</button>
+		<button class="a b">toggle a b</button>
+		<button class="a b c">toggle a b c</button>
+		<a href="#">reset</a>
+	</div>
+	<div class="wrap">
+		<div></div>
+		<div class="b"></div>
+		<div class="a b"></div>
+		<div class="a c"></div>
+	</div>
+
+	<script>
+		var cls = [ '', 'a', 'a b', 'a b c' ];
+		var divs = $('div.wrap').children();
+		var appendClass = function() {
+			divs.append(function() {
+				return '<div>' + (this.className || 'none') + '</div>';
+			});
+		};
+
+		appendClass();
+
+		$('button').bind('click', function() {
+			var tc = this.className || undefined;
+			divs.toggleClass(tc);
+			appendClass();
+		});
+
+		$('a').bind('click', function(event) {
+			event.preventDefault();
+			divs.empty().each(function(i) {
+				this.className = cls[i];
+			});
+			appendClass();
+		});
+	</script>
+
+    <p>&nbsp;</p>
+	4.Example: other demo 
+	<br />
+	<style>
+	  .cls1{
+	  	color:red;
+	  	cursor:pointer;
+	  	border:1px solid #CCC;
+	  }
+	</style>
+	
+	<span id="toggle1" class="cls1">toggleClass() demo</span>
+	
+	<span id="toggle2" class="cls1">toggleClass(true) demo</span>
+	
+	<span id="toggle3" class="cls1">toggleClass(false) demo</span>
+	
+	<script type="text/javascript">
+		$('#toggle1').click(function(){
+			//轮回删除、添加
+			$(this).toggleClass();
+		});
+		$('#toggle2').click(function(){
+			//轮回删除、添加
+			$(this).toggleClass(true);
+		});
+		$('#toggle3').click(function(){
+			//删除
+			$(this).toggleClass(false);
+		});
+	</script>
+</body>
+</html>

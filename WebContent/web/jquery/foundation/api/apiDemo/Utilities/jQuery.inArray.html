@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Example:
+	<br />
+	<script type="text/javascript">
+	$(document).ready(function(){
+	    
+	    var arr = [ 4, "Pete", 8, "John" ];
+
+	    $("span:eq(0)").text(jQuery.inArray("John", arr));
+	    $("span:eq(1)").text(jQuery.inArray(4, arr));
+	    $("span:eq(2)").text(jQuery.inArray("David", arr));
+
+	  });
+	  </script>
+	  <style>
+	  div { color:blue; }
+	  span { color:red; }
+	  </style>
+	  <div>"John" found at <span></span></div>
+	  <div>4 found at <span></span></div>
+	  <div>"David" found at <span></span></div>
+
+</body>
+
+</html>

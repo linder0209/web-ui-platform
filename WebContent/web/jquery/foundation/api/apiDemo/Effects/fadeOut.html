@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+	1.Example:
+	<br />
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			$("span").click(function() {
+				$(this).fadeOut(1000, function() {
+					$("div").text("'" + $(this).text() + "' has faded!");
+					$(this).remove();
+				});
+			});
+			$("span").hover(function() {
+				$(this).addClass("hilite");
+			}, function() {
+				$(this).removeClass("hilite");
+			});
+
+		});
+	</script>
+	<style>
+		span {
+			cursor: pointer;
+		}
+		
+		span.hilite {
+			background: yellow;
+		}
+		
+		div {
+			display: inline;
+			color: red;
+		}
+	</style>
+	<h3>
+		Find the modifiers -
+		<div></div>
+	</h3>
+	<p>
+		If you <span>really</span> want to go outside <span>in the cold</span>
+		then make sure to wear your <span>warm</span> jacket given to you by
+		your <span>favorite</span> teacher.
+	</p>
+</body>
+
+</html>

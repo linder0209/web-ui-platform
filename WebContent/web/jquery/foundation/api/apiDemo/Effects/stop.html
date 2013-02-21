@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="../../jquery-1.7.2.js"></script>
+</head>
+<body>
+   <h4 style="color:red;">
+       stop( [clearQueue], [gotoEnd] ) <br /><br />
+	    animate( params, [duration], [easing], [callback] )<br /><br />
+	    clearQueue (Optional)	Boolean	<br /><br />
+		A Boolean (true/false) that when set to true clears the animation queue, effectively stopping all queued animations.<br /><br />
+		gotoEnd (Optional)	Boolean	<br /><br />
+		A Boolean (true/false) that when set to true causes the currently playing animation to immediately complete, including resetting original styles on show and hide and calling the callback function<br /><br />
+   </h4>
+	1.Example:
+	<br />
+	<script type="text/javascript">
+		$(document).ready(function(){
+		    
+		    // Start animation
+		    $("#go").click(function(){
+		      $(".block").animate({left: '+=100px'}, 2000);
+		    });
+	
+		    // Stop animation when button is clicked
+		    $("#stop").click(function(){
+		      $(".block").stop();
+		    });
+	
+		    // Start animation in the opposite direction
+		    $("#back").click(function(){
+		      $(".block").animate({left: '-=100px'}, 2000);
+		    });
+	
+		  });
+	  </script>
+	  <style>
+	  div { 
+	    position: absolute; 
+	    background-color: #abc;
+	    left: 0px;
+	    top:350px;
+	    width: 60px; 
+	    height: 60px;
+	    margin: 5px; 
+	  }
+	  </style>
+	  <button id="go">Go</button> 
+	  <button id="stop">STOP!</button>
+	  <button id="back">Back</button>
+	  <div class="block"></div>
+
+</body>
+
+</html>
