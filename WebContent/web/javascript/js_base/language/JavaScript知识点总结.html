@@ -13,9 +13,18 @@
         <ol class="h-web-catalogue">
             <li><a paragraph="1" href="#">window.location.hash的用法</a></li>
 			<li><a paragraph="2" href="#">模态窗口返回时还在当前页面显示的处理</a></li>
+			<li><a paragraph="3" href="#">hasOwnProperty函数的用法</a></li>
+            <li><a paragraph="4" href="#">this 的工作原理</a></li>
+            <li><a paragraph="5" href="#">变量声明提升（Hoisting）</a></li>
+            
+            <li><a paragraph="6" href="#">JavaScript 中查找变量的解析顺序</a></li>
+            <li><a paragraph="7" href="#">typeof 操作符</a></li>
+            <li><a paragraph="7" href="#">setTimeout 和 setInterval</a></li>
+            
+            
         </ol>
-        <div class="h-web-paragraph">
-            <h3 paragraph="1">window.location.hash</h3>
+    <div class="h-web-paragraph">
+          <h3 paragraph="1">window.location.hash</h3>
             <p>用来设置页面的锚点值，可以获取或设置页面的标签值，主要是结合ajax来使用，模仿实现页面的“前进”、“后退”功能。<span class="h-web-font-red">注意：IE6和IE7不支持</span>。</p>
             <p>也可以用window.location.hash来伪造地址栏中的假地址，需要结合ajax实现，用户看不到实际访问的url。如以下代码，处理href变为hash</p>
             <pre>window.location.hash = this.href.replace(/.+\/([^\/]+)\/index\.html/,'$1') + '|default';</pre>
@@ -24,7 +33,86 @@
                 这时括号中匹配的值为“list2”，所以上面的表达式执行结果为：list2|default    
             </p>
 			<h3 paragraph="2">模态窗口返回时还在当前页面显示的处理</h3>
-			<p>在head标签中加入该代码&lt;base target="_self"/&gt;即可</p>
-        </div>
+	  <p>在head标签中加入该代码&lt;base target="_self"/&gt;即可</p>
+        <h3 paragraph="3">hasOwnProperty函数的用法</h3>
+      <p>为了判断一个对象是否包含自定义属性而不是原型链上的属性， 我们需要使用继承自 Object.prototype 的 hasOwnProperty 方法。hasOwnProperty 是 JavaScript 中唯一一个处理属性但是不查找原型链的函数。</p>
+            <p class="h-web-font-red">注意: 通过判断一个属性是否 undefined 是不够的。 因为一个属性可能确实存在，只不过它的值被设置为 undefined。</p>
+            <p>看下面的例子</p>
+            <pre>// 修改Object.prototype<br>Object.prototype.bar = 1; <br>var foo = {goo: undefined};<br><br>foo.bar; // 1<br>'bar' in foo; // true<br><br>foo.hasOwnProperty('bar'); // false<br>foo.hasOwnProperty('goo'); // true</pre>
+            <p>当检查对象上某个属性是否存在时，hasOwnProperty 是唯一可用的方法。 同时在使用 for in loop 遍历对象时，推荐总是使用 hasOwnProperty 方法， 这将会避免原型对象扩展带来的干扰。</p>
+      <h3 paragraph="4">this 的工作原理</h3>
+            <p>JavaScript 有一套完全不同于其它语言的对 this 的处理机制。 在五种不同的情况下 ，this 指向的各不相同。</p>
+      <h4>全局范围内</h4>
+      <p>当在全部范围内使用 this，它将会指向全局对象。浏览器中运行的 JavaScript 脚本，这个全局对象是 window。</p>
+            <p>注意:ECMAScript 5 中在严格模式下（strict mode），不存在全局变量。 这种情况下 this 将会是 undefined。</p>
+            
+            <h4>函数调用            </h4>
+            <pre>foo();</pre>
+            <p>这里 this 也会指向全局对象。</p>
+            
+            <h4>方法调用</h4>
+            <pre>test.foo();</pre>
+            <p>这个例子中，this 指向 test 对象。</p>
+            
+            <h4>调用构造函数</h4>
+            <pre>new foo();</pre>
+            <p>如果函数倾向于和 new 关键词一块使用，则我们称这个函数是构造函数。 在函数内部，this 指向新创建的对象。</p>
+            
+	  <h4>显式的设置 this</h4>
+            <pre>function foo(a, b, c) {}<br>var bar = {};<br>foo.apply(bar, [1, 2, 3]); // 数组将会被扩展，如下所示<br>foo.call(bar, 1, 2, 3); // 传递到foo的参数是：a = 1, b = 2, c = 3</pre>
+            <p>当使用 Function.prototype 上的 call 或者 apply 方法时，函数内的 this 将会被显式设置为函数调用的第一个参数。因此函数调用的规则在上例中已经不适用了，在foo 函数内 this 被设置成了 bar。</p>
+            <p class="h-web-font-red">注意: 在对象的字面声明语法中，this 不能用来指向对象本身。 因此 var obj = {me: this} 中的 me 不会指向 obj，因为 this 只可能出现在上述的五种情况中。 译者注：这个例子中，如果是在浏览器中运行，obj.me 等于 window 对象。</p>
+	  <h3 paragraph="5">变量声明提升（Hoisting）</h3>
+             
+             <p>JavaScript 会提升变量声明。这意味着 var 表达式和 function 声明都将会被提升到当前作用域的顶部。</p>
+             <pre>bar();<br>var bar = function() {};<br>var someValue = 42;<br><br>test();<br>function test(data) {<br>    if (false) {<br>        goo = 1;<br><br>    } else {<br>        var goo = 2;<br>    }<br>    for(var i = 0; i &lt; 100; i++) {<br>        var e = data[i];<br>    }<br>}
+             </pre>
+             <p>上面代码在运行之前将会被转化。JavaScript 将会把 var 表达式和 function 声明提升到当前作用域的顶部。</p>
+             <p>如果没有提升规则（hoisting）的知识，下面的代码看起来会抛出异常 ReferenceError。</p>
+             <pre>// 检查 SomeImportantThing 是否已经被初始化<br>if (!SomeImportantThing) {<br>    var SomeImportantThing = {};<br>}
+</pre>
+             <p>实际上，上面的代码正常运行，因为 var 表达式会被提升到<em>全局作用域</em>的顶部。</p>
+       <h3 paragraph="6">JavaScript 中查找变量的解析顺序</h3>
+       <p>比如，当访问函数内的 foo 变量时，JavaScript 会按照下面顺序查找：</p>
+       <ol>
+         <li>当前作用域内是否有 var foo 的定义。</li>
+         <li>函数形式参数是否有使用 foo 名称的。</li>
+         <li>函数自身是否叫做 foo。</li>
+         <li>回溯到上一级作用域，然后从 <strong>#1</strong> 重新开始。</li>
+       </ol>
+       
+      <h3 paragraph="7">typeof 操作符</h3>
+       <p>typeof 操作符（和 instanceof 一起）或许是 JavaScript 中最大的设计缺陷， 因为几乎不可能从它们那里得到想要的结果。typeof 只有一个实际的应用，<strong></strong>这个实际应用是用来检测一个对象是否已经定义或者是否已经赋值，而却<strong>不是</strong>用来检查对象的类型。</p>
+       <p>首先看一下JavaScript 类型</p>
+      <pre>Value               Class      Type<br>-------------------------------------<br>"foo"               String     string<br>new String("foo")   String     object<br>1.2                 Number     number<br>new Number(1.2)     Number     object<br>true                Boolean    boolean<br>new Boolean(true)   Boolean    object<br>new Date()          Date       object<br>new Error()         Error      object<br>[1,2,3]             Array      object<br>new Array(1, 2, 3)  Array      object<br>new Function("")    Function   function<br>/abc/g              RegExp     object (function in Nitro/V8)<br>new RegExp("meow")  RegExp     object (function in Nitro/V8)<br>{}                  Object     object<br>new Object()        Object     object<br></pre>
+       <p>虽然不能用typeof来判断对象的数据类型，但我们可以用Object.prototype 上的方法 toString来判断。</p>
+       <p><strong>JavaScript 标准文档中定义:</strong> [[Class]] 的值只可能是下面字符串中的一个：    Arguments, Array, Boolean, Date, Error,     Function, JSON, Math, Number, Object, RegExp, String.</p>
+         <h4>对象的类定义</h4>
+         <p>JavaScript 标准文档只给出了一种获取 [[Class]] 值的方法，那就是使用 Object.prototype.toString。</p>
+         <pre>function is(type, obj) {<br>    var clas = Object.prototype.toString.call(obj).slice(8, -1);<br>    return obj !== undefined &amp;&amp; obj !== null &amp;&amp; clas === type;<br>}<br>is('String', 'test'); // true<br>is('String', new String('test')); // true</pre>
+         <p>上面例子中，Object.prototype.toString 方法被调用，this 被设置为了需要获取 [[Class]] 值的对象。</p>
+         <p>Object.prototype.toString 返回一种标准格式字符串，所以上例可以通过 slice 截取指定位置的字符串，如下所示：</p>
+         <pre>Object.prototype.toString.call([])  // "[object Array]"<br>Object.prototype.toString.call({})  // "[object Object]"<br>Object.prototype.toString.call(2)   // "[object Number]"</pre>
+         <p>在 ECMAScript 5 中，为了方便，对 null 和 undefined 调用 Object.prototype.toString 方法，    其返回值由 Object 变成了 Null 和 Undefined。这种变化可以从 IE8 和 Firefox 中看出区别，如下所示：</p>
+      <pre>// IE8<br>Object.prototype.toString.call(null)    // "[object Object]"<br>Object.prototype.toString.call(undefined)   // "[object Object]"<br><br>// Firefox 4<br>Object.prototype.toString.call(null)    // "[object Null]"<br>Object.prototype.toString.call(undefined)   // "[object Undefined]"</pre>
+           <p>typeof 唯一的用法就是测试变量是否被定义</p>
+      <pre>typeof foo !== 'undefined' </pre>
+           <p>上面代码会检测 foo 是否已经定义；如果没有定义而直接使用会导致 ReferenceError 的异常。  这是 typeof 唯一有用的地方。</p>
+           <p class="h-web-font-red">为了检测一个对象的类型，强烈推荐使用 Object.prototype.toString 方法；  因为这是唯一一个可依赖的方式。正如上面表格所示，typeof 的一些返回值在标准文档中并未定义，  因此不同的引擎实现可能不同。除非为了检测一个变量是否已经定义，我们应尽量避免使用 typeof 操作符。</p>
+		<h3 paragraph="8">setTimeout 和 setInterval</h3>
+		<p>setTimeout 只会执行回调函数一次，不过 setInterval - 正如名字建议的 - 会每隔 X 毫秒执行函数一次。 但是却不鼓励使用这个函数。</p>
+		<p>当回调函数的执行被阻塞时，setInterval 仍然会发布更多的回调指令。在很小的定时间隔情况下，这会导致回调函数被堆积起来。</p>
+		<pre>function foo(){<br>    // 阻塞执行 1 秒<br>}<br>setInterval(foo, 1000);</pre>
+        <p>上面代码中，foo 会执行一次随后被阻塞了一分钟。在 foo 被阻塞的时候，setInterval 仍然在组织将来对回调函数的调用。  因此，当第一次 foo 函数调用结束时，已经有 <strong>10</strong> 次函数调用在等待执行。</p>
+        <p>为了处理可能的阻塞调用，最简单也是最容易控制的方案，是在回调函数内部使用 setTimeout 函数。</p>
+      <pre>function foo(){<br>    // 阻塞执行 1 秒<br>    setTimeout(foo, 1000);<br>}<br>foo();</pre>
+        <p>这样不仅封装了 setTimeout 回调函数，而且阻止了调用指令的堆积，可以有更多的控制。  foo 函数现在可以控制是否继续执行还是终止执行。</p>
+        <p><span class="h-web-font-red">建议<strong>不要</strong>在调用定时器函数时，为了向回调函数传递参数而使用字符串的形式</span>。</p>
+        <pre>function foo(a, b, c) {}<br><br>// 不要这样做<br>setTimeout('foo(1,2, 3)', 1000)<br><br>// 可以使用匿名函数完成相同功能<br>setTimeout(function() {<br>    foo(a, b, c);<br>}, 1000) </pre>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+
+
+    </div>
     </body>
 </html>

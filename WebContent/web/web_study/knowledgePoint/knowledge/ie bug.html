@@ -15,7 +15,7 @@
             <li><a paragraph="2" href="#">IE6的双倍边距bug</a></li>
             <li><a paragraph="3" href="#"></a></li>
             <li><a paragraph="4" href="#">IE 6/7 Resize Bug</a></li>
-            <li><a paragraph="5" href="#"></a></li>
+            <li><a paragraph="5" href="#">IE 6/7下关于浮层的bug</a></li>
             <li><a paragraph="6" href="#"></a></li>
             <li><a paragraph="7" href="#"></a></li>
             <li><a paragraph="8" href="#"></a></li>
@@ -34,6 +34,16 @@
             <p>这里的#menu ul li a本来是可以不加float:left的，但IE6下在li没有设置宽度，#menu ul li a设置display:block的情况下，将会显示错乱，所以需要在a上增加float:left来修正。万恶的IE6，怎么就淘汰不掉呢</p>
             
             <h3 paragraph="4">IE 6/7 Resize Bug</h3>
+            <p>这个bug会在ie6和ie7中出现，究其产生这个bug的原因，这里就不详细介绍了，网上有这方面的<a href="http://friendlybit.com/css/ie6-resize-bug/" target="_blank">解释</a>，主要还是浏览器对元素的定位出现偏差造成的。下面主要说下怎样解决这个bug。网上也提供了几种解决方案，比如可以设置计数器来判断是否在无限次的执行resize，可以参考<a href="http://remysharp.com/2008/05/15/windowonresize-hangs-ie6-and-ie7/">这篇文章</a>，文章中判断计数器超过100则移除resize事件来自救。网上提供的解决方案有的是用setTimeout延迟加载，目的是让浏览器有个喘息的机会，但该方法治根不治本。有的是创建一个长度和宽度都是100%的div，把resize事件绑定到该DOM元素上，该实现思想不错，但是遇到复杂页面还是会出现问题。本人综合了网上几种方案，提供了以下实现，供参考。</p>
+            <p>针对ie6和ie7，首先在body下创建一个&lt;div id=&quot;fix_ie_resize&quot; style=&quot;width:100%;height:100%;position:absolute;left:0;top:0;z-index:-999&quot; /&gt; ，注意style的设置。然后把resize绑定到该div上，并且利用setTimeout来延迟加载resize事件，这样实现虽然可以延缓浏览器的假死现象，但还是会不停地调用resize绑定的监听函数，只是延迟后，给了浏览器喘息的机会，交互上看不出页面在执行监听函数。为了解决频繁的调用监听函数，我们可以在每次执行resize时判断一下浏览器窗口大小是否改变了，只有真的改变了才执行监听函数，javascript代码为：</p>
+            <pre>var currentWidth = $.support.boxModel ? document.documentElement.clientWidth : document.body.clientWidth,<br>    currentHeight = $.support.boxModel ? document.documentElement.clientHeight : document.body.clientHeight;<br>var lastWindowSize = fix_ie.data('lastWindowSize');<br>if(lastWindowSize){<br>    if(lastWindowSize.width != currentWidth || lastWindowSize.height != currentHeight ){<br>        timeout = window.setTimeout(winResizeHandler, 200);//Deferred<br>    }<br>}</pre>
+            <p>解决该bug的完整代码如下：</p>
+            <pre>
+//监听函数
+var winResizeHandler = function(){<br>    //do something<br>};<br>if((jQuery.browser['msie'] &amp;&amp; parseInt(jQuery.browser['version']) &gt; 7) || !jQuery.browser['msie']){//ie6 或 ie7<br>    $(window).bind('resize', winResizeHandler);<br>}else{<br>    var fix_ie = $('#fix_ie_resize');<br>    if(fix_ie.length == 0){<br>        fix_ie = $('&lt;div id="fix_ie_resize" style="width:100%;height:100%;position:absolute;left:0;top:0;z-index:-999" /&gt;').appendTo(document.body);<br>    }<br>    var timeout;<br>    fix_ie.bind('resize', function(){<br>        if(timeout){<br>            window.clearTimeout(timeout);<br>        }
+		//页面高宽度，标准模式和怪异模式下，取值不同<br>        var currentWidth = $.support.boxModel ? document.documentElement.clientWidth : document.body.clientWidth,<br>            currentHeight = $.support.boxModel ? document.documentElement.clientHeight : document.body.clientHeight;<br>        var lastWindowSize = fix_ie.data('lastWindowSize');<br>        if(lastWindowSize){<br>            if(lastWindowSize.width != currentWidth || lastWindowSize.height != currentHeight ){<br>                timeout = window.setTimeout(winResizeHandler, 200);//Deferred<br>            }<br>        }<br>        fix_ie.data('lastWindowSize',{<br>            width : currentWidth,<br>            height : currentHeight<br>        });    <br>    });<br>}</pre>
+            <h3 paragraph="5">IE 6/7下关于浮层的bug</h3>
+            <p>如果上一个div是浮层，在下一个元素中加入清除浮层的样式 clear:both;时，该元素的作为容器时，会使里面的高度错位，具体例子代码待书写，参看项目中incidents/incident模块，待完善。清除方法，是去掉clear:both，该用清楚浮层的常用方法。</p>
             
         </div>
     </body>
