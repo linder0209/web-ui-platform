@@ -160,3 +160,30 @@
     text-decoration:underline;
     color:#009EC3;
 }
+
+/**
+ * 公用按钮
+**/
+.h-web-icon{
+    width:16px; 
+    height:16px; 
+    display:inline-block; 
+    cursor:pointer; 
+    vertical-align: text-top; 
+    background: url("./images/web_ui_buttons.png") no-repeat;
+}
+.h-web-icon.edit{
+    background-position: 0px 0px;
+}
+.h-web-icon.save{
+    background-position: -16px 0px;
+}
+.h-web-icon.cancel{
+    background-position: -32px 0px;
+}
+.h-web-icon.delete{
+    background-position: -48px 0px;
+}
+.h-web-icon.copy{
+    background-position: -52px 0px;
+}

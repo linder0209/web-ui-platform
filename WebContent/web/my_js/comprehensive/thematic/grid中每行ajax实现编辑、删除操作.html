@@ -7,18 +7,90 @@
         <link rel="stylesheet" href="../../../../platform/css/platform.css" type="text/css"/>
         <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
         <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
-        
+
         <script type="text/javascript" src="../../../../platform/javascript/jquery/jquery.js"></script>
     </head>
     <body>
+        <style type="text/css">
+            table.h-demo-grid{
+                width: 90%;
+            }
+            table.h-demo-grid th{
+                border : 0 none;
+                background-color: #DDDDDD;
+                border-bottom: 1px solid #D2D2D2;
+                border-top: 1px solid #D2D2D2;
+                color: #333333;
+                font-weight: bold;
+                padding: 5px 7px;
+                text-align: left;
+            }
+            table.h-demo-grid td{
+                border : 0 none;
+                border-bottom: 1px solid #DDDDDD;
+                background-color: #FFFFFF;
+                color: #333333;
+                padding: 7px;
+            }
+        </style>
         <script type="text/javascript" src="js/grid.js" ></script>
         <div class="h-web-paragraph">
-          <p>例子</p>
-          <dl>
-              <li>
-                  
-              </li>
-          </dl>
+            <p>例子</p>
+
+            <table class="h-demo-grid" cellspacing="0" cellpadding="0" border="0" id="grid_demo">
+                <thead>
+                    <tr><th width="80%">名称</th><th>操作</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <span name="input_label">名称一</span>
+                            <input name="column" recordId="123" style="display:none;"/>
+                        </td>
+                        <td>
+                            <a href="#" title="Edit" name="operte_edit" class="h-web-icon edit"></a>
+                            <a href="#" title="Save" name="operte_save" class="h-web-icon save" style="display:none;"></a>
+                            <a href="#" title="Cancel" name="operte_cancel" class="h-web-icon cancel" style="display:none;"></a>
+                            <a href="#" title="Delete" name="operte_delete" class="h-web-icon delete"></a>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <span name="input_label">名称二</span>
+                            <input name="column" recordId="1233" style="display:none;"/>
+                        </td>
+                        <td>
+                            <a href="#" title="Edit" name="operte_edit" class="h-web-icon edit"></a>
+                            <a href="#" title="Save" name="operte_save" class="h-web-icon save" style="display:none;"></a>
+                            <a href="#" title="Cancel" name="operte_cancel" class="h-web-icon cancel" style="display:none;"></a>
+                            <a href="#" title="Delete" name="operte_delete" class="h-web-icon delete"></a>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <span name="input_label">名称三</span>
+                            <input name="column" recordId="1234" style="display:none;"/>
+                        </td>
+                        <td>
+                            <a href="#" title="Edit" name="operte_edit" class="h-web-icon edit"></a>
+                            <a href="#" title="Save" name="operte_save" class="h-web-icon save" style="display:none;"></a>
+                            <a href="#" title="Cancel" name="operte_cancel" class="h-web-icon cancel" style="display:none;"></a>
+                            <a href="#" title="Delete" name="operte_delete" class="h-web-icon delete"></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p>例子代码</p>
+            <pre>
+&lt;!--html code--&gt;
+&lt;table class="h-demo-grid" cellspacing="0" cellpadding="0" border="0" id="grid_demo"&gt;<br>    &lt;thead&gt;<br>        &lt;tr&gt;&lt;th width="80%"&gt;名称&lt;/th&gt;&lt;th&gt;操作&lt;/th&gt;&lt;/tr&gt;<br>    &lt;/thead&gt;<br>    &lt;tbody&gt;<br>        &lt;tr&gt;<br>            &lt;td&gt;<br>                &lt;span name="input_label"&gt;名称一&lt;/span&gt;<br>                &lt;input name="column" recordId="123" style="display:none;"/&gt;<br>            &lt;/td&gt;<br>            &lt;td&gt;<br>                &lt;a href="#" title="Edit" name="operte_edit" class="h-web-icon edit"&gt;&lt;/a&gt;<br>                &lt;a href="#" title="Save" name="operte_save" class="h-web-icon save" style="display:none;"&gt;&lt;/a&gt;<br>                &lt;a href="#" title="Cancel" name="operte_cancel" class="h-web-icon cancel" style="display:none;"&gt;&lt;/a&gt;<br>                &lt;a href="#" title="Delete" name="operte_delete" class="h-web-icon delete"&gt;&lt;/a&gt;<br>            &lt;/td&gt;<br>        &lt;/tr&gt;<br>        <br>        &lt;tr&gt;<br>            &lt;td&gt;<br>                &lt;span name="input_label"&gt;名称二&lt;/span&gt;<br>                &lt;input name="column" recordId="1233" style="display:none;"/&gt;<br>            &lt;/td&gt;<br>            &lt;td&gt;<br>                &lt;a href="#" title="Edit" name="operte_edit" class="h-web-icon edit"&gt;&lt;/a&gt;<br>                &lt;a href="#" title="Save" name="operte_save" class="h-web-icon save" style="display:none;"&gt;&lt;/a&gt;<br>                &lt;a href="#" title="Cancel" name="operte_cancel" class="h-web-icon cancel" style="display:none;"&gt;&lt;/a&gt;<br>                &lt;a href="#" title="Delete" name="operte_delete" class="h-web-icon delete"&gt;&lt;/a&gt;<br>            &lt;/td&gt;<br>        &lt;/tr&gt;<br>        <br>        &lt;tr&gt;<br>            &lt;td&gt;<br>                &lt;span name="input_label"&gt;名称三&lt;/span&gt;<br>                &lt;input name="column" recordId="1234" style="display:none;"/&gt;<br>            &lt;/td&gt;<br>            &lt;td&gt;<br>                &lt;a href="#" title="Edit" name="operte_edit" class="h-web-icon edit"&gt;&lt;/a&gt;<br>                &lt;a href="#" title="Save" name="operte_save" class="h-web-icon save" style="display:none;"&gt;&lt;/a&gt;<br>                &lt;a href="#" title="Cancel" name="operte_cancel" class="h-web-icon cancel" style="display:none;"&gt;&lt;/a&gt;<br>                &lt;a href="#" title="Delete" name="operte_delete" class="h-web-icon delete"&gt;&lt;/a&gt;<br>            &lt;/td&gt;<br>        &lt;/tr&gt;<br>    &lt;/tbody&gt;<br>&lt;/table&gt;</pre>
+            
+            <pre>//javascript code
+$(function() {<br>    //Edit<br>    $('#grid_demo').on('click', 'a[name="operte_edit"]', function(e) {<br>        e.preventDefault();<br>        <br>        var el = $(this),<br>            rowEl = el.closest('tr'),<br>            delegateEl = $(e.delegateTarget),//委托的元素，本例中即 #grid_demo<br>            list = delegateEl.find('tr');<br>        for (var i = 0, len = list.length; i &lt; len; i++) {//判断是否有打开的编辑<br>            if ($(list[i]).data('editable') === false) {<br>                return;<br>            }<br>        }<br>        var textEl = rowEl.find('[name="input_label"]'),<br>            cancelEl = rowEl.find('a[name="operte_cancel"]'),<br>            saveEl = rowEl.find('a[name="operte_save"]'),<br>            inputEl = rowEl.find('input[name="column"]');<br><br>        el.hide();<br>        inputEl.val(textEl.text()).show();<br>        cancelEl.show();<br>        saveEl.show();<br>        textEl.hide();<br>        rowEl.data('editable', false);<br>    });<br>    <br>    //Cancel<br>    $('#grid_demo').on('click', 'a[name="operte_cancel"]', function(e) {<br>        e.preventDefault();<br>        <br>        var el = $(this),<br>            rowEl = el.closest('tr'),<br>            textEl = rowEl.find('[name="input_label"]'),<br>            editEl = rowEl.find('a[name="operte_edit"]'),<br>            saveEl = rowEl.find('a[name="operte_save"]'),<br>            inputEl = rowEl.find('input[name="column"]');<br>            <br>        el.hide();<br>        inputEl.hide();<br>        editEl.show();<br>        saveEl.hide();<br>        textEl.show();<br>        rowEl.removeData('editable');<br>    });<br><br>    //Save<br>    $('#grid_demo').on('click', 'a[name="operte_save"]', function(e) {<br>        e.preventDefault();<br>        var el = $(this),<br>            rowEl = el.closest('tr'),<br>            textEl = rowEl.find('[name="input_label"]'),<br>            editEl = rowEl.find('a[name="operte_edit"]'),<br>            cancelEl = rowEl.find('a[name="operte_cancel"]'),<br>            inputEl = rowEl.find('input[name="column"]'),<br>            recordId = inputEl.attr("recordId");<br>            <br>        $.ajax({<br>            url : '',<br>            data: {<br>              id:  recordId <br>            },<br>            success: function(data){<br>                el.hide();<br>                inputEl.hide();<br>                editEl.show();<br>                cancelEl.hide();<br>                textEl.text(inputEl.val()).show();<br>                rowEl.removeData('editable');<br>            }<br>        });<br>    });<br><br>    //Delete<br>    $('#grid_demo').on('click', 'a[name="operte_delete"]', function(e) {<br>        e.preventDefault();<br>        var el = $(e.target),<br>            rowEl = el.closest('tr'),<br>            inputEl = rowEl.find('input[name="column"]'),<br>            recordId = inputEl.attr("recordId");<br>        <br>        $.ajax({<br>            url : '',<br>            data: {<br>              id:  recordId <br>            },<br>            success: function(data){<br>                rowEl.remove();<br>            }<br>        });<br>    });<br>});</pre>
+            <p>&nbsp;</p>
         </div>
     </body>
 </html>
