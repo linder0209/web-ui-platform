@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Node.js 读书笔记</title>
+        <link rel="stylesheet" href="../../../../platform/css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/platform.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
+    </head>
+    <body>
+        <div class="h-web-paragraph">
+            <h4>使用 supervisor监听代码改动，实现热部署</h4>
+            <p>
+                在开发过程中，每次修改代码后，还需要重启node，但是我们总是希望修改后立即看到效果，
+                而不是每次都要终止进程并重启。
+            supervisor 可以帮助我们实现这个功能，它会监视代码的改动，并自动重启 Node.js。使用方法很简单，首先使用 npm 安装 supervisor：</p>
+            <p>npm install -g supervisor</p>
+            <p>然后运行以下命令，supervisor app.js，当app.js代码被改动时，运行的脚本会被终止，然后重新启动。</p>
+        </div>
+    </body>
+</html>
