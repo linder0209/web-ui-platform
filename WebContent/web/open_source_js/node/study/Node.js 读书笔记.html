@@ -9,14 +9,114 @@
         <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
     </head>
     <body>
+        <ol class="h-web-catalogue">
+            <li><a paragraph="1" href="#">使用 supervisor监听代码改动，实现热部署</a></li>
+            <li><a paragraph="2" href="#">本地模式和全局模式</a></li>
+            <li><a paragraph="3" href="#">调试</a></li>
+        </ol>
         <div class="h-web-paragraph">
-            <h4>使用 supervisor监听代码改动，实现热部署</h4>
+            <h3 paragraph="1">使用 supervisor监听代码改动，实现热部署</h3>
             <p>
                 在开发过程中，每次修改代码后，还需要重启node，但是我们总是希望修改后立即看到效果，
                 而不是每次都要终止进程并重启。
             supervisor 可以帮助我们实现这个功能，它会监视代码的改动，并自动重启 Node.js。使用方法很简单，首先使用 npm 安装 supervisor：</p>
-            <p>npm install -g supervisor</p>
+            <p>npm install -g supervisor (-g表示安装到nodejs安装目录下：C:\Program Files\nodejs\node_modules)</p>
             <p>然后运行以下命令，supervisor app.js，当app.js代码被改动时，运行的脚本会被终止，然后重新启动。</p>
+            
+            <h3 paragraph="2">本地模式和全局模式</h3>
+          <p>。默认情况下我们使用 npm install命令就是采用本地模式，即把包安装到当前目录的 node_modules 子目录下。
+                Node.js的 require 在加载模块时会尝试搜寻 node_modules 子目录，因此使用 npm 本地模式安装的包可以直接被引用。
+                npm 还有另一种不同的安装模式被成为全局模式，使用方法为：npm [install/i] -g [package_name]与本地模式的不同之处就在于多了一个参数 -g。</p>
+          <h3 paragraph="3">调试</h3>
+          <p>运行调试命令，$ node debug debug.js</p>
+            <table cellspacing="0" cellpadding="0">
+              <caption>Node.js 调试命令</caption>
+              <tr>
+                <td width="368">命令</td>
+                <td width="510">功能</td>
+              </tr>
+              <tr>
+                <td>run</td>
+                <td>执行脚本，在第一行暂停</td>
+              </tr>
+              <tr>
+                <td>restart</td>
+                <td>重新执行脚本</td>
+              </tr>
+              <tr>
+                <td>cont,c</td>
+                <td>继续执行，直到遇到下一个断点</td>
+              </tr>
+              <tr>
+                <td>next,n</td>
+                <td>单步执行</td>
+              </tr>
+              <tr>
+                <td>step,s</td>
+                <td>单步执行并进入函数</td>
+              </tr>
+              <tr>
+                <td>out,o</td>
+                <td>从函数中步出</td>
+              </tr>
+              <tr>
+                <td>setBreakpoint(),sb()</td>
+                <td>在当前行设置断点</td>
+              </tr>
+              <tr>
+                <td>setBreakpoint(&lsquo;f()&rsquo;),sb(...)</td>
+                <td>在函数f的第一行设置断点</td>
+              </tr>
+              <tr>
+                <td>setBreakpoint(&lsquo;script.js&rsquo;,20),sb(...)</td>
+                <td>在script.js的第20行设置断点</td>
+              </tr>
+              <tr>
+                <td>clearBreakpoint,cb(...)</td>
+                <td>清除所有断点</td>
+              </tr>
+              <tr>
+                <td>backtrace,bt</td>
+                <td>显示当前的调用栈</td>
+              </tr>
+              <tr>
+                <td>list(5)</td>
+                <td>显示当前执行到的前后5行代码</td>
+              </tr>
+              <tr>
+                <td>watch(expr)</td>
+                <td>把表达式expr加入监视列表</td>
+              </tr>
+              <tr>
+                <td>unwatch(expr)</td>
+                <td>把表达式expr从监视列表移除</td>
+              </tr>
+              <tr>
+                <td>watchers</td>
+                <td>显示监视列表中所有的表达式和值</td>
+              </tr>
+              <tr>
+                <td>repl</td>
+                <td>在当前上下文打开即时求值环境</td>
+              </tr>
+              <tr>
+                <td>kill</td>
+                <td>终止当前执行的脚本</td>
+              </tr>
+              <tr>
+                <td>scripts</td>
+                <td>显示当前已加载的所有脚本</td>
+              </tr>
+              <tr>
+                <td>version</td>
+                <td>显示V8的版本</td>
+              </tr>
+          </table>
+            <p>远程调试命令为：</p>
+            <p>node --debug[=port] script.js 或 node --debug-brk[=port] script.js</p>
+            <h4>使用 node-inspector 调试 Node.js</h4>
+            <p>首先，使用 npm install -g node-inspector 命令安装 node-inspector，然后在终端中通过 node --debug-brk=5858 debug.js 命令连接你要除错的脚本的调试服务器，启动 node-inspector。运行：node-inspector（需要在当前目录下再开一个cmd窗口）。</p>
+            <p>在浏览器中打开 http://127.0.0.1:8080/debug?port=5858，即可显示出优雅的 Web 调试工具。需要在chrome上调试。</p>
         </div>
     </body>
 </html>
