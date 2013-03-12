@@ -13,6 +13,7 @@
             <li><a paragraph="1" href="#">使用 supervisor监听代码改动，实现热部署</a></li>
             <li><a paragraph="2" href="#">本地模式和全局模式</a></li>
             <li><a paragraph="3" href="#">调试</a></li>
+            <li><a paragraph="4" href="#">Express 框架快速开发web应用</a></li>
         </ol>
         <div class="h-web-paragraph">
             <h3 paragraph="1">使用 supervisor监听代码改动，实现热部署</h3>
@@ -29,8 +30,9 @@
                 npm 还有另一种不同的安装模式被成为全局模式，使用方法为：npm [install/i] -g [package_name]与本地模式的不同之处就在于多了一个参数 -g。</p>
           <h3 paragraph="3">调试</h3>
           <p>运行调试命令，$ node debug debug.js</p>
+          
+          <h4>Node.js 调试命令</h4>
             <table cellspacing="0" cellpadding="0">
-              <caption>Node.js 调试命令</caption>
               <tr>
                 <td width="368">命令</td>
                 <td width="510">功能</td>
@@ -117,6 +119,10 @@
             <h4>使用 node-inspector 调试 Node.js</h4>
             <p>首先，使用 npm install -g node-inspector 命令安装 node-inspector，然后在终端中通过 node --debug-brk=5858 debug.js 命令连接你要除错的脚本的调试服务器，启动 node-inspector。运行：node-inspector（需要在当前目录下再开一个cmd窗口）。</p>
             <p>在浏览器中打开 http://127.0.0.1:8080/debug?port=5858，即可显示出优雅的 Web 调试工具。需要在chrome上调试。</p>
+            
+          <h3 paragraph="4">Express 框架快速开发web应用</h3>
+            <p>安装：npm install -g express</p>
+            <p>&nbsp;</p>
         </div>
     </body>
 </html>
