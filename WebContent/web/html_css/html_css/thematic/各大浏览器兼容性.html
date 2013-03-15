@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>ie bug</title>
+        <link rel="stylesheet" href="../../../../platform/css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/platform.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
+    </head>
+    <body>
+        <div class="h-web-paragraph">
+          <p><a href="http://www.w3help.org/zh-cn/causes/HG1002" target="_blank">HG1002: Chrome 和 Safari 中标签紧密相邻的行内元素在折行显示时存在错误</a></p>
+            <p><a href="http://www.w3help.org/zh-cn/causes/HO3004" target="_blank">HO3004: IE6 不支持 PNG24 格式图片的半透明效果</a></p>
+            <p><a href="http://www.w3help.org/zh-cn/causes/HA1003" target="_blank">HA1003: 各浏览器对 align='middle' 的理解有差异</a></p>
+            <p><a href="http://www.w3help.org/zh-cn/causes/HF1004" target="_blank">HF1004: IE6 IE7 IE8(Q) 中 FIELDSET 元素的宽度不是 'auto' 时的表现与行内元素相同</a></p>
+            <p><a href="http://www.w3help.org/zh-cn/causes/HF1007" target="_blank">HF1007: Firefox 中 TEXTAREA 元素根据 'rows' 设置值生成的实际行数为设置值 + 1</a></p>
+            <p><a href="http://www.w3help.org/zh-cn/causes/HF1008" target="_blank">HF1008: Firefox Opera 中 BUTTON 元素的子元素可以溢出按钮渲染</a></p>
+            <p>对于button中加入a元素，不能正确处理，待分析</p>
+            <p><a href="http://www.w3help.org/zh-cn/causes/HF1010" target="_blank">HF1010: INPUT[type=file] 的 'value' 属性值在各浏览器中存在差异</a></p>
+            <p><a href="http://www.w3help.org/zh-cn/causes/HF5011" target="_blank">HF5011: 多个 target 属性设置的目标窗口不为当前窗口的 FORM 同时提交后 Chrome Safari 中仅打开一新个窗口</a></p>
+            <p><a href="http://www.w3help.org/zh-cn/causes/HF3013" target="_blank">HF3013: IE6 IE7 不支持 OPTION 和 OPTGROUP 元素的 disabled 属性</a></p>
+            <p><a href="http://www.w3help.org/zh-cn/causes/HF1014" target="_blank">HF1014: 各浏览器对 TEXTAREA 元素的换行处理存在差异</a></p>
+            <p><a href="http://www.w3help.org/zh-cn/causes/HF9015" target="_blank">HF9015: IE6 IE7 IE8(Q) 中 BUTTON 元素的 type 属性默认值不是 submit</a></p>
+          <p><a href="http://www.w3help.org/zh-cn/causes/RS8001" target="_blank">RS8001: IE6 IE7(Q) IE8(Q) 不支持子选择器</a></p>
+            <p>
+            RS8001: IE6 IE7(Q) IE8(Q) 不支持子选择器</p>
+            <p>RS8002: IE6 IE7(Q) IE8(Q) 不支持相邻兄弟选择器              </p>
+            <p>RS8003: IE6 IE7(Q) IE8(Q) 不支持属性选择器              </p>
+            <p>RS8004: IE6 IE7(Q) IE8(Q) 不支持 ':first-child' 伪元素</p>
+            <p> RS3005: IE6 IE7(Q) IE8(Q) 中 A 元素的 :visited :hover :active 伪类未按规范要求的算法来计算针对性              </p>
+            <p>RS3007: IE6 IE7(Q) IE8(Q) 不支持 A 元素以外的其他元素的 ':hover' 伪类              （可以使用 <a href="http://www.xs4all.nl/%7Epeterned/csshover.html">Whatever:hover</a>来解决）</p>
+            <p>RS3008: IE6 IE7 IE8(Q) 不支持 A 元素以外的其他元素的 ':active' 伪类              （可以使用 <a href="http://www.xs4all.nl/%7Epeterned/csshover.html">Whatever:hover</a>来解决）</p>
+            <p>RS3009: IE6 IE7 IE8(Q) 不支持 ':focus' 伪类              （可以使用 <a href="http://www.xs4all.nl/%7Epeterned/csshover.html">Whatever:hover</a>来解决）</p>
+            <p>RS8010: IE6 IE7 IE8(Q) 不支持 ':before' 和 ':after' 伪元素              （可以使用插件 <a href="http://jquery.lukelutman.com/plugins/pseudo/">Pseudo Plugin</a>）</p>
+            <p><a href="http://www.w3help.org/zh-cn/causes/RS3005" target="_blank">RS3005: IE6 IE7(Q) IE8(Q) 中 A 元素的 :visited :hover :active 伪类未按规范要求的算法来计算针对性</a></p>
+            <p>该文章中详细的介绍了<span class="h-web-font-red">选择器<strong>的针对性</strong>（specificity）</span>，即样式规则的优先级。大体规则如下：</p>
+            <p>style优先级最高</p>
+            <p>其次是id（#）</p>
+            <p>然后是选择器中其他属性和class的数量</p>
+            <p>最后是选择器中元素和伪类的数量</p>
+            <p>在同级别中，数量越大，优先级越高</p>
+            <p>比如：</p>
+            <pre>h1 *[id=ok]   {}  /* a=0 b=0 c=1 d=1 -&gt; specificity = 0,0,1,1  h1算元素，个数是1，[id=ok]伪类，个数也是1*/<br>ul ol li.red  {}  /* a=0 b=0 c=1 d=3 -&gt; specificity = 0,0,1,3 ul ol li算元素，个数是3，.red算class，个数为1*/<br>li.red.level  {}  /* a=0 b=0 c=2 d=1 -&gt; specificity = 0,0,2,1 */</pre>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+
+            
+            
+        </div>
+        <p>&nbsp;</p>
+    </body>
+</html>
