@@ -23,7 +23,7 @@
         <id>level_3</id>
         <name>jQuery plugins</name>
         <module>plugins</module>
-        <children id="level3_1" name="" href="./plugins/source/index.html" module="source" />
+        <children id="level3_1" name="常用jQuery插件" href="./plugins/salutary/index.html" module="salutary" />
     </menu>
     
     <menu>
