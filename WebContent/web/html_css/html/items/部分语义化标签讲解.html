@@ -19,6 +19,7 @@
             <li><a paragraph="6" href="#">HTML 头部元素</a></li>
             <li><a paragraph="7" href="#">HTML 中有用的字符实体</a></li>
             <li><a paragraph="8" href="#">HTTP 状态消息</a></li>
+            <li><a paragraph="9" href="#">其他元素</a></li>
             
         </ol>
         <div class="h-web-paragraph">
@@ -654,6 +655,15 @@
                   </tr>
                 </tbody>
               </table>
+              
+              <h3 paragraph="9">其他元素</h3>
+              
+              <h4>button元素</h4>
+              <p>根据 HTML4.01 规范中的描述，BUTTON 元素创建一个类似 INPUT 元素类型为 button 的按钮控件，但 BUTTON 元素拥有更丰富的呈现效果，如可以在按钮上加入图片等等。
+BUTTON 元素同样拥有 type 属性，其取值为 submit、button、reset，分别对应提交按钮、普通按钮、重置按钮。其中 submit 为 type 属性的缺省值。</p>
+              <p><span class="h-web-font-red">问题描述</span>：在 IE6 IE7 IE8(Q) 中 BUTTON 元素 type 属性的默认值不是规范规定的 submit 而是 button，则默认没有设定 type 属性时的 BUTTON 元素将创建一个普通按钮，而不是提交按钮。</p>
+              <p><span class="h-web-font-red">解决方案</span>：在使用 BUTTON 元素时应明确的为其设定 type 属性，避免因为浏览器默认属性值不同导致按钮类型出现差异。</p>
+              <p><a href="http://www.w3help.org/zh-cn/causes/HF9015" target="_blank">参考</a></p>
             <p>&nbsp;</p>
         </div>
     </body>

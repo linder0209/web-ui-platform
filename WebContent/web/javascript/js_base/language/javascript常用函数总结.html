@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>JavaScript 语言基础 ——javascript常用函数总结</title>
+        <link rel="stylesheet" href="../../../../platform/css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/platform.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
+    </head>
+    <body>
+        <h3 class="h-web-paragraph-title">目录</h3>
+        <ol class="h-web-catalogue">
+            <li><a paragraph="1" href="#">Array中的sort方法</a></li>
+            
+            
+        </ol>
+    <div class="h-web-paragraph">
+      <h3 paragraph="1">Array中的sort方法</h3>
+      <p>Array.prototype.sort方法是对数组进行排序的。该方法是在原数组上排序，不是返回副本。如果调用方法sort()时没有参数，将按照字母排序（更为精确地说，是按照字符编码的顺序）对数组中的元素排序的。如果有参数（该参数是一比较函数）时，会根据该比较函数返回值来排序。比较函数有两个参数a和b，其返回值如下：</p>
+      <p>如果a小于b，在排序结果中想让a出现在b之前，则需要返回一个小于0的值，即正序排序</p>
+      <p>如果a等于b，就返回0</p>
+      <p>如果a大于b，返回大于0的值</p>
+      <p>以上是正序排序，如果是倒序则按反向返回数值</p>
+      <p>注意，数组中的undefined的元素都会排在数组末尾，即使提供了自定义的排序函数，也是这样，因为undefined值不会被传递给你提供的比较函数。</p>
+      <p>例子：</p>
+      <pre>function numberRorder(a,b){<br>    return a- b;<br>}<br>var a = [33,4,1111,222];<br>a.sort();// 1111,222,33,4<br>a.sort(numberRorder);//4,33,222,1111</pre>
+      <p>对多维数组的排序</p>
+      <pre>var arr = [<br>    [2, 1, 55, 4],<br>    [5, 3, 22, 3],<br>    [1, 2, 77, 2],<br>    [9, 4, 33, 5]<br>];<br>console.info("默认按第一列排\n" + arr.sort().join("\n"));<br>console.info("现在按第三列排\n" + arr.sort(function(left, right) {<br>    return left[2] &gt; right[2] ? 1 : -1;<br>}).join("\n"));<br>console.info("现在按第三列倒排\n" + arr.sort(function(left, right) {<br>    return left[2] &gt; right[2] ? -1 : 1;<br>}).join("\n"));</pre>
+      <p>&nbsp;</p>
+            
+
+    </div>
+    </body>
+</html>
