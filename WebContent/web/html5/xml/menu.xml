@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menus>
+    <display-name>html5 Menu</display-name>
+    <description>html5 模块菜单项</description>
+
+    <menu>
+        <id>level_1</id>
+        <name>html5 基础</name>
+        <module>basic_knowledge</module>
+        <children id="level_1_1" name="语义化标签" href="./basic_knowledge/items/index.html" module="properties" />
+    </menu>
+    <menu>
+        <id>level_2</id>
+        <name>html5 相关插件</name>
+        <module>instance</module>
+        <children id="level_2_2" name="CSS3综合实例" href="./instance/comprehensive/index.html" module="comprehensive" />
+    </menu>
+</menus>

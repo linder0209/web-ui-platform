@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>HTML5 Audio/Video 标签</title>
+        <link rel="stylesheet" href="../../../../platform/css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/platform.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
+        <script type="text/javascript" src="../../../../platform/javascript/jquery/jquery.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                $('.h-web-catalogue li a').click(function(e) {
+                    e.preventDefault();
+                    var paragraphNum = $(this).attr('paragraph'),
+                            paragraph = $('.h-web-paragraph h3[paragraph="' + paragraphNum + '"]'),
+                            offset = paragraph.offset();
+                    if (offset) {
+                        document.documentElement.scrollTop = offset.top;
+                        document.body.scrollTop = offset.top;
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h3 class="h-web-paragraph-title">目录</h3>
+        <ol class="h-web-catalogue">
+            <li><a paragraph="1" href="#">属性选择器</a></li>
+
+        </ol>
+        <div class="h-web-paragraph">
+            <h3 paragraph="1">属性选择器</h3>
+
+        </div>
+    </body>
+</html>
