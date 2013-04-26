@@ -30,5 +30,6 @@
         <name>jQuery plugins(自己开发的)</name>
         <module>myplugins</module>
         <children id="level4_1" name="与表单form有关的插件" href="./myplugins/forms/index.html" module="forms" />
+        <children id="level4_2" name="grid插件" href="./myplugins/grids/index.html" module="girds" />
     </menu>
 </menus>

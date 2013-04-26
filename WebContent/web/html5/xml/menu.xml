@@ -12,7 +12,7 @@
     <menu>
         <id>level_2</id>
         <name>html5 相关插件</name>
-        <module>instance</module>
-        <children id="level_2_2" name="CSS3综合实例" href="./instance/comprehensive/index.html" module="comprehensive" />
+        <module>plugins</module>
+        <children id="level_2_1" name="音频和视频插件" href="./plugins/media/index.html" module="media" />
     </menu>
 </menus>
