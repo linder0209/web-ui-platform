@@ -20,6 +20,31 @@
             return values[name] !== undefined ? values[name] : "";
         });
     }
+    
+    function initTemplate(baseCls){
+        baseCls = baseCls || 'h-ui-grid';
+        var gridContainer = '<div class="' + baseCls + '-wrapper"> \n\
+            <table cellspacing="0" cellpadding="0" class="' + baseCls + '"> \n\
+                <thead> \n\
+                    <tr> \n\
+                       ${th} \n\
+                    </tr> \n\
+                </thead> \n\
+                <tbody>${tbody}</tbody> \n\
+            </table> \n\
+         </div>';
+        var gridTh = '<th>${title}</th>';
+        var gridTd = '<td>${content}</td>';
+        var gridPager = '';
+        return {
+           container :  gridContainer,
+           gridTh : gridTh,
+           gridTd : gridTd,
+           gridPager : gridPager
+        };
+    }
+    
+    var gridTemplate;
 
     $.widget("ui.hopegrid", {
         version: "1.0.0",
@@ -30,59 +55,24 @@
         },
         
         _create: function() {
-            this._createElements();
-            var element = this.element.addClass('ui-helper-hidden');
-
-            this.uiSelectorCt = $(this.container).width(this.options.width).height(this.options.height)
-            .addClass('ui-widget ui-widget-content ui-corner-all');
-            this.uiSelector = $(this.selectorUl).appendTo(this.uiSelectorCt);
-            this.element.after(this.uiSelectorCt);
-            
-            if(this.options.multiple === false){
-                this._setSingle();
-                this.options.mutable = false;
+            var options = this.options,
+                me = this;
+            if(options.url){
+                 $.ajax({
+                    url : options.url,
+                    success : function(data){
+                        me._loadGrid(data);
+                    }
+                });
+            }else if (options.data){
+                _loadGrid(options.data);
             }
-            
-            var data, me = this;
-            if (element[0].tagName.toLowerCase() === 'select') {
-                data = this._selectElToData(element);
-                this._createItem(data, 0);
-            }else {//可利用传入的数据来设置
-                data = this.options.data;
-                if(data){
-                    this._createItem(data, 0);
-                }else if (this.options.url){
-                    $.ajax(this.options.url,{
-                        success : function(resData){
-                            if(resData){
-                                me._createItem(data, 0);
-                            }
-                        }
-                    });
-                }
-            }
-            
-            var events = {};
-            events['click button.' + this.selectorCls.removeCls] = function(event) {
-                 this._remove(event);
-                 return false;
-            };
-            events['mouseenter .' + this.selectorCls.contentCls] = function(event) {
-                 var target = $(event.currentTarget);
-                 target.parent().addClass('ui-state-focus');
-            };
-            events['mouseleave .' + this.selectorCls.contentCls] = function(event) {
-                 var target = $(event.currentTarget);
-                 target.parent().removeClass('ui-state-focus');
-            };
-            
-            events['click .' + this.selectorCls.contentCls] = function(event) {
-                 var target = $(event.currentTarget);
-                 //target.toggleClass('ui-state-active');
-            };
-            this._on(this.uiSelector, events);
         },
         
+        _loadGrid : function(data){
+            
+        },
+                
         _setSingle : function(){
             this.uiSelectorCt.css('min-height','0');
             this.uiSelector.hide();
@@ -301,6 +291,12 @@
     
     $.hopegrid = function(){
         
-    },
-
+    };
+    
+    $.hopegrid.initTemplate = function(baseCls){
+        gridTemplate = initTemplate(baseCls);
+    };
+    
+    $.hopegrid.initTemplate();
+    
 }(jQuery));

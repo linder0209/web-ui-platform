@@ -4,55 +4,30 @@
 /*定义了插件grid simple 样式表*/
 /*******************************************************************************/
 
-.h-ui-selector{
-    min-height: 100px;
-    min-width: 100px;
+.h-ui-grid-wrapper{
+    overflow: auto; 
+/*    border: 1px solid #CCC;*/
 }
-
-.h-ui-selector-ul{
-    list-style-type: none;
-    margin: 0 !important;
+.h-ui-grid{
+    width: 100%;
 }
-
-.h-ui-selector-li{
-    list-style-type: none;
-    margin: 0 !important;
-    padding: 0px 0px 0px 10px;
-}
-
-.h-ui-selector-li .h-ui-selector-content{
-    padding: 5px 0;
-}
-
-.h-ui-selector-removeBtn{
-    margin-left: 5px;
-    width:16px; 
-    height:16px; 
-    display:inline-block; 
-    cursor:pointer; 
-    vertical-align: text-bottom; 
-    border: 0;
-    background:url(images/icn_trash_16.png) no-repeat;
-}
-.h-ui-selector-selectable{
-
-}
-.h-ui-selector-label{
-    color: #999999;
-    padding: 5px 0;
-}
-
-.h-ui-selector-li.ui-state-active,.h-ui-selector-li.ui-state-focus{
-    margin: -1px !important;
-}
-
-.h-ui-selector-single{
-    cursor: pointer; 
+.h-ui-grid td{
     height: 20px;
-    padding: 2px 0 2px 5px;
-    border-width: 0 0 1px;
+    padding: 5px;
+    border-bottom: 1px solid #DDDDDD;
 }
-.h-ui-selector-icon{
-     float: right;
-     margin: 2px;
+
+.h-ui-grid th{
+    border-top: 1px solid #C7C7C9;
+    border-bottom: 1px solid #C7C7C9;
+    height: 20px;
+    padding: 5px 2px;
+    background: -webkit-gradient(linear,0% 0,0% 100%,from(#ffffff),to(#eeeded));
+    background: -moz-linear-gradient(#ffffff, #eeeded) repeat scroll 0 0 transparent;
+}
+.h-ui-grid th.ui-th-l{
+    border-left: 1px solid #C7C7C9;
+}
+.h-ui-grid th.ui-th-r{
+    border-right: 1px solid #C7C7C9;
 }
