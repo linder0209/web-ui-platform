@@ -38,16 +38,23 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+/*******
+* 声明顺序应为：L-V-H-A
+*********/
 a {
-    color: #1A77C7;
-    text-decoration: none;
+    
 }
 
-a:link,a:visited,a:hover {
-    color: #323436;
-    text-decoration: none;
+a:link{
+    color: #009EC3;
+    text-decoration: underline;
 }
-
+a:visited{
+    color: #f0720d;
+}
+a:hover{
+   text-decoration: none; 
+}
 .h-float-l {
     float: left;
 }
