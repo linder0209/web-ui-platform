@@ -20,6 +20,7 @@
             <li><a paragraph="7" href="#">HTML 中有用的字符实体</a></li>
             <li><a paragraph="8" href="#">HTTP 状态消息</a></li>
             <li><a paragraph="9" href="#">其他元素</a></li>
+            <li><a paragraph="10" href="#">一些语义化标签</a></li>
             
         </ol>
         <div class="h-web-paragraph">
@@ -664,7 +665,21 @@ BUTTON 元素同样拥有 type 属性，其取值为 submit、button、reset，�
               <p><span class="h-web-font-red">问题描述</span>：在 IE6 IE7 IE8(Q) 中 BUTTON 元素 type 属性的默认值不是规范规定的 submit 而是 button，则默认没有设定 type 属性时的 BUTTON 元素将创建一个普通按钮，而不是提交按钮。</p>
               <p><span class="h-web-font-red">解决方案</span>：在使用 BUTTON 元素时应明确的为其设定 type 属性，避免因为浏览器默认属性值不同导致按钮类型出现差异。</p>
               <p><a href="http://www.w3help.org/zh-cn/causes/HF9015" target="_blank">参考</a></p>
-            <p>&nbsp;</p>
+          <h3 paragraph="10">一些语义化标签</h3>
+              <h4>abbr 标签</h4>
+              <p>用来定义tooltip的标签或是帮助等，例如</p>
+              <pre>&lt;abbr title="attribute"&gt;attr&lt;/abbr&gt;</pre>
+              <style type="text/css">
+			  	abbr[title] {
+					border-bottom: 1px dotted #999999;
+					cursor: help;
+				}
+			  </style>
+              <p><abbr title="attribute">attr</abbr></p>
+              
+              <h4>&lt;b&gt; 和 &lt;i&gt;</h4>
+            <p>在HTML5中可任意使用&lt;b&gt; 和 &lt;i&gt;。&lt;b&gt;是为了高亮词或短语而不会赋予重要含义，&lt;i&gt;主要被用来表示发言、技术术语等。另外&lt;i&gt;标签一般用来定义icon图标。</p>
+          
         </div>
     </body>
 </html>
