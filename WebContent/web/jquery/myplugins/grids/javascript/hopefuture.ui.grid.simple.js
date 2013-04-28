@@ -40,11 +40,11 @@
             <li class="gridPager-center">\n\
                 <span class="ui-icon ui-icon-seek-first"></span>\n\
                 <span class="ui-icon ui-icon-seek-prev"></span>Page \n\
-                <input type="text" value="0" maxlength="7" size="2">\n\
+                <input class="' + baseCls + '-inputPage" type="text" value="0" maxlength="7" size="2">\n\
                 of <span class="' + baseCls + '-page-number"></span>\n\
                 <span class="ui-icon ui-icon-seek-next"></span>\n\
                 <span class="ui-icon ui-icon-seek-end"></span>\n\
-                <select>${options}</select>\n\
+                <select class="' + baseCls + '-selectPage">${options}</select>\n\
             </li>\n\
             <li class="gridPager-right"><div></div></li></ul>';
         return {
@@ -95,6 +95,9 @@
                     }
                 });
             }else if (options.data){
+                var start = options.data.start,
+                    end = (start + 1) * options.data.pageSize;
+                options.data.data = options.data.data.slice(start,end);
                 this._loadGrid(options.data);
             }
         },
@@ -156,7 +159,7 @@
             }
             this.element.html(html);
             this._loadPager(data);
-            
+            this.pagerElement = this.element.find('.' + options.baseCls + '-pager');
             this._initEvent();
         },
         
@@ -164,24 +167,15 @@
             var options = this.options,
                 baseCls = options.baseCls,
                 events = {};
-            events['change select.' + this.baseCls] = function(event) {
-                 this._remove(event);
-                 return false;
+            events['change select.' + options.baseCls + '-selectPage'] = function(event) {
+                 this._onChangePageSize($(event.target).val());
             };
-            events['mouseenter .' + this.selectorCls.contentCls] = function(event) {
-                 var target = $(event.currentTarget);
-                 target.parent().addClass('ui-state-focus');
+            events['keydown input.' + options.baseCls + '-inputPage'] = function(event) {
+                 if(event.keyCode === 13){
+                     this._onGotoPage($(event.target).val());
+                 }
             };
-            events['mouseleave .' + this.selectorCls.contentCls] = function(event) {
-                 var target = $(event.currentTarget);
-                 target.parent().removeClass('ui-state-focus');
-            };
-            
-            events['click .' + this.selectorCls.contentCls] = function(event) {
-                 var target = $(event.currentTarget);
-                 //target.toggleClass('ui-state-active');
-            };
-            this._on(this.uiSelector, events);
+            this._on(this.pagerElement, events);
         },
                 
         //load the pager html
@@ -209,9 +203,24 @@
             endRecord = endRecord > totalCount ? totalCount : endRecord;
             var pagingInfo = 'View ' + startRecord + ' - ' + endRecord + 'of '+ totalCount;
             this.element.find('.gridPager-right div').text(pagingInfo);
+        },
+        
+        _onGotoPage : function(pageNum){
+            if(this.options.url){
+                $.ajax({
+                    url : options.url,
+                    data : postData,
+                    success : function(data){
+                        me._loadGrid(data);
+                    }
+                });
+            }
+            this._loadPager()
+        },
+        
+        _onChangePageSize : function(pageSize){
             
         }
-
     });
     
     $.hopegrid = function(){
