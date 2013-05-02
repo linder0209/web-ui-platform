@@ -19,8 +19,8 @@
             
             <li><a paragraph="6" href="#">JavaScript 中查找变量的解析顺序</a></li>
             <li><a paragraph="7" href="#">typeof 操作符</a></li>
-            <li><a paragraph="7" href="#">setTimeout 和 setInterval</a></li>
-            
+            <li><a paragraph="8" href="#">setTimeout 和 setInterval</a></li>
+            <li><a paragraph="9" href="#">运算符 && 和 || 的理解</a></li>
             
         </ol>
     <div class="h-web-paragraph">
@@ -109,7 +109,18 @@
         <p>这样不仅封装了 setTimeout 回调函数，而且阻止了调用指令的堆积，可以有更多的控制。  foo 函数现在可以控制是否继续执行还是终止执行。</p>
         <p><span class="h-web-font-red">建议<strong>不要</strong>在调用定时器函数时，为了向回调函数传递参数而使用字符串的形式</span>。</p>
         <pre>function foo(a, b, c) {}<br><br>// 不要这样做<br>setTimeout('foo(1,2, 3)', 1000)<br><br>// 可以使用匿名函数完成相同功能<br>setTimeout(function() {<br>    foo(a, b, c);<br>}, 1000) </pre>
-        <p>&nbsp;</p>
+        
+      <h3 paragraph="9">运算符 && 和 || 的理解</h3>
+        <p>javascript 中，这两个运算符与强类型语言中的不太一样，请看下面的各种情况：</p>
+        <h4>作为条件表达式时</h4>
+      <p>当作为条件表达式时，与强类型语言中一样，&amp;&amp;首先会计算表达式前面的，如果为false，则不再计算后面的，如果为true，则会计算后面的表达式。同理，||则相反。</p>
+        <h4>作为赋值或返回表达式时</h4>
+        <p>看下面的例子</p>
+        <pre>var obj1 = 'str',obj2 = obj1 &amp;&amp; {<br>    end: obj1<br>};<br>console.log(obj2);//Object { end="str"}<br><br>var str = undefined,str2 = str &amp;&amp; {<br>    end: str<br>};<br>console.log(str2);//undefined<br>var str3 = null,str4 = str3 &amp;&amp; 0;<br>console.log(str4);//null
+</pre>
+	<p>从上面的运行结果看，&&运算符，当前面的表达式为true时，会返回后面表达式的值；<span class="h-web-font-red">当前面的表达式为false时，如果后面的表达式为true时，则会返回前面表达式的值，如果后面的表达式也为false时，则会返回前面表达式的值。</span>注意这一点与强类型语言不一样，这里的true或false指的是 (!variable)计算的值。</p>
+        <pre>var obj1 = 'str',obj2 = obj1 || {<br>    end: obj1<br>};<br>console.log(obj2);//str<br><br>var str = undefined,str2 = str || {<br>    end: 'object1'<br>};<br>console.log(str2);//Object { end="object1"}<br><br>var str3 = undefined,str4 = str || null;<br>console.log(str4);//null</pre>
+        <p>从上面的例子可以看出，当||前面的表达式为true时，则会返回前面表达式的值，如果为false时，则会返回后面表达式的值。返回表达式时也是如此。总之，<span class="h-web-font-red">&amp;&amp; 和 || 作为赋值或返回表达式时，返回的都是前面或后面表达式的值</span>。而不像强类型语言返回的是true或false。</p>
         <p>&nbsp;</p>
 
 

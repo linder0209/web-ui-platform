@@ -3,11 +3,11 @@
     if(!Array.prototype.indexOf){
         Array.prototype.indexOf = function(item){
             var me = this;
-            if(me.length == 0){
+            if(me.length === 0){
                 return -1;
             }
             for (var i = 0, len = me.length; i < len; i++) {
-                if(item == me[i]){
+                if(item === me[i]){
                     return i;
                 }
             }
@@ -116,6 +116,7 @@
                 
         initWebUI: function() {
             this.initElement();
+            this.initScroll();
             
             var me = this;
             //顶部菜单点击事件
@@ -288,6 +289,29 @@
                 //$('<pre type="syntaxhighlighter" class="brush: js; html-script: true; quick-code: false; toolbar : false" ></pre>').html(source).appendTo('#body_content_source pre');
                 //SyntaxHighlighter.highlight();
             }, 'html');
+        },
+        
+        //实现当window滚动时，顶端的菜单栏位置不变，始终置于页面顶部
+        initScroll: function() {
+            var headerHeight = $('#header').outerHeight(true);
+            $(window).scroll(function() {
+                var scrollTop = $(this).scrollTop();
+                if (scrollTop > headerHeight) {
+                    if ($.browser['msie'] && $.browser['version'] === '6.0') {
+                        $('#topMenu').css('position', 'absolute');
+                        $('#topMenu').animate({
+                            top: scrollTop - headerHeight
+                        }, {
+                            duration: 100,
+                            queue: false
+                        });
+                    } else {
+                        $('#topMenu').css('position', 'fixed').addClass('docked');
+                    }
+                } else {
+                    $('#topMenu').css('position', 'static').removeClass('docked');
+                }
+            });
         }
     };
 

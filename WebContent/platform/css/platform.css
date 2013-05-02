@@ -14,8 +14,13 @@
 .h-container-header {
     background-color: #8FD401;
     padding: 8px 0 10px;
+    z-index: 1;
+    top:0px;
+    width: 100%;
 }
-
+.h-container-header.docked{
+    background-color: rgba(143, 212, 1, 0.4);
+}
 .h-header-tab {
     margin-left: 280px;
     min-width: 900px;
