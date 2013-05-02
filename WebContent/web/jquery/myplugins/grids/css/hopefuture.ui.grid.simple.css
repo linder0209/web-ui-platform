@@ -6,6 +6,7 @@
 
 .h-ui-grid-wrapper{
     overflow: auto; 
+    min-width: 500px;
 /*    border: 1px solid #CCC;*/
 }
 .h-ui-grid{
@@ -13,21 +14,59 @@
 }
 .h-ui-grid td{
     height: 20px;
-    padding: 5px;
+    padding: 8px 5px;
     border-bottom: 1px solid #DDDDDD;
+    background-color: #FFFFFF;
 }
 
 .h-ui-grid th{
+    text-align: left;
     border-top: 1px solid #C7C7C9;
     border-bottom: 1px solid #C7C7C9;
-    height: 20px;
-    padding: 5px 2px;
-    background: -webkit-gradient(linear,0% 0,0% 100%,from(#ffffff),to(#eeeded));
-    background: -moz-linear-gradient(#ffffff, #eeeded) repeat scroll 0 0 transparent;
+    height: 22px;
+    padding: 5px;
+    background: -webkit-gradient(linear,0% 0,0% 100%,from(#FFFFFF),to(#EEEDED));
+    background: -moz-linear-gradient(#FFFFFF, #EEEDED) repeat scroll 0 0 transparent;
 }
 .h-ui-grid th.ui-th-l{
     border-left: 1px solid #C7C7C9;
 }
 .h-ui-grid th.ui-th-r{
     border-right: 1px solid #C7C7C9;
+}
+
+.h-ui-grid-pager{
+    background: -webkit-gradient(linear,0% 0,0% 100%,from(#EEEDED),to(#FFFFFF));
+    background: -moz-linear-gradient(#EEEDED, #FFFFFF) repeat scroll 0 0 transparent;
+    height: 40px;
+    padding-bottom: 3px;
+    min-width: 500px;
+}
+.h-ui-grid-pager li{
+    float: left;
+    width : 33.33333%;
+    line-height: 40px;
+}
+.gridPager-left{
+    
+}
+.gridPager-center{
+    text-align: center;
+}
+.gridPager-right{
+    text-align: right;
+}
+.gridPager-right div{
+    padding-right: 30px;
+}
+.h-ui-grid-pager .ui-icon{
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 2px;
+}
+.h-ui-grid-pager input{
+    width: 30px;
+}
+.h-ui-grid-pager select{
+    width: 60px;
 }

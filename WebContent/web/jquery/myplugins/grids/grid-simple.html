@@ -21,20 +21,60 @@
     </head>
     <body>
         <div>
-            <link rel="stylesheet" href="./css/hopefuture.ui.selector.css" type="text/css"/>
+            <link rel="stylesheet" href="./css/hopefuture.ui.grid.simple.css" type="text/css"/>
             <script type="text/javascript" src="./javascript/hopefuture.ui.grid.simple.js" ></script>
-            <p>以下是例子</p>
-            <br />
-            <div>
-                例子一：multiple
+            <div class="h-web-demo">
+                <p>以下是例子</p>
+                <p>例子一</p>
+                
                 <div id="grid-simple"></div>
-            </div>
-            
-            <script type="text/javascript">
-                $(function() {
-                   
-                });
-            </script>
+                
+                <script type="text/javascript">
+                    $(function() {
+                       var colNames = [],
+                           colModel = [],
+                           rowData = {},
+                           rowsData = [];
+                       for(var i = 0; i <30;i++){
+                           colNames.push('title' + i);
+                           if(i == 0){
+                                colModel.push({
+                                  name: 'name' + i,
+                                  index: 'name' + i,
+                                  formatter: function(val) {
+                                     return '<a  href="#">' + val + '</a>';
+                                  }
+                               });  
+                           }else{
+                               colModel.push({
+                                  name: 'name' + i,
+                                  index: 'name' + i
+                               });
+                           }
+                           rowData['name' + i] = 'content' + i;
+                       }
+                       
+                       for(var r = 0; r < 56; r++){
+                          rowsData.push(rowData);
+                       }
+                       
+                       var data = {
+                           'totalCount':5,
+                           'totalPageCount':1,
+                           'currentPageNo':1,
+                           'pageSize':25,
+                           'start':0,
+                           'data':rowsData
+                       };
+                       
+                       $('#grid-simple').hopegrid({
+                           colNames: colNames,
+                           colModel: colModel,
+                           data : data
+                       });
+                    });
+                </script>
+             </div>
         </div>
     </body>
 </html>
