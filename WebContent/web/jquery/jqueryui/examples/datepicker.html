@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>jQuery UI 个性化例子 —— datepicker</title>
+        <link rel="stylesheet" href="../../../../platform/css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/platform.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/javascript/jquery-ui/css/jquery-ui.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/javascript/jquery-ui/css/jquery.ui.theme.css" type="text/css"/>
+        <style>
+            body{
+                padding: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="h-web-paragraph">
+            只显示年月，并且显示确定按钮，当点击确定按钮时改变日期 <br/>
+            <input id="startDate" /> 到 <input id="endDate" />
+
+        </div>
+        <script type="text/javascript" src="../../../../platform/javascript/jquery/jquery.js"></script>
+        <script type="text/javascript" src="../../../../platform/javascript/jquery-ui/ui-source/jquery.ui.core.js"></script>
+        <script type="text/javascript" src="../../../../platform/javascript/jquery-ui/ui-source/jquery.ui.datepicker.js"></script>
+
+        <script type="text/javascript" >
+            $(function() {
+                //rewrite $.datepicker._attachHandlers
+                var _attachHandlers = $.datepicker._attachHandlers;
+                $.datepicker._attachHandlers = function(inst) {
+                    _attachHandlers.call($.datepicker, inst);
+                    //add listeners event: click
+                    inst.dpDiv.find("button.ui-datepicker-close").click(function() {
+                        var onClickClose = $.datepicker._get(inst, "onClickClose");
+                        if (onClickClose) {
+                            onClickClose.apply((inst.input ? inst.input[0] : null), [(inst.input ? inst.input.val() : ""), inst]);
+                        }
+                    });
+                };
+            });
+
+            $("#startDate, #endDate").focus(function() {
+                $(".ui-datepicker-calendar").hide();
+                $(".ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearfix.ui-corner-all").addClass("d-index");
+                $(".ui-datepicker-current.ui-state-default.ui-priority-secondary.ui-corner-all").hide();
+                $("#ui-datepicker-div").position({
+                    my: "center top",
+                    at: "center bottom",
+                    of: $(this)
+                });
+            });
+            $("#startDate, #endDate").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                showButtonPanel: true,
+                dateFormat: 'yy-mm',
+                onClickClose: function(input, inst) {
+                    var month = inst.selectedMonth,
+                            year = inst.selectedYear;
+                    $(this).val($.datepicker.formatDate('yy-mm', new Date(year, month, 1)));
+                },
+                beforeShow: function(input, inst) {
+                    var val = $.trim($(this).val()),
+                            year, month, ym;
+                    if (val != '') {
+                        ym = val.split('-');
+                        year = ym[0];
+                        month = ym[1] - 1;
+                        $(this).datepicker('option', 'defaultDate', new Date(year, month, 1));
+                        $(this).datepicker('setDate', new Date(year, month, 1));
+                    }
+                    
+                    //设置最大值和最小值
+                    var inputEl = this.id == "startDate" ? "#endDate" : "#startDate";
+                    val = $.trim($(inputEl).val());
+                    if (val != '') {
+                        ym = val.split('-');
+                        year = ym[0];
+                        month = ym[1] - 1;
+                        if(this.id == "startDate"){
+                            $(this).datepicker( "option", "maxDate", new Date(year, month-1, 1));
+                            $(this).datepicker( "option", "minDate", new Date(year-1, month, 1));
+                        }else{
+                            $(this).datepicker( "option", "minDate", new Date(year, month-1, 1));
+                            $(this).datepicker( "option", "maxDate", new Date(new Number(year)+1, month - 2, 1));
+                        }
+                    }
+                   
+                }
+            });
+
+        </script>
+    </body>
+</html>

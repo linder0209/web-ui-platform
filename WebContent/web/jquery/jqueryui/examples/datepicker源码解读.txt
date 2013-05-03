@@ -1,0 +1,7 @@
+1、当点击done关闭日期窗口时，调用过程为：
+首先先说明一下，注册的事件_attachHandlers: function(inst) 中根据元素属性data-event和data-handler注册了相应的事件句柄
+在点击该按钮时会调用
+hide: function () {
+    window["DP_jQuery_" + dpuuid].datepicker._hideDatepicker();
+}
+即调用方法方法_hideDatepicker来关闭日期窗口
