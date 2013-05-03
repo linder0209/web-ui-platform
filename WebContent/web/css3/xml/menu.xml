@@ -8,17 +8,24 @@
         <name>CSS3 参考资料</name>
         <module>reference</module>
         <children id="level_1_1" name="CSS3 Properties" href="./reference/properties/index.html" module="properties" />
+        <children id="level_1_2" name="CSS3 入门教程参考" href="./reference/introduction/index.html" module="introduction" />
     </menu>
-	<menu>
+    <menu>
         <id>level_2</id>
         <name>CSS3 实例</name>
         <module>instance</module>
-		<children id="level_2_2" name="CSS3综合实例" href="./instance/comprehensive/index.html" module="comprehensive" />
+        <children id="level_2_2" name="CSS3综合实例" href="./instance/comprehensive/index.html" module="comprehensive" />
     </menu>
-	<menu>
+    <menu>
         <id>level_3</id>
         <name>CSS3 工具</name>
         <module>tools</module>
         <children id="level_3_1" name="CSS3代码生成工具" href="./tools/code/index.html" module="code" />
+    </menu>
+    <menu>
+        <id>level_4</id>
+        <name>CSS3 样式表</name>
+        <module>css3sheet</module>
+        <children id="level_4_1" name="CSS3 常用样式" href="./css3sheet/stylesheet/index.html" module="stylesheet" />
     </menu>
 </menus>
