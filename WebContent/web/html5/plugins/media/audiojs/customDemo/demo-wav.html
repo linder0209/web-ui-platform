@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>jPlayer wav demo</title>
+        <link rel="stylesheet" href="../../../../../../platform/css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../../../platform/css/platform.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../../../platform/css/theme/skyblue.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../../../platform/css/web.css" type="text/css"/>
+        <style>
+            body{
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <script type="text/javascript" src="../../../../../../platform/javascript/jquery/jquery.js"></script>
+        <script type="text/javascript" src="../audiojs-master/audiojs/audio.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var html = '<audio id="audioElement"/>';
+                var path = '2.wav';
+                $(html).appendTo(document.body);
+                var audioEl = document.getElementById('audioElement');
+                if(jQuery.browser['mozilla']){//firefox
+                    audioEl.addEventListener('loadedmetadata',function(e){  
+                        audiojs.create(e.target);
+                    });
+                    audioEl.preload = 'metadata';
+                    audioEl.src = path;
+                }else{
+                    audioEl.preload = 'none';
+                    var instance = audiojs.create(audioEl);
+                    document.getElementById('audioElement').addEventListener('ended',function(e){
+                        e.target.load();
+                    });
+                    instance.element.src = path;
+                }
+            });
+        </script>
+    </body>
+</html>

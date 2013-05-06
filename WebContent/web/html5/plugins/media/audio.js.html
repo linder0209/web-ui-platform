@@ -14,7 +14,7 @@
     <div class="h-web-paragraph">
     <p>该插件的官方地址是：<a href="http://kolber.github.io/audiojs/" target="_blank">http://kolber.github.io/audiojs/</a>。该插件支持所有浏览器。支持html5并且支持播放格式的用html5播放，不支持的用flash播放；支持的音频格式主要是mp3格式的。如果你的web页面提供的是mp3格式的，选用这个插件很好用。如果是其他格式的，比如wav等，我们需要修改一下源代码了，源代码对于wav是不支持的，首先需要修改 useFlash方法，使wav格式的音频还是用html5 audio播放，其次需要修改一下那个定时器，改为setTimeout来处理网路堵塞的情况。对于不同的浏览器处理也不太一样，下面给出其调用代码</p>
     <pre>var html = '&lt;audio id="audioElement' + (settings.loop === true ? ' loop="loop"':'') + '/&gt;';<br>$(html).appendTo(container || document.body);<br>var audioEl = document.getElementById('audioElement');<br>if(jQuery.browser['mozilla']){//firefox<br>    audioEl.addEventListener('loadedmetadata',function(e){  <br>        audiojs.create(e.target);<br>    });<br>    audioEl.preload = 'meta';<br>    audioEl.src = path;<br>}else{<br>    audioEl.preload = 'none';<br>    var instance = audiojs.create(audioEl);<br>    document.getElementById('audioElement').addEventListener('ended',function(e){<br>        e.target.load();<br>    });<br>    instance.element.src = path;<br>}</pre>
-    <p></p>
+    <p><a href="audiojs/customDemo/demo-wav.html">点击查看demo</a> 该例子主要为访问音频流来实现，所以判断了不同浏览器之间的差异性。</p>
     
     </div>
     </body>

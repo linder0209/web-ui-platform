@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>web-ui-platform</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="author" content="wangyanjun linder0209@126.com">
+        <meta name="description" content="Web Ui Platform">
+
+        <link rel="stylesheet" href="./platform/javascript/jquery-ui/css/jquery-ui.css" type="text/css"/>
+		<style >
+		.h-top-menu li {
+    float: left;
+    margin-right: 10px;
+    text-transform: uppercase;
+}
+		</style>
+    </head>
+    <body>
+        <!-- 页面布局 -->
+        <header class="h-header" id="header">
+            <nav>
+                <div style="background-color: #777777; height: 350px;">&nbsp;</div>
+            </nav>
+        </header>
+        <div id="container" class="h-container">
+            <header class="h-container-header" id="topMenu" style="top:0px;left:0px;">
+                <div class="h-header-tab h-relative">
+                    <ul class="h-top-menu h-clearfix" id="top_menu" >
+                        <li><a href="./web/javascript/index.html" class="h-button-radius">JavaScript</a></li>
+                        <li><a href="./web/jquery/index.html" class="h-button-radius">jQuery</a></li>
+                        <li><a href="./web/extjs/index.html" class="h-button-radius">ExtJs</a></li>
+                        <li><a href="./web/open_source_js/index.html" class="h-button-radius">其他开源类库</a></li>
+                        <li><a href="./web/my_js/index.html" class="h-button-radius">我的类库</a></li>
+                        <li><a href="./web/html_css/index.html" class="h-button-radius">Html Css</a></li>
+                        <li><a href="./web/html5/index.html" class="h-button-radius">Html5</a></li>
+                        <li><a href="./web/css3/index.html" class="h-button-radius">Css3</a></li>
+                        <li><a href="./web/web_study/index.html" class="h-button-radius">Web前端学习资料</a></li>
+                    </ul>
+                    <b class="h-absolute h-arrows-bottom"></b>
+                </div>
+            </header>
+
+            <div id="webUiBody" style="height:1000px;">
+                
+            </div>
+        </div>
+
+        <footer class="h-footer"></footer>
+
+        <script type="text/javascript" src="./platform/javascript/jquery/jquery.js"></script>
+        
+
+        <script type="text/javascript">
+            $(function() {
+            var headerHeight = $('#header').outerHeight(true);
+            $(window).scroll(function() {
+                var scrollTop = $(this).scrollTop();
+                if (scrollTop > headerHeight) {
+                    if ($.browser['msie'] && $.browser['version'] === '6.0') {
+                        $('#topMenu').css('position', 'absolute');
+                        $('#topMenu').animate({
+                            top: scrollTop - headerHeight
+                        }, {
+                            duration: 100,
+                            queue: false
+                        });
+                    } else {
+                        $('#topMenu').css('position', 'fixed').addClass('docked');
+                    }
+                } else {
+                    $('#topMenu').css('position', 'static').removeClass('docked');
+                }
+            });
+            });
+        </script>
+    </body>
+</html>

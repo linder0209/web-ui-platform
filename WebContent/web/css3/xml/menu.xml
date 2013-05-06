@@ -21,6 +21,7 @@
         <name>CSS3 工具</name>
         <module>tools</module>
         <children id="level_3_1" name="CSS3代码生成工具" href="./tools/code/index.html" module="code" />
+        <children id="level_3_2" name="CSS3其他" href="./tools/other/index.html" module="other" />
     </menu>
     <menu>
         <id>level_4</id>
