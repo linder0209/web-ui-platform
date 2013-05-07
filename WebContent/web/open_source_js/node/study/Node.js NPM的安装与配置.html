@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>JS运行平台Node.js ——NPM的安装与配置</title>
+        <title>JS运行平台Node.js ——node和npm的安装与配置</title>
         <link rel="stylesheet" href="../../../../platform/css/base.css" type="text/css"/>
         <link rel="stylesheet" href="../../../../platform/css/platform.css" type="text/css"/>
         <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
@@ -14,16 +14,23 @@
                 <a href="http://www.infoq.com/cn/articles/nodejs-npm-install-config" target="_blank">参考这里</a>
             </p>
             <p>1、Node.js的安装</p>
-            <p>首先到官方http://nodejs.org/下载最近的版本，这里我们可以下载msi格式的安装文件，免去环境变量的配置，我们也可以到http://nodejs.org/dist/下载其他版本。下载后直接安装即可。</p>
+            <p>首先到官方 <a href="http://nodejs.org/">http://nodejs.org/</a>下载最近的版本，这里我们可以下载msi格式的安装文件，免去环境变量的配置，我们也可以到http://nodejs.org/dist/下载其他版本。下载后直接安装即可。</p>
+            <p>安装的时候选择默认设置，默认设置会安装npm（NPM的全称是Node Package Manager）。我本地安装的位置为：D:\Program Files\nodejs</p>
+            <p>安装完成后，nodejs会自动设置环境变量path为：D:\Program Files\nodejs\。这里还需要设置一下环境变量 NODE_PATH，设为D:\Program Files\nodejs\node_modules。
+             该变量的设置可以在需要用到的地方直接用NODE_PATH即可。</p>
             <p>2、NPM的安装</p>
-            <p>NPM的全称是Node Package Manager。首先下载NPM源码，我们利用git（Git-1.8.0-preview20121022.exe）从github上下载，执行以下命令下载到指定目录下（假设clone到D盘的node目录下）</p>
+            <p>如果在安装nodejs时，没有选择安装npm时，可以执行以下命令来下载npm文件（假设下载到目录D:\node\npm下面）。</p>
             <pre>git clone --recursive git://github.com/isaacs/npm.git </pre>
-            <p>下载成功后，会创建npm文件夹，进入该目录，执行如下命令，如果提示node: command not found，则需要确保正确设置了node.exe的环境变量path。如果安装在C盘下，需要设置path为C:\Program Files\nodejs，<span class="h-web-font-red">注意最后没有“\”</span>。如果用Git-1.8.0-preview20121022.exe不能执行以下代码，则用cmd.exe，<span class="h-web-font-red">注意需要用管理员身份才能运行，即找到该文件所在的目录，右键该文件，以管理员身份运行</span>。</p>
+            <p>下载成功后，执行以下命令即可完成npm的安装，这时打开nodejs安装目录时会发现已经成功安装了node_modules。</p>
             <pre>cd D:\node\npm <br>node cli.js install npm -gf
 npm install underscore </pre>
             <p>分别运行完以上命令后，会返回以下内容</p>
             <pre>underscore@1.4.3 node_modules\underscore</pre>
-            <p>说明运行成功。</p>
+            <p>说明安装成功。</p>
+            <p>3、NPM相关插件的安装</p>
+            <p>默认情况下，NPM会安装系统提供的一些插件，比如request等。如果用户需要安装其他第三方插件时，需要执行以下安装命令。这里需要说明一下：<span class="h-web-font-red">如果用户把nodejs安装在c盘下，在安装npm相关插件到nodejs安装目录下时，这时需要用管理员身份运行cmd，即找到cmd.exe所在的目录，右键该文件，以管理员身份运行。</span></p>
+            <p>常用的插件有</p>
+            <pre>npm install express 可以创建一个node工程，命令： express myapp(工程名)<br><br>npm install jade</pre>
             <p>&nbsp;</p>
         </div>
     </body>
