@@ -10,12 +10,20 @@
     </head>
     <body>
         <ol class="h-web-catalogue">
-            <li><a paragraph="1" href="#">使用 supervisor监听代码改动，实现热部署</a></li>
-            <li><a paragraph="2" href="#">本地模式和全局模式</a></li>
-            <li><a paragraph="3" href="#">调试</a></li>
-            <li><a paragraph="4" href="#">Express 框架快速开发web应用</a></li>
+            <li><a paragraph href="#">CommonJS规范</a></li>
+            <li><a paragraph href="#">使用 supervisor监听代码改动，实现热部署</a></li>
+            <li><a paragraph href="#">本地模式和全局模式</a></li>
+            <li><a paragraph href="#">调试</a></li>
+            <li><a paragraph href="#">Express 框架快速开发web应用</a></li>
         </ol>
         <div class="h-web-paragraph">
+            <h3 paragraph>CommonJS规范</h3>
+            <p>CommonJS 规范包括了模块（modules）、包（packages）、系统（system）、二进制（binary）、 
+控制台（console）、编码（encodings）、文件系统（filesystems）、套接字（sockets）、单元测 
+试 （unit testing ）等部分 。目前大部分标准都在拟定和讨论之中 ，已经发布的标准有 
+Modules/1.0、Modules/1.1、Modules/1.1.1、Packages/1.0、System/1.0。
+</p>
+            
             <h3 paragraph="1">使用 supervisor监听代码改动，实现热部署</h3>
             <p>
                 在开发过程中，每次修改代码后，还需要重启node，但是我们总是希望修改后立即看到效果，
@@ -27,7 +35,11 @@
             <h3 paragraph="2">本地模式和全局模式</h3>
           <p>默认情况下我们使用 npm install命令就是采用本地模式，即把包安装到当前目录的 node_modules 子目录下。
                 Node.js的 require 在加载模块时会尝试搜寻 node_modules 子目录，因此使用 npm 本地模式安装的包可以直接被引用。
-                npm 还有另一种不同的安装模式被成为全局模式，使用方法为：npm [install/i] -g [package_name]与本地模式的不同之处就在于多了一个参数 -g。我的电脑全局模式下会安装到C:\Users\wangyanjun\AppData\Roaming下面。命令： npm help npm 会打开npm帮组页面来查看相关信息。</p>
+                npm 还有另一种不同的安装模式被成为全局模式，使用方法为：npm [install/i] -g [package_name]与本地模式的不同之处就在于多了一个参数 -g。我的电脑全局模式下会安装到C:\Users\wangyanjun\AppData\Roaming下面。命令： npm help npm 会打开npm帮组页面来查看相关信息。当安装到全局模式下时，就可以直接用该插件命令来运行相关功能，比如express，可以输入以下命令</p>
+          <pre>express E:/tmp/foo &amp;&amp; cd E:/tmp/foo &amp;&amp; E:</pre>
+          <p>运行该命令后，会在E:/tmp/foo下面创建一个express工程，并定位到E:/tmp/foo目录下，这是就可以运行</p>
+          <pre>$ node app</pre>
+          <p>来启动该express工程</p>
           <h3 paragraph="3">调试</h3>
           <p>运行调试命令，$ node debug debug.js</p>
           
