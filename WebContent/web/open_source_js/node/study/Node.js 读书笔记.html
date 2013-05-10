@@ -11,9 +11,17 @@
     <body>
         <ol class="h-web-catalogue">
             <li><a paragraph href="#">CommonJS规范</a></li>
+            <li><a paragraph href="#">Node.js 命令行工具</a></li>
+            <li><a paragraph href="#">nodejs API</a></li>
             <li><a paragraph href="#">使用 supervisor监听代码改动，实现热部署</a></li>
+            <li><a paragraph href="#">创建及加载模块</a></li>
+            <li><a paragraph href="#">创建包</a></li>
+            <li><a paragraph href="#">发布包</a></li>
             <li><a paragraph href="#">本地模式和全局模式</a></li>
             <li><a paragraph href="#">调试</a></li>
+            <li><a paragraph href="#">全局对象</a></li>
+            <li><a paragraph href="#">常用工具 util</a></li>
+            <li><a paragraph href="#">HTTP 服务器</a></li>
             <li><a paragraph href="#">Express 框架快速开发web应用</a></li>
         </ol>
         <div class="h-web-paragraph">
@@ -23,16 +31,77 @@
 试 （unit testing ）等部分 。目前大部分标准都在拟定和讨论之中 ，已经发布的标准有 
 Modules/1.0、Modules/1.1、Modules/1.1.1、Packages/1.0、System/1.0。
 </p>
+          <h3 paragraph>Node.js 命令行工具</h3>
+        	<p>输入 node --help 可以看到详细的帮助信息。</p>
+        	<pre>$ node -e "console.log('Hello World');"</pre>
+        	<p>$ node -e 可以直接执行后面跟的语句</p>
+        	<p>还可以使用 node 的 REPL 模式，如</p>
+        	<pre>$ node<br>&gt; console.log('Hello World');<br>Hello World<br>undefined</pre>
             
-            <h3 paragraph="1">使用 supervisor监听代码改动，实现热部署</h3>
+            <h3 paragraph>nodejs API</h3>
+            <h4>response.writeHead(statusCode, [reasonPhrase], [headers])</h4>
+            <p>这个方法用来发送一个响应头，statusCode是一个由3位数字所构成的HTTP状态码，比如404之类。最后一个参数headers是响应头具体内容。也可以使用一个方便人们直观理解的reasonPhrase作为第二个参数。</p>
+            <h4>fs.readFile(filename, [encoding], [callback])</h4>
+            <p>异步读取一个文件的所有内容</p>
+            
+            <h4>fs.readFileSync(filename, [encoding])</h4>
+            <p>同步读取一个文件的所有内容并返回</p>
+            
+          <h4>events.EventEmitter</h4>
+            <p>通过调用require('events').EventEmitter，我们可以使用事件触发器类。</p>
+            <pre>var EventEmitter = require('events').EventEmitter;<br>var event = new EventEmitter();<br>event.on('some_event', function() {<br>console.log('some_event occured.');<br>});<br>setTimeout(function() {<br>event.emit('some_event');<br>}, 1000);</pre>
+            <p>&nbsp;</p>
+            
+            
+            <h3 paragraph>使用 supervisor监听代码改动，实现热部署</h3>
             <p>
                 在开发过程中，每次修改代码后，还需要重启node，但是我们总是希望修改后立即看到效果，
                 而不是每次都要终止进程并重启。
             supervisor 可以帮助我们实现这个功能，它会监视代码的改动，并自动重启 Node.js。使用方法很简单，首先使用 npm 安装 supervisor：</p>
-            <p>npm install -g supervisor (-g表示安装到nodejs安装目录下：C:\Program Files\nodejs\node_modules)</p>
+            <p>npm install -g supervisor (-g表示安装到nodejs安装目录下：C:\Users\wangyanjun\AppData\Roaming\npm)</p>
             <p>然后运行以下命令，supervisor app.js，当app.js代码被改动时，运行的脚本会被终止，然后重新启动。</p>
             
-            <h3 paragraph="2">本地模式和全局模式</h3>
+            <h3 paragraph>创建及加载模块</h3>
+            <p>Node.js 提供了 exports 和 require 两个对
+象，其中 exports 是模块公开的接口，require 用于从外部获取一个模块的接口，即所获
+取模块的 exports 对象。</p>
+            <p>require是单次加载的，也就是说无论调用多少次 require，获得的模块都是同一个。</p>
+            <pre>//module.js<br>var name;<br>exports.setName = function(thyName) {<br>name = thyName;<br>};<br>exports.sayHello = function() {<br>console.log('Hello ' + name);<br>};</pre>
+            <pre>//loadModule.js
+var hello1 = require('./module');<br>hello1.setName('BYVoid');<br>var hello2 = require('./module');<br>hello2.setName('BYVoid 2');<br>hello1.sayHello();</pre>
+            <p>运行后发现输出结果是 Hello BYVoid 2，这是因为变量 hello1 和 hello2 指向的是同一个实例，因此 hello1.setName 的结果被 hello2.setName 覆盖，最终输出结果是由后者决定的。</p>
+            <p>可以用module.exports = Hello;或export.Hello = Hello;来创建模块，后者调用的时候需要require('moduleName').Hello来读取，显得冗余。但是，这里需要注意的：<span class="h-web-font-red">不可以通过对 exports 直接赋值代替对 module.exports 赋值。exports 实际上只是一个和 module.exports 指向同一个对象的变量，它本身会在模块执行结束后释放，但 module 不会，因此只能通过指定module.exports 来改变访问接口。</span></p>
+            
+            <h3 paragraph>创建包</h3>
+            <p>Node.js 的包是一个目录，其中包含一个 JSON 格式的包说明文件 package.json。严格符合 CommonJS 规范的包应该具备以下特征：<br>
+               package.json 必须在包的顶层目录下；<br>
+               二进制文件应该在 bin 目录下；<br>
+               JavaScript 代码应该在 lib 目录下；<br>
+               文档应该在 doc 目录下；<br>
+               单元测试应该在 test 目录下。<br>
+              Node.js 对包的要求并没有这么严格，只要顶层目录下有 package.json，并符合一些规范即可。当然为了提高兼容性，我们还是建议你在制作包的时候，严格遵守 CommonJS 规范。</p>
+            <p>package.json 是 CommonJS 规定的用来描述包的文件，完全符合规范的 package.json 文件应该含有以下字段。<br>
+               name：包的名称，必须是唯一的，由小写英文字母、数字和下划线组成，不能包含<br>
+              空格。<br>
+               description：包的简要说明。<br>
+               version：符合语义化版本识别①规范的版本字符串。<br>
+               keywords：关键字数组，通常用于搜索。<br>
+               maintainers：维护者数组，每个元素要包含 name、email （可选）、web （可选）字段。<br>
+               contributors：贡献者数组，格式与maintainers相同。包的作者应该是贡献者数组的第一个元素。<br>
+               bugs：提交bug的地址，可以是网址或者电子邮件地址。<br>
+               licenses：许可证数组，每个元素要包含 type （许可证的名称）和 url （链接到许可证文本的地址）字段。<br>
+               repositories：仓库托管地址数组，每个元素要包含 type （仓库的类型，如 git ）、url （仓库的地址）和 path （相对于仓库的路径，可选）字段。 <br>
+               dependencies：包的依赖，一个关联数组，由包名称和版本号组成。<br>
+              下面是一个完全符合 CommonJS 规范的 package.json 示例：</p>
+            <pre>{<br>"name": "mypackage",<br>"description": "Sample package for CommonJS. This package demonstrates the requiredelements of a CommonJS package.",<br>"version": "0.7.0",<br>"keywords": [<br>	"package",<br>	"example"<br>],<br>"maintainers": [{<br>	"name": "Bill Smith",<br>	"email": "bills@example.com",<br>}],<br>"contributors": [{<br>	"name": "BYVoid",<br>	"web": "http://www.byvoid.com/"<br>}],<br>"bugs": {<br>	"mail": "dev@example.com",<br>	"web": "http://www.example.com/bugs"<br>},<br>"licenses": [{<br>	"type": "GPLv2",<br>	"url": "http://www.example.org/licenses/gpl.html"<br>}],<br>"repositories": [{<br>	"type": "git",<br>	"url": "http://github.com/BYVoid/mypackage.git"<br>}],<br>"dependencies": {<br>	"webkit": "1.2",<br>	"ssl": {<br>		"gnutls": ["1.0", "2.0"],<br>		"openssl": "0.9.8"<br>	}<br>}<br>}</pre>
+            <p>Node.js 在调用某个包时，会首先检查包中 package.json 文件的 main 字段，将其作为包的接口模块，如果 package.json 或 main 字段不存在，会尝试寻找 index.js 或 index.node 作为包的接口。</p>
+            
+          <h3 paragraph>发布包</h3>
+            <p>首先用命令 npm init 来安装包，然后用 npm publish来发布，当然在发布前，我们还需要获得一个账号用于今后维护自己的包，使用 npm adduser 根据提示输入用户名、密码、邮箱，等待账号创建完成。完成后可以使用 npm whoami 测验是否已经取得了账号。（本人账号为linder0209）。当运行 npm publish 发布成功后，我们访问 http://search.npmjs.org/ 就可以找到自己刚刚发布的包了。</p>
+            <p>如果你的包将来有更新，只需要在 package.json 文件中修改 version 字段，然后重新使用 npm publish 命令就行了。如果你对已发布的包不满意（比如我们发布的这个毫无意义的包），可以使用 npm unpublish 命令来取消发布。</p>
+            
+            
+            <h3 paragraph>本地模式和全局模式</h3>
           <p>默认情况下我们使用 npm install命令就是采用本地模式，即把包安装到当前目录的 node_modules 子目录下。
                 Node.js的 require 在加载模块时会尝试搜寻 node_modules 子目录，因此使用 npm 本地模式安装的包可以直接被引用。
                 npm 还有另一种不同的安装模式被成为全局模式，使用方法为：npm [install/i] -g [package_name]与本地模式的不同之处就在于多了一个参数 -g。我的电脑全局模式下会安装到C:\Users\wangyanjun\AppData\Roaming下面。命令： npm help npm 会打开npm帮组页面来查看相关信息。当安装到全局模式下时，就可以直接用该插件命令来运行相关功能，比如express，可以输入以下命令</p>
@@ -40,6 +109,8 @@ Modules/1.0、Modules/1.1、Modules/1.1.1、Packages/1.0、System/1.0。
           <p>运行该命令后，会在E:/tmp/foo下面创建一个express工程，并定位到E:/tmp/foo目录下，这是就可以运行</p>
           <pre>$ node app</pre>
           <p>来启动该express工程</p>
+          <p>注意：<span class="h-web-font-red">使用全局模式安装的包并不能直接在 JavaScript 文件中用 require 获得，因为 require 不会搜索 /usr/local/lib/node_modules/。</span>所以在javascript中用到时，还需要本地模式再安装一次。全局模式安装只是可以在命令行下直接使用该命令。</p>
+          <p>总而言之，当我们要把某个包作为工程运行时的一部分时，通过本地模式获取，如果要在命令行下使用，则使用全局模式安装。</p>
           <h3 paragraph="3">调试</h3>
           <p>运行调试命令，$ node debug debug.js</p>
           
@@ -131,9 +202,53 @@ Modules/1.0、Modules/1.1、Modules/1.1.1、Packages/1.0、System/1.0。
             <h4>使用 node-inspector 调试 Node.js</h4>
             <p>首先，使用 npm install -g node-inspector 命令安装 node-inspector，然后在终端中通过 node --debug-brk=5858 debug.js 命令连接你要除错的脚本的调试服务器，启动 node-inspector。运行：node-inspector（需要在当前目录下再开一个cmd窗口）。</p>
             <p>在浏览器中打开 http://127.0.0.1:8080/debug?port=5858，即可显示出优雅的 Web 调试工具。需要在chrome上调试。</p>
+          <p>当然我们还可以利用IDE来调试，比如Eclipse、NetBeans、Webstorm等。</p>
             
-          <h3 paragraph="4">Express 框架快速开发web应用</h3>
-            <p>安装：npm install  express</p>
+          <h3 paragraph>全局对象</h3>
+            <h4>process</h4>
+            <p>process.argv是命令行参数数组，第一个元素是 node，第二个元素是脚本文件名，从第三个元素开始每个元素是一个运行参数。console.log(process.argv);将以上代码存储为 argv.js，通过以下命令运行：</p>
+            <pre>$ node argv.js 1991 name=byvoid --v "Carbo Kuo"<br>[ 'node',<br>'/home/byvoid/argv.js',<br>'1991',<br>'name=byvoid',<br>'--v',<br>'Carbo Kuo' ]</pre>
+            <p>process.stdout是标准输出流，通常我们使用的 console.log() 向标准输出打印字符，而 process.stdout.write() 函数提供了更底层的接口。</p>
+            <p>process.stdin是标准输入流，初始时它是被暂停的，要想从标准输入读取数据，你必须恢复流，并手动编写流的事件响应函数。
+            </p>
+            <h3 paragraph>常用工具 util</h3>
+          <h4>util.inherits</h4>
+            <p>util.inherits(constructor, superConstructor)是一个实现对象间原型继承
+的函数。JavaScript 的面向对象特性是基于原型的，与常见的基于类的不同。JavaScript 没有
+提供对象继承的语言级别特性，而是通过原型复制来实现的。</p>
+            <p>例子</p>
+            <pre>var util = require('util');<br>function Base() {<br>    this.name = 'base';<br>    this.base = 1991;<br>    this.sayHello = function () {<br>        console.log('Hello ' + this.name);<br>    };<br>}<br>Base.prototype.showName = function () {<br>    console.log(this.name);<br>};<br>function Sub() {<br>    this.name = 'sub';<br>}<br>util.inherits(Sub, Base);<br>var objBase = new Base();<br>objBase.showName();<br>objBase.sayHello();<br>console.log(objBase);<br>var objSub = new Sub();<br>objSub.showName();<br>//objSub.sayHello();<br>console.log(objSub);</pre>
+            <p>注意，<span class="h-web-font-red">Sub 仅仅继承了 Base 在原型中定义的函数，而构造函数内部创造的 base 属性和 sayHello 函数都没有被 Sub 继承。</span></p>
+            
+            <h4>util.inspect</h4>
+            <p>util.inspect(object,[showHidden],[depth],[colors])是一个将任意对象转换为字符串的方法，通常用于调试和错误输出。它至少接受一个参数 object，即要转换的对象。</p>
+            <p>showHidden 是一个可选参数，如果值为 true，将会输出更多隐藏信息。depth 表示最大递归的层数，如果对象很复杂，你可以指定层数以控制输出信息的多少。如果不指定depth，默认会递归2层，指定为 null 表示将不限递归层数完整遍历对象。如果color 值为 true，输出格式将会以 ANSI 颜色编码，通常用于在终端显示更漂亮的效果。特别要指出的是，util.inspect 并不会简单地直接把对象转换为字符串，即使该对象定义了 toString 方法也不会调用。</p>
+            <p>除了以上我们介绍的几个函数之外，util还提供了util.isArray()、util.isRegExp()、util.isDate()、util.isError() 四个类型测试工具，以及 util.format()、util.debug() 等工具。可以访问 <a href="http://nodejs.org/api/util.html" target="_blank">http://nodejs.org/api/util.html</a> 了解详细内容。</p>
+            
+          <h3 paragraph>HTTP 服务器</h3>
+            <p>http.Server 是 http 模块中的 HTTP 服务器对象。</p>
+            <pre>var http = require('http');<br>http.createServer(function(req, res) {<br>res.writeHead(200, {'Content-Type': 'text/html'});<br>res.write('&lt;h1&gt;Node.js&lt;/h1&gt;');<br>res.end('&lt;p&gt;Hello World&lt;/p&gt;');<br>}).listen(3000);<br>console.log("HTTP server is listening at port 3000.");</pre>
+            <p>这段代码中，http.createServer 创建了一个 http.Server 的实例，将一个函数作为 HTTP 请求处理函数。这个函数接受两个参数，分别是请求对象（ req ）和响应对象（ res ）。在函数体内，res 显式地写回了响应代码 200 （表示请求成功），指定响应头为'Content-Type': 'text/html'，然后写入响应体 '&lt;h1&gt;Node.js&lt;/h1&gt;'，通过 res.end结束并发送。最后该实例还调用了 listen 函数，启动服务器并监听 3000 端口。</p>
+            <p>http继承自EventEmitter，提供了以下几个事件</p>
+            <p>request、connection、close、checkContinue、upgrade、clientError</p>
+            <p>在这些事件中， 最常用的就是 request 了， 因此 http 提供了一个捷径：http.createServer([requestListener]) ， 功能是创建一个 HTTP 服务器并将requestListener 作为 request 事件的监听函数，这也是我们前面例子中使用的方法。事实上它显式的实现方法是：</p>
+            <pre>var http = require('http');<br>var server = new http.Server();<br>server.on('request', function(req, res) {<br>res.writeHead(200, {'Content-Type': 'text/html'});<br>res.write('&lt;h1&gt;Node.js&lt;/h1&gt;');<br>res.end('&lt;p&gt;Hello World&lt;/p&gt;');<br>});<br>server.listen(3000);<br>console.log("HTTP server is listening at port 3000.");</pre>
+            <p>HTTP 客户端</p>
+            <p>http.request(options, callback) 发起 HTTP 请求。接受两个参数，option 是一个类似关联数组的对象，表示请求的参数，callback 是请求的回调函数。option<br>
+              常用的参数如下所示。<br>
+              . host ：请求网站的域名或 IP 地址。<br>
+              . port ：请求网站的端口，默认 80。<br>
+              . method ：请求方法，默认是 GET。<br>
+              . path ：请求的相对于根的路径，默认是“/”。QueryString 应该包含在其中。例如 /search?query=byvoid。<br>
+              . headers ：一个关联数组对象，为请求头的内容。<br>
+              callback 传递一个参数，为 http.ClientResponse 的实例。<br>
+            http.request 返回一个 http.ClientRequest 的实例。</p>
+            <p>例子</p>
+            <pre>var http = require('http');<br>var querystring = require('querystring');<br>var contents = querystring.stringify({<br>name: 'byvoid',<br>email: 'byvoid@byvoid.com',<br>address: 'Zijing 2#, Tsinghua University',<br>});<br>var options = {<br>host: 'www.byvoid.com',<br>path: '/application/node/post.php',<br>method: 'POST',<br>headers: {<br>'Content-Type': 'application/x-www-form-urlencoded',<br>'Content-Length' : contents.length<br>}<br>};<br>var req = http.request(options, function(res) {<br>res.setEncoding('utf8');<br>res.on('data', function (data) {<br>console.log(data);<br>});<br>});<br>req.write(contents);<br>req.end();</pre>
+    
+          <h3 paragraph>Express 框架快速开发web应用</h3>
+            <p>安装：npm install  -g express</p>
+            <p>创建一个模板为ejs的工程 express -t ejs microblog</p>
             <p><a href="http://expressjs.com/" target="_blank">官网</a></p>
             <p><a href="http://expressjs.jser.us/" target="_blank">中文官网</a></p>
             <p>&nbsp;</p>
