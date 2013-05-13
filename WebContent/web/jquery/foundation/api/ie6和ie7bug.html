@@ -12,12 +12,14 @@
     </head>
     <body>
         <div class="h-web-paragraph">
-            <p>
+            <h3>实践经验</h3>
+            <h4>html方法的bug</h4>
+          <p>
                 在IE 6 7 8下，只要前面有转义符时，而且存在没有闭合的html标签时，就会产生bug，前面没有转义符时不会发生，当用模板实现时会产生前面有转义符的情况。
             </p>
+            <p>看下面的例子，在ie7下是无法显示的。不过最新的jquery1.10处理了这个bug。官方中是这样描述的：该版本放宽了$()中HTML处理的条件，允许出现前导空格和换行符。对于来自外部源的HTML，仍然建议使用$.parseHTML()。未来jQuery版本将会对$(string)进行严格的限制，以避免跨站脚本攻击（XSS）。$.parseHTML是1.8之后新加的方法，用来正确的解析HTML</p>
             <p class="h-web-font-red" id="demo1"></p>
-        </div>
-        <script type="text/javascript">
+          <script type="text/javascript">
             $(function() {
                 //只要前面有转义符时，而且存在没有闭合的html标签时，就会产生bug，前面没有转义符时不会发生，
                 //当用模板实现时会产生前面有转义符的情况
@@ -27,5 +29,13 @@
                 //$('#demo1').html('\r\n<input><input></div>');//It cann't parse correctly.
             });
         </script>
+         <h4>页面中要对dom节点操作时，最好把相关代码写在$(function(){ //code});中</h4>
+         <p>看例子</p>
+         <pre>&lt;div id="loginMessage"&gt;${loginMessage}&lt;/div&gt;<br>&lt;script type="text/javascript"&gt;<br>    $(function(){<br>        var settings = {width:800,height:500,resizable: false,buttons : {<br>        Ok : {<br>            click : function() {<br>                window.location.href = "messages/confirm";<br>            },<br>            'class' : 'orange',<br>            text : 'OK'<br>        },<br>        Cancel : {<br>            click : function() {<br>                window.location.href = "logout";<br>            },<br>            'class' : 'gray',<br>            text : 'Cancel'<br>        }<br>    },<br>        open:function(event, ui){<br>            $('.ui-dialog-titlebar-close').hide();<br>        },<br>        title:'Welcom'<br>    };<br>    $.dialog('loginMessage',settings);<br>    });<br>&lt;/script&gt;</pre>
+         <p>上面执行的代码，如果没有写到$(function(){ //code});中，在ie7下可能会弹出禁止访问的提示，从而无法正确访问页面。</p>
+        </div>
+        
+        
+       
     </body>
 </html>

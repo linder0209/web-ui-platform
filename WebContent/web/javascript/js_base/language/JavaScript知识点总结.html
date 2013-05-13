@@ -21,10 +21,11 @@
             <li><a paragraph="7" href="#">typeof 操作符</a></li>
             <li><a paragraph="8" href="#">setTimeout 和 setInterval</a></li>
             <li><a paragraph="9" href="#">运算符 && 和 || 的理解</a></li>
+            <li><a paragraph href="#">iframe属性contentWindow和contentDocument</a></li>
             
         </ol>
     <div class="h-web-paragraph">
-          <h3 paragraph="1">window.location.hash</h3>
+      <h3 paragraph="1">window.location.hash</h3>
             <p>用来设置页面的锚点值，可以获取或设置页面的标签值，主要是结合ajax来使用，模仿实现页面的“前进”、“后退”功能。<span class="h-web-font-red">注意：IE6和IE7不支持</span>。</p>
             <p>也可以用window.location.hash来伪造地址栏中的假地址，需要结合ajax实现，用户看不到实际访问的url。如以下代码，处理href变为hash</p>
             <pre>window.location.hash = this.href.replace(/.+\/([^\/]+)\/index\.html/,'$1') + '|default';</pre>
@@ -121,6 +122,11 @@
 	<p>从上面的运行结果看，&&运算符，当前面的表达式为true时，会返回后面表达式的值；<span class="h-web-font-red">当前面的表达式为false时，如果后面的表达式为true时，则会返回前面表达式的值，如果后面的表达式也为false时，则会返回前面表达式的值。</span>注意这一点与强类型语言不一样，这里的true或false指的是 (!variable)计算的值。</p>
         <pre>var obj1 = 'str',obj2 = obj1 || {<br>    end: obj1<br>};<br>console.log(obj2);//str<br><br>var str = undefined,str2 = str || {<br>    end: 'object1'<br>};<br>console.log(str2);//Object { end="object1"}<br><br>var str3 = undefined,str4 = str || null;<br>console.log(str4);//null</pre>
         <p>从上面的例子可以看出，当||前面的表达式为true时，则会返回前面表达式的值，如果为false时，则会返回后面表达式的值。返回表达式时也是如此。总之，<span class="h-web-font-red">&amp;&amp; 和 || 作为赋值或返回表达式时，返回的都是前面或后面表达式的值</span>。而不像强类型语言返回的是true或false。</p>
+        
+        <h3 paragraph>iframe属性contentWindow和contentDocument</h3>
+        <p>不同的浏览器对这两个属性的支持是不一样的，在ie7中contentDocument会返回undefined，所以我们写code的时候需要注意，下面是兼容性的写法</p>
+        <pre>var iframe = $('iframe')[0];<br>var doc = iframe.contentWindow ? iframe.contentWindow.document : 
+          iframe.contentDocument ? iframe.contentDocument : iframe.document;</pre>
         <p>&nbsp;</p>
 
 
