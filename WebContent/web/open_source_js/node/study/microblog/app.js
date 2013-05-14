@@ -7,10 +7,8 @@ var express = require('express')
     , user = require('./routes/user')
     , http = require('http')
     , path = require('path'),
-    partials = require('express-partials'),
-    MongoStore = require('connect-mongo')(express),
-    settings = require('./settings');
-
+     settings = require('./settings'),
+    partials = require('express-partials');
 
 var app = express();
 
@@ -26,12 +24,8 @@ app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(express.cookieParser());
 app.use(express.session({
-    secret: settings.cookieSecret,
-    store: new MongoStore({
-        db: settings.db
-    })
+    secret: settings.cookieSecret
 }));
-
 app.use(partials());//注意运用partials一定要放在  app.use(app.router);之前设置
 app.use(app.routes);
 app.use(express.static(path.join(__dirname, 'public')));
@@ -42,10 +36,11 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
+app.get('/reg', routes.reg);
+app.post('/reg', routes.submitReg);
 //app.get('/u/:user', routes.user);
 //app.post('/post', routes.post);
-//app.get('/reg', routes.reg);
-//app.post('/reg', routes.doReg);
+
 //app.get('/login', routes.login);
 //app.post('/login', routes.doLogin);
 //app.get('/logout', routes.logout);
