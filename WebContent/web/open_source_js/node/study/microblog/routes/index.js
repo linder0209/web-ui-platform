@@ -1,27 +1,10 @@
 /*
  * GET home page.
  */
-
-//exports.index = function (req, res) {
-// res.render('index.ejs', { title: 'Express' });
-// };
-// exports.user = function (req, res) {
-// };
-// exports.post = function (req, res) {
-// };
-// exports.reg = function (req, res) {
-// };
-// exports.doReg = function (req, res) {
-// };
-// exports.login = function (req, res) {
-// };
-// exports.doLogin = function (req, res) {
-// };
-// exports.logout = function (req, res) {
-// };
-
+//crypto 是 Node.js 的一个核心模块，功能是加密并生成各种散列
 var crypto = require('crypto');
 var User = require('../models/user');
+var Post = require('../models/post');
 
 exports.index = function (req, res) {
     res.render('index', {
@@ -60,6 +43,62 @@ exports.submitReg = function (req, res) {
             }
             req.session.user = newUser;
             res.redirect('/');
+        });
+    });
+};
+
+exports.login = function (req, res) {
+    res.render('login', {
+        title: '用户登入'
+    });
+};
+
+exports.submitLogin = function (req, res) {
+    //生成口令的散列值
+    var md5 = crypto.createHash('md5');
+    var password = md5.update(req.body.password).digest('base64');
+    User.get(req.body.username, function (err, user) {
+        if (!user) {
+            return res.redirect('/login');
+        }
+        if (user.password != password) {
+            return res.redirect('/login');
+        }
+        req.session.user = user;
+        res.redirect('/');
+    });
+};
+
+exports.logout = function (req, res) {
+    req.session.user = null;
+    res.redirect('/');
+};
+
+//发表微博
+exports.post = function (req, res) {
+    var currentUser = req.session.user;
+    var post = new Post(currentUser.name, req.body.post);
+    post.save(function(err) {
+        if (err) {
+            return res.redirect('/');
+        }
+        res.redirect('/u/' + currentUser.name);
+    });
+};
+
+exports.user = function(req, res) {
+    User.get(req.params.user, function(err, user) {
+        if (!user) {
+            return res.redirect('/');
+        }
+        Post.get(user.name, function(err, posts) {
+            if (err) {
+                return res.redirect('/');
+            }
+            res.render('user', {
+                title: user.name,
+                posts: posts
+            });
         });
     });
 };

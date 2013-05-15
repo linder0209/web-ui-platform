@@ -22,6 +22,8 @@
             <li><a paragraph="8" href="#">setTimeout 和 setInterval</a></li>
             <li><a paragraph="9" href="#">运算符 && 和 || 的理解</a></li>
             <li><a paragraph href="#">iframe属性contentWindow和contentDocument</a></li>
+            <li><a paragraph href="#">prototype 原型</a></li>
+            
             
         </ol>
     <div class="h-web-paragraph">
@@ -62,7 +64,16 @@
 	  <h4>显式的设置 this</h4>
             <pre>function foo(a, b, c) {}<br>var bar = {};<br>foo.apply(bar, [1, 2, 3]); // 数组将会被扩展，如下所示<br>foo.call(bar, 1, 2, 3); // 传递到foo的参数是：a = 1, b = 2, c = 3</pre>
             <p>当使用 Function.prototype 上的 call 或者 apply 方法时，函数内的 this 将会被显式设置为函数调用的第一个参数。因此函数调用的规则在上例中已经不适用了，在foo 函数内 this 被设置成了 bar。</p>
-            <p class="h-web-font-red">注意: 在对象的字面声明语法中，this 不能用来指向对象本身。 因此 var obj = {me: this} 中的 me 不会指向 obj，因为 this 只可能出现在上述的五种情况中。 译者注：这个例子中，如果是在浏览器中运行，obj.me 等于 window 对象。</p>
+            
+      <h4>使用bind方法改变被调用函数的上下文</h4>
+            
+            <p>该方法在ie9以下版本不支持。我们可以使用 bind 方法来永久地绑定函数的上下文，使其无论被谁调用，上下文都是固定的。bind 语法如下：</p>
+            <pre>func.bind(thisArg[, arg1[, arg2[, ...]]])</pre>
+            <p>其中 func 是待绑定函数，thisArg 是改变的上下文对象，arg1、arg2 是绑定的参数表。bind 方法返回值是上下文为 thisArg 的 func。通过下面例子可以帮你理解 bind的使用方法：</p>
+            <pre>var foo = {<br>    name: 'foo',<br>    fun: function () {<br>        alert(this.name);<br>    }<br>};<br><br>var bar = {<br>    name: 'bar'<br>};<br>bar.fun1 = foo.fun.bind(foo);<br>bar.fun2 = foo.fun;<br><br>bar.fun1();//输出 foo<br>bar.fun2();//输出 bar</pre>
+            <p>bind 方法还有一个重要的功能：绑定参数表，如下例所示。</p>
+            <pre>var person = {<br>    name: 'byvoid',<br>    says: function (act, obj) {<br>        console.log(this.name + ' ' + act + ' ' + obj);<br>    }<br>};<br>person.says('loves', 'diovyb'); // 输出 byvoid loves diovyb<br>byvoidLoves = person.says.bind(person, 'loves');<br>byvoidLoves('you'); // 输出 byvoid loves you</pre>
+            <p class="h-web-font-red">注意: 在对象的字面声明语法中，this 不能用来指向对象本身。 因此 var obj = {me: this} 中的 me 不会指向 obj，因为 this 只可能出现在上述的六种情况中。 这个例子中，如果是在浏览器中运行，obj.me 等于 window 对象。</p>
 	  <h3 paragraph="5">变量声明提升（Hoisting）</h3>
              
              <p>JavaScript 会提升变量声明。这意味着 var 表达式和 function 声明都将会被提升到当前作用域的顶部。</p>
@@ -127,7 +138,21 @@
         <p>不同的浏览器对这两个属性的支持是不一样的，在ie7中contentDocument会返回undefined，所以我们写code的时候需要注意，下面是兼容性的写法</p>
         <pre>var iframe = $('iframe')[0];<br>var doc = iframe.contentWindow ? iframe.contentWindow.document : 
           iframe.contentDocument ? iframe.contentDocument : iframe.document;</pre>
-        <p>&nbsp;</p>
+          
+      <h3 paragraph>prototype 原型</h3>
+      <p>看以下例子：</p>
+        <pre>function Person() {<br>}<br>Person.prototype.name = 'BYVoid';<br>Person.prototype.showName = function () {<br>console.log(this.name);<br>};<br>var person = new Person();<br>person.showName();</pre>
+        <p>上面这段代码使用了原型而不是构造函数初始化对象。这样做与直接在构造函数内定义属性有什么不同呢？<br>
+           构造函数内定义的属性继承方式与原型不同，子对象需要显式调用父对象才能继承构造函数内定义的属性。<br>
+           构造函数内定义的任何属性，包括函数在内都会被重复创建，同一个构造函数产生的两个对象不共享实例。<br>
+           构造函数内定义的函数有运行时闭包的开销，因为构造函数内的局部变量对其中定义的函数来说也是可见的。<br>
+        下面这段代码可以验证以上问题：</p>
+        <pre>function Foo() {<br>    var innerVar = 'hello';<br>    this.prop1 = 'BYVoid';<br>    this.func1 = function () {<br>        innerVar = '';<br>        console.log(this.prop1);<br>    };<br>}<br>Foo.prototype.prop2 = 'Carbo';<br>Foo.prototype.func2 = function () {<br>    console.log(this.prop2);<br>};<br>var foo1 = new Foo();<br>var foo2 = new Foo();<br>console.log(foo1.func1 == foo2.func1); // 输出 false<br>console.log(foo1.func2 == foo2.func2); // 输出 true<br><br>function SubFoo(){};<br><br>SubFoo.prototype = new Foo();<br>SubFoo.prototype.constructor = SubFoo;<br><br>var subFoo1 = new SubFoo();<br><br>subFoo1.func1();// 输出 'BYVoid'<br>subFoo1.func2();// 输出 'Carbo'</pre>
+        <p>尽管如此，并不是说在构造函数内创建属性不好，而是两者各有适合的范围。那么我们什么时候使用原型，什么时候使用构造函数内定义来创建属性呢？<br>
+           除非必须用构造函数闭包，否则尽量用原型定义成员函数，因为这样可以减少开销。<br>
+           尽量在构造函数内定义一般成员，尤其是对象或数组，因为用原型定义的成员是多个实例共享的。</p>
+        <p>下面来分析一下原型链</p>
+        <p>JavaScript 中有两个特殊的对象： Object 与 Function，它们都是构造函数，用于生成对象。Object.prototype 是所有对象的祖先，Function.prototype 是所有函数的原型，包括构造函数。我把 JavaScript 中的对象分为三类，一类是用户创建的对象，一类是构造函数对象，一类是原型对象。用户创建的对象，即一般意义上用 new 语句显式构造的对象。构造函数对象指的是普通的构造函数，即通过 new 调用生成普通对象的函数。原型对象特指构造函数 prototype 属性指向的对象。这三类对象中每一类都有一个 __proto__ 属性，它指向该对象的原型，从任何对象沿着它开始遍历都可以追溯到 Object.prototype。构造函数对象有 prototype 属性，指向一个原型对象，通过该构造函数创建对象时，被创建对象的 __proto__ 属性将会指向构造函数的 prototype 属性。原型对象有 constructor属性，指向它对应的构造函数。让我们通过下面这个例子来理解原型：</p>
 
 
     </div>

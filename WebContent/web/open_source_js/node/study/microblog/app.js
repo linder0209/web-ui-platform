@@ -4,7 +4,6 @@
 
 var express = require('express')
     , routes = require('./routes')
-    , user = require('./routes/user')
     , http = require('http')
     , path = require('path'),
      settings = require('./settings'),
@@ -38,7 +37,12 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/reg', routes.reg);
 app.post('/reg', routes.submitReg);
-//app.get('/u/:user', routes.user);
+app.get('/login', routes.login);
+app.post('/login', routes.submitLogin);
+app.get('/logout', routes.logout);
+app.post('/post', routes.post);
+app.get('/u/:user', routes.user);
+
 //app.post('/post', routes.post);
 
 //app.get('/login', routes.login);
@@ -48,3 +52,29 @@ app.post('/reg', routes.submitReg);
 http.createServer(app).listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
 });
+
+
+function Foo() {
+    var innerVar = 'hello';
+    this.prop1 = 'BYVoid';
+    this.func1 = function () {
+        innerVar = '';
+    };
+}
+Foo.prototype.prop2 = 'Carbo';
+Foo.prototype.func2 = function () {
+    console.log(this.prop2);
+};
+var foo1 = new Foo();
+var foo2 = new Foo();
+console.log(foo1.func1 == foo2.func1); // 输出 false
+console.log(foo1.func2 == foo2.func2); // 输出 true
+
+function SubFoo(){};
+
+SubFoo.prototype = new Foo();
+SubFoo.prototype.constructor = subFoo;
+
+var subFoo1 = new SubFoo();
+
+subFoo1.func2();
