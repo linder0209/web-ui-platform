@@ -54,27 +54,10 @@ http.createServer(app).listen(app.get('port'), function () {
 });
 
 
-function Foo() {
-    var innerVar = 'hello';
-    this.prop1 = 'BYVoid';
-    this.func1 = function () {
-        innerVar = '';
-    };
-}
-Foo.prototype.prop2 = 'Carbo';
-Foo.prototype.func2 = function () {
-    console.log(this.prop2);
+var obj1 = {
+    ref: null
 };
-var foo1 = new Foo();
-var foo2 = new Foo();
-console.log(foo1.func1 == foo2.func1); // 输出 false
-console.log(foo1.func2 == foo2.func2); // 输出 true
-
-function SubFoo(){};
-
-SubFoo.prototype = new Foo();
-SubFoo.prototype.constructor = subFoo;
-
-var subFoo1 = new SubFoo();
-
-subFoo1.func2();
+var obj2 = {
+    ref: obj1
+};
+obj1.ref = obj2;

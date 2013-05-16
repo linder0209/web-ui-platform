@@ -23,6 +23,7 @@
             <li><a paragraph="9" href="#">运算符 && 和 || 的理解</a></li>
             <li><a paragraph href="#">iframe属性contentWindow和contentDocument</a></li>
             <li><a paragraph href="#">prototype 原型</a></li>
+            <li><a paragraph href="#">对象的复制</a></li>
             
             
         </ol>
@@ -140,6 +141,7 @@
           iframe.contentDocument ? iframe.contentDocument : iframe.document;</pre>
           
       <h3 paragraph>prototype 原型</h3>
+      <h4>构造函数中定义的属性（包括方法）与原型中定义的区别</h4>
       <p>看以下例子：</p>
         <pre>function Person() {<br>}<br>Person.prototype.name = 'BYVoid';<br>Person.prototype.showName = function () {<br>console.log(this.name);<br>};<br>var person = new Person();<br>person.showName();</pre>
         <p>上面这段代码使用了原型而不是构造函数初始化对象。这样做与直接在构造函数内定义属性有什么不同呢？<br>
@@ -147,13 +149,60 @@
            构造函数内定义的任何属性，包括函数在内都会被重复创建，同一个构造函数产生的两个对象不共享实例。<br>
            构造函数内定义的函数有运行时闭包的开销，因为构造函数内的局部变量对其中定义的函数来说也是可见的。<br>
         下面这段代码可以验证以上问题：</p>
-        <pre>function Foo() {<br>    var innerVar = 'hello';<br>    this.prop1 = 'BYVoid';<br>    this.func1 = function () {<br>        innerVar = '';<br>        console.log(this.prop1);<br>    };<br>}<br>Foo.prototype.prop2 = 'Carbo';<br>Foo.prototype.func2 = function () {<br>    console.log(this.prop2);<br>};<br>var foo1 = new Foo();<br>var foo2 = new Foo();<br>console.log(foo1.func1 == foo2.func1); // 输出 false<br>console.log(foo1.func2 == foo2.func2); // 输出 true<br><br>function SubFoo(){};<br><br>SubFoo.prototype = new Foo();<br>SubFoo.prototype.constructor = SubFoo;<br><br>var subFoo1 = new SubFoo();<br><br>subFoo1.func1();// 输出 'BYVoid'<br>subFoo1.func2();// 输出 'Carbo'</pre>
+        <pre>function Foo() {<br>    var innerVar = 'hello';<br>    this.prop1 = 'BYVoid';<br>    this.func1 = function () {<br>        innerVar = '';<br>        console.log(this.prop1);<br>    };<br>}<br>Foo.prototype.prop2 = 'Carbo';<br>Foo.prototype.func2 = function () {<br>    console.log(this.prop2);<br>};<br>var foo1 = new Foo();<br>var foo2 = new Foo();<br>console.log(foo1.func1 == foo2.func1); // 输出 false<br>console.log(foo1.func2 == foo2.func2); // 输出 true<br>
+//以下是简单继承，自己为了理解写的例子<br>function SubFoo(){};<br><br>SubFoo.prototype = new Foo();<br>SubFoo.prototype.constructor = SubFoo;<br><br>var subFoo1 = new SubFoo();<br><br>subFoo1.func1();// 输出 'BYVoid'<br>subFoo1.func2();// 输出 'Carbo'</pre>
         <p>尽管如此，并不是说在构造函数内创建属性不好，而是两者各有适合的范围。那么我们什么时候使用原型，什么时候使用构造函数内定义来创建属性呢？<br>
            除非必须用构造函数闭包，否则尽量用原型定义成员函数，因为这样可以减少开销。<br>
            尽量在构造函数内定义一般成员，尤其是对象或数组，因为用原型定义的成员是多个实例共享的。</p>
-        <p>下面来分析一下原型链</p>
-        <p>JavaScript 中有两个特殊的对象： Object 与 Function，它们都是构造函数，用于生成对象。Object.prototype 是所有对象的祖先，Function.prototype 是所有函数的原型，包括构造函数。我把 JavaScript 中的对象分为三类，一类是用户创建的对象，一类是构造函数对象，一类是原型对象。用户创建的对象，即一般意义上用 new 语句显式构造的对象。构造函数对象指的是普通的构造函数，即通过 new 调用生成普通对象的函数。原型对象特指构造函数 prototype 属性指向的对象。这三类对象中每一类都有一个 __proto__ 属性，它指向该对象的原型，从任何对象沿着它开始遍历都可以追溯到 Object.prototype。构造函数对象有 prototype 属性，指向一个原型对象，通过该构造函数创建对象时，被创建对象的 __proto__ 属性将会指向构造函数的 prototype 属性。原型对象有 constructor属性，指向它对应的构造函数。让我们通过下面这个例子来理解原型：</p>
-
+          <h4>Function和Object的原型链以及构造函数</h4>
+          <p>我们可以在firefox上测试以下代码（Object {} 表示实例Object， Object () 表示祖先Object对象）</p>
+          <pre>console.log(Function);//Function()      0<br>console.log(Function.constructor);//Function()		1<br>console.log(Function.prototype);//function()		2<br>console.log(Function.__proto__);//function()		3<br>console.log(Function.__proto__.prototype);//undefined	4<br>console.log(Function.__proto__.__proto__);//Object {}	5<br>console.log(Function.prototype.constructor);//Function()		6  console.log(Function.__proto__.constructor);//Function()<br>console.log(Function.__proto__.__proto__.__proto__);//null	7<br>console.log(Function.__proto__.__proto__.prototype);//undefined	8<br>console.log(Function.__proto__.__proto__.constructor);//Object()     9<br>console.log(Object);//Object()	<br>console.log(Object.constructor);//Function()	10<br>console.log(Object.prototype);//Object {}	11<br>console.log(Object.__proto__);//function()	12</pre>
+          <p>从以上测试可以总结以下几种情况</p>
+          <ol>
+          	<li>Function的构造函数还是Function </li>
+          	<li>Function的原型（prototype）是function</li>
+          	<li>Function的原型链（__proto__）是function</li>
+          	<li>function的原型（prototype）是undefined</li>
+          	<li>function的原型链（__proto__）是实例Object </li>
+          	<li>function的构造函数是Function</li>
+          	<li>实例的Object的原型链（__proto__）是null</li>
+          	<li>实例的Object的原型（prototype）是undefined</li>
+          	<li>实例的Object的构造函数是Object</li>
+          	<li>Object的构造函数是Function</li>
+          	<li>Object的原型（prototype）是实例Object</li>
+          	<li>Object的原型链（__proto__）是function</li>
+          </ol>
+          <p>有以上几种情况就可以迅速计算出任意结果的返回值，比如</p>
+          <pre>console.log(Function.prototype.__proto__);//Object {}  Function.prototype返回function，而function.__proto__返回Object
+console.log(Object.constructor.prototype);//function()  根部Object.constructor返回Function，而Function.prototype返回function</pre>
+          <p>关于 Function、function、Object()和Object {}之间的关系，<span class="h-web-font-red">回头补充一张关系图，这样会更清晰一些</span>。</p>
+          <ol>
+            <li>Function的构造函数是Function，Object的构造函数是Function</li>
+            <li>function的构造函数是Function，而实例Object的构造函数是Object</li>
+            <li>Function的prototype和__proto__都是function</li>
+            <li>Object的prototype是实例Object，而__proto__是function</li>
+            <li>function的__proto__是实例Object</li>
+          </ol>
+          <p>知道了Function与Object原型和构造函数之间的关系后，我们通过一个例子来分析一下原型链模型实现。</p>
+          <pre>var Foo = function() {};<br>Object.prototype.name = 'My Object';<br>Foo.prototype.name = 'Bar';<br>var obj = new Object();<br>var foo = new Foo();<br>console.log(obj.name); // 输出 My Object<br>console.log(foo.name); // 输出 Bar<br>console.log(foo.__proto__.name); // 输出 Bar<br>console.log(foo.__proto__.__proto__.name); // 输出 My Object<br>console.log(foo.__proto__.constructor.prototype.name); // 输出 Bar<br>console.log(Foo.prototype); // 输出 Bar</pre>
+          <p>我们定义了一个叫做 Foo ()的构造函数，生成了对象 foo。同时我们还分别给 Object和 Foo 生成原型对象。这里补充一下：定义一个函数，有以下几种</p>
+          <pre>var foo1 = function(){};<br>function foo2(){}<br>var foo3 = new Function();<br>var foo4 = Function;</pre>
+          <p>我们一般采取第一种和第二种来定义，第三和第四中不推荐使用，因为会调用其构造函数来创建。</p>
+          <p>下图是解析上面例子原型之间错综复杂的关系</p>
+          <p><img src="images/javascript原型之间的关系.jpg"></p>
+          <p>在 JavaScript 中，继承是依靠一套叫做原型链（prototype chain）的机制实现的。属性继承的本质就是一个对象可以访问到它的原型链上任何一个原型对象的属性。例如上例的foo 对象，它拥有 foo. __proto__ （继承于Foo.prototype），而Foo.prototype.__proto__会继承Object.prototype  。这些原型链继承是所有属性的浅拷贝（只复制基本数据类型，不复制对象，对象是引用的）。        </p>
+        <p>综上所述：JavaScript 中有两个特殊的对象： Object 与 Function，它们都是构造函数，用于生成对象。Object.prototype 是所有对象的祖先，Function.prototype 是所有函数的原型，包括构造函数。JavaScript 中的对象分为三类，一类是用户创建的对象，一类是构造函数对象，一类是原型对象。用户创建的对象，即一般意义上用 new 语句显式构造的对象。构造函数对象指的是普通的构造函数，即通过 new 调用生成普通对象的函数。原型对象特指构造函数 prototype 属性指向的对象。这三类对象中每一类都有一个 __proto__ 属性，它指向该对象的原型，从任何对象沿着它开始遍历都可以追溯到 Object.prototype。构造函数对象有 prototype 属性，指向一个原型对象，通过该构造函数创建对象时，被创建对象的 __proto__ 属性将会指向构造函数的 prototype 属性。原型对象有 constructor属性，指向它对应的构造函数。</p>
+          
+          <h3 paragraph>对象的复制</h3>
+          <p>JavaScript 和 Java 一样都没有像C语言中一样的指针，所有对象类型的变量都是指向对象的引用，两个变量之间赋值传递一个对象并不会对这个对象进行复制，而只是传递引用。有些时候我们需要完整地复制一个对象，这该如何做呢？Java 语言中有 clone 方法可以实现对象复制，但 JavaScript 中没有这样的函数。因此我们需要手动实现这样一个函数，一个简单的做法是复制对象的所有属性：</p>
+      <pre>Object.prototype.clone = function() {<br>var newObj = {};<br>for (var i in this) {<br>newObj[i] = this[i];<br>}<br>return newObj;<br>}<br>var obj = {<br>name: 'byvoid',<br>likes: ['node']<br>};<br>var newObj = obj.clone();<br>obj.likes.push('python');<br>console.log(obj.likes); // 输出 [ 'node', 'python' ]<br>console.log(newObj.likes); // 输出 [ 'node', 'python' ]</pre>
+      <p>上面的代码是一个对象浅拷贝（shallow copy）的实现，即只复制基本类型的属性，而共享对象类型的属性。浅拷贝的问题是两个对象共享对象类型的属性，例如上例中 likes 属性指向的是同一个数组。</p>
+      <p>实现一个完全的复制，或深拷贝（deep copy）并不是一件容易的事，因为除了基本数据类型，还有多种不同的对象，对象内部还有复杂的结构，因此需要用递归的方式来实现：</p>
+          <pre>Object.prototype.clone = function () {<br>    var newObj = {};<br>    for (var i in this) {<br>        if (typeof(this[i]) == 'object' || typeof(this[i]) == 'function') {<br>            newObj[i] = this[i].clone();<br>        } else {<br>            newObj[i] = this[i];<br>        }<br>    }<br>    return newObj;<br>};<br>Array.prototype.clone = function () {<br>    var newArray = [];<br>    for (var i = 0; i &lt; this.length; i++) {<br>        if (typeof(this[i]) == 'object' || typeof(this[i]) == 'function') {<br>            newArray[i] = this[i].clone();<br>        } else {<br>            newArray[i] = this[i];<br>        }<br>    }<br>    return newArray;<br>};<br>Function.prototype.clone = function () {<br>    var that = this;<br>    var newFunc = function () {<br>        return that.apply(this, arguments);<br>    };<br>    for (var i in this) {<br>        newFunc[i] = this[i];<br>    }<br>    return newFunc;<br>};<br>var obj = {<br>    name: 'byvoid',<br>    likes: ['node'],<br>    display: function () {<br>        console.log(this.name);<br>    }<br>};<br>var newObj = obj.clone();<br>newObj.likes.push('python');<br>console.log(obj.likes); // 输出 [ 'node' ]<br>console.log(newObj.likes); // 输出 [ 'node', 'python' ]<br>console.log(newObj.display == obj.display); // 输出 false</pre>
+          <p>上面这个实现看起来很完美，它不仅递归地复制了对象复杂的结构，还实现了函数的深拷贝。这个方法在大多数情况下都很好用，但有一种情况它却无能为力，例如下面的代码：</p>
+          <pre>var obj1 = {<br>    ref: null<br>};<br>var obj2 = {<br>    ref: obj1<br>};<br>obj1.ref = obj2;</pre>
+          <p>这段代码的逻辑非常简单，就是两个相互引用的对象。当我们试图使用深拷贝来复制obj1 和 obj2 中的任何一个时，问题就出现了。因为深拷贝的做法是遇到对象就进行递归复制，那么结果只能无限循环下去。对于这种情况，简单的递归已经无法解决，必须设计一套图论算法，分析对象之间的依赖关系，建立一个拓扑结构图，然后分别依次复制每个顶点，并重新构建它们之间的依赖关系。这种方法实现起来比较复杂，这里就不再讨论了。</p>
+          
 
     </div>
     </body>
