@@ -24,11 +24,13 @@
             <li><a paragraph href="#">HTTP 服务器</a></li>
             <li><a paragraph href="#">Express 框架快速开发web应用</a></li>
             <li><a paragraph href="#">连接mongodb数据库</a></li>
-            <li><a paragraph href="#">综合参考实例</a></li>
             <li><a paragraph href="#">Node 模块加载机制</a></li>
+            <li><a paragraph href="#">综合参考实例</a></li>
+            <li><a paragraph href="#">网上免费搭建nodejs</a></li>
+            <li><a paragraph href="#">常用第三方npm</a></li>
         </ol>
         <div class="h-web-paragraph">
-            <h3 paragraph>CommonJS规范</h3>
+          <h3 paragraph>CommonJS规范</h3>
             <p>CommonJS 规范包括了模块（modules）、包（packages）、系统（system）、二进制（binary）、
 控制台（console）、编码（encodings）、文件系统（filesystems）、套接字（sockets）、单元测
 试 （unit testing ）等部分 。目前大部分标准都在拟定和讨论之中 ，已经发布的标准有
@@ -251,7 +253,7 @@ var hello1 = require('./module');<br>hello1.setName('BYVoid');<br>var hello2 = r
 
           <h3 paragraph>Express 框架快速开发web应用</h3>
             <p>安装：npm install  -g express</p>
-            <p>创建一个模板为ejs的工程 express -t ejs microblog</p>
+            <p>创建一个模板为ejs的工程 express -e ejs microblog <span class="h-web-font-red">（注意express 3.x中安装ejs不再是-t而是-e，可以输入express -h查看）</span></p>
             <p><a href="http://expressjs.com/" target="_blank">官网</a></p>
             <p><a href="http://expressjs.jser.us/" target="_blank">中文官网</a></p>
 
@@ -271,24 +273,13 @@ app.use(partials());</pre>
             <h3 paragraph>连接mongodb数据库  </h3>
             <p>我们用node-mongodb-native来连接 mongodb，官方网站是：
                 <a href="http://mongodb.github.com/node-mongodb-native">http://mongodb.github.com/node-mongodb-native</a></p>
-
-            http://www.dataguru.cn/article-1236-1.html
-
-            https://github.com/christkv/node-mongodb-native
-            https://github.com/kcbanner/connect-mongo
-
-            http://marshal.easymorse.com/archives/4841
-            <p>另一个是Mongoose http://www.cnblogs.com/terrylin/archive/2013/01/26/2877774.html</p>
-
-            http://www.csser.com/board/4f3f516e38a5ebc9780004fe
-
-            http://blog.sina.com.cn/s/blog_775f158f01016kae.html
-
-            http://www.6yang.net/articles_view_1166_15.html
-            <h3 paragraph>综合参考实例</h3>
-
-            <p>该实例摘自Node.js开发指南_中文正版中，采用ejs和express实现，前端模板使用的是目前最流行的twitter bootstrap。</p>
-            <p><a href="microblog" target="_blank">工程代码</a></p>
+            <p>官方代码：<a href="https://github.com/christkv/node-mongodb-native" target="_blank">https://github.com/christkv/node-mongodb-native</a> 在这里可以查看源代码、例子、文档和安装步骤等。</p>
+            <p>connect-mongo模块：该模块是用来存储会话信息的，这样就不用每次操作数据库都建立连接，官网为：<a href="https://github.com/kcbanner/connect-mongo" target="_blank">https://github.com/kcbanner/connect-mongo</a> ，他依赖于<a href="http://mongodb.github.com/node-mongodb-native">node-mongodb-native</a></p>
+            <p>另一个连接mongodb数据库的npm：Mongoose，参考网站 </p>
+            <p><a href="http://www.cnblogs.com/terrylin/archive/2013/01/26/2877774.html" target="_blank">http://www.cnblogs.com/terrylin/archive/2013/01/26/2877774.html</a> </p>
+            <p><a href="http://www.csser.com/board/4f3f516e38a5ebc9780004fe" target="_blank">http://www.csser.com/board/4f3f516e38a5ebc9780004fe</a> </p>
+            <p><a href="http://blog.sina.com.cn/s/blog_775f158f01016kae.html" target="_blank">http://blog.sina.com.cn/s/blog_775f158f01016kae.html</a></p>
+            
             
             <h3 paragraph>Node 模块加载机制</h3>
             <p>Node.js 的模块可以分为两大类，一类是核心模块，另一类是文件模块。核心模块就是Node.js 标准 API 中提供的模块，如 fs、http、net、vm 等，这些都是由 Node.js 官方提供的模块，编译成了二进制代码。我们可以直接通过 require 获取核心模块，例如，require('fs')。核心模块拥有最高的加载优先级，换言之如果有模块与其命名冲突，Node.js 总是会加载核心模块。</p>
@@ -307,6 +298,26 @@ app.use(partials());</pre>
             
             <h4>加载缓存</h4>
             <p>我们在前面提到过，Node.js 模块不会被重复加载，这是因为 Node.js 通过文件名缓存所有加载过的文件模块，所以以后再访问到时就不会重新加载了。注意，Node.js 是根据实际文件名缓存的， 而不是 require() 提供的参数缓存的， 也就是说即使你分别通过require('express') 和 require('./node_modules/express') 加载两次，也不会重复加载，因为尽管两次参数不同，解析到的文件却是同一个。</p>
+            
+            <h3 paragraph>综合参考实例</h3>
+
+            <p>1、microblog 该实例摘自Node.js开发指南_中文正版中，采用ejs和express实现，前端模板使用的是目前最流行的twitter bootstrap。</p>
+            <p><a href="microblog" target="_blank">工程代码</a></p>
+            
+            <p>2、blog 该实例摘自<a href="http://cnodejs.org/" target="_blank">Node.js中文社区</a>，<a href="http://cnodejs.org/topic/515b00096d382773061927de" target="_blank">系列文章点击这里</a></p>
+            <p><a href="blog" target="_blank">工程代码</a></p>
+            
+            <h3 paragraph>网上免费搭建nodejs</h3>
+            <p>我们可以在这里免费发布我们的nodejs应用。官网为： <a target="_blank" href="https://www.appfog.com/">https://www.appfog.com/ </a>详细发布指南可以参见<a href="http://cnodejs.org/topic/515c2e3b6d382773062ce19f#5195e30a63e9f8a54229fd5c" target="_blank">这里</a></p>
+            
+          <h3 paragraph>常用第三方npm</h3>
+            
+            <h4>markdown</h4>
+            <p>这里可以查看markdown的说明 <a target="_blank" href="http://wowubuntu.com/markdown/">http://wowubuntu.com/markdown/</a></p>
+            <p>markdown-js是node下的一个markdown解析器，它把markdown语法解析成html。我们可以在package.json的dependencies中加入 "markdown-js":"*" ，npm install安装。例子</p>
+            <pre>var html = markdown.makeHtml(req.body.post),</pre>
+            <p><br>
+            </p>
         </div>
     </body>
 </html>

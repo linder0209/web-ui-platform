@@ -4,7 +4,7 @@
     <list default="true" id="dba945ef-b893-40e4-be61-5a9eb79b3615" name="Default" comment="" />
     <ignored path="microblog.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/layout.ejs" changelist="dba945ef-b893-40e4-be61-5a9eb79b3615" time="1368178980160" ignored="false" />
+    <file path="/layout.ejs" changelist="dba945ef-b893-40e4-be61-5a9eb79b3615" time="1368775520370" ignored="false" />
     <file path="/app.js" changelist="dba945ef-b893-40e4-be61-5a9eb79b3615" time="1368611175111" ignored="false" />
     <file path="/说明" changelist="dba945ef-b893-40e4-be61-5a9eb79b3615" time="1368278125537" ignored="false" />
     <file path="/a.js" changelist="dba945ef-b893-40e4-be61-5a9eb79b3615" time="1368280730851" ignored="false" />
@@ -16,6 +16,26 @@
     <file path="$PROJECT_DIR$/../sources/chap5/sec6/microblog/package.json" changelist="dba945ef-b893-40e4-be61-5a9eb79b3615" time="1368499956679" ignored="false" />
     <file path="/index.js" changelist="dba945ef-b893-40e4-be61-5a9eb79b3615" time="1368590182345" ignored="false" />
     <file path="/user.js" changelist="dba945ef-b893-40e4-be61-5a9eb79b3615" time="1368501654700" ignored="false" />
+    <file path="D:/WebstormProjects/blog/app.js" changelist="dba945ef-b893-40e4-be61-5a9eb79b3615" time="1368769580676" ignored="false" />
+    <file path="D:/WebstormProjects/blog/routes/index.js" changelist="dba945ef-b893-40e4-be61-5a9eb79b3615" time="1368769194717" ignored="false" />
+    <file path="D:/WebstormProjects/blog/package.json" changelist="dba945ef-b893-40e4-be61-5a9eb79b3615" time="1368769663523" ignored="false" />
+    <file path="/package.json" changelist="dba945ef-b893-40e4-be61-5a9eb79b3615" time="1368771345987" ignored="false" />
+    <file path="$PROJECT_DIR$/../blog/package.json" changelist="dba945ef-b893-40e4-be61-5a9eb79b3615" time="1368781899455" ignored="false" />
+    <file path="$PROJECT_DIR$/../blog/node_modules/settings.js" changelist="dba945ef-b893-40e4-be61-5a9eb79b3615" time="1368770375456" ignored="false" />
+    <file path="$PROJECT_DIR$/../blog/models/mogondb.js" changelist="dba945ef-b893-40e4-be61-5a9eb79b3615" time="1368770484119" ignored="false" />
+    <file path="$PROJECT_DIR$/../blog/app.js" changelist="dba945ef-b893-40e4-be61-5a9eb79b3615" time="1368776649006" ignored="false" />
+    <file path="$PROJECT_DIR$/../blog/routes/index.js" changelist="dba945ef-b893-40e4-be61-5a9eb79b3615" time="1368782082164" ignored="false" />
+    <file path="$PROJECT_DIR$/../blog/models/user.js" changelist="dba945ef-b893-40e4-be61-5a9eb79b3615" time="1368771717845" ignored="false" />
+    <file path="$PROJECT_DIR$/../blog/views/layout.ejs" changelist="dba945ef-b893-40e4-be61-5a9eb79b3615" time="1368775523634" ignored="false" />
+    <file path="$PROJECT_DIR$/../blog/models/post.js" changelist="dba945ef-b893-40e4-be61-5a9eb79b3615" time="1368772967087" ignored="false" />
+    <file path="$PROJECT_DIR$/../blog/views/index.ejs" changelist="dba945ef-b893-40e4-be61-5a9eb79b3615" time="1368775603369" ignored="false" />
+    <file path="/index.ejs" changelist="dba945ef-b893-40e4-be61-5a9eb79b3615" time="1368775599171" ignored="false" />
+    <file path="$PROJECT_DIR$/../blog/views/post.ejs" changelist="dba945ef-b893-40e4-be61-5a9eb79b3615" time="1368775732088" ignored="false" />
+    <file path="$PROJECT_DIR$/../blog/views/say.ejs" changelist="dba945ef-b893-40e4-be61-5a9eb79b3615" time="1368775674697" ignored="false" />
+    <file path="/say.ejs" changelist="dba945ef-b893-40e4-be61-5a9eb79b3615" time="1368775674697" ignored="false" />
+    <file path="/post.ejs" changelist="dba945ef-b893-40e4-be61-5a9eb79b3615" time="1368775732088" ignored="false" />
+    <file path="$PROJECT_DIR$/../blog/views/user.ejs" changelist="dba945ef-b893-40e4-be61-5a9eb79b3615" time="1368776116478" ignored="false" />
+    <file path="/user.ejs" changelist="dba945ef-b893-40e4-be61-5a9eb79b3615" time="1368776116478" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,10 +55,64 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app.js">
+      <file leaf-file-name="package.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="0" selection-start="1453" selection-end="1529" vertical-scroll-proportion="0.47738692">
+            <state line="10" column="16" selection-start="206" selection-end="213" vertical-scroll-proportion="-8.387096">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/user.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="36" column="0" selection-start="972" selection-end="972" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mongodb.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/mongodb.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout.ejs" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/layout.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="1292" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.ejs" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/index.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="24" selection-start="306" selection-end="306" vertical-scroll-proportion="0.52261305">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reg.ejs" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/reg.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="posts.ejs" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/posts.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="0" selection-start="189" selection-end="189" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -53,35 +127,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="post.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/post.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="25" selection-start="1911" selection-end="1916" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ddd.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ddd.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="6" selection-start="0" selection-end="437" vertical-scroll-proportion="-12.580646">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="100" column="35" selection-start="2541" selection-end="2541" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1368590187064" expanded="true" signature="1886:2140" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="say.ejs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/say.ejs">
           <provider selected="true" editor-type-id="text-editor">
@@ -91,37 +136,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="posts.ejs" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/posts.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="73" selection-start="189" selection-end="189" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="user.ejs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/user.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="2" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="server.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/server.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="567" column="56" selection-start="24087" selection-end="24087" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/user.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="0" selection-start="972" selection-end="972" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -272,7 +290,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -300,7 +318,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="Settings.JavaScript.Linters.JSLint" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sources/chap5/sec6/microblog" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../blog" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="options.searchVisible" value="true" />
@@ -367,7 +385,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35561877" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.112375535" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.112375535" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -500,80 +518,16 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/models/mongodb.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="108" selection-start="431" selection-end="431" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/reg.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="53" selection-start="230" selection-end="231" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="20" selection-start="236" selection-end="245" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/collection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1101" column="0" selection-start="46899" selection-end="46899" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/db.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1895" column="0" selection-start="80157" selection-end="80157" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="567" column="56" selection-start="24087" selection-end="24087" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="972" selection-end="972" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/login.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="7" selection-start="758" selection-end="758" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/post.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="64" column="25" selection-start="1911" selection-end="1916" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/say.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="7" selection-start="265" selection-end="265" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <marker date="1368589023968" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1368589023968" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1368589023968" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1368589023968" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1368589023968" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -586,30 +540,98 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="35" selection-start="2541" selection-end="2541" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1368590187064" expanded="true" signature="1886:2140" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/user.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="2" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/posts.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="73" selection-start="189" selection-end="189" vertical-scroll-proportion="0.0">
+        <state line="10" column="18" selection-start="254" selection-end="256" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="0" selection-start="1453" selection-end="1529" vertical-scroll-proportion="0.47738692">
+        <state line="9" column="43" selection-start="203" selection-end="242" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/express-partials/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="20" selection-start="236" selection-end="245" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/mongodb.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="16" selection-start="206" selection-end="213" vertical-scroll-proportion="-8.387096">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="0" selection-start="972" selection-end="972" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layout.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="1292" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/say.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="7" selection-start="265" selection-end="265" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/user.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/reg.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/posts.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="189" selection-end="189" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/login.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="7" selection-start="758" selection-end="758" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="24" selection-start="306" selection-end="306" vertical-scroll-proportion="0.52261305">
           <folding />
         </state>
       </provider>

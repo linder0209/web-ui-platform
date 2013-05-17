@@ -52,12 +52,3 @@ app.get('/u/:user', routes.user);
 http.createServer(app).listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
 });
-
-
-var obj1 = {
-    ref: null
-};
-var obj2 = {
-    ref: obj1
-};
-obj1.ref = obj2;
