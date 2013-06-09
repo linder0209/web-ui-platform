@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>jQuery plugins —— 多级树菜单插件</title>
+        <link rel="stylesheet" href="../../../../platform/javascript/jquery-ui/css/jquery-ui.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/javascript/jquery-ui/css/jquery.ui.theme.css" type="text/css"/>
+
+        <link rel="stylesheet" href="../../../../platform/css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/platform.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
+
+        <style type="text/css">
+            body{
+                margin: 20px;
+            }
+        </style>
+        <script type="text/javascript" src="../../../../platform/javascript/jquery/jquery.js"></script>
+        <script type="text/javascript" src="../../../../platform/javascript/jquery-ui/jquery-ui-custom.js"></script>
+    </head>
+    <body>
+        <div>
+            <link rel="stylesheet" href="./css/jquery.ui.treepanel.css" type="text/css"/>
+            <script type="text/javascript" src="./javascript/jquery.data.tree.js" ></script>
+            <script type="text/javascript" src="./javascript/jquery.ui.treepanel.js" ></script>
+            
+            <div class="h-web-demo">
+                <p class="h-margin10-B">独立运行包： <a href="trees.zip" target="_blank">trees.zip</a> </p>
+                <p class="h-margin10-B">以下是例子</p>
+                
+                <div class="b-setting-menu" id="menuCt">
+                    <b class="arrows" id="menuArrows"></b>
+                    <!-- menu element -->
+                </div>
+                
+                <script type="text/javascript">
+                    $(function() {
+                       var menuData = [];
+                        menuData.push({
+                            id: 'level1_1',
+                            text: '菜单1',
+                            children: [{
+                                    id: 'level1_1_1',
+                                    text: '菜单11',
+                                    url: ''
+                                }, {
+                                    id: 'level1_1_2',
+                                    text: '菜单12',
+                                    url: ''
+                                }]
+                        });
+                        menuData.push({
+                            id: 'level1_2',
+                            text:'菜单2',
+                            children: [{
+                                    id: 'level1_2_1',
+                                    text: '菜单21',
+                                    url: ''
+                                }, {
+                                    id: 'level1_2_2',
+                                    text: '菜单22',
+                                    url: ''
+                                }, {
+                                    id: 'level1_2_3',
+                                    text: '菜单23',
+                                    url: ''
+                                }]
+                        });
+                        
+                        menuData.push({
+                            id: 'level1_3',
+                            text:'菜单3',
+                            children: [{
+                                    id: 'level1_3_1',
+                                    text: '菜单31',
+                                    url: ''
+                                }, {
+                                    id: 'level1_3_2',
+                                    text: '菜单32',
+                                    url: ''
+                                }, {
+                                    id: 'level1_3_3',
+                                    text: '菜单33',
+                                    url: ''
+                                }]
+                        });
+
+                    $('#menuCt').treepanel({
+                        nodesData: menuData,
+                        clicknode: function(event, tree, node){
+                            var fn = function(){
+//                                var url = node.attributes.url;
+//                                if(!url){
+//                                    return;
+//                                }
+                                var top = $('#' + node.id).position().top + 8;
+                                $('#menuArrows').css({top: top}).show();
+                            };
+
+                            fn.call(null);
+                        }
+                    });
+                    });
+                </script>
+             </div>
+        </div>
+    </body>
+</html>

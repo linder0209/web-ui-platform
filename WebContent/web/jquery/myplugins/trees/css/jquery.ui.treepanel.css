@@ -1,0 +1,71 @@
+/**
+ * tree panel
+**/
+
+.b-ui-treepanel-hearder, .b-ui-treepanel-content{
+    cursor: pointer;
+    min-height: 40px;
+    line-height: 40px;
+    border: 0 !important;
+    border-top: 1px solid #999999 !important;
+}
+.b-ui-treepanel-hearder{
+    display: block;
+    font-weight: bold !important;
+}
+
+.b-ui-treepanel-hearder span{
+    padding-left: 2px;
+    cursor: pointer;
+}
+
+.b-ui-treepanel-content{
+    color: #333333;
+}
+
+.b-ui-treepanel-content.ui-state-focus{
+    background:none #F9C7AD;
+    color: #777777; 
+}
+
+.b-ui-treepanel-hearder.ui-state-focus{
+    background: #999999;
+    color: #FFFFFF;
+}
+
+.b-ui-treepanel-branch-icon{
+    background: url("images/arrow_right.png") no-repeat;
+    display: inline-block;
+    height: 9px;
+    width: 9px;
+    /* ie6 ie7*/
+    *padding-top: 3px;
+}
+.b-ui-treepanel-branch-icon.expand{ background: url("images/arrow_down2.png") no-repeat;
+    display: inline-block;
+    height: 9px;
+    width: 9px;vertical-align: middle;}
+
+.ui-state-active .b-ui-treepanel-branch-icon{
+    background: url("images/arrow_down.png") no-repeat;
+}
+
+.b-ui-treepanel-hearder.ui-state-active{
+    background: none #666666;
+}
+.b-ui-treepanel-content.ui-state-active{
+    background: #F9C7AD;
+    color: #777777; 
+}
+
+.b-ui-treepanel-level1 {
+    background-color: #EEEEEE;
+}
+
+.b-ui-treepanel-level2.ui-state-active {
+    background-color: #EEEEEE;
+    color: #333333;
+}
+.b-ui-treepanel-level2.ui-state-active .b-ui-treepanel-branch-icon{
+    background-image: url("images/arrow_down2.png");
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>CSS基础——非常有用的css代码片段</title>
+        <link rel="stylesheet" href="../../../../platform/css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/platform.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
+    </head>
+    <body>
+        <h3 class="h-web-paragraph-title">目录</h3>
+        <ol class="h-web-catalogue">
+            <li><a paragraph href="#">CSS 重置</a></li>
+			<li><a paragraph href="#">CSS Clearfix 清除浮层</a></li>
+            <li><a paragraph href="#">跨浏览器的透明度</a></li>
+            <li><a paragraph href="#">CSS 块引用模版</a></li>
+            <li><a paragraph href="#">个性的圆角</a></li>
+            <li><a paragraph href="#">响应式布局样式模板</a></li>
+            <li><a paragraph href="#">锚链接伪类</a></li>
+            <li><a paragraph href="#">花式CSS3 Pull-引文</a></li>
+            <li><a paragraph href="#">全屏背景和CSS3</a></li>
+            <li><a paragraph href="#">垂直居中内容</a></li>
+            <li><a paragraph href="#">响应式布局样式模板</a></li>
+            <li><a paragraph href="#">响应式布局样式模板</a></li>
+            <li><a paragraph href="#">响应式布局样式模板</a></li>
+            <li><a paragraph href="#">响应式布局样式模板</a></li>
+            <li><a paragraph href="#">响应式布局样式模板</a></li>
+            <li><a paragraph href="#">参考资料</a></li>
+        </ol>
+        
+        <div class="h-web-paragraph">
+          <h3 paragraph>CSS 重置</h3>
+            <pre>html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {<br>    margin: 0;<br>    padding: 0;<br>    border: 0;<br>    outline: none;<br>    font-size: 100%;<br>    font: inherit;<br>    vertical-align: baseline;<br>    background: transparent;<br>    -webkit-box-sizing: border-box;<br>    -moz-box-sizing: border-box;<br>    box-sizing: border-box;<br>}<br>body {<br>    font-family: "微软雅黑", "宋体", "Helvetica Neue", HelveticaNeue, Helvetica,<br>        Arial, sans-serif;<br>    font-size: 12px;<br>    line-height: 1;<br>    -webkit-font-smoothing: antialiased;<br>}<br><br>article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }<br>ol, ul { list-style: none; }<br>li {<br>    list-style-type: none;<br>}<br>blockquote, q { quotes: none; }<br>blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }<br><br>table { border-collapse: collapse; border-spacing: 0; }<br>img { border: 0; max-width: 100%; }<br><br>p { font-size: 1.2em; line-height: 1.0em; }</pre>
+          <h3 paragraph>CSS Clearfix 清除浮层</h3>
+          <pre>.h-clearfix {<br>    zoom: 1<br>}<br><br>.h-clearfix:before,.h-clearfix:after {<br>    content: "\0020";<br>    display: block;<br>    height: 0;<br>    visibility: hidden;<br>}<br><br>.h-clearfix:after {<br>    clear: both;<br>}
+          </pre>
+          <h3 paragraph>跨浏览器的透明度</h3>
+          <pre>.transparent {<br>    filter: alpha(opacity=50); /* internet explorer */<br>    -khtml-opacity: 0.5;      /* khtml, old safari */<br>    -moz-opacity: 0.5;       /* mozilla, netscape */<br>    opacity: 0.5;           /* fx, safari, opera */<br>}</pre>
+          
+          <h3 paragraph>CSS 块引用模版</h3>
+          <pre>blockquote {<br>    background: #f9f9f9;<br>    border-left: 10px solid #ccc;<br>    margin: 1.5em 10px;<br>    padding: .5em 10px;<br>    quotes: "\201C""\201D""\2018""\2019";<br>}<br>blockquote:before {<br>    color: #ccc;<br>    content: open-quote;<br>    font-size: 4em;<br>    line-height: .1em;<br>    margin-right: .25em;<br>    vertical-align: -.4em;<br>}<br>blockquote p {<br>    display: inline;<br>}</pre>
+          <p>不是所有的人都必须在他们的网站上使用blockquotes. 但是我认为这是一个很好的元素用于分离引用或是优化博客和网页上的重复内容. 上面的代码为你的blockquotes提供一个默认样式,这样你的内容就不会看起来单调乏味.</p>
+          <p><a href="http://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/">Code Source</a></p>
+          <h3 paragraph>个性的圆角</h3>
+          <pre>#container {<br>    -webkit-border-radius: 4px 3px 6px 10px;<br>    -moz-border-radius: 4px 3px 6px 10px;<br>    -o-border-radius: 4px 3px 6px 10px;<br>    border-radius: 4px 3px 6px 10px;<br>}<br><br>/* alternative syntax broken into each line */<br>#container {<br>    -webkit-border-top-left-radius: 4px;<br>    -webkit-border-top-right-radius: 3px;<br>    -webkit-border-bottom-right-radius: 6px;<br>    -webkit-border-bottom-left-radius: 10px;<br>    <br>    -moz-border-radius-topleft: 4px;<br>    -moz-border-radius-topright: 3px;<br>    -moz-border-radius-bottomright: 6px;<br>    -moz-border-radius-bottomleft: 10px;<br>}<br><br>
+          </pre>
+        
+          <h3 paragraph>响应式布局样式模板</h3>
+          <pre>/* Smartphones (portrait and landscape) ----------- */<br>@media only screen <br>and (min-device-width : 320px) and (max-device-width : 480px) {<br>  /* Styles */<br>}<br><br>/* Smartphones (landscape) ----------- */<br>@media only screen and (min-width : 321px) {<br>  /* Styles */<br>}<br><br>/* Smartphones (portrait) ----------- */<br>@media only screen and (max-width : 320px) {<br>  /* Styles */<br>}<br><br>/* iPads (portrait and landscape) ----------- */<br>@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {<br>  /* Styles */<br>}<br><br>/* iPads (landscape) ----------- */<br>@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {<br>  /* Styles */<br>}<br><br>/* iPads (portrait) ----------- */<br>@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {<br>  /* Styles */<br>}<br><br>/* Desktops and laptops ----------- */<br>@media only screen and (min-width : 1224px) {<br>  /* Styles */<br>}<br><br>/* Large screens ----------- */<br>@media only screen and (min-width : 1824px) {<br>  /* Styles */<br>}<br><br>/* iPhone 4 ----------- */<br>@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) {<br>  /* Styles */<br>}<br><br>
+          </pre>
+          <h3 paragraph>锚链接伪类</h3>
+          <pre>a:link { color: blue; }<br>a:visited { color: purple; }<br>a:hover { color: red; }<br>a:active { color: yellow; }</pre>
+          <p>声明顺序应为：L-V-H-A</p>
+          <h3 paragraph>花式CSS3 Pull-引文</h3>
+          <pre>.has-pullquote:before {<br>/* Reset metrics. */<br>padding: 0;<br>border: none;<br>/* Content */<br>content: attr(data-pullquote);<br>/* Pull out to the right, modular scale based margins. */<br>float: right;<br>width: 320px;<br>margin: 12px -140px 24px 36px;<br>/* Baseline correction */<br>position: relative;<br>top: 5px;<br>/* Typography (30px line-height equals 25% incremental leading) */<br>font-size: 23px;<br>line-height: 30px;<br>}<br><br>.pullquote-adelle:before {<br>font-family: "adelle-1", "adelle-2";<br>font-weight: 100;<br>top: 10px !important;<br>}<br><br>.pullquote-helvetica:before {<br>font-family: "Helvetica Neue", Arial, sans-serif;<br>font-weight: bold;<br>top: 7px !important;<br>}<br><br>.pullquote-facit:before {<br>font-family: "facitweb-1", "facitweb-2", Helvetica, Arial, sans-serif;<br>font-weight: bold;<br>top: 7px !important;<br>}<br><br>
+          </pre>
+          <p>Pull-引文(Pull-quotes)与块引用(blockquotes)不同，它们出现在你的博客或者新闻文章的一边。这些引文经常从文章中引用文本，所以它们和块引用显示的稍许不一样。这些默认类具有一些基础的属性，带有3个可供选择的独特的字体类型。</p>
+          <h3 paragraph>全屏背景和CSS3</h3>
+          <pre>html { <br>    background: url('images/bg.jpg') no-repeat center center fixed; <br>    -webkit-background-size: cover;<br>    -moz-background-size: cover;<br>    -o-background-size: cover;<br>    background-size: cover;<br>}<br></pre>
+          <p><a href="http://css-tricks.com/perfect-full-page-background-image/">Code Source</a></p>
+
+          <p>我应该标注一下这个代码在不支持CSS3语法的老式浏览器中不会正确的工作。然而如果你是在寻找一个不需要关心遗留系统支持的快速的解决方案，这是你能找到的最好的代码段！给你网站背景增加很大的照片同时又能使它们能在你滚动的时候保持可变尺寸和固定不动。</p>
+          <h3 paragraph>垂直居中内容</h3>
+          <pre>.container {<br>    min-height: 6.5em;<br>    display: table-cell;<br>    vertical-align: middle;<br>}</pre>
+          <p><a href="http://www.w3.org/Style/Examples/007/center">Code Source</a></p>
+          <p>使用 margin: 0 auto 技术，很容易就能使内嵌的内容位于你页面的水平正中。然而对垂直的文本要困难的多，尤其是考虑到滚动条和其它的方式。但这个是无需JavaScript就能完美无瑕工作的纯CSS解决方案。</p>
+
+          <h3 paragraph>参考资料</h3>
+          <p><a href="http://www.ahrefmagazine.com/web-design/30-useful-css-snippets-for-developers" target="_blank">30 Useful CSS Snippets for Developers</a></p>
+    </div>
+    </body>
+</html>

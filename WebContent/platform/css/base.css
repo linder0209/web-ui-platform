@@ -47,7 +47,7 @@ a {
 
 a:link{
     color: #009EC3;
-    text-decoration: underline;
+    text-decoration: none;
 }
 a:visited{
     color: #f0720d;

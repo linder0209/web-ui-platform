@@ -17,6 +17,12 @@
     <file path="$PROJECT_DIR$/web/open_source_js/node/study/microblog/routes/index.js" changelist="afe47d68-4653-4825-9b0d-383326efe8ac" time="1368286275407" ignored="false" />
     <file path="$PROJECT_DIR$/web/open_source_js/node/study/microblog/models/user.js" changelist="afe47d68-4653-4825-9b0d-383326efe8ac" time="1368286290690" ignored="false" />
     <file path="/fragment.js" changelist="afe47d68-4653-4825-9b0d-383326efe8ac" time="1368287609942" ignored="false" />
+    <file path="/index.html" changelist="afe47d68-4653-4825-9b0d-383326efe8ac" time="1370507641391" ignored="false" />
+    <file path="/menu.xml" changelist="afe47d68-4653-4825-9b0d-383326efe8ac" time="1370507538101" ignored="false" />
+    <file path="/wkhtmltopdf.html" changelist="afe47d68-4653-4825-9b0d-383326efe8ac" time="1370508019089" ignored="false" />
+    <file path="/base.css" changelist="afe47d68-4653-4825-9b0d-383326efe8ac" time="1370509124289" ignored="false" />
+    <file path="/tree.html" changelist="afe47d68-4653-4825-9b0d-383326efe8ac" time="1370509627445" ignored="false" />
+    <file path="/web.css" changelist="afe47d68-4653-4825-9b0d-383326efe8ac" time="1370509401718" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,10 +42,104 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Node.js 读书笔记.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/open_source_js/node/study/Node.js 读书笔记.html">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="270" column="55" selection-start="16805" selection-end="16805" vertical-scroll-proportion="0.43065694">
+            <state line="40" column="49" selection-start="2499" selection-end="2505" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/others/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="87" selection-start="589" selection-end="589" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="menu.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/others/xml/menu.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="66" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/others/tools/convert/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="80" selection-start="630" selection-end="630" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="datepicker.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/jquery/jqueryui/examples/datepicker.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="wkhtmltopdf.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/others/tools/convert/wkhtmltopdf.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="83" selection-start="1150" selection-end="1150" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/platform/css/base.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="49" column="25" selection-start="1460" selection-end="1460" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tree.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/jquery/myplugins/trees/tree.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="39" selection-start="1612" selection-end="1612" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/platform/javascript/view/layout.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="289" column="48" selection-start="12956" selection-end="12971" vertical-scroll-proportion="0.038291607">
+              <folding>
+                <marker date="1367995945679" expanded="true" signature="815:2739" placeholder="..." />
+                <marker date="1367995945679" expanded="true" signature="880:956" placeholder="..." />
+                <marker date="1367995945679" expanded="true" signature="1011:2712" placeholder="..." />
+                <marker date="1367995945679" expanded="true" signature="1077:2681" placeholder="..." />
+                <marker date="1367995945679" expanded="true" signature="1115:1488" placeholder="..." />
+                <marker date="1367995945679" expanded="false" signature="1336:1350" placeholder="..." />
+                <marker date="1367995945679" expanded="true" signature="1351:1449" placeholder="..." />
+                <marker date="1367995945679" expanded="true" signature="1560:2340" placeholder="..." />
+                <marker date="1367995945679" expanded="true" signature="1749:2301" placeholder="..." />
+                <marker date="1367995945679" expanded="true" signature="1814:2071" placeholder="..." />
+                <marker date="1367995945679" expanded="true" signature="2433:2646" placeholder="..." />
+                <marker date="1367995945679" expanded="false" signature="2587:2600" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="web.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/platform/css/web.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="192" column="17" selection-start="4637" selection-end="4637" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -56,14 +156,23 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/web/open_source_js/node/study/Node.js 读书笔记.html" />
+        <option value="$PROJECT_DIR$/web/jquery/jqueryui/source/jQuery UI 代码组成结构.html" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/web/others/index.html" />
+        <option value="$PROJECT_DIR$/web/others/xml/menu.xml" />
+        <option value="$PROJECT_DIR$/web/others/tools/convert/index.html" />
+        <option value="$PROJECT_DIR$/web/others/tools/convert/wkhtmltopdf.html" />
+        <option value="$PROJECT_DIR$/platform/css/base.css" />
+        <option value="$PROJECT_DIR$/platform/css/web.css" />
+        <option value="$PROJECT_DIR$/web/jquery/myplugins/trees/tree.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1296" />
-    <option name="height" value="776" />
+    <option name="width" value="1616" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -91,7 +200,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -138,7 +246,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="open_source_js" />
+              <option name="myItemId" value="others" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -156,20 +264,141 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="open_source_js" />
+              <option name="myItemId" value="others" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="node" />
+              <option name="myItemId" value="tools" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="study" />
+              <option name="myItemId" value="convert" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebContent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebContent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jquery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebContent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebContent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jquery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myplugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trees" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebContent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebContent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jquery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myplugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebContent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebContent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="platform" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javascript" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebContent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebContent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="platform" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javascript" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebContent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebContent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="platform" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -180,6 +409,12 @@
     <property name="FullScreen" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\gitworkspace-nb\web-ui-platform\WebContent\web\others\tools\convert" />
+      <recent name="D:\gitworkspace-nb\web-ui-platform\WebContent\web\others" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
@@ -192,7 +427,7 @@
     </configuration>
     <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
       <JSDebuggerConfigurationSettings>
-        <option name="engineId" />
+        <option name="engineId" value="embedded" />
         <option name="fileUrl" />
       </JSDebuggerConfigurationSettings>
       <method />
@@ -226,13 +461,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17104216" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22828154" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -273,7 +508,7 @@
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
-    <option name="SHORT_DIFF_HORISONTALLY" value="true" />
+    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
     <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
     <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
     <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
@@ -310,15 +545,114 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/web/open_source_js/node/study/Node.js 读书笔记.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="278" column="59" selection-start="17198" selection-end="17198" vertical-scroll-proportion="0.0">
+        <state line="270" column="55" selection-start="16916" selection-end="16916" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/open_source_js/node/study/Node.js 读书笔记.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="278" column="59" selection-start="17198" selection-end="17198" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/jquery/jqueryui/source/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/jquery/jqueryui/source/jQuery UI 代码组成结构.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="23" selection-end="23" vertical-scroll-proportion="70.451614" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="49" selection-start="2499" selection-end="2505" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/others/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="87" selection-start="589" selection-end="589" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/others/xml/menu.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="66" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/open_source_js/node/study/Node.js 读书笔记.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="270" column="55" selection-start="16805" selection-end="16805" vertical-scroll-proportion="0.43065694">
+        <state line="270" column="55" selection-start="16916" selection-end="16916" vertical-scroll-proportion="-0.83870965" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/others/tools/convert/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="80" selection-start="630" selection-end="630" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/jquery/jqueryui/examples/datepicker.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/others/tools/convert/wkhtmltopdf.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="83" selection-start="1150" selection-end="1150" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platform/css/theme/skyblue.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platform/css/web.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="192" column="17" selection-start="4637" selection-end="4637" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platform/css/base.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="25" selection-start="1460" selection-end="1460" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/jquery/myplugins/trees/tree.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="39" selection-start="1612" selection-end="1612" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platform/javascript/view/layout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="289" column="48" selection-start="12956" selection-end="12971" vertical-scroll-proportion="0.038291607">
+          <folding>
+            <marker date="1367995945679" expanded="true" signature="815:2739" placeholder="..." />
+            <marker date="1367995945679" expanded="true" signature="880:956" placeholder="..." />
+            <marker date="1367995945679" expanded="true" signature="1011:2712" placeholder="..." />
+            <marker date="1367995945679" expanded="true" signature="1077:2681" placeholder="..." />
+            <marker date="1367995945679" expanded="true" signature="1115:1488" placeholder="..." />
+            <marker date="1367995945679" expanded="false" signature="1336:1350" placeholder="..." />
+            <marker date="1367995945679" expanded="true" signature="1351:1449" placeholder="..." />
+            <marker date="1367995945679" expanded="true" signature="1560:2340" placeholder="..." />
+            <marker date="1367995945679" expanded="true" signature="1749:2301" placeholder="..." />
+            <marker date="1367995945679" expanded="true" signature="1814:2071" placeholder="..." />
+            <marker date="1367995945679" expanded="true" signature="2433:2646" placeholder="..." />
+            <marker date="1367995945679" expanded="false" signature="2587:2600" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
