@@ -33,7 +33,7 @@
             <li><a paragraph href="#">跨浏览器的最小高度</a></li>
             <li><a paragraph href="#">CSS3发光输入框</a></li>
             <li><a paragraph href="#">网页顶端阴影</a></li>
-            <li><a paragraph href="#">CSS3盒子模型内部阴影</a></li>
+            <li><a paragraph href="#">CSS3 对话气泡</a></li>
             <li><a paragraph href="#">CSS3盒子模型内部阴影</a></li>
             <li><a paragraph href="#">CSS3盒子模型内部阴影</a></li>
             <li><a paragraph href="#">参考资料</a></li>
@@ -215,8 +215,51 @@
 			}
            </style>
            
-           <h3 paragraph>网页顶端阴影</h3>
+           <h3 paragraph>CSS3 对话气泡</h3>
+           <pre>.chat-bubble {<br>    background-color: #ededed;<br>    border: 2px solid #666;<br>    font-size: 35px;<br>    line-height: 1.3em;<br>    margin: 10px auto;<br>    padding: 10px;<br>    position: relative;<br>    text-align: center;<br>    width: 300px;<br>    -moz-border-radius: 20px;<br>    -webkit-border-radius: 20px;<br>    -moz-box-shadow: 0 0 5px #888;<br>    -webkit-box-shadow: 0 0 5px #888;<br>    font-family: 'Bangers', arial, serif; <br>}<br>.chat-bubble-arrow-border {<br>    border-color: #666 transparent transparent transparent;<br>    border-style: solid;<br>    border-width: 20px;<br>    height: 0;<br>    width: 0;<br>    position: absolute;<br>    bottom: -42px;<br>    left: 30px;<br>}<br>.chat-bubble-arrow {<br>    border-color: #ededed transparent transparent transparent;<br>    border-style: solid;<br>    border-width: 20px;<br>    height: 0;<br>    width: 0;<br>    position: absolute;<br>    bottom: -39px;<br>    left: 30px;<br>}</pre>
+           <p><a href="http://html5snippets.com/snippets/35-css3-comic-bubble-using-triangle-trick">Code Source</a></p>
+           <p>每当讨论到对话气泡时，无数的用户界面用途就会浮现出来。这些可以用于处理讨论评述，或者创建公告版，或者显示引用文本。只需将下面的类加入你的样式表，你也可以从<a href="http://html5snippets.com/snippets/35-css3-comic-bubble-using-triangle-trick">这贴 CSS3代码片段</a>  找到相关的HTML代码。</p>
            <p>&nbsp;</p>
+           <p>例子</p>
+          <style type="text/css">
+              .chat-bubble {
+				background-color: #ededed;
+				border: 2px solid #666;
+				font-size: 35px;
+				line-height: 1.3em;
+				margin: 10px auto;
+				padding: 10px;
+				position: relative;
+				text-align: center;
+				width: 300px;
+				-moz-border-radius: 20px;
+				-webkit-border-radius: 20px;
+				-moz-box-shadow: 0 0 5px #888;
+				-webkit-box-shadow: 0 0 5px #888;
+				font-family: 'Bangers', arial, serif; 
+			}
+			.chat-bubble-arrow-border {
+				border-color: #666 transparent transparent transparent;
+				border-style: solid;
+				border-width: 20px;
+				height: 0;
+				width: 0;
+				position: absolute;
+				bottom: -42px;
+				left: 30px;
+			}
+			.chat-bubble-arrow {
+				border-color: #ededed transparent transparent transparent;
+				border-style: solid;
+				border-width: 20px;
+				height: 0;
+				width: 0;
+				position: absolute;
+				bottom: -39px;
+				left: 30px;
+			}
+           </style>
+           <div class="chat-bubble"></div>
            <h3 paragraph>网页顶端阴影</h3>
            <p>&nbsp;</p>
            <h3 paragraph>网页顶端阴影</h3>
