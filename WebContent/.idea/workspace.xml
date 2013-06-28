@@ -5,8 +5,8 @@
     <ignored path="WebContent.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Node.js 读书笔记.html" changelist="afe47d68-4653-4825-9b0d-383326efe8ac" time="1368368395811" ignored="false" />
-    <file path="/a.js" changelist="afe47d68-4653-4825-9b0d-383326efe8ac" time="1368280730852" ignored="false" />
-    <file path="/a.html" changelist="afe47d68-4653-4825-9b0d-383326efe8ac" time="1368280940260" ignored="false" />
+    <file path="/a.js" changelist="afe47d68-4653-4825-9b0d-383326efe8ac" time="1372232562695" ignored="false" />
+    <file path="/a.html" changelist="afe47d68-4653-4825-9b0d-383326efe8ac" time="1372232557230" ignored="false" />
     <file path="$PROJECT_DIR$/web/open_source_js/node/study/microblog/package.json" changelist="afe47d68-4653-4825-9b0d-383326efe8ac" time="1368284479827" ignored="false" />
     <file path="$PROJECT_DIR$/web/open_source_js/node/study/microblog/settings.js" changelist="afe47d68-4653-4825-9b0d-383326efe8ac" time="1368283727872" ignored="false" />
     <file path="$PROJECT_DIR$/web/open_source_js/node/study/microblog/models/mongodb.js" changelist="afe47d68-4653-4825-9b0d-383326efe8ac" time="1368283843839" ignored="false" />
@@ -23,6 +23,8 @@
     <file path="/base.css" changelist="afe47d68-4653-4825-9b0d-383326efe8ac" time="1370509124289" ignored="false" />
     <file path="/tree.html" changelist="afe47d68-4653-4825-9b0d-383326efe8ac" time="1370509627445" ignored="false" />
     <file path="/web.css" changelist="afe47d68-4653-4825-9b0d-383326efe8ac" time="1370509401718" ignored="false" />
+    <file path="/a.coffee" changelist="afe47d68-4653-4825-9b0d-383326efe8ac" time="1372232566735" ignored="false" />
+    <file path="$PROJECT_DIR$/web/jquery/myplugins/grids/javascript/jqgrid/src/css/ellipsis-xbl.xml" changelist="afe47d68-4653-4825-9b0d-383326efe8ac" time="1372240897456" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,18 +45,9 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="49" selection-start="2499" selection-end="2505" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/others/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="87" selection-start="589" selection-end="589" vertical-scroll-proportion="0.0">
+            <state line="12" column="87" selection-start="589" selection-end="589" vertical-scroll-proportion="-0.83870965">
               <folding />
             </state>
           </provider>
@@ -117,21 +110,17 @@
       <file leaf-file-name="layout.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/platform/javascript/view/layout.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="289" column="48" selection-start="12956" selection-end="12971" vertical-scroll-proportion="0.038291607">
-              <folding>
-                <marker date="1367995945679" expanded="true" signature="815:2739" placeholder="..." />
-                <marker date="1367995945679" expanded="true" signature="880:956" placeholder="..." />
-                <marker date="1367995945679" expanded="true" signature="1011:2712" placeholder="..." />
-                <marker date="1367995945679" expanded="true" signature="1077:2681" placeholder="..." />
-                <marker date="1367995945679" expanded="true" signature="1115:1488" placeholder="..." />
-                <marker date="1367995945679" expanded="false" signature="1336:1350" placeholder="..." />
-                <marker date="1367995945679" expanded="true" signature="1351:1449" placeholder="..." />
-                <marker date="1367995945679" expanded="true" signature="1560:2340" placeholder="..." />
-                <marker date="1367995945679" expanded="true" signature="1749:2301" placeholder="..." />
-                <marker date="1367995945679" expanded="true" signature="1814:2071" placeholder="..." />
-                <marker date="1367995945679" expanded="true" signature="2433:2646" placeholder="..." />
-                <marker date="1367995945679" expanded="false" signature="2587:2600" placeholder="..." />
-              </folding>
+            <state line="300" column="86" selection-start="0" selection-end="14898" vertical-scroll-proportion="0.039573822">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jqgrid customized column.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/jquery/myplugins/grids/javascript/jqgrid customized column.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="48" column="1" selection-start="1507" selection-end="1507" vertical-scroll-proportion="-40.258064">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -165,6 +154,8 @@
         <option value="$PROJECT_DIR$/platform/css/base.css" />
         <option value="$PROJECT_DIR$/platform/css/web.css" />
         <option value="$PROJECT_DIR$/web/jquery/myplugins/trees/tree.html" />
+        <option value="$PROJECT_DIR$/web/jquery/myplugins/grids/javascript/jqgrid customized column.json" />
+        <option value="$PROJECT_DIR$/platform/javascript/view/layout.js" />
       </list>
     </option>
   </component>
@@ -173,6 +164,23 @@
     <option name="y" value="-8" />
     <option name="width" value="1616" />
     <option name="height" value="876" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>GeneralJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+        </expanded-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -200,6 +208,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -315,8 +324,30 @@
               <option name="myItemId" value="myplugins" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="trees" />
+              <option name="myItemId" value="WebContent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebContent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jquery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myplugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grids" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -339,6 +370,14 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="myplugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grids" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javascript" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -398,17 +437,16 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="preferences.sourceCode.HTML" />
+    <property name="options.lastSelected" value="Errors" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -461,13 +499,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22828154" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22828154" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -545,11 +583,6 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/web/open_source_js/node/study/Node.js 读书笔记.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="270" column="55" selection-start="16916" selection-end="16916" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/open_source_js/node/study/Node.js 读书笔记.html">
-      <provider selected="true" editor-type-id="text-editor">
         <state line="278" column="59" selection-start="17198" selection-end="17198" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
@@ -572,7 +605,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/others/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="87" selection-start="589" selection-end="589" vertical-scroll-proportion="0.0">
+        <state line="12" column="87" selection-start="589" selection-end="589" vertical-scroll-proportion="-0.83870965">
           <folding />
         </state>
       </provider>
@@ -636,23 +669,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/jquery/myplugins/grids/javascript/jqgrid customized column.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="1" selection-start="1507" selection-end="1507" vertical-scroll-proportion="-40.258064">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/platform/javascript/view/layout.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="289" column="48" selection-start="12956" selection-end="12971" vertical-scroll-proportion="0.038291607">
-          <folding>
-            <marker date="1367995945679" expanded="true" signature="815:2739" placeholder="..." />
-            <marker date="1367995945679" expanded="true" signature="880:956" placeholder="..." />
-            <marker date="1367995945679" expanded="true" signature="1011:2712" placeholder="..." />
-            <marker date="1367995945679" expanded="true" signature="1077:2681" placeholder="..." />
-            <marker date="1367995945679" expanded="true" signature="1115:1488" placeholder="..." />
-            <marker date="1367995945679" expanded="false" signature="1336:1350" placeholder="..." />
-            <marker date="1367995945679" expanded="true" signature="1351:1449" placeholder="..." />
-            <marker date="1367995945679" expanded="true" signature="1560:2340" placeholder="..." />
-            <marker date="1367995945679" expanded="true" signature="1749:2301" placeholder="..." />
-            <marker date="1367995945679" expanded="true" signature="1814:2071" placeholder="..." />
-            <marker date="1367995945679" expanded="true" signature="2433:2646" placeholder="..." />
-            <marker date="1367995945679" expanded="false" signature="2587:2600" placeholder="..." />
-          </folding>
+        <state line="300" column="86" selection-start="0" selection-end="14898" vertical-scroll-proportion="0.039573822">
+          <folding />
         </state>
       </provider>
     </entry>

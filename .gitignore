@@ -7,4 +7,4 @@ build
 .externalToolBuilders
 nbproject
 build.xml
-.idea
+WebContent/.idea
