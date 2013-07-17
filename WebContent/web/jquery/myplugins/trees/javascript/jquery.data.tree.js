@@ -4,6 +4,15 @@
  * @returns {}
  */
 (function($, undefined) {
+    
+    function removeInArray(array, item) {
+        var index = array.indexOf(item);
+        if (index != -1) {
+            array.splice(index, 1);
+        }
+        return array;
+    }
+    
     $.util = $.util || {};
 
     $.util.support = $.util.support || {};
@@ -63,6 +72,19 @@
         // private
         unregisterNode: function(node) {
             delete this.nodeHash[node.id];
+        },
+                
+        ergodicNode: function(fn) {
+            var root = this.root;
+            var childNodes = root.childNodes;
+            (function(nodes){
+                if (nodes && nodes.length > 0) {
+                    for (var i = 0, len = nodes.length; i < len; i++) {
+                        fn.call(null,nodes[i]);
+                        arguments.callee(nodes[i].childNodes);
+                    }
+                }
+            })(childNodes);
         }
     });
 
@@ -445,6 +467,15 @@
                 p = p.parentNode;
             }
             return false;
+        },
+        
+        getSiblings: function(){
+            var p = this.parentNode;
+            if(p){
+                var childNodes = $.extend([],p.childNodes);
+                return removeInArray(childNodes, this);
+            }
+            return null;
         }
     });
 

@@ -1,0 +1,71 @@
+/**
+ * tree panel theme: gray style
+**/
+
+.b-ui-treepanel-gray-hearder, .b-ui-treepanel-gray-content{
+    cursor: pointer;
+    min-height: 40px;
+    line-height: 40px;
+    border: 0 !important;
+    border-top: 1px solid #999999 !important;
+}
+.b-ui-treepanel-gray-hearder{
+    display: block;
+    font-weight: bold !important;
+}
+
+.b-ui-treepanel-gray-hearder span{
+    padding-left: 2px;
+    cursor: pointer;
+}
+
+.b-ui-treepanel-gray-content{
+    color: #333333;
+}
+
+.b-ui-treepanel-gray-content.ui-state-focus{
+    background:none #F9C7AD;
+    color: #777777; 
+}
+
+.b-ui-treepanel-gray-hearder.ui-state-focus{
+    background: #999999;
+    color: #FFFFFF;
+}
+
+.b-ui-treepanel-gray-branch-icon{
+    background: url("images/arrow_right.png") no-repeat;
+    display: inline-block;
+    height: 9px;
+    width: 9px;
+    /* ie6 ie7*/
+    *padding-top: 3px;
+}
+.b-ui-treepanel-gray-branch-icon.expand{ background: url("images/arrow_down2.png") no-repeat;
+    display: inline-block;
+    height: 9px;
+    width: 9px;vertical-align: middle;}
+
+.ui-state-active .b-ui-treepanel-gray-branch-icon{
+    background: url("images/arrow_down.png") no-repeat;
+}
+
+.b-ui-treepanel-gray-hearder.ui-state-active{
+    background: none #CCCCCC;
+}
+.b-ui-treepanel-gray-content.ui-state-active{
+    background: #F9C7AD;
+    color: #777777; 
+}
+
+.b-ui-treepanel-gray-level1 {
+    background-color: #CCCCCC;
+}
+
+.b-ui-treepanel-gray-level2.ui-state-active {
+    background-color: #EEEEEE;
+    color: #333333;
+}
+.b-ui-treepanel-gray-level2.ui-state-active .b-ui-treepanel-gray-branch-icon{
+    background-image: url("images/arrow_down2.png");
+}

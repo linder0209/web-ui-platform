@@ -27,7 +27,7 @@
             
             <div class="h-web-demo">
                 <p class="h-margin10-B">独立运行包： <a href="trees.zip" target="_blank">trees.zip</a> </p>
-                <p class="h-margin10-B">以下是例子</p>
+                <p class="h-margin10-B">例子一：简单版</p>
                 
                 <div class="b-setting-menu" id="menuCt">
                     <b class="arrows" id="menuArrows"></b>
@@ -86,21 +86,137 @@
                                 }]
                         });
 
-                    $('#menuCt').treepanel({
-                        nodesData: menuData,
-                        clicknode: function(event, tree, node){
-                            var fn = function(){
-//                                var url = node.attributes.url;
-//                                if(!url){
-//                                    return;
-//                                }
-                                var top = $('#' + node.id).position().top + 8;
-                                $('#menuArrows').css({top: top}).show();
-                            };
+                        $('#menuCt').treepanel({
+                            nodesData: menuData,
+                            clicknode: function(event, tree, node){
+                                var fn = function(){
+                                    var top = $('#' + node.id).position().top + 8;
+                                    $('#menuArrows').css({top: top}).show();
+                                };
 
-                            fn.call(null);
-                        }
+                                fn.call(null);
+                            }
+                        });
                     });
+                </script>
+                
+                <p>&nbsp;</p>
+                <p class="h-margin10-B">例子二：带复选框的树</p>
+                
+                <link rel="stylesheet" href="./theme/gray/style.css" type="text/css"/>
+                
+                <div class="b-setting-menu" id="menuCt2">
+                    
+                </div>
+                <div style="margin-top:10px;">
+                    <button id="tree_btn1">返回所有节点数据</button>
+                    <button id="tree_btn2">返回所有叶子节点数据</button>
+                    <button id="tree_btn3">返回所有已选中的叶子节点数据</button>
+                </div>
+                <script type="text/javascript">
+                    $(function() {
+                       var menuData = [];
+                       menuData.push({
+                            id: 'level1_1',
+                            text: '菜单1',
+                            children: [{
+                                    id: 'level1_1_1',
+                                    text: '菜单11'
+                                }, {
+                                    id: 'level1_1_2',
+                                    text: '菜单12',
+                                    children: [{
+                                            id: 'level1_1_2_1',
+                                            text: '菜单121'
+                                        }, {
+                                            id: 'level1_1_2_2',
+                                            text: '菜单122'
+                                        }]
+                                }]
+                        });
+                        menuData.push({
+                            id: 'level1_2',
+                            text:'菜单2',
+                            children: [{
+                                    id: 'level1_2_1',
+                                    text: '菜单21'
+                                }, {
+                                    id: 'level1_2_2',
+                                    text: '菜单22'
+                                }, {
+                                    id: 'level1_2_3',
+                                    text: '菜单23'
+                                }]
+                        });
+                        
+                        menuData.push({
+                            id: 'level1_3',
+                            text:'菜单3',
+                            children: [{
+                                    id: 'level1_3_1',
+                                    text: '菜单31'
+                                }, {
+                                    id: 'level1_3_2',
+                                    text: '菜单32'
+                                }, {
+                                    id: 'level1_3_3',
+                                    text: '菜单33'
+                                }]
+                        });
+
+                        $('#menuCt2').treepanel({
+                            nodesData: menuData,
+                            baseCls : 'b-ui-treepanel-gray',
+                            width: 'auto',
+                            drawer: false,
+                            multiple : true
+                        });
+                        
+                        $('#tree_btn1').click(function(){
+                            var datas = [];
+                            var fn = function(node){
+                                var data = {
+                                    id: node.id,
+                                    checked: node.checked
+                                };
+                                datas.push(data);
+                            };
+                            
+                            $('#menuCt2').treepanel('getNodesData',fn);
+                            console.log(datas);
+                        });
+                        
+                        $('#tree_btn2').click(function(){
+                            var datas = [];
+                            var fn = function(node){
+                                if(node.isLeaf()){
+                                    var data = {
+                                        id: node.id,
+                                        checked: node.checked
+                                    };
+                                    datas.push(data);
+                                }
+                            };
+                            
+                            $('#menuCt2').treepanel('getNodesData',fn);
+                            console.log(datas);
+                        });
+                        
+                        $('#tree_btn3').click(function(){
+                            var datas = [];
+                            var fn = function(node){
+                                if(node.isLeaf() && node.checked){
+                                    var data = {
+                                        id: node.id,
+                                        checked: node.checked
+                                    };
+                                    datas.push(data);
+                                }
+                            };
+                            
+                            $('#menuCt2').treepanel('getNodesData',fn);
+                            console.log(datas);
+                        });
                     });
                 </script>
              </div>

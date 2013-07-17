@@ -21,7 +21,7 @@
             return values[name] !== undefined ? values[name] : "";
         });
     }
-
+    
     $.widget("ui.treepanel", {
         version: "1.0.0",
         options: {
@@ -37,6 +37,8 @@
             activeNode: null,
             paddingLeft : 13,
             
+            //checkbox 
+            multiple : false,
             //event
             clicknode : null
         },
@@ -75,6 +77,52 @@
                     var node = me.tree.getNodeById(nodeId);
                     this._trigger('clicknode', null, [this, node]);
             };
+            
+            if(this.options.multiple === true){
+                events['click input[type="checkbox"]'] = function(event) {
+                    event.stopPropagation();
+                };
+                
+                events['change input[type="checkbox"]'] = function(event) {
+                    var target = $(event.currentTarget);
+                    var nodeId = target.attr('nodeId');
+                    var checked = target.attr('checked');
+                    var node = this.tree.getNodeById(nodeId);
+                    node.checked = !!checked;
+                    
+                    if(node.isLeaf()){
+                        var parentNodes = node.parentNode;
+                        while(!parentNodes.isRoot){
+                            if(checked){
+                                $('input[nodeId="' + parentNodes.id + '"]').attr('checked',true);
+                            }else{
+                                var siblings = node.getSiblings();
+                                if(siblings && siblings.length >0){
+                                    for (var i = 0, len = siblings.length; i < len; i++) {
+                                        if($('input[nodeId="' + siblings[i].id + '"]').attr('checked')){
+                                            checked = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                                $('input[nodeId="' + parentNodes.id + '"]').attr('checked',!!checked);
+                            }
+                            parentNodes.checked = !!checked;
+                            parentNodes = parentNodes.parentNode;
+                        }
+                    }else{
+                        (function(nodes){
+                            if(nodes && nodes.length > 0){
+                                for (var i = 0, len = nodes.length; i < len; i++) {
+                                    $('input[nodeId="' + nodes[i].id + '"]').attr('checked',!!checked);
+                                    nodes[i].checked = !!checked;
+                                    arguments.callee(nodes[i].childNodes);
+                                }
+                            }
+                        })(node.childNodes);
+                    }
+               };
+            }
                     
             $.extend(events,{
                 'click li.node-leaf': function(event){//leaf
@@ -156,7 +204,8 @@
                 hearderCls: options.baseCls + '-hearder',
                 contentCls: options.baseCls + '-content',
                 branchIconCls: options.baseCls + '-branch-icon',
-                levelCls: options.baseCls + '-level'
+                levelCls: options.baseCls + '-level',
+                checkboxCls: options.baseCls + '-checkbox'
             };
 
             this.treeCls = cls;
@@ -164,7 +213,11 @@
             this.ulTmpl = '<ul class="' + cls.ulCls + '" />';
             this.liTmpl = '<li class="' + cls.liCls + '" />';
             this.headerTmpl = '<header class="' + cls.hearderCls + '" ><i class="' + cls.branchIconCls + '"/><span /></header>';
-            this.contentTmpl = '<div class="' + cls.contentCls + '" />';
+            this.contentTmpl = '<div class="' + cls.contentCls + '" ><label></label></div>';
+            
+            if(this.options.multiple === true){
+                this.checkboxTmpl = '<input type="checkbox" class="' + cls.checkboxCls + '" /> ';
+            }
         },
         /**
          * render the tree panel
@@ -189,9 +242,17 @@
                 var paddingLeft = this.options.paddingLeft * depth;
                 if (leaf) {
                     liEl.addClass('node-leaf');
-                    $(this.contentTmpl).appendTo(liEl).text(node.attributes.text).css('padding-left',paddingLeft);
+                    var contentEl = $(this.contentTmpl).appendTo(liEl).css('padding-left',paddingLeft);
+                    var lableEl = contentEl.children('label').text(node.attributes.text);
+                    if(this.options.multiple === true){
+                        $(this.checkboxTmpl).prependTo(lableEl).attr('nodeId', node.id);
+                    }
                 } else {
-                    $(this.headerTmpl).appendTo(liEl).addClass(this.treeCls.levelCls + depth).css('padding-left',paddingLeft).children('span').text(node.attributes.text);
+                    var headerEl = $(this.headerTmpl).appendTo(liEl).addClass(this.treeCls.levelCls + depth).css('padding-left',paddingLeft);
+                    headerEl.children('span').text(node.attributes.text);
+                    if(this.options.multiple === true){
+                        $(this.checkboxTmpl).prependTo(headerEl).attr('nodeId', node.id);
+                    }
                     ulEl = $(this.ulTmpl).appendTo(liEl).uniqueId();
                     if(this.options.expand <= depth){
                         ulEl.hide();
@@ -238,6 +299,10 @@
             
         _destroy: function() {
             this.treePanel.stop( true, true ).remove();
+        },
+        
+        getNodesData: function(fn){
+            this.tree.ergodicNode(fn);
         }
     });
     

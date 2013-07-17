@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>bootstrap examples dailog</title>
+        <link rel="stylesheet" href="../../../../../../platform/css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../../../platform/css/platform.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../../../platform/css/theme/skyblue.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../../../platform/css/web.css" type="text/css"/>
+    </head>
+    <body style="padding:50px;">
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" type="text/css"/>
+        <a href="#myModal" role="button" class="btn" data-toggle="modal">查看演示案例</a>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">Modal header</h3>
+            </div>
+            <div class="modal-body">
+                <p>One fine body…</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+                <button class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="../../../../../../platform/javascript/jquery/jquery.js"></script>
+        <script type="text/javascript" src="../bootstrap-master/js/bootstrap-modal.js"></script>
+        <script>
+            $(function() {
+                $('a[data-toggle="tooltip"]').mouseover(function() {
+                    $(this).tooltip('show');
+                });
+            });
+
+        </script>
+    </body>
+
+</html>
