@@ -8,25 +8,36 @@
         <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
         <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
     </head>
-    <body>        
-		<h3 class="h-web-paragraph-title">目录</h3>
-        <ol class="h-web-catalogue">
-		    <li><a paragraph="1" href="#">bootstrap相关</a></li>
-            <li><a paragraph="1" href="#">属性选择器</a></li>
-            <li><a paragraph="2" href="#">CSS 背景</a></li>
-            
-        </ol>
-		
-		<div class="h-web-paragraph">
-		  <h3 paragraph="1">bootstrap相关</h3>
-          <p><a href="http://baike.baidu.com/view/1489977.htm" target="_blank">bootstrap介绍</a></p>
-		  <p><a href="http://twitter.github.io/bootstrap/index.html" target="_blank">bootstrap官网</a></p>
-		  <p><a href="http://www.bootcss.com/" target="_blank">bootstrap中文网站</a></p>
-		  <p><a href="http://www.lesscss.net/" target="_blank">less中文官网</a></p>
-            
+    <body>
+        <link rel="stylesheet" href="./bootstrap/bootstrap/css/bootstrap.css" type="text/css"/>
 
-            
-            
+        <h3 class="h-web-paragraph-title">目录</h3>
+        <ol class="h-web-catalogue">
+            <li><a paragraph href="#">bootstrap相关</a></li>
+            <li><a paragraph href="#">bootstrap examples</a></li>
+        </ol>
+
+        <div class="h-web-paragraph">
+            <h3 paragraph>bootstrap相关</h3>
+            <p><a href="http://baike.baidu.com/view/1489977.htm" target="_blank">bootstrap介绍</a></p>
+            <p><a href="http://twitter.github.io/bootstrap/index.html" target="_blank">bootstrap官网</a></p>
+            <p><a href="http://www.bootcss.com/" target="_blank">bootstrap中文网站</a></p>
+            <p><a href="http://www.lesscss.net/" target="_blank">less中文官网</a></p>
+
+            <h3 paragraph>bootstrap examples</h3>
+            <h4>tooltip</h4>
+            <div style="padding-left: 50px;">
+                <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Tooltip on top">Tooltip on top</a>
+                <script type="text/javascript" src="./bootstrap/bootstrap-master/js/bootstrap-tooltip.js"></script>
+                <script>
+                    $(function() {
+                        $('a[data-toggle="tooltip"]').mouseover(function() {
+                            $(this).tooltip('show');
+                        });
+                    });
+                </script>
+            </div>
+            <p><a href="./bootstrap/examples/tooltip.html">例子</a></p>
         </div>
     </body>
 </html>

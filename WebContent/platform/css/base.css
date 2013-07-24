@@ -30,7 +30,7 @@ li {
 /*******************************************************************************/
 body {
     position: relative;
-    color: #6C6C6C;
+    color: #005B73;
     font-family: "微软雅黑", "宋体", "Helvetica Neue", HelveticaNeue, Helvetica,
         Arial, sans-serif;
     font-size: 12px;
@@ -47,7 +47,7 @@ a {
 
 a:link{
     color: #009EC3;
-    text-decoration: underline;
+    text-decoration: none;
 }
 a:visited{
     color: #f0720d;

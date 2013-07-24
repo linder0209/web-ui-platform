@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>CSS基础——非常有用的css代码片段</title>
+        <link rel="stylesheet" href="../../../../platform/css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/platform.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
+    </head>
+    <body>
+        <h3 class="h-web-paragraph-title">目录</h3>
+        <ol class="h-web-catalogue">
+            <li><a paragraph href="#">CSS 重置</a></li>
+			<li><a paragraph href="#">CSS Clearfix 清除浮层</a></li>
+            <li><a paragraph href="#">跨浏览器的透明度</a></li>
+            <li><a paragraph href="#">CSS 块引用模版</a></li>
+            <li><a paragraph href="#">个性的圆角</a></li>
+            <li><a paragraph href="#">响应式布局样式模板</a></li>
+            <li><a paragraph href="#">锚链接伪类</a></li>
+            <li><a paragraph href="#">花式CSS3 Pull-引文</a></li>
+            <li><a paragraph href="#">全屏背景和CSS3</a></li>
+            <li><a paragraph href="#">垂直居中内容</a></li>
+            <li><a paragraph href="#">polaroid图像边界</a></li>
+            <li><a paragraph href="#">CSS3梯度模板</a></li>
+            <li><a paragraph href="#">CSS3 斑马条纹</a></li>
+            <li><a paragraph href="#">段落首字母</a></li>
+            <li><a paragraph href="#">CSS3盒子模型内部阴影</a></li>
+            <li><a paragraph href="#">CSS3盒子模型外部阴影</a></li>
+            <li><a paragraph href="#">三角形列表前缀</a></li>
+            <li><a paragraph href="#">CSS 固定的页脚</a></li>
+            <li><a paragraph href="#">PNG 图片在 IE6下的透明度</a></li>
+            <li><a paragraph href="#">跨浏览器的最小高度</a></li>
+            <li><a paragraph href="#">CSS3发光输入框</a></li>
+            <li><a paragraph href="#">网页顶端阴影</a></li>
+            <li><a paragraph href="#">CSS3 对话气泡</a></li>
+            <li><a paragraph href="#">纯CSS背景噪声</a></li>
+            <li><a paragraph href="#">CSS3盒子模型内部阴影</a></li>
+            <li><a paragraph href="#">参考资料</a></li>
+        </ol>
+        
+        <div class="h-web-paragraph">
+          <h3 paragraph>CSS 重置</h3>
+            <pre>html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {<br>    margin: 0;<br>    padding: 0;<br>    border: 0;<br>    outline: none;<br>    font-size: 100%;<br>    font: inherit;<br>    vertical-align: baseline;<br>    background: transparent;<br>    -webkit-box-sizing: border-box;<br>    -moz-box-sizing: border-box;<br>    box-sizing: border-box;<br>}<br>body {<br>    font-family: "微软雅黑", "宋体", "Helvetica Neue", HelveticaNeue, Helvetica,<br>        Arial, sans-serif;<br>    font-size: 12px;<br>    line-height: 1;<br>    -webkit-font-smoothing: antialiased;<br>}<br><br>article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }<br>ol, ul { list-style: none; }<br>li {<br>    list-style-type: none;<br>}<br>blockquote, q { quotes: none; }<br>blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }<br><br>table { border-collapse: collapse; border-spacing: 0; }<br>img { border: 0; max-width: 100%; }<br><br>p { font-size: 1.2em; line-height: 1.0em; }</pre>
+          <h3 paragraph>CSS Clearfix 清除浮层</h3>
+          <pre>.h-clearfix {<br>    zoom: 1<br>}<br><br>.h-clearfix:before,.h-clearfix:after {<br>    content: "\0020";<br>    display: block;<br>    height: 0;<br>    visibility: hidden;<br>}<br><br>.h-clearfix:after {<br>    clear: both;<br>}
+          </pre>
+          <h3 paragraph>跨浏览器的透明度</h3>
+          <pre>.transparent {<br>    filter: alpha(opacity=50); /* internet explorer */<br>    -khtml-opacity: 0.5;      /* khtml, old safari */<br>    -moz-opacity: 0.5;       /* mozilla, netscape */<br>    opacity: 0.5;           /* fx, safari, opera */<br>}</pre>
+          
+          <h3 paragraph>CSS 块引用模版</h3>
+          <pre>blockquote {<br>    background: #f9f9f9;<br>    border-left: 10px solid #ccc;<br>    margin: 1.5em 10px;<br>    padding: .5em 10px;<br>    quotes: "\201C""\201D""\2018""\2019";<br>}<br>blockquote:before {<br>    color: #ccc;<br>    content: open-quote;<br>    font-size: 4em;<br>    line-height: .1em;<br>    margin-right: .25em;<br>    vertical-align: -.4em;<br>}<br>blockquote p {<br>    display: inline;<br>}</pre>
+          <p>不是所有的人都必须在他们的网站上使用blockquotes. 但是我认为这是一个很好的元素用于分离引用或是优化博客和网页上的重复内容. 上面的代码为你的blockquotes提供一个默认样式,这样你的内容就不会看起来单调乏味.</p>
+          <p><a href="http://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/">Code Source</a></p>
+          <h3 paragraph>个性的圆角</h3>
+          <pre>#container {<br>    -webkit-border-radius: 4px 3px 6px 10px;<br>    -moz-border-radius: 4px 3px 6px 10px;<br>    -o-border-radius: 4px 3px 6px 10px;<br>    border-radius: 4px 3px 6px 10px;<br>}<br><br>/* alternative syntax broken into each line */<br>#container {<br>    -webkit-border-top-left-radius: 4px;<br>    -webkit-border-top-right-radius: 3px;<br>    -webkit-border-bottom-right-radius: 6px;<br>    -webkit-border-bottom-left-radius: 10px;<br>    <br>    -moz-border-radius-topleft: 4px;<br>    -moz-border-radius-topright: 3px;<br>    -moz-border-radius-bottomright: 6px;<br>    -moz-border-radius-bottomleft: 10px;<br>}<br></pre>
+        
+          <h3 paragraph>响应式布局样式模板</h3>
+          <pre>/* Smartphones (portrait and landscape) ----------- */<br>@media only screen <br>and (min-device-width : 320px) and (max-device-width : 480px) {<br>  /* Styles */<br>}<br><br>/* Smartphones (landscape) ----------- */<br>@media only screen and (min-width : 321px) {<br>  /* Styles */<br>}<br><br>/* Smartphones (portrait) ----------- */<br>@media only screen and (max-width : 320px) {<br>  /* Styles */<br>}<br><br>/* iPads (portrait and landscape) ----------- */<br>@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {<br>  /* Styles */<br>}<br><br>/* iPads (landscape) ----------- */<br>@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {<br>  /* Styles */<br>}<br><br>/* iPads (portrait) ----------- */<br>@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {<br>  /* Styles */<br>}<br><br>/* Desktops and laptops ----------- */<br>@media only screen and (min-width : 1224px) {<br>  /* Styles */<br>}<br><br>/* Large screens ----------- */<br>@media only screen and (min-width : 1824px) {<br>  /* Styles */<br>}<br><br>/* iPhone 4 ----------- */<br>@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) {<br>  /* Styles */<br>}<br></pre>
+          <h3 paragraph>锚链接伪类</h3>
+          <pre>a:link { color: blue; }<br>a:visited { color: purple; }<br>a:hover { color: red; }<br>a:active { color: yellow; }</pre>
+          <p>声明顺序应为：L-V-H-A</p>
+          <h3 paragraph>花式CSS3 Pull-引文</h3>
+          <pre>.has-pullquote:before {<br>/* Reset metrics. */<br>padding: 0;<br>border: none;<br>/* Content */<br>content: attr(data-pullquote);<br>/* Pull out to the right, modular scale based margins. */<br>float: right;<br>width: 320px;<br>margin: 12px -140px 24px 36px;<br>/* Baseline correction */<br>position: relative;<br>top: 5px;<br>/* Typography (30px line-height equals 25% incremental leading) */<br>font-size: 23px;<br>line-height: 30px;<br>}<br><br>.pullquote-adelle:before {<br>font-family: "adelle-1", "adelle-2";<br>font-weight: 100;<br>top: 10px !important;<br>}<br><br>.pullquote-helvetica:before {<br>font-family: "Helvetica Neue", Arial, sans-serif;<br>font-weight: bold;<br>top: 7px !important;<br>}<br><br>.pullquote-facit:before {<br>font-family: "facitweb-1", "facitweb-2", Helvetica, Arial, sans-serif;<br>font-weight: bold;<br>top: 7px !important;<br>}<br></pre>
+          <p>Pull-引文(Pull-quotes)与块引用(blockquotes)不同，它们出现在你的博客或者新闻文章的一边。这些引文经常从文章中引用文本，所以它们和块引用显示的稍许不一样。这些默认类具有一些基础的属性，带有3个可供选择的独特的字体类型。</p>
+          <h3 paragraph>全屏背景和CSS3</h3>
+          <pre>html { <br>    background: url('images/bg.jpg') no-repeat center center fixed; <br>    -webkit-background-size: cover;<br>    -moz-background-size: cover;<br>    -o-background-size: cover;<br>    background-size: cover;<br>}<br></pre>
+          <p><a href="http://css-tricks.com/perfect-full-page-background-image/">Code Source</a></p>
+
+          <p>我应该标注一下这个代码在不支持CSS3语法的老式浏览器中不会正确的工作。然而如果你是在寻找一个不需要关心遗留系统支持的快速的解决方案，这是你能找到的最好的代码段！给你网站背景增加很大的照片同时又能使它们能在你滚动的时候保持可变尺寸和固定不动。</p>
+          <h3 paragraph>垂直居中内容</h3>
+          <pre>.container {<br>    min-height: 6.5em;<br>    display: table-cell;<br>    vertical-align: middle;<br>}</pre>
+          <p><a href="http://www.w3.org/Style/Examples/007/center">Code Source</a></p>
+          <p>使用 margin: 0 auto 技术，很容易就能使内嵌的内容位于你页面的水平正中。然而对垂直的文本要困难的多，尤其是考虑到滚动条和其它的方式。但这个是无需JavaScript就能完美无瑕工作的纯CSS解决方案。</p>
+
+	      <h3 paragraph>polaroid图像边界</h3>
+           <pre>img.polaroid {<br>    background:#000; /*Change this to a background image or remove*/<br>    border:solid #fff;<br>    border-width:6px 6px 20px 6px;<br>    box-shadow:1px 1px 5px #333; /* Standard blur at 5px. Increase for more depth */<br>    -webkit-box-shadow:1px 1px 5px #333;<br>    -moz-box-shadow:1px 1px 5px #333;<br>    height:200px; /*Set to height of your image or desired div*/<br>    width:200px; /*Set to width of your image or desired div*/<br>}</pre>
+           <p><a href="http://www.smipple.net/snippet/kettultim/Polaroid%20Image%20Border%20-%20CSS3">Code Source</a></p>
+          
+          <p>应用这个基础的片段将使你能在你的图像上实现.polaroid 类。这将会创建老照片风格效果，带一个很宽的白边和一些淡淡的阴影。你要更新宽/高数值，以便和你的图片尺寸和网站布局相匹配。</p>
+           <p>例子</p>
+           <style type="text/css">
+              img.polaroid {
+					background:#000; /*Change this to a background image or remove*/
+					border:solid #fff;
+					border-width:6px 6px 20px 6px;
+					box-shadow:1px 1px 5px #333; /* Standard blur at 5px. Increase for more depth */
+					-webkit-box-shadow:1px 1px 5px #333;
+					-moz-box-shadow:1px 1px 5px #333;
+					
+				}
+           </style>
+           <p><img class="polaroid" src="images/mm2.jpg"/></p>
+           <h3 paragraph>CSS3梯度模板</h3>
+           <pre>#colorbox {<br>    background: #629721;<br>    background-image: -webkit-gradient(linear, left top, left bottom, from(#83b842), to(#629721));<br>    background-image: -webkit-linear-gradient(top, #83b842, #629721);<br>    background-image: -moz-linear-gradient(top, #83b842, #629721);<br>    background-image: -ms-linear-gradient(top, #83b842, #629721);<br>    background-image: -o-linear-gradient(top, #83b842, #629721);<br>    background-image: linear-gradient(top, #83b842, #629721);<br>}</pre>
+           <p>CSS3梯度是新技术参数的另一个奇妙的部分。许多特定前缀难以记忆，所以这个代码片段将能为你每个项目节省一点时间。</p>
+           <p>例子</p>
+           <style type="text/css">
+              #colorbox {
+				background: #629721;
+				background-image: -webkit-gradient(linear, left top, left bottom, from(#83b842), to(#629721));
+				background-image: -webkit-linear-gradient(top, #83b842, #629721);
+				background-image: -moz-linear-gradient(top, #83b842, #629721);
+				background-image: -ms-linear-gradient(top, #83b842, #629721);
+				background-image: -o-linear-gradient(top, #83b842, #629721);
+				background-image: linear-gradient(top, #83b842, #629721);
+				height: 50px;
+				line-height: 50px;
+				padding: 10px;
+			}
+           </style>
+          <div id="colorbox">CSS3梯度是新技术参数的另一个奇妙的部分。许多特定前缀难以记忆，所以这个代码片段将能为你每个项目节省一点时间。</div>
+           <h3 paragraph>CSS3 斑马条纹</h3>
+           <pre>tbody tr:nth-child(odd) {<br>    background-color: #ccc;<br>}</pre>
+           <p>这个用在table列表上</p>
+           <h3 paragraph>段落首字母</h3>
+           <pre>p:first-letter{<br>    display: block;<br>    margin: 5px 0 0 5px;<br>    float: left;<br>    color: #ff3366;<br>    font-size: 5.4em;<br>    font-family: Georgia, Times New Roman, serif;<br>}</pre>
+           <h3 paragraph>CSS3盒子模型内部阴影</h3>
+           <pre>#mydiv-inner { <br>    -moz-box-shadow: inset 2px 0 4px #000;<br>    -webkit-box-shadow: inset 2px 0 4px #000;<br>    box-shadow: inset 2px 0 4px #000;<br>}</pre>
+           <p>例子</p>
+          <style type="text/css">
+              #mydiv-inner { 
+					-moz-box-shadow: inset 2px 0 4px #000;
+					-webkit-box-shadow: inset 2px 0 4px #000;
+					box-shadow: inset 2px 0 4px #000;
+					padding:10px;
+				}
+           </style>
+           <div id="mydiv-inner">CSS3盒子模型内部阴影</div>
+           <h3 paragraph>CSS3盒子模外部阴影</h3>
+           <pre>#mydiv-outter { <br>    -webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.52);<br>    -moz-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.52);<br>    box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.52);<br>}</pre>
+           <p>例子</p>
+          <style type="text/css">
+              #mydiv-outter { 
+				-webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.52);
+				-moz-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.52);
+				box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.52);
+				padding:10px;
+			}
+           </style>
+           <div id="mydiv-outter">CSS3盒子模型外部阴影</div>
+          <h3 paragraph>三角形列表前缀</h3>
+           <pre>ul {<br>    margin: 0.75em 0;<br>    padding: 0 1em;<br>    list-style: none;<br>}<br>li:before { <br>    content: "";<br>    border-color: transparent #111;<br>    border-style: solid;<br>    border-width: 0.35em 0 0.35em 0.45em;<br>    display: block;<br>    height: 0;<br>    width: 0;<br>    left: -1em;<br>    top: 0.9em;<br>    position: relative;<br>}</pre>
+           <p><a href="http://jsfiddle.net/chriscoyier/yNZTU/">Code Source</a></p>
+          <p>不管你信不信,反正我是信了.在CSS3中三角形的列表前缀是可能的. 这个看起来太酷了,可惜的是不是所有的浏览器都支持。这个还可以用b元素来实现各种方向的三角。</p>
+           <p>例子</p>
+          <style type="text/css">
+              .triangle ul {
+					margin: 0.75em 0;
+					padding: 0 1em;
+					list-style: none;
+				}
+				.triangle ul li{
+					list-style-type:none;
+					list-style-position:outside;
+				}
+				.triangle ul li:before { 
+					content: "";
+					border-color: transparent #111;
+					border-style: solid;
+					border-width: 0.35em 0 0.35em 0.45em;
+					display: block;
+					height: 0;
+					width: 0;
+					left: -1em;
+					top: 0.9em;
+					position: relative;
+					
+				}
+           </style>
+          <div class="triangle">
+            <ul>
+            	<li></li>
+            </ul>
+           
+          </div>
+           
+           <h3 paragraph>CSS 固定的页脚</h3>
+           <pre>#footer {<br>    position: fixed;<br>    left: 0px;<br>    bottom: 0px;<br>    height: 30px;<br>    width: 100%;<br>    background: #444;<br>}<br> <br>/* IE 6 */<br>* html #footer {<br>    position: absolute;<br>    top: expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');<br>}</pre>
+           <p><a href="http://www.flashjunior.ch/school/footers/fixed.cfm">Code Source</a></p>
+        
+          <p>这个实际用起来比听起来要有用的多, 为你的网站添加一个固定页脚是很简单的. 这些页脚不管页面如何滚动都是固定的,你可以包含一些帮助信息或是联系方式等等. 完美的为用户界面增加价值。这个也可以用在页眉上实现。</p>
+
+           <h3 paragraph>PNG 图片在 IE6下的透明度</h3>
+           <pre>.bg {<br>    width:200px;<br>    height:100px;<br>    background: url(/folder/yourimage.png) no-repeat;<br>    _background:none;<br>    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/folder/yourimage.png',sizingMethod='crop');<br>}<br><br><br>/* 1px gif method */<br>img, .png {<br>    position: relative;<br>    behavior: expression((this.runtimeStyle.behavior="none")&amp;&amp;(this.pngSet?this.pngSet=true:(this.nodeName == "IMG" &amp;&amp; this.src.toLowerCase().indexOf('.png')&gt;-1?(this.runtimeStyle.backgroundImage = "none",<br>       this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + this.src + "', sizingMethod='image')",<br>       this.src = "images/transparent.gif"):(this.origBg = this.origBg? this.origBg :this.currentStyle.backgroundImage.toString().replace('url("','').replace('")',''),<br>       this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + this.origBg + "', sizingMethod='crop')",<br>       this.runtimeStyle.backgroundImage = "none")),this.pngSet=true));<br>}</pre>
+           <p><a href="http://css-tricks.com/snippets/css/png-hack-for-ie-6/">Code Source</a></p>
+           <p>使用透明图片已经变成网站的最基本的实践. 开始的时候是gif图,现在都使用PNG透明图. 不幸的是一些IE老版的浏览器不支持这个透明度属性. 添加上上面的代码就能搞定这个问题.</p>
+           <h3 paragraph>跨浏览器的最小高度</h3>
+           <pre>#container {<br>    min-height: 550px;<br>    height: auto !important;<br>    height: 550px;<br>}</pre>
+           <p>不得不使用min-height的开发者知道都是那些浏览器支持这个属性. 很多新的游览器都支持这个属性, 然而Internet Explorer 和 老版本的 Firefox对这个支持有问题. 上面的代码能解决这个Bug。也可以设置最小宽度。</p>
+           <h3 paragraph>CSS3发光输入框</h3>
+           <pre>input[type=text], textarea {<br>    -webkit-transition: all 0.30s ease-in-out;<br>    -moz-transition: all 0.30s ease-in-out;<br>    -ms-transition: all 0.30s ease-in-out;<br>    -o-transition: all 0.30s ease-in-out;<br>    outline: none;<br>    padding: 3px 0px 3px 3px;<br>    margin: 5px 1px 3px 0px;<br>    border: 1px solid #ddd;<br>}<br> <br>input[type=text]:focus, textarea:focus {<br>    box-shadow: 0 0 5px rgba(81, 203, 238, 1);<br>    padding: 3px 0px 3px 3px;<br>    margin: 5px 1px 3px 0px;<br>    border: 1px solid rgba(81, 203, 238, 1);<br>}</pre>
+           <p><a href="http://css-tricks.com/snippets/css/glowing-blue-input-highlights/">Code Source</a></p>
+
+           <p>我真的喜欢这个基础的自定义CSS3类，这是因为它覆盖默认浏览器行为的方式。我所知道的Chrome &amp; Safar用户对表单里的输入框轮廓很反感。将这些属性加到你的样式表，会给基本的输入框元素设置一个全新的设计。</p>
+
+          <h3 paragraph>网页顶端阴影</h3>
+           <pre>body:before {<br>    content: "";<br>    position: fixed;<br>    top: -10px;<br>    left: 0;<br>    width: 100%;<br>    height: 10px;<br><br>    -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);<br>    -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);<br>    box-shadow: 0px 0px 10px rgba(0,0,0,.8);<br>    z-index: 100;<br>}</pre>
+           <p><a href="http://css-tricks.com/snippets/css/top-shadow/">Code Source</a></p>
+           <p>除了一些令人愉悦的美感，开发者可能找不到它会有多大用处。但我确实享受这个效果，而且显然它是独一无二的！只需将这个CSS 代码附加到你的body元素，就能从你的页面顶部往下显示一个渐渐消退的阴影。</p>
+           <p>例子</p>
+          <style type="text/css">
+              body:before {
+				content: "";
+				position: fixed;
+				top: -10px;
+				left: 0;
+				width: 100%;
+				height: 10px;
+			
+				-webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+				-moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+				box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+				z-index: 100;
+			}
+           </style>
+           
+           <h3 paragraph>CSS3 对话气泡</h3>
+           <pre>.chat-bubble {<br>    background-color: #ededed;<br>    border: 2px solid #666;<br>    font-size: 35px;<br>    line-height: 1.3em;<br>    margin: 10px auto;<br>    padding: 10px;<br>    position: relative;<br>    text-align: center;<br>    width: 300px;<br>    -moz-border-radius: 20px;<br>    -webkit-border-radius: 20px;<br>    -moz-box-shadow: 0 0 5px #888;<br>    -webkit-box-shadow: 0 0 5px #888;<br>    font-family: 'Bangers', arial, serif; <br>}<br>.chat-bubble-arrow-border {<br>    border-color: #666 transparent transparent transparent;<br>    border-style: solid;<br>    border-width: 20px;<br>    height: 0;<br>    width: 0;<br>    position: absolute;<br>    bottom: -42px;<br>    left: 30px;<br>}<br>.chat-bubble-arrow {<br>    border-color: #ededed transparent transparent transparent;<br>    border-style: solid;<br>    border-width: 20px;<br>    height: 0;<br>    width: 0;<br>    position: absolute;<br>    bottom: -39px;<br>    left: 30px;<br>}</pre>
+           <p><a href="http://html5snippets.com/snippets/35-css3-comic-bubble-using-triangle-trick">Code Source</a></p>
+           <p>每当讨论到对话气泡时，无数的用户界面用途就会浮现出来。这些可以用于处理讨论评述，或者创建公告版，或者显示引用文本。只需将下面的类加入你的样式表，你也可以从<a href="http://html5snippets.com/snippets/35-css3-comic-bubble-using-triangle-trick">这贴 CSS3代码片段</a>  找到相关的HTML代码。</p>
+           <p>例子</p>
+          <style type="text/css">
+              .chat-bubble {
+				background-color: #ededed;
+				border: 2px solid #666;
+				font-size: 35px;
+				line-height: 1.3em;
+				margin: 10px auto;
+				padding: 10px;
+				position: relative;
+				text-align: center;
+				width: 300px;
+				-moz-border-radius: 20px;
+				-webkit-border-radius: 20px;
+				-moz-box-shadow: 0 0 5px #888;
+				-webkit-box-shadow: 0 0 5px #888;
+				font-family: 'Bangers', arial, serif; 
+			}
+			.chat-bubble-arrow-border {
+				border-color: #666 transparent transparent transparent;
+				border-style: solid;
+				border-width: 20px;
+				height: 0;
+				width: 0;
+				position: absolute;
+				bottom: -42px;
+				left: 30px;
+			}
+			.chat-bubble-arrow {
+				border-color: #ededed transparent transparent transparent;
+				border-style: solid;
+				border-width: 20px;
+				height: 0;
+				width: 0;
+				position: absolute;
+				bottom: -39px;
+				left: 30px;
+			}
+           </style>
+           <div class="chat-bubble"></div>
+           
+          <h3 paragraph>纯CSS背景噪声</h3>
+           <pre>body {<br>    background-image: url(data:image/png;base64,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);<br>    background-color: #0094d0;<br>}</pre>
+           <p>例子</p>
+          <style type="text/css">
+              .css-background {
+    background-image: url(data:image/png;base64,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);
+    background-color: #0094d0;
+	height:100px;
+}
+           </style>
+           <div class="css-background"></div>
+           <p><em><a href="https://coderwall.com/p/m-uwvg" rel="nofollow">Code Source</a></em></p>
+           <p>虽然通常是使用具有透明度的重复的瓷砖图像。但是我们可以给CSS嵌入Base64编码来生成全新的图像。在上面代码片段的例子中，是在div背景上产生了一个小小的噪声纹理，你也可以在<a href="http://www.noisetexturegenerator.com/" rel="nofollow">噪声纹理发生器</a>创建一个自定义的噪声背景。</p>
+           <h3 paragraph>网页顶端阴影</h3>
+           <p>&nbsp;</p>
+           <h3 paragraph>网页顶端阴影</h3>
+           <p>&nbsp;</p>
+           <h3 paragraph>网页顶端阴影</h3>
+           <p>&nbsp;</p>
+           <h3 paragraph>网页顶端阴影</h3>
+           <p>&nbsp;</p>
+           
+          <h3 paragraph>参考资料</h3>
+          <p><a href="http://www.ahrefmagazine.com/web-design/30-useful-css-snippets-for-developers" target="_blank">30 Useful CSS Snippets for Developers</a></p>
+    </div>
+    </body>
+</html>

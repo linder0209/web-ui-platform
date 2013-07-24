@@ -1,0 +1,498 @@
+@CHARSET "UTF-8";
+
+/*******************************************************************************/
+/*	Reset */
+/*******************************************************************************/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    background: transparent;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body {
+    font-family: "微软雅黑", "宋体", "Helvetica Neue", HelveticaNeue, Helvetica,
+        Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+ol, ul { list-style: none; }
+li {
+    list-style-type: none;
+}
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+img { border: 0; max-width: 100%; }
+
+p { font-size: 1.2em; line-height: 1.0em; }
+
+/*******************************************************************************/
+/* CSS Clearfix 清除浮层 */
+/*******************************************************************************/
+
+.h-clearfix {
+    zoom: 1
+}
+
+.h-clearfix:before,.h-clearfix:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.h-clearfix:after {
+    clear: both;
+}
+
+/*******************************************************************************/
+/* 跨浏览器的透明度 */
+/*******************************************************************************/
+.transparent {
+    filter: alpha(opacity=50); /* internet explorer */
+    -khtml-opacity: 0.5;      /* khtml, old safari */
+    -moz-opacity: 0.5;       /* mozilla, netscape */
+    opacity: 0.5;           /* fx, safari, opera */
+}
+
+/*******************************************************************************/
+/* CSS 块引用模版 */
+/*******************************************************************************/
+blockquote {
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: .5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: .1em;
+    margin-right: .25em;
+    vertical-align: -.4em;
+}
+blockquote p {
+    display: inline;
+}
+/*******************************************************************************/
+/* 个性的圆角 */
+/*******************************************************************************/
+#container {
+    -webkit-border-radius: 4px 3px 6px 10px;
+    -moz-border-radius: 4px 3px 6px 10px;
+    -o-border-radius: 4px 3px 6px 10px;
+    border-radius: 4px 3px 6px 10px;
+}
+
+/* alternative syntax broken into each line */
+#container {
+    -webkit-border-top-left-radius: 4px;
+    -webkit-border-top-right-radius: 3px;
+    -webkit-border-bottom-right-radius: 6px;
+    -webkit-border-bottom-left-radius: 10px;
+
+    -moz-border-radius-topleft: 4px;
+    -moz-border-radius-topright: 3px;
+    -moz-border-radius-bottomright: 6px;
+    -moz-border-radius-bottomleft: 10px;
+}
+
+/*******************************************************************************/
+/* 响应式布局样式模板 */
+/*******************************************************************************/
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) and (max-device-width : 480px) {
+    /* Styles */
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width : 321px) {
+    /* Styles */
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+    /* Styles */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    /* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+    /* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+    /* Styles */
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width : 1224px) {
+    /* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width : 1824px) {
+    /* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) {
+    /* Styles */
+}
+
+/*******************************************************************************/
+/* 锚链接伪类 声明顺序应为：L-V-H-A*/
+/*******************************************************************************/
+a:link { color: blue; }
+a:visited { color: purple; }
+a:hover { color: red; }
+a:active { color: yellow; }
+
+/*******************************************************************************/
+/* 花式CSS3 Pull-引文*/
+/*******************************************************************************/
+.has-pullquote:before {
+    /* Reset metrics. */
+    padding: 0;
+    border: none;
+
+    /* Content */
+    content: attr(data-pullquote);
+
+    /* Pull out to the right, modular scale based margins. */
+    float: right;
+    width: 320px;
+    margin: 12px -140px 24px 36px;
+
+    /* Baseline correction */
+    position: relative;
+    top: 5px;
+
+    /* Typography (30px line-height equals 25% incremental leading) */
+    font-size: 23px;
+    line-height: 30px;
+}
+
+.pullquote-adelle:before {
+    font-family: "adelle-1", "adelle-2";
+    font-weight: 100;
+    top: 10px !important;
+}
+
+.pullquote-helvetica:before {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-weight: bold;
+    top: 7px !important;
+}
+
+.pullquote-facit:before {
+    font-family: "facitweb-1", "facitweb-2", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    top: 7px !important;
+}
+/*******************************************************************************/
+/* 全屏背景和CSS3*/
+/*******************************************************************************/
+html { 
+    background: url('images/bg.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+/*******************************************************************************/
+/* 垂直居中内容*/
+/*******************************************************************************/
+.container {
+    min-height: 6.5em;
+    display: table-cell;
+    vertical-align: middle;
+}
+/*******************************************************************************/
+/* polaroid图像边界*/
+/*******************************************************************************/
+img.polaroid {
+    background:#000; /*Change this to a background image or remove*/
+    border:solid #fff;
+    border-width:6px 6px 20px 6px;
+    box-shadow:1px 1px 5px #333; /* Standard blur at 5px. Increase for more depth */
+    -webkit-box-shadow:1px 1px 5px #333;
+    -moz-box-shadow:1px 1px 5px #333;
+    height:200px; /*Set to height of your image or desired div*/
+    width:200px; /*Set to width of your image or desired div*/
+}
+
+/*******************************************************************************/
+/* CSS3梯度模板*/
+/*******************************************************************************/
+#colorbox {
+    background: #629721;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#83b842), to(#629721));
+    background-image: -webkit-linear-gradient(top, #83b842, #629721);
+    background-image: -moz-linear-gradient(top, #83b842, #629721);
+    background-image: -ms-linear-gradient(top, #83b842, #629721);
+    background-image: -o-linear-gradient(top, #83b842, #629721);
+    background-image: linear-gradient(top, #83b842, #629721);
+}
+
+/*******************************************************************************/
+/* CSS3 斑马条纹 用在table列表上 ie6、7、8上不支持*/
+/*******************************************************************************/
+tbody tr:nth-child(odd) {
+    background-color: #ccc;
+}
+/*******************************************************************************/
+/* 段落首字母*/
+/*******************************************************************************/
+p:first-letter{
+    display: block;
+    margin: 5px 0 0 5px;
+    float: left;
+    color: #ff3366;
+    font-size: 5.4em;
+    font-family: Georgia, Times New Roman, serif;
+}
+/*******************************************************************************/
+/* CSS3盒子模型内部阴影*/
+/*******************************************************************************/
+#mydiv-inner { 
+    -moz-box-shadow: inset 2px 0 4px #000;
+    -webkit-box-shadow: inset 2px 0 4px #000;
+    box-shadow: inset 2px 0 4px #000;
+}
+
+/*******************************************************************************/
+/* CSS3盒子模型外部阴影*/
+/*******************************************************************************/
+#mydiv-outter { 
+    -webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.52);
+    -moz-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.52);
+    box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.52);
+}
+
+/*******************************************************************************/
+/* 三角形列表前缀*/
+/*******************************************************************************/
+ul {
+    margin: 0.75em 0;
+    padding: 0 1em;
+    list-style: none;
+}
+li:before { 
+    content: "";
+    border-color: transparent #111;
+    border-style: solid;
+    border-width: 0.35em 0 0.35em 0.45em;
+    display: block;
+    height: 0;
+    width: 0;
+    left: -1em;
+    top: 0.9em;
+    position: relative;
+}
+
+/*******************************************************************************/
+/* CSS 固定的页脚*/
+/*******************************************************************************/
+#footer {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    height: 30px;
+    width: 100%;
+    background: #444;
+}
+
+/* IE 6 */
+* html #footer {
+    position: absolute;
+    top: expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');
+}
+
+/*******************************************************************************/
+/* PNG 图片在 IE6下的透明度*/
+/*******************************************************************************/
+.bg {
+    width:200px;
+    height:100px;
+    background: url(/folder/yourimage.png) no-repeat;
+    _background:none;
+    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/folder/yourimage.png',sizingMethod='crop');
+}
+
+
+/* 1px gif method */
+img, .png {
+    position: relative;
+    behavior: expression((this.runtimeStyle.behavior="none")&&(this.pngSet?this.pngSet=true:(this.nodeName == "IMG" && this.src.toLowerCase().indexOf('.png')>-1?(this.runtimeStyle.backgroundImage = "none",
+        this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + this.src + "', sizingMethod='image')",
+        this.src = "images/transparent.gif"):(this.origBg = this.origBg? this.origBg :this.currentStyle.backgroundImage.toString().replace('url("','').replace('")',''),
+        this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + this.origBg + "', sizingMethod='crop')",
+        this.runtimeStyle.backgroundImage = "none")),this.pngSet=true));
+}
+
+/*******************************************************************************/
+/* 跨浏览器的最小高度*/
+/*******************************************************************************/
+#container {
+    min-height: 550px;
+    height: auto !important;
+    height: 550px;
+}
+
+/*******************************************************************************/
+/* CSS3发光输入框*/
+/*******************************************************************************/
+input[type=text], textarea {
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid #ddd;
+}
+
+input[type=text]:focus, textarea:focus {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid rgba(81, 203, 238, 1);
+}
+
+/*******************************************************************************/
+/* 网页顶端阴影*/
+/*******************************************************************************/
+body:before {
+    content: "";
+    position: fixed;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+
+    -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+    -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+    box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+    z-index: 100;
+}
+
+/*******************************************************************************/
+/* CSS3 对话气泡*/
+/*******************************************************************************/
+.chat-bubble {
+    background-color: #ededed;
+    border: 2px solid #666;
+    font-size: 35px;
+    line-height: 1.3em;
+    margin: 10px auto;
+    padding: 10px;
+    position: relative;
+    text-align: center;
+    width: 300px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-box-shadow: 0 0 5px #888;
+    -webkit-box-shadow: 0 0 5px #888;
+    font-family: 'Bangers', arial, serif; 
+}
+.chat-bubble-arrow-border {
+    border-color: #666 transparent transparent transparent;
+    border-style: solid;
+    border-width: 20px;
+    height: 0;
+    width: 0;
+    position: absolute;
+    bottom: -42px;
+    left: 30px;
+}
+.chat-bubble-arrow {
+    border-color: #ededed transparent transparent transparent;
+    border-style: solid;
+    border-width: 20px;
+    height: 0;
+    width: 0;
+    position: absolute;
+    bottom: -39px;
+    left: 30px;
+}
+
+/*******************************************************************************/
+/* 纯CSS背景噪声*/
+/*******************************************************************************/
+body {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c8TV1mAAAAG3RSTlNAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAvEOwtAAAFVklEQVR4XpWWB67c2BUFb3g557T/hRo9/WUMZHlgr4Bg8Z4qQgQJlHI4A8SzFVrapvmTF9O7dmYRFZ60YiBhJRCgh1FYhiLAmdvX0CzTOpNE77ME0Zty/nWWzchDtiqrmQDeuv3powQ5ta2eN0FY0InkqDD73lT9c9lEzwUNqgFHs9VQce3TVClFCQrSTfOiYkVJQBmpbq2L6iZavPnAPcoU0dSw0SUTqz/GtrGuXfbyyBniKykOWQWGqwwMA7QiYAxi+IlPdqo+hYHnUt5ZPfnsHJyNiDtnpJyayNBkF6cWoYGAMY92U2hXHF/C1M8uP/ZtYdiuj26UdAdQQSXQErwSOMzt/XWRWAz5GuSBIkwG1H3FabJ2OsUOUhGC6tK4EMtJO0ttC6IBD3kM0ve0tJwMdSfjZo+EEISaeTr9P3wYrGjXqyC1krcKdhMpxEnt5JetoulscpyzhXN5FRpuPHvbeQaKxFAEB6EN+cYN6xD7RYGpXpNndMmZgM5Dcs3YSNFDHUo2LGfZuukSWyUYirJAdYbF3MfqEKmjM+I2EfhA94iG3L7uKrR+GdWD73ydlIB+6hgref1QTlmgmbM3/LeX5GI1Ux1RWpgxpLuZ2+I+IjzZ8wqE4nilvQdkUdfhzI5QDWy+kw5Wgg2pGpeEVeCCA7b85BO3F9DzxB3cdqvBzWcmzbyMiqhzuYqtHRVG2y4x+KOlnyqla8AoWWpuBoYRxzXrfKuILl6SfiWCbjxoZJUaCBj1CjH7GIaDbc9kqBY3W/Rgjda1iqQcOJu2WW+76pZC9QG7M00dffe9hNnseupFL53r8F7YHSwJWUKP2q+k7RdsxyOB11n0xtOvnW4irMMFNV4H0uqwS5ExsmP9AxbDTc9JwgneAT5vTiUSm1E7BSflSt3bfa1tv8Di3R8n3Af7MNWzs49hmauE2wP+ttrq+AsWpFG2awvsuOqbipWHgtuvuaAE+A1Z/7gC9hesnr+7wqCwG8c5yAg3AL1fm8T9AZtp/bbJGwl1pNrE7RuOX7PeMRUERVaPpEs+yqeoSmuOlokqw49pgomjLeh7icHNlG19yjs6XXOMedYm5xH2YxpV2tc0Ro2jJfxC50ApuxGob7lMsxfTbeUv07TyYxpeLucEH1gNd4IKH2LAg5TdVhlCafZvpskfncCfx8pOhJzd76bJWeYFnFciwcYfubRc12Ip/ppIhA1/mSZ/RxjFDrJC5xifFjJpY2Xl5zXdguFqYyTR1zSp1Y9p+tktDYYSNflcxI0iyO4TPBdlRcpeqjK/piF5bklq77VSEaA+z8qmJTFzIWiitbnzR794USKBUaT0NTEsVjZqLaFVqJoPN9ODG70IPbfBHKK+/q/AWR0tJzYHRULOa4MP+W/HfGadZUbfw177G7j/OGbIs8TahLyynl4X4RinF793Oz+BU0saXtUHrVBFT/DnA3ctNPoGbs4hRIjTok8i+algT1lTHi4SxFvONKNrgQFAq2/gFnWMXgwffgYMJpiKYkmW3tTg3ZQ9Jq+f8XN+A5eeUKHWvJWJ2sgJ1Sop+wwhqFVijqWaJhwtD8MNlSBeWNNWTa5Z5kPZw5+LbVT99wqTdx29lMUH4OIG/D86ruKEauBjvH5xy6um/Sfj7ei6UUVk4AIl3MyD4MSSTOFgSwsH/QJWaQ5as7ZcmgBZkzjjU1UrQ74ci1gWBCSGHtuV1H2mhSnO3Wp/3fEV5a+4wz//6qy8JxjZsmxxy5+4w9CDNJY09T072iKG0EnOS0arEYgXqYnXcYHwjTtUNAcMelOd4xpkoqiTYICWFq0JSiPfPDQdnt+4/wuqcXY47QILbgAAAABJRU5ErkJggg==);
+    background-color: #0094d0;
+}
+
+/*******************************************************************************/
+/* 网页顶端阴影*/
+/*******************************************************************************/
+
+/*******************************************************************************/
+/* 网页顶端阴影*/
+/*******************************************************************************/
+
+/*******************************************************************************/
+/* 网页顶端阴影*/
+/*******************************************************************************/
+
+/*******************************************************************************/
+/* 网页顶端阴影*/
+/*******************************************************************************/
+
+/*******************************************************************************/
+/* 网页顶端阴影*/
+/*******************************************************************************/
+
+
+/*******************************************************************************/
+/* 网页顶端阴影*/
+/*******************************************************************************/
+
+
+/*******************************************************************************/
+/* 网页顶端阴影*/
+/*******************************************************************************/
+
+
+/*******************************************************************************/
+/* 网页顶端阴影*/
+/*******************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -73,6 +73,7 @@ $( ":tabbable" ).css( "border-color", "red" );// 1 2 匹配成功，不设置tab
             <p>返回元素垂直和水平滚动条的宽度，返回值格式为：{width:0,height:0}。该方法传入的参数within需要调用$.position.getWithinInfo(element)包装一下。</p>
             <h4>$.fn.position(options ) </h4>
             <p>设置一个元素相对于另一个元素的位置坐标（<span class="h-web-font-red">注意：设置前请先确保该元素可见，如果先设置position再显示该元素，会造成坐标计算错误</span>）</p>
+            <p class="h-web-font-red">另外需要注意的是该方法取该元素的当前坐标，然后再计算，如果每次调用该方法时想让该元素坐标恢复到原来的0坐标，需要动态设置，如：el.css({left:0, top:0});</p>
             <p>参数options有以下几个选项</p>
             <p>my：设置该元素定位的参照点，是以该元素来计算坐标的。默认值为: 'center'，相当于'center center'，该选项中有两个值，前一个值指水平方向，后一个指垂直方向。A single value such as "right" will be normalized to "right center", "top" will be normalized to "center top"，还可以设置为以下值："right+10 top-25%"。</p>
           <p>at：设置该元素要定位的坐标点，是以目标元素来计算的。默认值为: 'center'，可设置的值与<span class="h-web-font-red">'my'</span>中一样。</p>

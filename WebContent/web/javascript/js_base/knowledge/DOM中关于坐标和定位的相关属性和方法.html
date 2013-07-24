@@ -14,9 +14,11 @@
             <li><a paragraph="1" href="#">window对象中坐标和位置的相关属性</a></li>
             <li><a paragraph="2" href="#">document.body对象中坐标和位置的相关属性</a></li>
 			<li><a paragraph="3" href="#">其他DOM元素对象中坐标和位置的相关属性</a></li>
+			<li><a paragraph="3" href="#">window.scrollTo(top,left)</a></li>
+			<li>jQuery中相关方法</li>
         </ol>
     <div class="h-web-paragraph">
-          <h3 paragraph="1">window对象中坐标和位置的相关属性</h3>
+      <h3 paragraph="1">window对象中坐标和位置的相关属性</h3>
           <p>包含以下几个属性</p>
           <p>浏览器距离屏幕y坐标值：window.screenTop ，firefox中用window.screen.top代替</p>
           <p>浏览器距离屏幕x坐标值：window.screenLeft ，firefox中用window.screen.left代替 </p>
@@ -529,7 +531,12 @@ console.log(window.screen.availTop); //屏幕可见工作区y坐标<br>console.l
       <p>以下是测试代码</p>
       <pre>&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>    &lt;head&gt;<br>        &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /&gt;<br>        &lt;title&gt;&lt;/title&gt;<br>        &lt;style type="text/css"&gt;<br>            #outerDiv{<br>                padding: 15px;<br>                margin: 25px;<br>                border: 5px solid #005B73;<br>                width: 300px;<br>                height:200px;<br>                overflow: auto;<br>            }<br>            <br>            #innerDiv{<br>                padding: 9px;<br>                margin: 21px;<br>                border: 8px solid #005B73;<br>                width: 500px;<br>                height:300px;<br>                overflow: scroll;<br>            }<br>        &lt;/style&gt;<br>    &lt;/head&gt;<br>    &lt;body&gt;<br>        &lt;div id="outerDiv"&gt;<br>            &lt;div style="overflow:scroll;"&gt;上侧div&lt;/div&gt;<br>            &lt;div id="innerDiv"&gt;<br>                测试内容<br>            &lt;/div&gt;<br>        &lt;/div&gt;<br>    &lt;/body&gt;<br>    &lt;script type="text/javascript"&gt;<br>        var innerDiv = document.getElementById('innerDiv');<br>        console.log('clientWidth 的值： ' + innerDiv.clientWidth);<br>        console.log('clientHeight 的值： ' + innerDiv.clientHeight);<br>        console.log('clientLeft 的值： ' + innerDiv.clientLeft);<br>        console.log('clientTop 的值： ' + innerDiv.clientTop);<br>        <br>        console.log('offsetParent 的值： ' + innerDiv.offsetParent);<br>        console.log('offsetWidth 的值： ' + innerDiv.offsetWidth);<br>        console.log('offsetHeight 的值： ' + innerDiv.offsetHeight);<br>        console.log('offsetLeft 的值： ' + innerDiv.offsetLeft);<br>        console.log('offsetTop 的值： ' + innerDiv.offsetTop);<br>        <br>        console.log('scrollWidth 的值： ' + innerDiv.scrollWidth);<br>        console.log('scrollHeight 的值： ' + innerDiv.scrollHeight);<br>        console.log('scrollLeft 的值： ' + innerDiv.scrollLeft);<br>        console.log('scrollTop 的值： ' + innerDiv.scrollTop);<br>    &lt;/script&gt;<br>&lt;/html&gt;</pre>
       <p>&nbsp;</p>
-      <p>参考资料：<a href="http://www.w3.org/TR/cssom-view/" target="_blank">w3c官方解释</a></p>      
-      </div>
+      <p>参考资料：<a href="http://www.w3.org/TR/cssom-view/" target="_blank">w3c官方解释</a></p>   
+      <h3 paragraph="4">window.scrollTo(top,left)</h3>
+      <p>该方法是用来定位window滚动条的位置，如果设置不显示滚动条，</p>
+      
+      <h3 paragraph="5">jQuery中相关方法</h3>
+         
+    </div>
     </body>
 </html>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menus>
+    <display-name>其他</display-name>
+    <description>其他相关</description>
+
+    <menu>
+        <id>level_1</id>
+        <name>常用工具包</name>
+        <module>tools</module>
+        <children id="level_1_1" name="转换工具" href="./tools/convert/index.html" module="convert" />
+    </menu>
+</menus>

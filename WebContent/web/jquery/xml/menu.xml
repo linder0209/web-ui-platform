@@ -32,5 +32,6 @@
         <module>myplugins</module>
         <children id="level4_1" name="与表单form有关的插件" href="./myplugins/forms/index.html" module="forms" />
         <children id="level4_2" name="grid插件" href="./myplugins/grids/index.html" module="girds" />
+        <children id="level4_3" name="tree插件" href="./myplugins/trees/index.html" module="trees" />
     </menu>
 </menus>

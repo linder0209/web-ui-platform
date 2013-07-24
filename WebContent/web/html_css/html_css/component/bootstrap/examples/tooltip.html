@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>bootstrap examples tooltip</title>
+        <link rel="stylesheet" href="../../../../../../platform/css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../../../platform/css/platform.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../../../platform/css/theme/skyblue.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../../../platform/css/web.css" type="text/css"/>
+    </head>
+    <body style="padding:50px;">
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" type="text/css"/>
+        <div class="h-web-paragraph">
+            <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Tooltip on top">Tooltip on top</a>
+        </div>
+
+        <script type="text/javascript" src="../../../../../../platform/javascript/jquery/jquery.js"></script>
+        <script type="text/javascript" src="../bootstrap-master/js/bootstrap-tooltip.js"></script>
+        <script>
+            $(function() {
+                $('a[data-toggle="tooltip"]').mouseover(function() {
+                    $(this).tooltip('show');
+                });
+            });
+
+        </script>
+    </body>
+
+</html>
