@@ -9,4 +9,10 @@
         <module>tools</module>
         <children id="level_1_1" name="转换工具" href="./tools/convert/index.html" module="convert" />
     </menu>
+    <menu>
+        <id>level_2</id>
+        <name>插件开发</name>
+        <module>plugins</module>
+        <children id="level_2_1" name="浏览器插件开发" href="./plugins/browser/index.html" module="browser" />
+    </menu>
 </menus>
