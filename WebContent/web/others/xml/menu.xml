@@ -5,9 +5,10 @@
 
     <menu>
         <id>level_1</id>
-        <name>常用工具包</name>
+        <name>开发必备</name>
         <module>tools</module>
         <children id="level_1_1" name="转换工具" href="./tools/convert/index.html" module="convert" />
+        <children id="level_1_2" name="相关软件" href="./tools/software/index.html" module="software" />
     </menu>
     <menu>
         <id>level_2</id>

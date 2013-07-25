@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Wampserver</title>
+        <link rel="stylesheet" href="../../../../platform/css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/platform.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/javascript/jquery-ui/css/jquery-ui.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/javascript/jquery-ui/css/jquery.ui.theme.css" type="text/css"/>
+    </head>
+    <body>
+        <div class="h-web-paragraph">
+          <p>Wamp就是Windows Apache Mysql PHP集成安装环境，即在window下的apache、php和mysql的服务器软件。PHP扩展、Apache模块，开启/关闭鼠标点点就搞定，再也不用亲自去修改配置文件了，WAMP它会去做。再也不用到处询问php的安装问题了，WAMP一切都搞定了。</p>
+          <p><a href="http://www.wampserver.com/en/" target="_blank">官网下载地址</a>，安装很简单，一路next就可以了。</p>
+          <p>下面是一些需要设置的参数</p>
+          <p class="h-web-font-red">web根目录更改</p>
+          <p>Wampserver安装好后，&ldquo;www目录&rdquo;默认为X:\wamp\www，也就是wampserver安装目录下的www文件夹。实际使用中，默认设置往往不是我们想要的，可能改成其他文件夹更适合我们，比如D:\site 或者 E:\www 等等。那该如何更改呢，现在我就和大家分享一个非常简单的方法，下面以改为D:\site为例。</p>
+          <p>打开wamp\scripts\config.inc.php，</p>
+          <p>第47行，$wwwDir = $c_installDir.&rsquo;/www&rsquo;;</p>
+          <p>修改为：$wwwDir = &lsquo;D:/site&rsquo;;即可。（其中，$c_installDir是个变量，指WAMPserver安装根目录）</p>
+          <p>以上设置Apache默认根目录并没有改过来，我们还需要修改Apache默认根目录</p>
+          <p>打开wamp\bin\apache\apache2.4.4\conf\httpd.conf,修改DocumentRoot的值。</p>
+          <p>比如将DocumentRoot &ldquo;D:/wamp/www/&rdquo;</p>
+          <p>改成DocumentRoot &ldquo;D:/site/&rdquo;</p>
+          <p>同时将&lt;Directory &ldquo;D:/wamp/www/&ldquo;&gt;</p>
+          <p>改成&lt;Directory &ldquo;D:/site/&ldquo;&gt;</p>
+          <p>重启wampserver即可生效。</p>
+          <p class="h-web-font-red">允许外网访问</p>
+          <p>wamp 默认是禁止外网访问APACHE的，左键点击右下的wamp图标Apache - httpd.conf ，搜索关键字 "deny from"，会发现一处 "deny from"将其下的一行"Allow from 127.0.0.1" 之前加一个 #号，表示注释掉，新插入一行，手动输入Allow from all 。保存，重新启动下apache 服务就可以允许外网访问了。</p>
+          <p class="h-web-font-red">端口的设置</p>
+          <p>默认端口是80，如果想要设为其他端口，只需修改文件D:\wamp\bin\apache\Apache2.4.4\conf\httpd.conf 中 Listen 参数，修改成自己想要的值，比如“Listen 8081”，然后重启服务即可。</p>
+    </div>
+    </body>
+</html>
