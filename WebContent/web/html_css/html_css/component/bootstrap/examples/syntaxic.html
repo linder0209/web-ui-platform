@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>bootstrap examples dailog</title>
+        <link rel="stylesheet" href="../../../../../../platform/css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../../../platform/css/platform.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../../../platform/css/theme/skyblue.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../../../platform/css/web.css" type="text/css"/>
+    </head>
+    <body style="padding:50px;">
+        <form class="form-horizontal">
+            <div class="control-group">
+                <label class="control-label" for="inputEmail">用户名</label>
+                <div class="controls">
+                    <input type="text" id="inputEmail" placeholder="用户名">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputPassword">密码</label>
+                <div class="controls">
+                    <input type="password" id="inputPassword" placeholder="密码">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputInfo">球队信息</label>
+                <div class="controls">
+                    <input type="text" id="inputInfo" placeholder="球队信息">
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" class="btn">确定</button>
+                </div>
+            </div>
+        </form>
+
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" type="text/css"/>
+        <a href="#myModal" role="button" class="btn" data-toggle="modal">查看演示案例</a>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">交易单</h3>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="control-group">
+                        <div class="controls">
+                            球队相关信息<br/>
+                            可赢金额：0<br/>
+                            单注最低：50<br/>
+                            单注最高：10,000<br/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputMoney">交易金额</label>
+                        <div class="controls">
+                            <input type="text" id="inputMoney" placeholder="交易金额">
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+                <button class="btn btn-primary">确定交易</button>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="../../../../../../platform/javascript/jquery/jquery.js"></script>
+        <script type="text/javascript" src="../bootstrap-master/js/bootstrap-modal.js"></script>
+        <script>
+            $(function() {
+            $('a[data-toggle="tooltip"]').mouseover(function() {
+            $(this).tooltip('show');
+            });
+            });
+
+        </script>
+    </body>
+
+</html>
