@@ -57,7 +57,9 @@
                 <p>下面的代码片段演示了扩展如何在背景页中与其他页面交互。同时也展示如何使用背景页来处理事件，如用户点击。</p>
                 <p>例子中的扩展有一个背景页，多个由image.html创建的view页面。（通过<a href="http://open.chrome.360.cn/extension_dev/tabs.html#method-create">chrome.tabs.create()</a>）。</p>
                 <pre>//In background.js:<br>// React when a browser action's icon is clicked.<br>chrome.browserAction.onClicked.addListener(function(tab) {<br>  var viewTabUrl = chrome.extension.getURL('image.html');<br>  var imageUrl = /* an image's URL */;<br>  // Look through all the pages in this extension to find one we can use.<br>  var views = chrome.extension.getViews();<br>  for (var i = 0; i &lt; views.length; i++) {<br>    var view = views[i];<br>    // If this view has the right URL and hasn't been used yet...<br>    if (view.location.href == viewTabUrl &amp;&amp; !view.imageAlreadySet) {<br>      // ...call one of its functions and set a property.<br>      view.setImageUrl(imageUrl);<br>      view.imageAlreadySet = true;<br>      break; // we're done<br>    }<br>  }<br>});<br>//In image.html:<br>&lt;html&gt;<br>  &lt;script&gt;<br>    function setImageUrl(url) {<br>      document.getElementById('target').src = url;<br>    }<br>  &lt;/script&gt;<br>  &lt;body&gt;<br>    &lt;p&gt;<br>    Image here:<br>    &lt;/p&gt;<br>    &lt;img id="target" src="white.png" width="640" height="480"&gt;<br>  &lt;/body&gt;<br>&lt;/html&gt;</pre>
-                <p>&nbsp;</p>
+                <h5>content_scripts </h5>
+                <p><a href="http://open.chrome.360.cn/extension_dev/content_scripts.html" target="_blank">参考地址</a></p>
+                <p>content_scripts是用来加载注入css和js的，这样启用该插件时，就会在当前页面中根据需要处理页面中的元素了，包括增加、查询等操作，当然也可以删除当前页面中的某些DOM节点（但一般不这样处理，会破坏原来的页面结构，像是黑客啊）</p>
               </div>
               <p>&nbsp;</p>
           </div>

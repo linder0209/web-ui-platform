@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>jQuery中事件分析（click来说明）</title>
+        <link rel="stylesheet" href="../../../../platform/css/base.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/platform.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/theme/skyblue.css" type="text/css"/>
+        <link rel="stylesheet" href="../../../../platform/css/web.css" type="text/css"/>
+        
+        <script type="text/javascript" src="../../../../platform/javascript/jquery/jquery.js"></script>
+    </head>
+    <body>
+        <div class="h-web-paragraph">
+            <p>看下面例子</p>
+            
+            <button id="level1Event" onclick="javascript:console.log('0级DOM事件注册');">一级DOM事件</button> <button id="level2Event">二级DOM事件</button>
+            
+            <p>
+                <button id="fireEvent_demo">测试0级和二级DOM事件</button>
+            </p>
+            <script type="text/javascript">
+                $(function(){
+                    $('#level2Event').click(function(){
+                        console.log('二级DOM事件注册');
+                    });
+                    $('#fireEvent_demo').click(function(){
+                        $('#level1Event').click();
+                        $('#level2Event').click();
+                    });
+                });
+            </script>
+            <p>测试的结果来看，不论是0级还是二级注册的事件，都可以调用函数来模拟鼠标操作</p>
+        </div>
+    </body>
+</html>
+
