@@ -23,8 +23,18 @@ $(function(){
     $($('frame')[0]).html(html1);
     $($('frame')[1]).html(html2);
     
+    var mainFrame = $('frame')[0].contentDocument;
+    
+    var link = mainFrame.createElement('link');
+    link.rel="stylesheet";
+    link.href="../../../../platform/javascript/jquery-ui/css/jquery-ui.css";
+    link.type="text/css";
+            
+    mainFrame.head.appendChild(link);
     var bodyFrame = $('frame')[0].contentDocument.body;
     $('<button id="btn1" onclick="console.info(11);">fgfdgdfg</button>').appendTo(bodyFrame);
+    
+    
     var footerFrame = $('frame')[1].contentDocument.body;
     $('<div class="h-bet-plugin-container"><button id="hBetFastTransaction" class="h-bet-button-radius">快捷交易</button></div>').appendTo(footerFrame);
     $('#hBetFastTransaction',footerFrame).click(function(){
