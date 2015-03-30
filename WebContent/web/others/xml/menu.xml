@@ -16,4 +16,10 @@
         <module>plugins</module>
         <children id="level_2_1" name="浏览器插件开发" href="./plugins/browser/index.html" module="browser" />
     </menu>
+    <menu>
+        <id>level_3</id>
+        <name>git 学习</name>
+        <module>git</module>
+        <children id="level_3_1" name="github" href="./git/github/index.html" module="github" />
+    </menu>
 </menus>
